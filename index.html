@@ -1025,6 +1025,29 @@
         .driver-item:nth-child(7) { animation-delay: 0.7s; }
         .driver-item:nth-child(8) { animation-delay: 0.8s; }
         .driver-item:nth-child(9) { animation-delay: 0.9s; }
+        
+        /* Баннер завершения сезона */
+        .season-completed-banner {
+            background: linear-gradient(135deg, rgba(255, 215, 0, 0.2), rgba(255, 215, 0, 0.1));
+            border-left: 4px solid #ffd700;
+            padding: 1.5rem;
+            border-radius: 10px;
+            margin: 2rem 0;
+            text-align: center;
+            box-shadow: 0 0 30px rgba(255, 215, 0, 0.3);
+            animation: goldBannerGlow 3s infinite alternate;
+        }
+        
+        @keyframes goldBannerGlow {
+            0% { box-shadow: 0 0 30px rgba(255, 215, 0, 0.3); }
+            100% { box-shadow: 0 0 50px rgba(255, 215, 0, 0.5), 0 0 70px rgba(255, 200, 0, 0.3); }
+        }
+        
+        .season-completed-banner h3 {
+            color: #ffd700;
+            margin-bottom: 0.5rem;
+            text-shadow: 0 0 10px #ffd700;
+        }
     </style>
 </head>
 <body>
@@ -1055,20 +1078,26 @@
             <a href="#results" class="btn" data-page="results">Смотреть результаты</a>
         </div>
         
+        <!-- Баннер завершения сезона -->
+        <div class="season-completed-banner">
+            <h3><i class="fas fa-trophy"></i> СЕЗОН 2025-2026 ЗАВЕРШЕН!</h3>
+            <p>Первый сезон GTA Formula 1 Championship успешно завершен. Все результаты подведены, чемпионы определены!</p>
+        </div>
+        
         <div class="champion-banner">
             <div class="champion-icon">
-                <i class="fas fa-trophy"></i>
+                <i class="fas fa-crown"></i>
             </div>
             <div class="champion-info">
-                <h3>ЧЕМПИОНЫ СЕЗОНА</h3>
-                <p><strong class="team-redwood">Redwood F1 Team</strong> - команда одержала победу в Кубке конструкторов с 177 очками!</p>
-                <p>Пилоты: <span class="team-redwood">meadoweeen</span> и <span class="team-redwood">jetleoden</span></p>
+                <h3>ЧЕМПИОН СЕЗОНА 2025-2026</h3>
+                <p><strong class="team-redwood">meadoweeen</strong> - пилот команды <span class="team-redwood">Redwood F1 Team</span> становится чемпионом с 101 очком!</p>
+                <p>Команда <span class="team-redwood">Redwood F1 Team</span> одержала победу в Кубке конструкторов!</p>
             </div>
         </div>
         
         <div class="stats-grid">
             <div class="stat-card">
-                <div class="stat-number">11</div>
+                <div class="stat-number">12</div>
                 <div>Пилотов</div>
             </div>
             <div class="stat-card">
@@ -1076,36 +1105,35 @@
                 <div>Команд</div>
             </div>
             <div class="stat-card">
-                <div class="stat-number">9</div>
+                <div class="stat-number">10</div>
                 <div>Гонок</div>
             </div>
             <div class="stat-card">
-                <div class="stat-number">177</div>
-                <div>Очков у лидера</div>
+                <div class="stat-number">101</div>
+                <div>Очков у чемпиона</div>
             </div>
         </div>
         
         <div class="race-results">
-            <h3 style="margin-bottom: 1.5rem; color: #fff;">Последняя гонка: Airport Ring</h3>
+            <h3 style="margin-bottom: 1.5rem; color: #fff;">Последняя гонка сезона: Zancudo Race</h3>
             <div style="display: flex; align-items: center; gap: 1rem; margin-bottom: 1rem;">
                 <div class="position pos-1">1</div>
                 <div>
-                    <strong class="team-redwood">jetleoden</strong> (Redwood)
+                    <strong class="team-redwood">meadoweeen</strong> (Redwood)
                     <div style="color: #aaa; font-size: 0.9rem;">18 очков</div>
                 </div>
             </div>
             <div style="display: flex; align-items: center; gap: 1rem; margin-bottom: 1rem;">
                 <div class="position pos-2">2</div>
                 <div>
-                    <strong class="team-redwood">meadoweeen</strong> (Redwood)
+                    <strong class="team-burger-shot">Vin_Disel69</strong> (Burger Shot)
                     <div style="color: #aaa; font-size: 0.9rem;">15 очков</div>
                 </div>
             </div>
             <div style="display: flex; align-items: center; gap: 1rem;">
                 <div class="position pos-3">3</div>
                 <div>
-                    <strong class="team-racing-redwood">Tail_____</strong> (Racing Redwood)
-                    <span class="fastest-lap-badge">Быстрый круг</span>
+                    <strong class="team-stronzo">ALEN</strong> (Stronzo)
                     <div style="color: #aaa; font-size: 0.9rem;">12 очков</div>
                 </div>
             </div>
@@ -1131,15 +1159,15 @@
         
         <div class="standings-grid">
             <div class="standings-card">
-                <h3 class="standings-title">Топ-11 пилотов</h3>
+                <h3 class="standings-title">Топ-12 пилотов</h3>
                 
                 <div class="driver-item">
                     <div class="driver-pos">1</div>
                     <div class="driver-info">
-                        <div class="driver-name team-redwood">meadoweeen</div>
+                        <div class="driver-name team-redwood">meadoweeen <span class="champion-badge">ЧЕМПИОН</span></div>
                         <div class="driver-details">#26 • Redwood F1 Team</div>
                     </div>
-                    <div class="driver-points">93</div>
+                    <div class="driver-points">101</div>
                 </div>
                 
                 <div class="driver-item">
@@ -1157,7 +1185,7 @@
                         <div class="driver-name team-racing-redwood">Tail_____</div>
                         <div class="driver-details">#69 • Racing Redwood F1 Team</div>
                     </div>
-                    <div class="driver-points">64.5</div>
+                    <div class="driver-points">72</div>
                 </div>
                 
                 <div class="driver-item">
@@ -1166,7 +1194,7 @@
                         <div class="driver-name team-burger-shot">Vin_Disel69</div>
                         <div class="driver-details">#33 • Burger Shot F1 Team</div>
                     </div>
-                    <div class="driver-points">36</div>
+                    <div class="driver-points">51</div>
                 </div>
                 
                 <div class="driver-item">
@@ -1199,6 +1227,15 @@
                 <div class="driver-item">
                     <div class="driver-pos">8</div>
                     <div class="driver-info">
+                        <div class="driver-name team-stronzo">ALEN</div>
+                        <div class="driver-details">#25 • Stronzo F1 Team</div>
+                    </div>
+                    <div class="driver-points">12</div>
+                </div>
+                
+                <div class="driver-item">
+                    <div class="driver-pos">9</div>
+                    <div class="driver-info">
                         <div class="driver-name team-nagasaki">epilepticseizur</div>
                         <div class="driver-details">#67 • Nagasaki F1 Team</div>
                     </div>
@@ -1206,7 +1243,7 @@
                 </div>
                 
                 <div class="driver-item">
-                    <div class="driver-pos">9</div>
+                    <div class="driver-pos">10</div>
                     <div class="driver-info">
                         <div class="driver-name team-banshee">SilenCer977</div>
                         <div class="driver-details">#15 • Banshee F1 Team</div>
@@ -1215,7 +1252,7 @@
                 </div>
                 
                 <div class="driver-item">
-                    <div class="driver-pos">10</div>
+                    <div class="driver-pos">11</div>
                     <div class="driver-info">
                         <div class="driver-name" style="color: #aaa;">Krabudik</div>
                         <div class="driver-details">#72 • Резерв</div>
@@ -1224,7 +1261,7 @@
                 </div>
                 
                 <div class="driver-item">
-                    <div class="driver-pos">11</div>
+                    <div class="driver-pos">12</div>
                     <div class="driver-info">
                         <div class="driver-name" style="color: #aaa;">Arwaa</div>
                         <div class="driver-details">#52 • Резерв</div>
@@ -1247,45 +1284,45 @@
                     <div class="team-pos">1</div>
                     <div class="team-info">
                         <div class="team-name team-redwood">Redwood F1 Team <span class="champion-badge">ЧЕМПИОНЫ</span></div>
-                        <div class="team-details team-redwood">meadoweeen (#26) • jetleoden (#24)</div>
+                        <div class="team-details team-redwood">meadoweeen (#26) • jetleoden (#24) <span style="color: #ffd700; font-weight: bold;">+18 очков</span></div>
                     </div>
-                    <div class="team-points">177</div>
+                    <div class="team-points">195</div>
                 </div>
                 
                 <div class="team-item">
                     <div class="team-pos">2</div>
                     <div class="team-info">
-                        <div class="team-name team-racing-redwood">Racing Redwood F1 Team</div>
-                        <div class="team-details team-racing-redwood">Tail_____ (#69)</div>
+                        <div class="team-name team-burger-shot">Burger Shot F1 Team <span style="color: #ffd700; font-weight: bold;">+15 очков</span></div>
+                        <div class="team-details team-burger-shot">Vin_Disel69 (#33) • femtuza (#11)</div>
                     </div>
-                    <div class="team-points">67.5</div>
+                    <div class="team-points">68</div>
                 </div>
                 
                 <div class="team-item">
                     <div class="team-pos">3</div>
                     <div class="team-info">
-                        <div class="team-name team-burger-shot">Burger Shot F1 Team</div>
-                        <div class="team-details team-burger-shot">Vin_Disel69 (#33) • femtuza (#11)</div>
+                        <div class="team-name team-stronzo">Stronzo F1 Team <span style="color: #ffd700; font-weight: bold;">+12 очков</span></div>
+                        <div class="team-details team-stronzo">Magic_game04 (#47) • ALEN (#25)</div>
                     </div>
-                    <div class="team-points">53</div>
+                    <div class="team-points">36</div>
                 </div>
                 
                 <div class="team-item">
                     <div class="team-pos">4</div>
                     <div class="team-info">
-                        <div class="team-name team-grotti">Grotti F1 Team</div>
-                        <div class="team-details team-grotti">vo1ture (#10)</div>
+                        <div class="team-name team-racing-redwood">Racing Redwood F1 Team <span style="color: #ffd700; font-weight: bold;">+8 очков</span></div>
+                        <div class="team-details team-racing-redwood">Tail_____ (#69)</div>
                     </div>
-                    <div class="team-points">14</div>
+                    <div class="team-points">75.5</div>
                 </div>
                 
                 <div class="team-item">
                     <div class="team-pos">5</div>
                     <div class="team-info">
-                        <div class="team-name team-stronzo">Stronzo F1 Team</div>
-                        <div class="team-details team-stronzo">Magic_game04 (#47)</div>
+                        <div class="team-name team-grotti">Grotti F1 Team</div>
+                        <div class="team-details team-grotti">vo1ture (#10)</div>
                     </div>
-                    <div class="team-points">12</div>
+                    <div class="team-points">14</div>
                 </div>
                 
                 <div class="team-item">
@@ -1322,15 +1359,15 @@
                     </div>
                     <div>
                         <div class="team-name-large team-redwood">Redwood F1 Team</div>
-                        <div class="team-points-total">177 очков</div>
+                        <div class="team-points-total">195 очков</div>
                     </div>
                 </div>
                 <div class="team-drivers">
                     <div class="driver-card">
                         <div class="driver-number" style="background: rgba(220, 0, 0, 0.3); border-color: var(--redwood);">26</div>
                         <div>
-                            <strong class="team-redwood">meadoweeen</strong>
-                            <div style="color: #aaa; font-size: 0.9rem;">93 очка</div>
+                            <strong class="team-redwood">meadoweeen <span style="color: #ffd700; font-size: 0.8rem;">(ЧЕМПИОН)</span></strong>
+                            <div style="color: #aaa; font-size: 0.9rem;">101 очко</div>
                         </div>
                     </div>
                     <div class="driver-card">
@@ -1351,7 +1388,7 @@
                     </div>
                     <div>
                         <div class="team-name-large team-racing-redwood">Racing Redwood F1 Team</div>
-                        <div class="team-points-total">67.5 очков</div>
+                        <div class="team-points-total">75.5 очков</div>
                     </div>
                 </div>
                 <div class="team-drivers">
@@ -1359,7 +1396,7 @@
                         <div class="driver-number" style="background: rgba(139, 0, 0, 0.3); border-color: var(--racing-redwood);">69</div>
                         <div>
                             <strong class="team-racing-redwood">Tail_____</strong>
-                            <div style="color: #aaa; font-size: 0.9rem;">64.5 очка</div>
+                            <div style="color: #aaa; font-size: 0.9rem;">72 очка</div>
                         </div>
                     </div>
                 </div>
@@ -1373,7 +1410,7 @@
                     </div>
                     <div>
                         <div class="team-name-large team-burger-shot">Burger Shot F1 Team</div>
-                        <div class="team-points-total">53 очка</div>
+                        <div class="team-points-total">68 очков</div>
                     </div>
                 </div>
                 <div class="team-drivers">
@@ -1381,7 +1418,7 @@
                         <div class="driver-number" style="background: rgba(0, 255, 157, 0.3); border-color: var(--burger-shot); color: #000;">33</div>
                         <div>
                             <strong class="team-burger-shot">Vin_Disel69</strong>
-                            <div style="color: #aaa; font-size: 0.9rem;">36 очков</div>
+                            <div style="color: #aaa; font-size: 0.9rem;">51 очко</div>
                         </div>
                     </div>
                     <div class="driver-card">
@@ -1424,7 +1461,7 @@
                     </div>
                     <div>
                         <div class="team-name-large team-stronzo">Stronzo F1 Team</div>
-                        <div class="team-points-total">12 очков</div>
+                        <div class="team-points-total">36 очков</div>
                     </div>
                 </div>
                 <div class="team-drivers">
@@ -1432,6 +1469,13 @@
                         <div class="driver-number" style="background: rgba(255, 140, 0, 0.3); border-color: var(--stronzo);">47</div>
                         <div>
                             <strong class="team-stronzo">Magic_game04</strong>
+                            <div style="color: #aaa; font-size: 0.9rem;">12 очков</div>
+                        </div>
+                    </div>
+                    <div class="driver-card">
+                        <div class="driver-number" style="background: rgba(255, 140, 0, 0.3); border-color: var(--stronzo);">25</div>
+                        <div>
+                            <strong class="team-stronzo">ALEN</strong>
                             <div style="color: #aaa; font-size: 0.9rem;">12 очков</div>
                         </div>
                     </div>
@@ -1580,19 +1624,19 @@
                 <span class="status-badge status-completed">Завершено</span>
             </div>
             
-            <div class="timeline-item">
+            <div class="timeline-item completed">
                 <div class="timeline-date">07.02.2026</div>
-                <h3>Неизвестная трасса</h3>
-                <p>Сюрприз от организаторов чемпионата</p>
-                <span class="status-badge status-upcoming">Предстоящая</span>
+                <h3>Zancudo Race</h3>
+                <p>Финальная гонка сезона на трассе Zancudo</p>
+                <span class="status-badge status-completed">Завершено</span>
             </div>
         </div>
     </section>
 
     <!-- Футер -->
     <footer class="footer">
-        <p>GTA Formula 1 Championship • Сезон 2025-2026</p>
-        <p style="margin-top: 10px; font-size: 0.8rem;">Официальный чемпионат Формулы 1 в GTA Online</p>
+        <p>GTA Formula 1 Championship • Сезон 2025-2026 ЗАВЕРШЕН</p>
+        <p style="margin-top: 10px; font-size: 0.8rem;">Первый сезон чемпионата Формулы 1 в GTA Online успешно завершен</p>
     </footer>
 
     <script>
@@ -1741,6 +1785,18 @@
                     { position: 5, name: 'femtuza', team: 'Burger Shot', points: 5, status: 'finished', teamColor: 'burger-shot' },
                     { position: 'DNF', name: 'Magic_game04', team: 'Stronzo', reason: 'Поломка коробки передач', status: 'dnf', teamColor: 'stronzo' }
                 ]
+            },
+            'zancudo-race': {
+                title: 'Zancudo Race',
+                date: '07.02.2026',
+                results: [
+                    { position: 1, name: 'meadoweeen', team: 'Redwood', points: 18, status: 'finished', fastest: true, teamColor: 'redwood' },
+                    { position: 2, name: 'Vin_Disel69', team: 'Burger Shot', points: 15, status: 'finished', teamColor: 'burger-shot' },
+                    { position: 3, name: 'ALEN', team: 'Stronzo', points: 12, status: 'finished', teamColor: 'stronzo' },
+                    { position: 4, name: 'Tail_____', team: 'Racing Redwood', points: 8, status: 'finished', teamColor: 'racing-redwood' },
+                    { position: 'DNF', name: 'femtuza', team: 'Burger Shot', reason: 'Авария', status: 'dnf', teamColor: 'burger-shot' },
+                    { position: 'DNF', name: 'Magic_game04', team: 'Stronzo', reason: 'Технические проблемы', status: 'dnf', teamColor: 'stronzo' }
+                ]
             }
         };
 
@@ -1852,7 +1908,8 @@
                 { id: 'fra-race', name: 'FRA Race' },
                 { id: 'gpoe-race', name: 'GPOE Race' },
                 { id: 'sandy-circuit', name: 'Sandy Circuit Race' },
-                { id: 'airport-ring', name: 'Airport Ring Race' }
+                { id: 'airport-ring', name: 'Airport Ring Race' },
+                { id: 'zancudo-race', name: 'Zancudo Race' }
             ];
             
             races.forEach((race, index) => {
