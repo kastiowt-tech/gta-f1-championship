@@ -1048,6 +1048,589 @@
             margin-bottom: 0.5rem;
             text-shadow: 0 0 10px #ffd700;
         }
+        
+        /* Стили для страницы победителей */
+        @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@300;400;700;900&family=Russo+One&display=swap');
+        
+        /* Фон с золотыми акцентами */
+        .trophy-background {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 0;
+            overflow: hidden;
+            background: 
+                radial-gradient(ellipse at 20% 80%, rgba(225, 6, 0, 0.15) 0%, transparent 50%),
+                radial-gradient(ellipse at 80% 20%, rgba(10, 31, 92, 0.15) 0%, transparent 50%),
+                radial-gradient(ellipse at 50% 50%, rgba(212, 175, 55, 0.05) 0%, transparent 70%),
+                linear-gradient(135deg, #0a0a1a 0%, #1a1a3a 100%);
+        }
+        
+        .winners-header {
+            text-align: center;
+            margin-bottom: 60px;
+            position: relative;
+            padding: 30px;
+            background: rgba(10, 10, 30, 0.85);
+            border-radius: 20px;
+            backdrop-filter: blur(10px);
+            border: 3px solid #e10600;
+            box-shadow: 
+                0 20px 40px rgba(0, 0, 0, 0.6),
+                0 0 30px rgba(212, 175, 55, 0.1);
+        }
+        
+        .winners-header h1 {
+            font-size: 4.5rem;
+            color: #ffffff;
+            text-transform: uppercase;
+            letter-spacing: 8px;
+            margin-bottom: 15px;
+            font-weight: 900;
+            font-family: 'Russo One', sans-serif;
+            text-shadow: 
+                0 0 20px #e10600,
+                0 2px 0 #0a1f5c,
+                0 0 5px rgba(212, 175, 55, 0.5);
+            background: linear-gradient(90deg, #e10600, #ffd700, #ffffff, #ffd700, #e10600);
+            background-size: 200% auto;
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            animation: titleShine 3s infinite linear;
+        }
+        
+        @keyframes titleShine {
+            0% { background-position: 0% center; }
+            100% { background-position: 200% center; }
+        }
+        
+        .winners-header h2 {
+            font-size: 2.2rem;
+            color: rgba(255, 255, 255, 0.9);
+            font-weight: 300;
+            letter-spacing: 4px;
+            margin-bottom: 10px;
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+        }
+        
+        .season-info {
+            text-align: center;
+            color: rgba(255, 255, 255, 0.8);
+            font-size: 1.4rem;
+            margin-top: 20px;
+            letter-spacing: 2px;
+            font-weight: 500;
+            background: linear-gradient(90deg, 
+                rgba(225, 6, 0, 0.1),
+                rgba(212, 175, 55, 0.1),
+                rgba(10, 31, 92, 0.1));
+            padding: 12px 25px;
+            border-radius: 25px;
+            display: inline-block;
+            border: 1px solid rgba(212, 175, 55, 0.3);
+        }
+        
+        /* Основной блок победителей с золотой окантовкой */
+        .winners-section {
+            margin: 40px auto;
+            max-width: 1400px;
+            background: rgba(10, 10, 30, 0.9);
+            border-radius: 25px;
+            padding: 40px;
+            backdrop-filter: blur(15px);
+            border: 3px solid #e10600;
+            box-shadow: 
+                0 25px 60px rgba(0, 0, 0, 0.8),
+                inset 0 0 0 1px rgba(212, 175, 55, 0.3);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .winners-section::before {
+            content: '';
+            position: absolute;
+            top: 5px;
+            left: 5px;
+            right: 5px;
+            bottom: 5px;
+            border: 1px solid rgba(212, 175, 55, 0.2);
+            border-radius: 20px;
+            pointer-events: none;
+        }
+        
+        .winners-section h3 {
+            text-align: center;
+            font-size: 3.2rem;
+            color: #ffffff;
+            margin-bottom: 50px;
+            text-transform: uppercase;
+            letter-spacing: 5px;
+            font-family: 'Russo One', sans-serif;
+            position: relative;
+            z-index: 2;
+            text-shadow: 
+                0 0 15px #e10600,
+                0 2px 0 #0a1f5c;
+        }
+        
+        .winners-section h3::after {
+            content: '';
+            position: absolute;
+            bottom: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 400px;
+            height: 3px;
+            background: linear-gradient(90deg, 
+                transparent, 
+                #e10600, 
+                #ffd700,
+                #0a1f5c,
+                transparent);
+            border-radius: 2px;
+        }
+        
+        /* Две колонки победителей */
+        .winners-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+            position: relative;
+            z-index: 2;
+        }
+        
+        .winners-column {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+        
+        .winners-column.left {
+            padding-right: 20px;
+        }
+        
+        .winners-column.right {
+            padding-left: 20px;
+        }
+        
+        /* Карточки трасс с золотыми акцентами */
+        .race-card-red {
+            border-color: #e10600 !important;
+            background: linear-gradient(135deg, 
+                rgba(225, 6, 0, 0.1), 
+                rgba(20, 20, 40, 0.95)) !important;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5),
+                        0 0 0 1px rgba(212, 175, 55, 0.1);
+        }
+        
+        .race-card-blue {
+            border-color: #0a1f5c !important;
+            background: linear-gradient(135deg, 
+                rgba(10, 31, 92, 0.1), 
+                rgba(20, 20, 40, 0.95)) !important;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5),
+                        0 0 0 1px rgba(212, 175, 55, 0.1);
+        }
+        
+        .race-card-upcoming {
+            border-color: rgba(212, 175, 55, 0.3) !important;
+            background: linear-gradient(135deg, 
+                rgba(212, 175, 55, 0.05), 
+                rgba(20, 20, 40, 0.9)) !important;
+        }
+        
+        /* Карточка гонки */
+        .race-card {
+            border-radius: 15px;
+            padding: 25px;
+            border: 2px solid;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+        
+        .race-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, 
+                transparent, 
+                rgba(212, 175, 55, 0.1), 
+                transparent);
+            transition: left 0.6s ease;
+        }
+        
+        .race-card:hover::before {
+            left: 100%;
+        }
+        
+        .race-card:hover {
+            transform: translateY(-5px) scale(1.02);
+            box-shadow: 
+                0 20px 50px rgba(0, 0, 0, 0.7),
+                0 0 0 1px rgba(212, 175, 55, 0.2);
+        }
+        
+        .race-card-red:hover {
+            box-shadow: 
+                0 20px 50px rgba(0, 0, 0, 0.7),
+                0 0 20px rgba(225, 6, 0, 0.3),
+                0 0 0 1px rgba(212, 175, 55, 0.2);
+        }
+        
+        .race-card-blue:hover {
+            box-shadow: 
+                0 20px 50px rgba(0, 0, 0, 0.7),
+                0 0 20px rgba(10, 31, 92, 0.3),
+                0 0 0 1px rgba(212, 175, 55, 0.2);
+        }
+        
+        .race-number {
+            font-size: 2.8rem;
+            font-weight: 900;
+            min-width: 70px;
+            text-align: center;
+            text-shadow: 0 0 10px currentColor;
+            position: relative;
+            background: rgba(0, 0, 0, 0.3);
+            padding: 10px;
+            border-radius: 10px;
+            border: 1px solid rgba(212, 175, 55, 0.2);
+        }
+        
+        .race-card-red .race-number {
+            color: #e10600;
+            border-color: rgba(225, 6, 0, 0.3);
+        }
+        
+        .race-card-blue .race-number {
+            color: #3a5fcc;
+            border-color: rgba(58, 95, 204, 0.3);
+        }
+        
+        .race-card-upcoming .race-number {
+            color: rgba(212, 175, 55, 0.7);
+            border-color: rgba(212, 175, 55, 0.2);
+        }
+        
+        .race-number::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 10%;
+            right: 10%;
+            height: 3px;
+            border-radius: 2px;
+            opacity: 0.7;
+        }
+        
+        .race-card-red .race-number::after {
+            background: #e10600;
+        }
+        
+        .race-card-blue .race-number::after {
+            background: #3a5fcc;
+        }
+        
+        .race-card-upcoming .race-number::after {
+            background: rgba(212, 175, 55, 0.5);
+        }
+        
+        .race-info {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+        
+        .race-type {
+            font-size: 1.1rem;
+            color: rgba(255, 255, 255, 0.7);
+            font-weight: 500;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            padding: 4px 12px;
+            border-radius: 12px;
+            display: inline-block;
+            width: fit-content;
+            background: rgba(212, 175, 55, 0.1);
+            border: 1px solid rgba(212, 175, 55, 0.2);
+        }
+        
+        .race-track {
+            font-size: 1.6rem;
+            font-weight: 700;
+            color: #ffffff;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            margin-top: 5px;
+            text-shadow: 0 1px 3px rgba(0, 0, 0, 0.5);
+        }
+        
+        .race-winner {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            margin-top: 10px;
+            padding-top: 10px;
+            border-top: 1px solid rgba(212, 175, 55, 0.1);
+        }
+        
+        .winner-label {
+            font-size: 1.1rem;
+            color: rgba(255, 255, 255, 0.6);
+            font-weight: 500;
+        }
+        
+        .winner-name {
+            font-size: 1.8rem;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            padding: 6px 15px;
+            border-radius: 20px;
+            border: 1px solid;
+            transition: all 0.3s ease;
+        }
+        
+        /* Цвета для победителей с золотыми акцентами */
+        .winner-red {
+            color: #e10600;
+            border-color: rgba(225, 6, 0, 0.3);
+            background: rgba(225, 6, 0, 0.1);
+            box-shadow: inset 0 0 10px rgba(212, 175, 55, 0.05);
+        }
+        
+        .winner-blue {
+            color: #3a5fcc;
+            border-color: rgba(58, 95, 204, 0.3);
+            background: rgba(58, 95, 204, 0.1);
+            box-shadow: inset 0 0 10px rgba(212, 175, 55, 0.05);
+        }
+        
+        .winner-gold {
+            color: #ffd700;
+            border-color: rgba(212, 175, 55, 0.3);
+            background: rgba(212, 175, 55, 0.1);
+        }
+        
+        .winner-unknown {
+            color: rgba(212, 175, 55, 0.7);
+            background: rgba(212, 175, 55, 0.05);
+            border-color: rgba(212, 175, 55, 0.2);
+        }
+        
+        .race-card:hover .winner-name:not(.winner-unknown) {
+            background: rgba(255, 255, 255, 0.15);
+            transform: scale(1.05);
+            box-shadow: 
+                inset 0 0 15px rgba(212, 175, 55, 0.1),
+                0 0 15px currentColor;
+        }
+        
+        .race-card:hover .winner-gold {
+            box-shadow: 
+                inset 0 0 15px rgba(212, 175, 55, 0.2),
+                0 0 20px rgba(255, 215, 0, 0.5);
+        }
+        
+        /* Статистика побед с золотыми акцентами */
+        .winners-stats {
+            margin-top: 50px;
+            background: rgba(20, 20, 40, 0.8);
+            border-radius: 20px;
+            padding: 30px;
+            border: 2px solid rgba(212, 175, 55, 0.3);
+            box-shadow: 
+                0 15px 30px rgba(0, 0, 0, 0.6),
+                inset 0 0 0 1px rgba(212, 175, 55, 0.1);
+            position: relative;
+            z-index: 2;
+        }
+        
+        .stats-title {
+            font-size: 1.8rem;
+            color: #ffd700;
+            margin-bottom: 25px;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            font-weight: 700;
+            text-align: center;
+            text-shadow: 
+                0 1px 3px rgba(0, 0, 0, 0.5),
+                0 0 10px rgba(255, 215, 0, 0.3);
+        }
+        
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+        }
+        
+        .stat-item {
+            padding: 20px;
+            border-radius: 15px;
+            border: 1px solid;
+            transition: all 0.3s ease;
+            text-align: center;
+            background: rgba(30, 30, 50, 0.7);
+            box-shadow: inset 0 0 15px rgba(212, 175, 55, 0.05);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .stat-item::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, 
+                transparent, 
+                rgba(212, 175, 55, 0.1), 
+                transparent);
+            transition: left 0.5s ease;
+        }
+        
+        .stat-item:hover::before {
+            left: 100%;
+        }
+        
+        .stat-item:hover {
+            transform: translateY(-3px);
+            border-color: #ffd700;
+            box-shadow: 
+                0 10px 25px rgba(0, 0, 0, 0.5),
+                inset 0 0 20px rgba(212, 175, 55, 0.1);
+        }
+        
+        .stat-driver {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: #ffffff;
+            margin-bottom: 10px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        
+        .stat-count {
+            font-size: 2.2rem;
+            font-weight: 900;
+            text-shadow: 0 0 15px currentColor;
+            position: relative;
+        }
+        
+        .stat-item:nth-child(1) .stat-count { 
+            color: #e10600;
+            text-shadow: 0 0 15px rgba(225, 6, 0, 0.5), 0 0 5px rgba(255, 215, 0, 0.3);
+        }
+        .stat-item:nth-child(2) .stat-count { 
+            color: #3a5fcc;
+            text-shadow: 0 0 15px rgba(58, 95, 204, 0.5), 0 0 5px rgba(255, 215, 0, 0.2);
+        }
+        .stat-item:nth-child(3) .stat-count { 
+            color: #ffd700;
+            text-shadow: 0 0 15px rgba(255, 215, 0, 0.5);
+        }
+        .stat-item:nth-child(4) .stat-count { 
+            color: #3a5fcc;
+            text-shadow: 0 0 15px rgba(58, 95, 204, 0.5), 0 0 5px rgba(255, 215, 0, 0.2);
+        }
+        
+        .stat-label {
+            font-size: 1rem;
+            color: rgba(255, 255, 255, 0.6);
+            margin-top: 5px;
+        }
+        
+        /* Адаптивность для победителей */
+        @media (max-width: 1200px) {
+            .winners-header h1 {
+                font-size: 3.5rem;
+            }
+            
+            .winners-section {
+                padding: 30px;
+                margin: 30px auto;
+            }
+            
+            .race-track {
+                font-size: 1.4rem;
+            }
+            
+            .winner-name {
+                font-size: 1.6rem;
+            }
+        }
+        
+        @media (max-width: 900px) {
+            .winners-grid {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+            
+            .winners-column.left,
+            .winners-column.right {
+                padding: 0;
+            }
+            
+            .stats-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .winners-header h1 {
+                font-size: 2.5rem;
+                letter-spacing: 4px;
+            }
+            
+            .winners-header h2 {
+                font-size: 1.5rem;
+            }
+            
+            .winners-section {
+                padding: 20px;
+                border-radius: 15px;
+            }
+            
+            .winners-section h3 {
+                font-size: 2rem;
+            }
+            
+            .race-card {
+                padding: 20px;
+                gap: 15px;
+            }
+            
+            .race-number {
+                font-size: 2.2rem;
+                min-width: 60px;
+                padding: 8px;
+            }
+            
+            .race-track {
+                font-size: 1.3rem;
+            }
+            
+            .winner-name {
+                font-size: 1.4rem;
+            }
+            
+            .stats-grid {
+                grid-template-columns: 1fr;
+            }
+        }
     </style>
 </head>
 <body>
@@ -1066,6 +1649,7 @@
             <a href="#drivers" class="nav-link" data-page="drivers">Личный зачет</a>
             <a href="#constructors" class="nav-link" data-page="constructors">Кубок конструкторов</a>
             <a href="#teams" class="nav-link" data-page="teams">Команды</a>
+            <a href="#winners" class="nav-link" data-page="winners">Победители</a>
             <a href="#schedule" class="nav-link" data-page="schedule">Расписание</a>
         </div>
     </nav>
@@ -1133,7 +1717,7 @@
             <div style="display: flex; align-items: center; gap: 1rem;">
                 <div class="position pos-3">3</div>
                 <div>
-                    <strong class="team-stronzo">ALEN</strong> (Stronzo)
+                    <strong class="team-stronzo">ALIN</strong> (Stronzo)
                     <div style="color: #aaa; font-size: 0.9rem;">12 очков</div>
                 </div>
             </div>
@@ -1227,8 +1811,8 @@
                 <div class="driver-item">
                     <div class="driver-pos">8</div>
                     <div class="driver-info">
-                        <div class="driver-name team-stronzo">ALEN</div>
-                        <div class="driver-details">#25 • Stronzo F1 Team</div>
+                        <div class="driver-name team-stronzo">ALIN</div>
+                        <div class="driver-details">#2 • Stronzo F1 Team</div>
                     </div>
                     <div class="driver-points">12</div>
                 </div>
@@ -1284,36 +1868,36 @@
                     <div class="team-pos">1</div>
                     <div class="team-info">
                         <div class="team-name team-redwood">Redwood F1 Team <span class="champion-badge">ЧЕМПИОНЫ</span></div>
-                        <div class="team-details team-redwood">meadoweeen (#26) • jetleoden (#24) <span style="color: #ffd700; font-weight: bold;">+18 очков</span></div>
+                        <div class="team-details team-redwood">meadoweeen (#26) • jetleoden (#24)</div>
                     </div>
-                    <div class="team-points">195</div>
+                    <div class="team-points">185</div>
                 </div>
                 
                 <div class="team-item">
                     <div class="team-pos">2</div>
                     <div class="team-info">
-                        <div class="team-name team-burger-shot">Burger Shot F1 Team <span style="color: #ffd700; font-weight: bold;">+15 очков</span></div>
+                        <div class="team-name team-racing-redwood">Racing Redwood F1 Team</div>
+                        <div class="team-details team-racing-redwood">Tail_____ (#69)</div>
+                    </div>
+                    <div class="team-points">75.5</div>
+                </div>
+                
+                <div class="team-item">
+                    <div class="team-pos">3</div>
+                    <div class="team-info">
+                        <div class="team-name team-burger-shot">Burger Shot F1 Team</div>
                         <div class="team-details team-burger-shot">Vin_Disel69 (#33) • femtuza (#11)</div>
                     </div>
                     <div class="team-points">68</div>
                 </div>
                 
                 <div class="team-item">
-                    <div class="team-pos">3</div>
-                    <div class="team-info">
-                        <div class="team-name team-stronzo">Stronzo F1 Team <span style="color: #ffd700; font-weight: bold;">+12 очков</span></div>
-                        <div class="team-details team-stronzo">Magic_game04 (#47) • ALEN (#25)</div>
-                    </div>
-                    <div class="team-points">36</div>
-                </div>
-                
-                <div class="team-item">
                     <div class="team-pos">4</div>
                     <div class="team-info">
-                        <div class="team-name team-racing-redwood">Racing Redwood F1 Team <span style="color: #ffd700; font-weight: bold;">+8 очков</span></div>
-                        <div class="team-details team-racing-redwood">Tail_____ (#69)</div>
+                        <div class="team-name team-stronzo">Stronzo F1 Team</div>
+                        <div class="team-details team-stronzo">Magic_game04 (#47) • ALIN (#2)</div>
                     </div>
-                    <div class="team-points">75.5</div>
+                    <div class="team-points">24</div>
                 </div>
                 
                 <div class="team-item">
@@ -1359,7 +1943,7 @@
                     </div>
                     <div>
                         <div class="team-name-large team-redwood">Redwood F1 Team</div>
-                        <div class="team-points-total">195 очков</div>
+                        <div class="team-points-total">185 очков</div>
                     </div>
                 </div>
                 <div class="team-drivers">
@@ -1461,7 +2045,7 @@
                     </div>
                     <div>
                         <div class="team-name-large team-stronzo">Stronzo F1 Team</div>
-                        <div class="team-points-total">36 очков</div>
+                        <div class="team-points-total">24 очка</div>
                     </div>
                 </div>
                 <div class="team-drivers">
@@ -1473,9 +2057,9 @@
                         </div>
                     </div>
                     <div class="driver-card">
-                        <div class="driver-number" style="background: rgba(255, 140, 0, 0.3); border-color: var(--stronzo);">25</div>
+                        <div class="driver-number" style="background: rgba(255, 140, 0, 0.3); border-color: var(--stronzo);">2</div>
                         <div>
-                            <strong class="team-stronzo">ALEN</strong>
+                            <strong class="team-stronzo">ALIN</strong>
                             <div style="color: #aaa; font-size: 0.9rem;">12 очков</div>
                         </div>
                     </div>
@@ -1550,6 +2134,189 @@
                             <strong style="color: #aaa;">Arwaa</strong>
                             <div style="color: #aaa; font-size: 0.9rem;">1 очко</div>
                         </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Победители сезона -->
+    <section id="winners" class="page">
+        <div class="trophy-background"></div>
+
+        <div class="winners-header">
+            <h1>WINNERS OF ALL STAGES</h1>
+            <h2>F1 GTA ONLINE - SEASON 1</h2>
+            <div class="season-info">
+                SEASON 1 • 10 RACES • FINAL STAGE
+            </div>
+        </div>
+
+        <!-- Блок победителей -->
+        <div class="winners-section">
+            <h3>RACE VICTORIES</h3>
+            
+            <div class="winners-grid">
+                <!-- Левая колонка (гонки 1-5) -->
+                <div class="winners-column left">
+                    <!-- Гонка 1 - REDWOOD RING -->
+                    <div class="race-card race-card-red">
+                        <div class="race-number">1</div>
+                        <div class="race-info">
+                            <div class="race-type">SPRINT</div>
+                            <div class="race-track">REDWOOD RING</div>
+                            <div class="race-winner">
+                                <span class="winner-label">WINNER:</span>
+                                <span class="winner-name winner-gold">SilenCer977</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Гонка 2 - REDWOOD RING -->
+                    <div class="race-card race-card-red">
+                        <div class="race-number">2</div>
+                        <div class="race-info">
+                            <div class="race-type">RACE</div>
+                            <div class="race-track">REDWOOD RING</div>
+                            <div class="race-winner">
+                                <span class="winner-label">WINNER:</span>
+                                <span class="winner-name winner-blue">jetleoden</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Гонка 3 - AIRPORT RACE -->
+                    <div class="race-card race-card-blue">
+                        <div class="race-number">3</div>
+                        <div class="race-info">
+                            <div class="race-type">RACE</div>
+                            <div class="race-track">AIRPORT RACE</div>
+                            <div class="race-winner">
+                                <span class="winner-label">WINNER:</span>
+                                <span class="winner-name winner-red">meadoween</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Гонка 4 - VINEWOOD GP -->
+                    <div class="race-card race-card-red">
+                        <div class="race-number">4</div>
+                        <div class="race-info">
+                            <div class="race-type">RACE</div>
+                            <div class="race-track">VINEWOOD GP</div>
+                            <div class="race-winner">
+                                <span class="winner-label">WINNER:</span>
+                                <span class="winner-name winner-red">meadoween</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Гонка 5 - FRA -->
+                    <div class="race-card race-card-blue">
+                        <div class="race-number">5</div>
+                        <div class="race-info">
+                            <div class="race-type">SPRINT</div>
+                            <div class="race-track">FRA</div>
+                            <div class="race-winner">
+                                <span class="winner-label">WINNER:</span>
+                                <span class="winner-name winner-red">meadoween</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Правая колонка (гонки 6-10) -->
+                <div class="winners-column right">
+                    <!-- Гонка 6 - FRA -->
+                    <div class="race-card race-card-blue">
+                        <div class="race-number">6</div>
+                        <div class="race-info">
+                            <div class="race-type">RACE</div>
+                            <div class="race-track">FRA</div>
+                            <div class="race-winner">
+                                <span class="winner-label">WINNER:</span>
+                                <span class="winner-name winner-blue">jetleoden</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Гонка 7 - GPOE -->
+                    <div class="race-card race-card-red">
+                        <div class="race-number">7</div>
+                        <div class="race-info">
+                            <div class="race-type">RACE</div>
+                            <div class="race-track">GPOE</div>
+                            <div class="race-winner">
+                                <span class="winner-label">WINNER:</span>
+                                <span class="winner-name winner-red">meadoween</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Гонка 8 - SANDY CIRCUIT -->
+                    <div class="race-card race-card-blue">
+                        <div class="race-number">8</div>
+                        <div class="race-info">
+                            <div class="race-type">RACE</div>
+                            <div class="race-track">SANDY CIRCUIT</div>
+                            <div class="race-winner">
+                                <span class="winner-label">WINNER:</span>
+                                <span class="winner-name winner-gold">Vin_Disel69</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Гонка 9 - AIRPORT RING -->
+                    <div class="race-card race-card-blue">
+                        <div class="race-number">9</div>
+                        <div class="race-info">
+                            <div class="race-type">RACE</div>
+                            <div class="race-track">AIRPORT RING</div>
+                            <div class="race-winner">
+                                <span class="winner-label">WINNER:</span>
+                                <span class="winner-name winner-blue">jetleoden</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Гонка 10 - ZANCUDO RACE -->
+                    <div class="race-card race-card-red">
+                        <div class="race-number">10</div>
+                        <div class="race-info">
+                            <div class="race-type">RACE</div>
+                            <div class="race-track">ZANCUDO RACE</div>
+                            <div class="race-winner">
+                                <span class="winner-label">WINNER:</span>
+                                <span class="winner-name winner-red">meadoweeen</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Статистика побед -->
+            <div class="winners-stats">
+                <div class="stats-title">VICTORY STATISTICS</div>
+                <div class="stats-grid">
+                    <div class="stat-item">
+                        <div class="stat-driver">meadoween</div>
+                        <div class="stat-count">5</div>
+                        <div class="stat-label">WINS</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-driver">jetleoden</div>
+                        <div class="stat-count">3</div>
+                        <div class="stat-label">WINS</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-driver">SilenCer977</div>
+                        <div class="stat-count">1</div>
+                        <div class="stat-label">WIN</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-driver">Vin_Disel69</div>
+                        <div class="stat-count">1</div>
+                        <div class="stat-label">WIN</div>
                     </div>
                 </div>
             </div>
@@ -1792,7 +2559,7 @@
                 results: [
                     { position: 1, name: 'meadoweeen', team: 'Redwood', points: 18, status: 'finished', fastest: true, teamColor: 'redwood' },
                     { position: 2, name: 'Vin_Disel69', team: 'Burger Shot', points: 15, status: 'finished', teamColor: 'burger-shot' },
-                    { position: 3, name: 'ALEN', team: 'Stronzo', points: 12, status: 'finished', teamColor: 'stronzo' },
+                    { position: 3, name: 'ALIN', team: 'Stronzo', points: 12, status: 'finished', teamColor: 'stronzo' },
                     { position: 4, name: 'Tail_____', team: 'Racing Redwood', points: 8, status: 'finished', teamColor: 'racing-redwood' },
                     { position: 'DNF', name: 'femtuza', team: 'Burger Shot', reason: 'Авария', status: 'dnf', teamColor: 'burger-shot' },
                     { position: 'DNF', name: 'Magic_game04', team: 'Stronzo', reason: 'Технические проблемы', status: 'dnf', teamColor: 'stronzo' }
@@ -1891,6 +2658,9 @@
                 el.style.animationPlayState = 'paused';
                 observer.observe(el);
             });
+            
+            // Инициализация анимации победителей
+            initWinnersAnimation();
         });
 
         // Инициализация страницы результатов
@@ -2009,6 +2779,139 @@
             
             html += '</tbody></table>';
             raceResults.innerHTML = html;
+        }
+
+        // Анимация для страницы победителей
+        function initWinnersAnimation() {
+            // Анимация карточек гонок
+            function animateRaceCards() {
+                const raceCards = document.querySelectorAll('.race-card');
+                const header = document.querySelector('.winners-header');
+                
+                // Анимация заголовка
+                if (header) {
+                    header.style.opacity = '0';
+                    header.style.transform = 'translateY(-30px)';
+                    
+                    setTimeout(() => {
+                        header.style.transition = 'all 1.2s cubic-bezier(0.34, 1.56, 0.64, 1)';
+                        header.style.opacity = '1';
+                        header.style.transform = 'translateY(0)';
+                    }, 300);
+                }
+                
+                // Анимация карточек с задержкой
+                raceCards.forEach((card, index) => {
+                    setTimeout(() => {
+                        card.style.opacity = '0';
+                        card.style.transform = 'translateY(30px) scale(0.95)';
+                        
+                        setTimeout(() => {
+                            card.style.transition = 'all 0.8s cubic-bezier(0.34, 1.56, 0.64, 1)';
+                            card.style.opacity = '1';
+                            card.style.transform = 'translateY(0) scale(1)';
+                            
+                            // Добавляем золотой блеск при появлении
+                            if (card.querySelector('.winner-gold')) {
+                                card.style.boxShadow += ', 0 0 30px rgba(255, 215, 0, 0.3)';
+                                setTimeout(() => {
+                                    card.style.boxShadow = card.style.boxShadow.replace(', 0 0 30px rgba(255, 215, 0, 0.3)', '');
+                                }, 1000);
+                            }
+                        }, 50);
+                    }, 500 + (index * 150));
+                });
+                
+                // Анимация статистики
+                setTimeout(() => {
+                    const statItems = document.querySelectorAll('.stat-item');
+                    statItems.forEach((item, index) => {
+                        setTimeout(() => {
+                            item.style.opacity = '0';
+                            item.style.transform = 'translateY(20px)';
+                            
+                            setTimeout(() => {
+                                item.style.transition = 'all 0.6s cubic-bezier(0.34, 1.56, 0.64, 1)';
+                                item.style.opacity = '1';
+                                item.style.transform = 'translateY(0)';
+                            }, 50);
+                        }, 2000 + (index * 200));
+                    });
+                }, 1000);
+            }
+
+            // Анимация при наведении на карточки
+            function setupCardInteractions() {
+                const raceCards = document.querySelectorAll('.race-card');
+                
+                raceCards.forEach(card => {
+                    card.addEventListener('mouseenter', function() {
+                        this.style.zIndex = '100';
+                        
+                        // Подсветка номера гонки
+                        const raceNumber = this.querySelector('.race-number');
+                        if (raceNumber) {
+                            raceNumber.style.transform = 'scale(1.1)';
+                            raceNumber.style.boxShadow = '0 0 15px rgba(212, 175, 55, 0.3)';
+                        }
+                    });
+                    
+                    card.addEventListener('mouseleave', function() {
+                        this.style.zIndex = '1';
+                        
+                        const raceNumber = this.querySelector('.race-number');
+                        if (raceNumber) {
+                            raceNumber.style.transform = '';
+                            raceNumber.style.boxShadow = '';
+                        }
+                    });
+                });
+            }
+
+            // Эффект пульсации для лидера статистики
+            function animateTopWinner() {
+                const topWinnerStat = document.querySelector('.stat-item:nth-child(1) .stat-count');
+                
+                if (topWinnerStat) {
+                    setInterval(() => {
+                        topWinnerStat.style.textShadow = topWinnerStat.style.textShadow.includes('20px')
+                            ? '0 0 15px rgba(225, 6, 0, 0.5), 0 0 5px rgba(255, 215, 0, 0.3)'
+                            : '0 0 20px rgba(225, 6, 0, 0.7), 0 0 10px rgba(255, 215, 0, 0.5)';
+                    }, 2000);
+                }
+            }
+
+            // Эффект пульсации для золотых победителей
+            function animateGoldWinners() {
+                const goldWinners = document.querySelectorAll('.winner-gold');
+                
+                goldWinners.forEach(winner => {
+                    setInterval(() => {
+                        winner.style.boxShadow = winner.style.boxShadow.includes('20px')
+                            ? 'inset 0 0 10px rgba(212, 175, 55, 0.05)'
+                            : 'inset 0 0 15px rgba(212, 175, 55, 0.2), 0 0 15px rgba(255, 215, 0, 0.5)';
+                    }, 3000);
+                });
+            }
+
+            // Запуск анимаций когда страница активна
+            const winnersPage = document.getElementById('winners');
+            if (winnersPage) {
+                // Наблюдаем за видимостью страницы победителей
+                const observer = new IntersectionObserver((entries) => {
+                    entries.forEach(entry => {
+                        if (entry.isIntersecting) {
+                            // Страница видна - запускаем анимации
+                            setTimeout(animateRaceCards, 300);
+                            setTimeout(setupCardInteractions, 1500);
+                            setTimeout(animateTopWinner, 2000);
+                            setTimeout(animateGoldWinners, 2500);
+                        }
+                    });
+                }, { threshold: 0.1 });
+                
+                observer.observe(winnersPage);
+            }
         }
     </script>
 </body>
