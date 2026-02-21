@@ -79,6 +79,8 @@
             --atomic-neon: #1000ff;
             --benefactor: #6ad4ff;
             --benefactor-neon: #00ffff;
+            --xero: #ffd700;
+            --xero-neon: #ffff00;
         }
         
         /* Навигация с неоном */
@@ -504,16 +506,22 @@
             text-shadow: 0 0 10px #00ffff, 0 0 20px #00bfff;
         }
         
+        .team-xero { 
+            color: #ffd700 !important; 
+            text-shadow: 0 0 10px #ffff00, 0 0 20px #ffaa00;
+        }
+        
         .team-burger-shot { 
             color: var(--burger-shot-neon) !important; 
             text-shadow: 0 0 10px var(--burger-shot-neon), 0 0 20px #00cc7a;
         }
         
-        /* Остальные команды пока скрыты или можно удалить, но оставим для совместимости */
         .team-redwood { 
             color: var(--redwood-neon) !important; 
-            text-shadow: 0 0 10px var(--redwood-neon);
+            text-shadow: 0 0 10px var(--redwood-neon), 0 0 20px #ff0000;
         }
+        
+        /* Остальные команды */
         .team-racing-redwood { 
             color: var(--racing-redwood-neon) !important; 
             text-shadow: 0 0 10px var(--racing-redwood-neon);
@@ -1494,6 +1502,10 @@
             color: #a0a0a0;
             text-shadow: 0 0 15px #a0a0a0;
         }
+        .stat-item:nth-child(2) .stat-count { 
+            color: #ffd700;
+            text-shadow: 0 0 15px #ffd700;
+        }
         
         .stat-label {
             font-size: 1rem;
@@ -1612,48 +1624,48 @@
         <!-- Баннер старта 2 сезона -->
         <div class="season-started-banner">
             <h3><i class="fas fa-flag"></i> СЕЗОН 2026-2027 НАЧАЛСЯ!</h3>
-            <p>Первый этап Barcelona GP завершен! Следите за обновлениями.</p>
+            <p>Первый этап Barcelona GP и Airport Ring завершены! Следите за обновлениями.</p>
         </div>
         
         <div class="stats-grid">
             <div class="stat-card">
-                <div class="stat-number">8</div>
+                <div class="stat-number">10</div>
                 <div>Пилотов</div>
             </div>
             <div class="stat-card">
-                <div class="stat-number">4</div>
-                <div>Команды</div>
+                <div class="stat-number">6</div>
+                <div>Команд</div>
             </div>
             <div class="stat-card">
                 <div class="stat-number">10</div>
                 <div>Гонок</div>
             </div>
             <div class="stat-card">
-                <div class="stat-number">18</div>
+                <div class="stat-number">36</div>
                 <div>Очков у лидера</div>
             </div>
         </div>
         
         <div class="race-results">
-            <h3 style="margin-bottom: 1.5rem; color: #fff;">Первая гонка сезона: Barcelona GP</h3>
+            <h3 style="margin-bottom: 1.5rem; color: #fff;">Последняя гонка: Airport Ring</h3>
             <div style="display: flex; align-items: center; gap: 1rem; margin-bottom: 1rem;">
                 <div class="position pos-1">1</div>
                 <div>
-                    <strong class="team-stronzo">bramkloet_69</strong> (Stronzo)
+                    <strong class="team-xero">bramkloet_69</strong> (Xero)
                     <div style="color: #aaa; font-size: 0.9rem;">18 очков</div>
                 </div>
             </div>
             <div style="display: flex; align-items: center; gap: 1rem; margin-bottom: 1rem;">
                 <div class="position pos-2">2</div>
                 <div>
-                    <strong class="team-stronzo">ALIN</strong> (Stronzo)
+                    <strong class="team-benefactor">kastillio</strong> (Benefactor)
                     <div style="color: #aaa; font-size: 0.9rem;">15 очков</div>
                 </div>
             </div>
             <div style="display: flex; align-items: center; gap: 1rem;">
                 <div class="position pos-3">3</div>
                 <div>
-                    <strong class="team-atomic">Tail_____</strong> (Atomic)
+                    <strong class="team-stronzo">ALIN</strong> (Stronzo)
                     <div style="color: #aaa; font-size: 0.9rem;">12 очков</div>
                 </div>
             </div>
@@ -1679,15 +1691,15 @@
         
         <div class="standings-grid">
             <div class="standings-card">
-                <h3 class="standings-title">Топ-7 пилотов</h3>
+                <h3 class="standings-title">Топ-10 пилотов</h3>
                 
                 <div class="driver-item">
                     <div class="driver-pos">1</div>
                     <div class="driver-info">
-                        <div class="driver-name team-stronzo">bramkloet_69</div>
-                        <div class="driver-details">#48 • Stronzo F1 Team</div>
+                        <div class="driver-name team-xero">bramkloet_69</div>
+                        <div class="driver-details">#48 • Xero F1 Team</div>
                     </div>
-                    <div class="driver-points">18</div>
+                    <div class="driver-points">36</div>
                 </div>
                 
                 <div class="driver-item">
@@ -1696,41 +1708,41 @@
                         <div class="driver-name team-stronzo">ALIN</div>
                         <div class="driver-details">#2 • Stronzo F1 Team</div>
                     </div>
-                    <div class="driver-points">15</div>
+                    <div class="driver-points">27</div>
                 </div>
                 
                 <div class="driver-item">
                     <div class="driver-pos">3</div>
                     <div class="driver-info">
-                        <div class="driver-name team-atomic">Tail_____</div>
-                        <div class="driver-details">#69 • Atomic F1 Team</div>
+                        <div class="driver-name team-benefactor">kastillio</div>
+                        <div class="driver-details">#1 • Benefactor F1 Team</div>
                     </div>
-                    <div class="driver-points">12</div>
+                    <div class="driver-points">15</div>
                 </div>
                 
                 <div class="driver-item">
                     <div class="driver-pos">4</div>
                     <div class="driver-info">
-                        <div class="driver-name team-benefactor">kastellio</div>
-                        <div class="driver-details">#1 • Benefactor F1 Team</div>
+                        <div class="driver-name team-benefactor">jetleoden</div>
+                        <div class="driver-details">#24 • Benefactor F1 Team</div>
                     </div>
-                    <div class="driver-points">0</div>
+                    <div class="driver-points">8</div>
                 </div>
                 
                 <div class="driver-item">
                     <div class="driver-pos">5</div>
                     <div class="driver-info">
-                        <div class="driver-name team-benefactor">jetleoden</div>
-                        <div class="driver-details">#24 • Benefactor F1 Team</div>
+                        <div class="driver-name team-atomic">Vin_Disel69</div>
+                        <div class="driver-details">#33 • Atomic F1 Team</div>
                     </div>
-                    <div class="driver-points">0</div>
+                    <div class="driver-points">5</div>
                 </div>
                 
                 <div class="driver-item">
                     <div class="driver-pos">6</div>
                     <div class="driver-info">
-                        <div class="driver-name team-atomic">Vin_Disel69</div>
-                        <div class="driver-details">#33 • Atomic F1 Team</div>
+                        <div class="driver-name team-burger-shot">femtuza</div>
+                        <div class="driver-details">#11 • Burger Shot F1 Team</div>
                     </div>
                     <div class="driver-points">0</div>
                 </div>
@@ -1738,8 +1750,35 @@
                 <div class="driver-item">
                     <div class="driver-pos">7</div>
                     <div class="driver-info">
-                        <div class="driver-name team-burger-shot">femtuza</div>
-                        <div class="driver-details">#11 • Burger Shot F1 Team</div>
+                        <div class="driver-name team-xero">kotynayram</div>
+                        <div class="driver-details">#5 • Xero F1 Team</div>
+                    </div>
+                    <div class="driver-points">0</div>
+                </div>
+                
+                <div class="driver-item">
+                    <div class="driver-pos">8</div>
+                    <div class="driver-info">
+                        <div class="driver-name team-redwood">ROBA_</div>
+                        <div class="driver-details">#29 • Redwood F1 Team</div>
+                    </div>
+                    <div class="driver-points">0</div>
+                </div>
+                
+                <div class="driver-item">
+                    <div class="driver-pos">9</div>
+                    <div class="driver-info">
+                        <div class="driver-name team-redwood">Psichopatich</div>
+                        <div class="driver-details">#7 • Redwood F1 Team</div>
+                    </div>
+                    <div class="driver-points">0</div>
+                </div>
+                
+                <div class="driver-item">
+                    <div class="driver-pos">10</div>
+                    <div class="driver-info">
+                        <div class="driver-name team-stronzo">Magic_game04</div>
+                        <div class="driver-details">#47 • Stronzo F1 Team</div>
                     </div>
                     <div class="driver-points">0</div>
                 </div>
@@ -1758,35 +1797,53 @@
                 <div class="team-item">
                     <div class="team-pos">1</div>
                     <div class="team-info">
-                        <div class="team-name team-stronzo">Stronzo F1 Team</div>
-                        <div class="team-details team-stronzo">bramkloet_69 (#48) • ALIN (#2)</div>
+                        <div class="team-name team-xero">Xero F1 Team</div>
+                        <div class="team-details team-xero">bramkloet_69 (#48) • kotynayram (#5)</div>
                     </div>
-                    <div class="team-points">33</div>
+                    <div class="team-points">36</div>
                 </div>
                 
                 <div class="team-item">
                     <div class="team-pos">2</div>
                     <div class="team-info">
-                        <div class="team-name team-atomic">Atomic F1 Team</div>
-                        <div class="team-details team-atomic">Tail_____ (#69) • Vin_Disel69 (#33)</div>
+                        <div class="team-name team-stronzo">Stronzo F1 Team</div>
+                        <div class="team-details team-stronzo">ALIN (#2) • Magic_game04 (#47)</div>
                     </div>
-                    <div class="team-points">12</div>
+                    <div class="team-points">27</div>
                 </div>
                 
                 <div class="team-item">
                     <div class="team-pos">3</div>
                     <div class="team-info">
                         <div class="team-name team-benefactor">Benefactor F1 Team</div>
-                        <div class="team-details team-benefactor">kastellio (#1) • jetleoden (#24)</div>
+                        <div class="team-details team-benefactor">kastillio (#1) • jetleoden (#24)</div>
                     </div>
-                    <div class="team-points">0</div>
+                    <div class="team-points">23</div>
                 </div>
                 
                 <div class="team-item">
                     <div class="team-pos">4</div>
                     <div class="team-info">
+                        <div class="team-name team-atomic">Atomic F1 Team</div>
+                        <div class="team-details team-atomic">Vin_Disel69 (#33)</div>
+                    </div>
+                    <div class="team-points">17</div>
+                </div>
+                
+                <div class="team-item">
+                    <div class="team-pos">5</div>
+                    <div class="team-info">
                         <div class="team-name team-burger-shot">Burger Shot F1 Team</div>
                         <div class="team-details team-burger-shot">femtuza (#11)</div>
+                    </div>
+                    <div class="team-points">0</div>
+                </div>
+                
+                <div class="team-item">
+                    <div class="team-pos">6</div>
+                    <div class="team-info">
+                        <div class="team-name team-redwood">Redwood F1 Team</div>
+                        <div class="team-details team-redwood">ROBA_ (#29) • Psichopatich (#7)</div>
                     </div>
                     <div class="team-points">0</div>
                 </div>
@@ -1802,7 +1859,7 @@
             <h1>WINNERS OF ALL STAGES</h1>
             <h2>F1 GTA ONLINE - SEASON 2</h2>
             <div class="season-info">
-                SEASON 2 • 1 RACE COMPLETED
+                SEASON 2 • 2 RACES COMPLETED
             </div>
         </div>
 
@@ -1811,7 +1868,7 @@
             <h3>RACE VICTORIES</h3>
             
             <div class="winners-grid">
-                <!-- Левая колонка (гонка 1) -->
+                <!-- Левая колонка (гонки 1-5) -->
                 <div class="winners-column left">
                     <!-- Гонка 1 - BARCELONA GP -->
                     <div class="race-card race-card-red">
@@ -1822,6 +1879,19 @@
                             <div class="race-winner">
                                 <span class="winner-label">WINNER:</span>
                                 <span class="winner-name winner-gray">bramkloet_69</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Гонка 2 - AIRPORT RING -->
+                    <div class="race-card race-card-blue">
+                        <div class="race-number">2</div>
+                        <div class="race-info">
+                            <div class="race-type">RACE</div>
+                            <div class="race-track">AIRPORT RING</div>
+                            <div class="race-winner">
+                                <span class="winner-label">WINNER:</span>
+                                <span class="winner-name winner-gold">bramkloet_69</span>
                             </div>
                         </div>
                     </div>
@@ -1839,8 +1909,8 @@
                 <div class="stats-grid">
                     <div class="stat-item">
                         <div class="stat-driver">bramkloet_69</div>
-                        <div class="stat-count">1</div>
-                        <div class="stat-label">WIN</div>
+                        <div class="stat-count">2</div>
+                        <div class="stat-label">WINS</div>
                     </div>
                 </div>
             </div>
@@ -1859,10 +1929,17 @@
                 <span class="status-badge status-completed">Завершено</span>
             </div>
             
-            <div class="timeline-item">
+            <div class="timeline-item completed">
                 <div class="timeline-date">21.02.2026</div>
                 <h3>Airport Ring</h3>
                 <p>Гонка на кольцевой трассе аэропорта</p>
+                <span class="status-badge status-completed">Завершено</span>
+            </div>
+            
+            <div class="timeline-item">
+                <div class="timeline-date">28.02.2026</div>
+                <h3>Observatory Sprint & Race</h3>
+                <p>Спринт и основная гонка на трассе Observatory</p>
                 <span class="status-badge status-upcoming">Предстоит</span>
             </div>
         </div>
@@ -1870,8 +1947,8 @@
 
     <!-- Футер -->
     <footer class="footer">
-        <p>GTA Formula 1 Championship • Сезон 2026-2027 • Этап 1 из 10 завершен</p>
-        <p style="margin-top: 10px; font-size: 0.8rem;">Второй сезон чемпионата Формулы 1 в GTA Online стартовал!</p>
+        <p>GTA Formula 1 Championship • Сезон 2026-2027 • Этап 2 из 10 завершен</p>
+        <p style="margin-top: 10px; font-size: 0.8rem;">Второй сезон чемпионата Формулы 1 в GTA Online продолжается!</p>
     </footer>
 
     <script>
@@ -1914,19 +1991,34 @@
             }
         }
 
-        // Данные гонок (только для 2 сезона - Barcelona GP)
+        // Данные гонок
         const racesData = {
             'barcelona-gp': {
                 title: 'Barcelona GP',
                 date: '14.02.2026',
                 results: [
-                    { position: 1, name: 'bramkloet_69', team: 'Stronzo F1 Team', points: 18, status: 'finished', teamColor: 'stronzo' },
+                    { position: 1, name: 'bramkloet_69', team: 'Xero F1 Team', points: 18, status: 'finished', teamColor: 'xero' },
                     { position: 2, name: 'ALIN', team: 'Stronzo F1 Team', points: 15, status: 'finished', teamColor: 'stronzo' },
                     { position: 3, name: 'Tail_____', team: 'Atomic F1 Team', points: 12, status: 'finished', teamColor: 'atomic' },
                     { position: 'DNF', name: 'kastellio', team: 'Benefactor F1 Team', reason: 'Столкновение с Vin_Disel69 (33)', status: 'dnf', teamColor: 'benefactor' },
                     { position: 'DNF', name: 'jetleoden', team: 'Benefactor F1 Team', reason: 'Слёт с трассы', status: 'dnf', teamColor: 'benefactor' },
                     { position: 'DSQ', name: 'Vin_Disel69', team: 'Atomic F1 Team', reason: 'Столкновение с kastellio', status: 'dsq', teamColor: 'atomic' },
-                    { position: 'finished', name: 'femtuza', team: 'Burger Shot F1 Team', reason: 'Финишировал без очков?', status: 'finished', points: 0, teamColor: 'burger-shot' }
+                    { position: 'finished', name: 'femtuza', team: 'Burger Shot F1 Team', points: 0, status: 'finished', teamColor: 'burger-shot' }
+                ]
+            },
+            'airport-ring': {
+                title: 'Airport Ring',
+                date: '21.02.2026',
+                results: [
+                    { position: 1, name: 'bramkloet_69', team: 'Xero F1 Team', points: 18, status: 'finished', teamColor: 'xero' },
+                    { position: 2, name: 'kastillio', team: 'Benefactor F1 Team', points: 15, status: 'finished', teamColor: 'benefactor' },
+                    { position: 3, name: 'ALIN', team: 'Stronzo F1 Team', points: 12, status: 'finished', teamColor: 'stronzo' },
+                    { position: 4, name: 'jetleoden', team: 'Benefactor F1 Team', points: 8, status: 'finished', teamColor: 'benefactor' },
+                    { position: 5, name: 'Vin_Disel69', team: 'Atomic F1 Team', points: 5, status: 'finished', note: 'штраф на 1 позицию', teamColor: 'atomic' },
+                    { position: 6, name: 'femtuza', team: 'Burger Shot F1 Team', points: 0, status: 'finished', teamColor: 'burger-shot' },
+                    { position: 7, name: 'ROBA_', team: 'Redwood F1 Team', points: 0, status: 'finished', teamColor: 'redwood' },
+                    { position: 8, name: 'Psihopatich', team: 'Redwood F1 Team', points: 0, status: 'finished', teamColor: 'redwood' },
+                    { position: 'DSQ', name: 'kotynayram', team: 'Xero F1 Team', reason: 'Дисквалификация', status: 'dsq', teamColor: 'xero' }
                 ]
             }
         };
@@ -2004,7 +2096,7 @@
             window.addEventListener('hashchange', handleHashChange);
             handleHashChange();
             
-            // Инициализация страницы результатов (только для Barcelona GP)
+            // Инициализация страницы результатов
             initResultsPage();
             
             // Анимация элементов при скролле
@@ -2017,7 +2109,7 @@
             }, { threshold: 0.1 });
             
             // Наблюдаем за элементами с анимациями
-            const animatedElements = document.querySelectorAll('.driver-item, .team-item, .timeline-item, .stat-card');
+            const animatedElements = document.querySelectorAll('.driver-item, .team-item, .team-card, .timeline-item, .stat-card');
             animatedElements.forEach(el => {
                 el.style.animationPlayState = 'paused';
                 observer.observe(el);
@@ -2027,19 +2119,20 @@
             initWinnersAnimation();
         });
 
-        // Инициализация страницы результатов (только для Barcelona GP)
+        // Инициализация страницы результатов
         function initResultsPage() {
             const raceSelector = document.getElementById('raceSelector');
             const raceResults = document.getElementById('raceResults');
             
-            // Создаем кнопки выбора гонок (только Barcelona GP)
+            // Создаем кнопки выбора гонок
             const races = [
-                { id: 'barcelona-gp', name: 'Barcelona GP' }
+                { id: 'barcelona-gp', name: 'Barcelona GP' },
+                { id: 'airport-ring', name: 'Airport Ring' }
             ];
             
             races.forEach((race, index) => {
                 const button = document.createElement('button');
-                button.className = 'race-btn active'; // Только одна кнопка, сразу активная
+                button.className = 'race-btn' + (index === 0 ? ' active' : '');
                 button.textContent = race.name;
                 button.dataset.raceId = race.id;
                 
@@ -2119,6 +2212,9 @@
                 html += `<td><strong class="${teamColorClass}">${result.name}</strong>`;
                 if (result.fastest) {
                     html += ' <span class="fastest-lap-badge">Быстрый круг</span>';
+                }
+                if (result.note) {
+                    html += ` <small style="color: #ffaa00;">(${result.note})</small>`;
                 }
                 html += '</td>';
                 
@@ -2241,8 +2337,8 @@
                 if (topWinnerStat) {
                     setInterval(() => {
                         topWinnerStat.style.textShadow = topWinnerStat.style.textShadow.includes('20px')
-                            ? '0 0 15px #a0a0a0'
-                            : '0 0 20px #a0a0a0, 0 0 10px #808080';
+                            ? '0 0 15px #ffd700'
+                            : '0 0 20px #ffd700, 0 0 10px #ffaa00';
                     }, 2000);
                 }
             }
