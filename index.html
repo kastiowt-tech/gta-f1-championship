@@ -540,7 +540,7 @@
             <div class="standings-card">
                 <h3 class="standings-title">Зачет команд</h3>
                 <div class="team-item"><div class="team-pos">1</div><div class="team-info"><div class="team-name team-atomic">Atomic F1 Team</div><div class="team-details">Tail_____ + Vin_Disel69</div></div><div class="team-points">192</div></div>
-                <div class="team-item"><div class="team-pos">2</div><div class="team-info"><div class="team-name team-oracle">Oracle F1 Team</div><div class="team-details">kastilio + jetleoden</div></div><div class="team-points">241</div></div>
+                <div class="team-item"><div class="team-pos">2</div><div class="team-info"><div class="team-name team-oracle">Oracle F1 Team</div><div class="team-details">kastilio + jetleoden</div></div><div class="team-points">144</div></div>
                 <div class="team-item"><div class="team-pos">3</div><div class="team-info"><div class="team-name team-meinmacht">Meinmacht F1 Team</div><div class="team-details">ALIN + femtuza</div></div><div class="team-points">85</div></div>
                 <div class="team-item"><div class="team-pos">4</div><div class="team-info"><div class="team-name team-ocelot">Ocelot F1 Team</div><div class="team-details">VoyderKa + FloeSS</div></div><div class="team-points">34</div></div>
                 <div class="team-item"><div class="team-pos">5</div><div class="team-info"><div class="team-name team-redwood">Redwood F1 Team</div><div class="team-details">kanatkazx + Psichopatich</div></div><div class="team-points">12</div></div>
@@ -705,7 +705,7 @@
         }
         function showRaceResults(id){
             const race=racesData[id]; if(!race) return;
-            let html=`<div class="race-header"><h3 class="race-title">${race.title}</h3><div class="race-date">${race.date}</div></div><table class="results-table"><thead><tr><th>Позиция</th><th>Пилот</th><th>Команда</th><th>Очки</th><th>Статус</th></tr></thead><tbody>`;
+            let html=`<div class="race-header"><h3 class="race-title">${race.title}</h3><div class="race-date">${race.date}</div></div><table class="results-table"><thead><tr><th>Позиция</th><th>Пилот</th><th>Команда</th><th>Очки</th><th>Статус</th></thead><tbody>`;
             race.results.forEach(r=>{ 
                 let posClass='pos-other'; if(r.position===1) posClass='pos-1'; if(r.position===2) posClass='pos-2'; if(r.position===3) posClass='pos-3';
                 let statusText='Финишировал', statusBadge='';
