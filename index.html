@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>GTA Formula 1 | Сезон 3 — Новая эра скорости</title>
+    <title>GTA F1 | Сезон 3 — Абсолютная скорость</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         * {
@@ -13,15 +13,15 @@
         }
 
         body {
-            background: radial-gradient(circle at 20% 30%, #070b1a 0%, #010101 100%);
-            color: #f0f3fa;
+            background: radial-gradient(circle at 30% 10%, #030514 0%, #000000 100%);
+            color: #eef5ff;
             font-family: 'Poppins', 'Segoe UI', system-ui, sans-serif;
             min-height: 100vh;
             overflow-x: hidden;
         }
 
-        /* Динамический абстрактный фон */
-        .cyber-grid {
+        /* кибер-сетка */
+        .glow-matrix {
             position: fixed;
             top: 0;
             left: 0;
@@ -29,69 +29,65 @@
             height: 100%;
             z-index: -2;
             background-image: 
-                linear-gradient(rgba(0, 255, 255, 0.08) 1px, transparent 1px),
-                linear-gradient(90deg, rgba(0, 255, 255, 0.08) 1px, transparent 1px);
-            background-size: 50px 50px;
-            animation: gridShift 20s linear infinite;
-        }
-
-        @keyframes gridShift {
-            0% { transform: translate(0, 0); }
-            100% { transform: translate(50px, 50px); }
+                repeating-linear-gradient(0deg, rgba(0, 255, 255, 0.05) 1px, transparent 1px),
+                repeating-linear-gradient(90deg, rgba(255, 0, 255, 0.05) 1px, transparent 1px);
+            background-size: 55px 55px;
+            opacity: 0.5;
+            pointer-events: none;
         }
 
         :root {
-            --neon-teal: #00f2fe;
-            --neon-purple: #b967ff;
-            --neon-gold: #ffd966;
-            --card-glass: rgba(8, 12, 25, 0.7);
-            --border-cyber: rgba(0, 242, 254, 0.3);
+            --cyan-core: #00f2fe;
+            --magenta-accent: #ff66cc;
+            --amber-glow: #ffcd4a;
+            --dark-glass: rgba(5, 10, 25, 0.7);
+            --border-cyber: rgba(0, 242, 254, 0.35);
         }
 
         .navbar {
-            background: rgba(2, 5, 15, 0.95);
-            backdrop-filter: blur(16px);
+            background: rgba(0, 0, 0, 0.9);
+            backdrop-filter: blur(18px);
             padding: 0.8rem 2.5rem;
             position: fixed;
             top: 0;
             width: 100%;
             z-index: 1000;
-            border-bottom: 2px solid var(--neon-teal);
+            border-bottom: 2px solid var(--cyan-core);
             display: flex;
             justify-content: space-between;
             align-items: center;
             flex-wrap: wrap;
-            box-shadow: 0 8px 32px rgba(0,0,0,0.4);
+            box-shadow: 0 10px 30px -5px rgba(0,242,254,0.2);
         }
 
         .logo {
             font-size: 1.9rem;
             font-weight: 800;
-            background: linear-gradient(135deg, #fff, var(--neon-teal), var(--neon-purple));
+            background: linear-gradient(135deg, #ffffff, var(--cyan-core), var(--magenta-accent));
             -webkit-background-clip: text;
             background-clip: text;
             color: transparent;
         }
-        .logo i { color: var(--neon-teal); margin-right: 8px; background: none; -webkit-background-clip: unset; }
+        .logo i { color: var(--cyan-core); margin-right: 8px; }
 
         .nav-links {
             display: flex;
-            gap: 0.7rem;
+            gap: 0.5rem;
             flex-wrap: wrap;
         }
         .nav-link {
-            color: #ccc;
+            color: #ccddf8;
             text-decoration: none;
             font-weight: 600;
-            padding: 0.5rem 1.2rem;
+            padding: 0.5rem 1.3rem;
             border-radius: 40px;
             transition: 0.25s;
-            font-size: 0.95rem;
+            font-size: 0.9rem;
         }
         .nav-link:hover, .nav-link.active {
-            background: rgba(0, 242, 254, 0.2);
+            background: rgba(0, 242, 254, 0.25);
             color: white;
-            box-shadow: 0 0 8px var(--neon-teal);
+            box-shadow: 0 0 10px var(--cyan-core);
         }
 
         .page {
@@ -103,67 +99,63 @@
         }
         .page.active { display: block; }
         @keyframes fadeSlide {
-            from { opacity: 0; transform: translateY(20px); }
+            from { opacity: 0; transform: translateY(18px); }
             to { opacity: 1; transform: translateY(0); }
         }
 
         .glass-panel {
-            background: var(--card-glass);
-            backdrop-filter: blur(12px);
-            border-radius: 32px;
+            background: var(--dark-glass);
+            backdrop-filter: blur(14px);
+            border-radius: 36px;
             border: 1px solid var(--border-cyber);
             padding: 2rem;
-            transition: 0.2s;
         }
 
         .hero {
             text-align: center;
-            background: linear-gradient(145deg, rgba(0, 30, 40, 0.7), rgba(15, 5, 35, 0.8));
-            border-radius: 48px;
+            background: linear-gradient(145deg, rgba(0, 40, 50, 0.7), rgba(20, 5, 40, 0.85));
+            border-radius: 56px;
             padding: 3rem 2rem;
-            margin-bottom: 2rem;
-            border: 1px solid var(--neon-teal);
-            box-shadow: 0 20px 35px -10px black;
+            border: 1px solid var(--cyan-core);
+            box-shadow: 0 20px 30px -12px black;
         }
         .season-badge {
-            background: rgba(255, 217, 102, 0.2);
+            background: rgba(255, 205, 74, 0.2);
             display: inline-block;
-            padding: 0.3rem 1.2rem;
+            padding: 0.3rem 1.5rem;
             border-radius: 60px;
             font-weight: 700;
-            color: var(--neon-gold);
-            border: 1px solid var(--neon-gold);
+            color: var(--amber-glow);
+            border: 1px solid var(--amber-glow);
             margin-bottom: 1rem;
         }
         .hero-title {
             font-size: 3.5rem;
             font-weight: 800;
-            background: linear-gradient(120deg, #fff, var(--neon-teal), #c084fc);
+            background: linear-gradient(120deg, #fff, var(--cyan-core), #ff99ff);
             -webkit-background-clip: text;
             background-clip: text;
             color: transparent;
         }
         .stats-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(170px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
             gap: 1.5rem;
             margin: 2rem 0;
         }
         .stat-card {
-            background: rgba(0, 0, 0, 0.5);
-            backdrop-filter: blur(5px);
+            background: rgba(0, 0, 0, 0.6);
             border-radius: 28px;
-            padding: 1.5rem;
+            padding: 1.3rem;
             text-align: center;
             border: 1px solid var(--border-cyber);
         }
         .stat-number {
             font-size: 2.8rem;
             font-weight: 900;
-            color: var(--neon-teal);
+            color: var(--cyan-core);
         }
 
-        /* Результаты гонок */
         .race-selector {
             display: flex;
             gap: 12px;
@@ -171,8 +163,8 @@
             margin-bottom: 2rem;
         }
         .race-btn {
-            background: #0f1222;
-            border: 1px solid #2a2f55;
+            background: #0a0e1c;
+            border: 1px solid #2a2f60;
             padding: 0.7rem 1.6rem;
             border-radius: 40px;
             color: white;
@@ -181,10 +173,10 @@
             transition: 0.2s;
         }
         .race-btn.active, .race-btn:hover {
-            background: var(--neon-teal);
+            background: var(--cyan-core);
             color: #03050b;
-            border-color: var(--neon-teal);
-            box-shadow: 0 0 12px var(--neon-teal);
+            border-color: var(--cyan-core);
+            box-shadow: 0 0 12px var(--cyan-core);
         }
         .results-table {
             width: 100%;
@@ -193,7 +185,7 @@
         .results-table th {
             text-align: left;
             padding: 1rem;
-            background: rgba(0, 242, 254, 0.1);
+            background: rgba(0, 242, 254, 0.15);
         }
         .results-table td {
             padding: 0.9rem 1rem;
@@ -208,21 +200,21 @@
             border-radius: 20px;
             font-weight: 800;
         }
-        .pos-1 { background: linear-gradient(145deg, #FFD966, #f5b042); color: #000; box-shadow: 0 0 6px gold; }
+        .pos-1 { background: linear-gradient(145deg, #FFD966, #f5a623); color: #000; box-shadow: 0 0 8px gold; }
         .pos-2 { background: #b0c4de; color: #111; }
         .pos-3 { background: #cd7f56; color: #111; }
-        .dnf-badge, .dsq-badge { padding: 4px 12px; border-radius: 50px; font-weight: 600; font-size: 0.8rem; }
+        .dnf-badge, .dsq-badge { padding: 4px 14px; border-radius: 50px; font-weight: 700; font-size: 0.75rem; }
         .dnf-badge { background: #dc2626; }
         .dsq-badge { background: #f97316; }
 
-        /* Цвета команд */
-        .team-benefactor { color: #2dd4bf !important; text-shadow: 0 0 4px #14b8a6; }
+        /* командные цвета */
+        .team-benefactor { color: #2dd4bf !important; text-shadow: 0 0 4px #2dd4bf; }
         .team-ocelot { color: #f9a8d4 !important; text-shadow: 0 0 3px #f472b6; }
         .team-atomic { color: #3b82f6 !important; text-shadow: 0 0 3px #3b82f6; }
         .team-progen { color: #fb923c !important; }
-        .team-racing-redwood { color: #b91c1c !important; text-shadow: 0 0 2px #b91c1c; }
+        .team-racing-redwood { color: #b91c1c !important; }
         .team-grotti { color: #f472b6 !important; }
-        .team-banshee { color: #facc15 !important; text-shadow: 0 0 2px #eab308; }
+        .team-banshee { color: #facc15 !important; text-shadow: 0 0 3px #eab308; }
         .team-stronzo { color: #9ca3af !important; }
         .team-redwood { color: #ef4444 !important; }
 
@@ -230,34 +222,34 @@
             display: flex;
             align-items: center;
             gap: 1rem;
-            padding: 0.9rem;
-            background: rgba(255,255,255,0.03);
+            padding: 0.8rem;
+            background: rgba(255,255,255,0.02);
             border-radius: 28px;
-            margin-bottom: 0.7rem;
+            margin-bottom: 0.6rem;
             transition: 0.2s;
         }
-        .driver-points, .team-points { font-size: 1.5rem; font-weight: 800; color: var(--neon-teal); }
+        .driver-points, .team-points { font-size: 1.5rem; font-weight: 800; color: var(--cyan-core); }
 
         .winners-header {
             text-align: center;
-            padding: 2rem;
-            background: rgba(0,0,0,0.5);
+            padding: 1.8rem;
+            background: rgba(0,0,0,0.6);
             border-radius: 48px;
             margin-bottom: 2rem;
         }
         .winners-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px,1fr));
-            gap: 1.5rem;
+            grid-template-columns: repeat(auto-fit, minmax(260px,1fr));
+            gap: 1.2rem;
         }
         .winner-card {
-            background: #0c0f1c;
+            background: #0b0e1a;
             border-radius: 32px;
-            padding: 1.2rem;
+            padding: 1rem 1.2rem;
             display: flex;
             align-items: center;
             gap: 1rem;
-            border-left: 6px solid var(--neon-teal);
+            border-left: 6px solid var(--cyan-core);
         }
         .timeline-item {
             background: rgba(0,0,0,0.5);
@@ -266,16 +258,16 @@
             margin-bottom: 1rem;
             border-left: 4px solid #2dd4bf;
         }
-        .status-completed { background: #00cc88; color: #000; padding: 4px 12px; border-radius: 20px; font-size: 0.8rem; margin-left: 12px; }
-        .status-upcoming { background: #facc15; color: #000; padding: 4px 12px; border-radius: 20px; font-size: 0.8rem; }
+        .status-completed { background: #00b37e; color: #000; padding: 4px 12px; border-radius: 20px; font-size: 0.75rem; margin-left: 12px; font-weight: 600; }
+        .status-upcoming { background: #facc15; color: #000; padding: 4px 12px; border-radius: 20px; font-size: 0.75rem; }
         .btn {
-            display: inline-block;
-            background: linear-gradient(135deg, var(--neon-teal), #0e9aa7);
-            color: #03050b;
-            padding: 0.8rem 1.8rem;
+            background: linear-gradient(95deg, var(--cyan-core), #0e6b75);
+            color: #000;
+            padding: 0.8rem 2rem;
             border-radius: 40px;
             font-weight: 700;
             text-decoration: none;
+            display: inline-block;
         }
         .footer {
             text-align: center;
@@ -284,13 +276,13 @@
             margin-top: 3rem;
         }
         @media (max-width: 780px) {
-            .navbar { flex-direction: column; gap: 12px; }
+            .navbar { flex-direction: column; gap: 10px; }
             .hero-title { font-size: 2rem; }
         }
     </style>
 </head>
 <body>
-<div class="cyber-grid"></div>
+<div class="glow-matrix"></div>
 <nav class="navbar">
     <div class="logo"><i class="fas fa-flag-checkered"></i> GTA F1 • СЕЗОН 3</div>
     <div class="nav-links">
@@ -298,7 +290,7 @@
         <a href="#results" class="nav-link" data-page="results">Результаты гонок</a>
         <a href="#drivers" class="nav-link" data-page="drivers">Личный зачет</a>
         <a href="#constructors" class="nav-link" data-page="constructors">Кубок конструкторов</a>
-        <a href="#winners" class="nav-link" data-page="winners">Победители этапов</a>
+        <a href="#winners" class="nav-link" data-page="winners">Победители</a>
         <a href="#schedule" class="nav-link" data-page="schedule">Расписание</a>
     </div>
 </nav>
@@ -307,32 +299,32 @@
 <section id="home" class="page active">
     <div class="hero">
         <div class="season-badge"><i class="fas fa-fire"></i> СЕЗОН 3 — СТАРТОВАЛ!</div>
-        <h1 class="hero-title">GTA Formula 1 Championship<br>Новая эра скорости</h1>
-        <p style="font-size:1.2rem; margin:1rem 0">5 гонок позади, мощные битвы и новые герои. Benefactor доминирует, но Ocelot и Atomic дышат в спину.</p>
-        <a href="#results" class="btn" data-page="results">Смотреть результаты →</a>
+        <h1 class="hero-title">GTA Formula 1 Championship<br>НОВАЯ ЭРА СКОРОСТИ</h1>
+        <p style="font-size:1.2rem; margin:1rem 0">7 гонок позади, накал невероятный. Benefactor доминирует, но Ocelot и Atomic наступают.</p>
+        <a href="#results" class="btn" data-page="results">Изучить результаты →</a>
     </div>
     <div class="stats-grid">
-        <div class="stat-card"><div class="stat-number">14</div><div>Пилотов</div></div>
+        <div class="stat-card"><div class="stat-number">15</div><div>Пилотов</div></div>
         <div class="stat-card"><div class="stat-number">8</div><div>Команд</div></div>
-        <div class="stat-card"><div class="stat-number">5</div><div>Гонок</div></div>
-        <div class="stat-card"><div class="stat-number">85</div><div>Очков лидера</div></div>
+        <div class="stat-card"><div class="stat-number">7</div><div>Гонок</div></div>
+        <div class="stat-card"><div class="stat-number">92</div><div>Очков лидера</div></div>
     </div>
     <div class="glass-panel">
-        <h3><i class="fas fa-trophy" style="color: var(--neon-teal);"></i> Лидер чемпионата: jetleoden (Benefactor) — 85 очков</h3>
-        <p style="margin-top: 12px;">Benefactor F1 Team захватила лидерство в КК, а SOVYCH05 показывает невероятный темп за рулём Ocelot.</p>
+        <h3><i class="fas fa-trophy" style="color: var(--cyan-core);"></i> Лидер чемпионата: jetleoden (Benefactor) — 92 очка</h3>
+        <p style="margin-top: 10px;">kastillio и SOVYCH05 ведут жесткую борьбу за титул. Новые этапы уже в календаре!</p>
     </div>
 </section>
 
-<!-- Результаты гонок - только новые трассы 3 сезона -->
+<!-- Результаты гонок (все 7 этапов) -->
 <section id="results" class="page">
-    <h2 style="margin-bottom: 2rem;">🏁 Результаты гонок · Сезон 3</h2>
+    <h2 style="margin-bottom: 2rem;">🏁 РЕЗУЛЬТАТЫ ГОНОК — СЕЗОН 3</h2>
     <div class="race-selector" id="raceSelector"></div>
     <div class="glass-panel" id="raceResults"></div>
 </section>
 
 <!-- Личный зачет -->
 <section id="drivers" class="page">
-    <h2 style="margin-bottom: 2rem;">🏆 Личный зачет пилотов</h2>
+    <h2 style="margin-bottom: 2rem;">🏆 ЛИЧНЫЙ ЗАЧЕТ ПИЛОТОВ</h2>
     <div class="glass-panel">
         <div id="driverStandingsList"></div>
     </div>
@@ -340,7 +332,7 @@
 
 <!-- Кубок конструкторов -->
 <section id="constructors" class="page">
-    <h2 style="margin-bottom: 2rem;">🏭 Кубок конструкторов</h2>
+    <h2 style="margin-bottom: 2rem;">🏭 КУБОК КОНСТРУКТОРОВ</h2>
     <div class="glass-panel">
         <div id="teamStandingsList"></div>
     </div>
@@ -349,35 +341,38 @@
 <!-- Победители -->
 <section id="winners" class="page">
     <div class="winners-header">
-        <h1 style="font-size:2.5rem;">WINNERS · 3 СЕЗОН</h1>
-        <p>Oracle Circuit · Mexico City · Redwood Sprint · Redwood Ring · Vinewood GP</p>
+        <h1 style="font-size:2.2rem;">🏆 WINNERS — 3 СЕЗОН</h1>
+        <p>Oracle · Mexico · Redwood Sprint · Redwood Race · Vinewood · China Sprint · China Race</p>
     </div>
     <div class="winners-grid" id="winnersGrid"></div>
 </section>
 
-<!-- Расписание (сезон 3) -->
+<!-- Расписание -->
 <section id="schedule" class="page">
-    <h2 style="margin-bottom: 2rem;">📅 Календарь 3 сезона</h2>
+    <h2 style="margin-bottom: 2rem;">📅 КАЛЕНДАРЬ 3 СЕЗОНА</h2>
     <div style="max-width: 800px; margin:0 auto">
-        <div class="timeline-item"><div class="timeline-date">✅ 10.04.2026</div><h3>Oracle Circuit Race</h3><span class="status-completed">Завершено</span></div>
-        <div class="timeline-item"><div class="timeline-date">✅ 17.04.2026</div><h3>Mexico City GP</h3><span class="status-completed">Завершено</span></div>
-        <div class="timeline-item"><div class="timeline-date">✅ 24.04.2026</div><h3>Redwood Ring Sprint</h3><span class="status-completed">Завершено</span></div>
-        <div class="timeline-item"><div class="timeline-date">✅ 01.05.2026</div><h3>Redwood Ring Race</h3><span class="status-completed">Завершено</span></div>
-        <div class="timeline-item"><div class="timeline-date">✅ 08.05.2026</div><h3>Vinewood Grand Prix</h3><span class="status-completed">Завершено</span></div>
-        <div class="timeline-item"><div class="timeline-date">🔥 22.05.2026</div><h3>Senora Desert GP</h3><span class="status-upcoming">Предстоит</span></div>
-        <div class="timeline-item"><div class="timeline-date">05.06.2026</div><h3>Downtown LS Circuit</h3><span class="status-upcoming">Предстоит</span></div>
+        <div class="timeline-item"><div class="timeline-date">✅ 10.04</div><h3>Oracle Circuit Race</h3><span class="status-completed">Завершено</span></div>
+        <div class="timeline-item"><div class="timeline-date">✅ 17.04</div><h3>Mexico City GP</h3><span class="status-completed">Завершено</span></div>
+        <div class="timeline-item"><div class="timeline-date">✅ 24.04</div><h3>Redwood Ring Sprint</h3><span class="status-completed">Завершено</span></div>
+        <div class="timeline-item"><div class="timeline-date">✅ 01.05</div><h3>Redwood Ring Race</h3><span class="status-completed">Завершено</span></div>
+        <div class="timeline-item"><div class="timeline-date">✅ 08.05</div><h3>Vinewood Grand Prix</h3><span class="status-completed">Завершено</span></div>
+        <div class="timeline-item"><div class="timeline-date">✅ 15.05</div><h3>China GP Sprint</h3><span class="status-completed">Завершено</span></div>
+        <div class="timeline-item"><div class="timeline-date">✅ 22.05</div><h3>China GP Race</h3><span class="status-completed">Завершено</span></div>
+        <div class="timeline-item"><div class="timeline-date">🔥 05.06</div><h3>Senora Desert GP</h3><span class="status-upcoming">Предстоит</span></div>
+        <div class="timeline-item"><div class="timeline-date">19.06</div><h3>Downtown LS Circuit</h3><span class="status-upcoming">Предстоит</span></div>
     </div>
 </section>
 
 <footer class="footer">
-    <p>GTA Formula 1 Championship • СЕЗОН 3 В РАЗГАРЕ • 5 гонок завершено</p>
+    <p>GTA Formula 1 Championship • СЕЗОН 3 • 7 гонок завершено • Погоня за титулом продолжается</p>
 </footer>
 
 <script>
-    // ---------- ДАННЫЕ СЕЗОНА 3 (новые гонки) ----------
+    // --------------------------------------------------------------
+    // ПОЛНЫЕ ДАННЫЕ 3 СЕЗОНА (7 гонок)
+    // --------------------------------------------------------------
     const racesData = {
-        'oracle-circuit': {
-            title: 'Oracle Circuit Race', date: '10.04.2026',
+        'oracle-circuit': { title: 'Oracle Circuit Race', date: '10.04.2026',
             results: [
                 {position:1, name:'jetleoden', team:'Benefactor', points:25, status:'finished', teamKey:'benefactor', num:'6'},
                 {position:2, name:'kastillio', team:'Benefactor', points:18, status:'finished', teamKey:'benefactor', num:'1'},
@@ -387,8 +382,7 @@
                 {position:6, name:'LIL_MAGA', team:'Progen', points:8, status:'finished', teamKey:'progen', num:'4'},
                 {position:'DSQ', name:'FloeSS', team:'Atomic', points:0, status:'dsq', reason:'Несоответствие комплектации', teamKey:'atomic', num:'7'}
             ]},
-        'mexico-city': {
-            title: 'Mexico City GP', date: '17.04.2026',
+        'mexico-city': { title: 'Mexico City GP', date: '17.04.2026',
             results: [
                 {position:1, name:'Tail_', team:'Racing Redwood', points:25, status:'finished', teamKey:'racing-redwood', num:'69'},
                 {position:2, name:'SOVYCH05', team:'Ocelot', points:18, status:'finished', teamKey:'ocelot', num:'88'},
@@ -401,18 +395,16 @@
                 {position:'DSQ', name:'Tihon34', team:'Banshee', points:0, status:'dsq', reason:'Виновник массовой аварии', teamKey:'banshee', num:'34'},
                 {position:'DSQ', name:'vitall_duo', team:'Redwood', points:0, status:'dsq', reason:'Многочисленные аварии', teamKey:'redwood', num:'5'}
             ]},
-        'redwood-sprint': {
-            title: 'Redwood Ring Sprint', date: '24.04.2026',
+        'redwood-sprint': { title: 'Redwood Ring Sprint', date: '24.04.2026',
             results: [
                 {position:1, name:'SOVYCH05', team:'Ocelot', points:8, status:'finished', teamKey:'ocelot', num:'88'},
                 {position:2, name:'jetleoden', team:'Benefactor', points:7, status:'finished', teamKey:'benefactor', num:'6'},
                 {position:3, name:'kastillio', team:'Benefactor', points:6, status:'finished', teamKey:'benefactor', num:'1'},
                 {position:4, name:'femtuza', team:'Grotti', points:5, status:'finished', teamKey:'grotti', num:'11'},
                 {position:5, name:'Tihon34', team:'Banshee', points:4, status:'finished', teamKey:'banshee', num:'34'},
-                {position:'DNF', name:'vitall_duo', team:'Redwood', points:0, status:'dnf', reason:'Авария', teamKey:'redwood'}
+                {position:'DSQ', name:'vitall_duo', team:'Redwood', points:0, status:'dsq', reason:'Нарушение', teamKey:'redwood', num:'5'}
             ]},
-        'redwood-ring': {
-            title: 'Redwood Ring Race', date: '01.05.2026',
+        'redwood-ring': { title: 'Redwood Ring Race', date: '01.05.2026',
             results: [
                 {position:1, name:'kastillio', team:'Benefactor', points:25, status:'finished', teamKey:'benefactor', num:'1'},
                 {position:2, name:'jetleoden', team:'Benefactor', points:18, status:'finished', teamKey:'benefactor', num:'6'},
@@ -422,47 +414,76 @@
                 {position:6, name:'Vin_Disel69', team:'Atomic', points:8, status:'finished', teamKey:'atomic', num:'33'},
                 {position:7, name:'JOSYLVIO', team:'Ocelot', points:6, status:'finished', teamKey:'ocelot', num:'49'},
                 {position:8, name:'Tihon34', team:'Banshee', points:4, status:'finished', teamKey:'banshee', num:'34'},
-                {position:'DNF', name:'Tail_', team:'Racing Redwood', points:0, status:'dnf', reason:'Авария', teamKey:'racing-redwood'}
+                {position:'DNF', name:'Tail_', team:'Racing Redwood', points:0, status:'dnf', reason:'Авария', teamKey:'racing-redwood'},
+                {position:'DSQ', name:'vitall_duo', team:'Redwood', points:0, status:'dsq', reason:'Дисквалификация', teamKey:'redwood'}
             ]},
-        'vinewood-gp': {
-            title: 'Vinewood Grand Prix', date: '08.05.2026',
+        'vinewood-gp': { title: 'Vinewood Grand Prix', date: '08.05.2026',
             results: [
                 {position:1, name:'jetleoden', team:'Benefactor', points:25, status:'finished', teamKey:'benefactor', num:'6'},
                 {position:2, name:'SOVYCH05', team:'Ocelot', points:18, status:'finished', teamKey:'ocelot', num:'88'},
-                {position:3, name:'JOSYLVIO', team:'Ocelot', points:12, status:'finished', teamKey:'ocelot', num:'49'},
+                {position:3, name:'JOSYLVIO', team:'Ocelot', points:15, status:'finished', teamKey:'ocelot', num:'49'},
                 {position:4, name:'Vin_Disel69', team:'Atomic', points:10, status:'finished', teamKey:'atomic', num:'33'},
                 {position:5, name:'Ruslan_222', team:'Banshee', points:8, status:'finished', teamKey:'banshee', num:'76'},
-                {position:'DSQ', name:'vitall_duo', team:'Redwood', points:0, status:'dsq', reason:'Многочисленные аварии', teamKey:'redwood', num:'5'},
+                {position:'DSQ', name:'vitall_duo', team:'Redwood', points:0, status:'dsq', reason:'Многочисленные аварии', teamKey:'redwood'},
                 {position:'DNF', name:'kastillio', team:'Benefactor', points:0, status:'dnf', reason:'Авария c Vin_Disel69', teamKey:'benefactor'},
-                {position:'DNF', name:'FloeSS', team:'Atomic', points:0, status:'dnf', reason:'Авария с Vin_Disel69 и jetleoden', teamKey:'atomic'}
+                {position:'DNF', name:'FloeSS', team:'Atomic', points:0, status:'dnf', reason:'Авария с Vin_Disel69', teamKey:'atomic'}
+            ]},
+        'china-sprint': { title: 'China GP Sprint', date: '15.05.2026',
+            results: [
+                {position:1, name:'kastillio', team:'Benefactor', points:8, status:'finished', teamKey:'benefactor', num:'1'},
+                {position:2, name:'jetleoden', team:'Benefactor', points:7, status:'finished', teamKey:'benefactor', num:'6'},
+                {position:3, name:'Vin_Disel69', team:'Atomic', points:6, status:'finished', teamKey:'atomic', num:'33'},
+                {position:4, name:'femtuza', team:'Grotti', points:5, status:'finished', teamKey:'grotti', num:'11'},
+                {position:5, name:'SOVYCH05', team:'Ocelot', points:4, status:'finished', teamKey:'ocelot', num:'88'},
+                {position:6, name:'Ruslan_222', team:'Banshee', points:3, status:'finished', teamKey:'banshee', num:'76'},
+                {position:7, name:'Mamin_Evreichic', team:'Ocelot', points:2, status:'finished', teamKey:'ocelot', num:'14'},
+                {position:8, name:'kanatkazx', team:'Redwood', points:1, status:'finished', teamKey:'redwood', num:'54'},
+                {position:9, name:'Tihon34', team:'Banshee', points:0, status:'finished', teamKey:'banshee', num:'34'},
+                {position:'DSQ', name:'vitall_duo', team:'Redwood', points:0, status:'dsq', reason:'Нарушение', teamKey:'redwood'},
+                {position:'DNF', name:'kana67', team:'Stronzo', points:0, status:'dnf', reason:'Сход', teamKey:'stronzo'}
+            ]},
+        'china-race': { title: 'China GP Race', date: '22.05.2026',
+            results: [
+                {position:1, name:'kastillio', team:'Benefactor', points:25, status:'finished', teamKey:'benefactor', num:'1'},
+                {position:2, name:'FloeSS', team:'Atomic', points:18, status:'finished', teamKey:'atomic', num:'7'},
+                {position:3, name:'Mamin_Evreichic', team:'Ocelot', points:15, status:'finished', teamKey:'ocelot', num:'14'},
+                {position:4, name:'Tihon34', team:'Banshee', points:12, status:'finished', teamKey:'banshee', num:'34'},
+                {position:5, name:'Ruslan_222', team:'Banshee', points:10, status:'finished', teamKey:'banshee', num:'76'},
+                {position:6, name:'kanatkazx', team:'Redwood', points:8, status:'finished', teamKey:'redwood', num:'54'},
+                {position:'DNF', name:'jetleoden', team:'Benefactor', points:0, status:'dnf', reason:'Авария с Ruslan_222', teamKey:'benefactor'},
+                {position:'DNF', name:'SOVYCH05', team:'Ocelot', points:0, status:'dnf', reason:'Авария с kanatkazx', teamKey:'ocelot'},
+                {position:'DNF', name:'Vin_Disel69', team:'Atomic', points:0, status:'dnf', reason:'Авария с kanatkazx', teamKey:'atomic'},
+                {position:'DSQ', name:'vitall_duo', team:'Redwood', points:0, status:'dsq', reason:'Дисквалификация', teamKey:'redwood'}
             ]}
     };
 
-    // Личный зачет (обновленный)
+    // Личный зачет (по заданию)
     const driverStandings = [
-        {name:'jetleoden', team:'Benefactor F1 Team', points:85, number:'6', teamKey:'benefactor'},
-        {name:'SOVYCH05', team:'Ocelot F1 Team', points:69, number:'88', teamKey:'ocelot'},
-        {name:'kastillio', team:'Benefactor F1 Team', points:49, number:'1', teamKey:'benefactor'},
-        {name:'Vin_Disel69', team:'Atomic F1 Team', points:42, number:'33', teamKey:'atomic'},
-        {name:'FloeSS', team:'Atomic F1 Team', points:27, number:'7', teamKey:'atomic'},
+        {name:'jetleoden', team:'Benefactor F1 Team', points:92, number:'6', teamKey:'benefactor'},
+        {name:'kastillio', team:'Benefactor F1 Team', points:82, number:'1', teamKey:'benefactor'},
+        {name:'SOVYCH05', team:'Ocelot F1 Team', points:73, number:'88', teamKey:'ocelot'},
+        {name:'Vin_Disel69', team:'Atomic F1 Team', points:48, number:'33', teamKey:'atomic'},
+        {name:'FloeSS', team:'Atomic F1 Team', points:45, number:'7', teamKey:'atomic'},
         {name:'Tail_', team:'Racing Redwood F1 Team', points:25, number:'69', teamKey:'racing-redwood'},
-        {name:'femtuza', team:'Grotti F1 Team', points:20, number:'11', teamKey:'grotti'},
-        {name:'JOSYLVIO', team:'Ocelot F1 Team', points:18, number:'49', teamKey:'ocelot'},
+        {name:'femtuza', team:'Grotti F1 Team', points:25, number:'11', teamKey:'grotti'},
+        {name:'JOSYLVIO', team:'Ocelot F1 Team', points:21, number:'49', teamKey:'ocelot'},
+        {name:'Tihon34', team:'Banshee F1 Team', points:20, number:'34', teamKey:'banshee'},
+        {name:'Mamin_Evreichic', team:'Ocelot F1 Team', points:17, number:'14', teamKey:'ocelot'},
+        {name:'Ruslan_222', team:'Banshee F1 Team', points:13, number:'76', teamKey:'banshee'},
+        {name:'kanatkazx', team:'Redwood F1 Team', points:9, number:'54', teamKey:'redwood'},
         {name:'LIL_MAGA', team:'Progen F1 Team', points:8, number:'4', teamKey:'progen'},
-        {name:'Tihon34', team:'Banshee F1 Team', points:8, number:'34', teamKey:'banshee'},
-        {name:'Ruslan_222', team:'Banshee F1 Team', points:8, number:'76', teamKey:'banshee'},
         {name:'vitall_duo', team:'Redwood F1 Team', points:0, number:'5', teamKey:'redwood'}
     ];
 
     const teamStandings = [
-        {name:'Benefactor F1 Team', points:134, key:'benefactor'},
-        {name:'Ocelot F1 Team', points:97, key:'ocelot'},
-        {name:'Atomic F1 Team', points:69, key:'atomic'},
+        {name:'Benefactor F1 Team', points:174, key:'benefactor'},
+        {name:'Ocelot F1 Team', points:118, key:'ocelot'},
+        {name:'Atomic F1 Team', points:93, key:'atomic'},
+        {name:'Banshee F1 Team', points:33, key:'banshee'},
         {name:'Racing Redwood F1 Team', points:25, key:'racing-redwood'},
-        {name:'Grotti F1 Team', points:20, key:'grotti'},
-        {name:'Banshee F1 Team', points:16, key:'banshee'},
+        {name:'Grotti F1 Team', points:25, key:'grotti'},
         {name:'Progen F1 Team', points:8, key:'progen'},
-        {name:'Redwood F1 Team', points:0, key:'redwood'}
+        {name:'Redwood F1 Team', points:1, key:'redwood'}
     ];
 
     const winnersList = [
@@ -470,7 +491,9 @@
         {race:'Mexico City GP', winner:'Tail_', team:'Racing Redwood', colorKey:'racing-redwood'},
         {race:'Redwood Ring Sprint', winner:'SOVYCH05', team:'Ocelot', colorKey:'ocelot'},
         {race:'Redwood Ring Race', winner:'kastillio', team:'Benefactor', colorKey:'benefactor'},
-        {race:'Vinewood Grand Prix', winner:'jetleoden', team:'Benefactor', colorKey:'benefactor'}
+        {race:'Vinewood GP', winner:'jetleoden', team:'Benefactor', colorKey:'benefactor'},
+        {race:'China GP Sprint', winner:'kastillio', team:'Benefactor', colorKey:'benefactor'},
+        {race:'China GP Race', winner:'kastillio', team:'Benefactor', colorKey:'benefactor'}
     ];
 
     function teamColorClass(key) {
@@ -485,7 +508,7 @@
     function renderRaceResults(raceId) {
         const race = racesData[raceId];
         if (!race) return;
-        let html = `<div class="race-header"><h3>${race.title}</h3><div>${race.date}</div></div>
+        let html = `<div><h3>${race.title}</h3><div>${race.date}</div></div>
         <table class="results-table"><thead><tr><th>Поз.</th><th>Пилот</th><th>Команда</th><th>Очки</th><th>Статус</th></tr></thead><tbody>`;
         race.results.forEach(r => {
             let posHtml = '';
@@ -506,7 +529,7 @@
             const teamCl = teamColorClass(r.teamKey);
             html += `<tr>
                 <td>${posHtml}</td>
-                <td><strong class="${teamCl}">${r.name} #${r.num || '—'}</strong>${r.note ? `<br><small>${r.note}</small>` : ''}</td>
+                <td><strong class="${teamCl}">${r.name} #${r.num || '?'}</strong>${r.note ? `<br><small>${r.note}</small>` : ''}</td>
                 <td class="${teamCl}">${r.team} F1 Team</td>
                 <td><strong>${r.points}</strong></td>
                 <td>${statusText}</td>
@@ -523,7 +546,9 @@
             {id:'mexico-city', name:'Mexico City GP'},
             {id:'redwood-sprint', name:'Redwood Ring Sprint'},
             {id:'redwood-ring', name:'Redwood Ring Race'},
-            {id:'vinewood-gp', name:'Vinewood Grand Prix'}
+            {id:'vinewood-gp', name:'Vinewood GP'},
+            {id:'china-sprint', name:'China GP Sprint'},
+            {id:'china-race', name:'China GP Race'}
         ];
         racesList.forEach((r, idx) => {
             let btn = document.createElement('button');
@@ -548,8 +573,8 @@
             const div = document.createElement('div');
             div.className = 'driver-item';
             div.innerHTML = `
-                <div style="background:rgba(0,242,254,0.2); width:45px; text-align:center; padding:0.5rem; border-radius:30px;">${idx+1}</div>
-                <div><div class="${cls}" style="font-weight:700;">${d.name} #${d.number}</div><div style="font-size:0.8rem;">${d.team}</div></div>
+                <div style="background:rgba(0,242,254,0.25); width:45px; text-align:center; padding:0.4rem; border-radius:30px;">${idx+1}</div>
+                <div><div class="${cls}" style="font-weight:700;">${d.name} #${d.number}</div><div style="font-size:0.75rem;">${d.team}</div></div>
                 <div class="driver-points">${d.points} pts</div>
             `;
             container.appendChild(div);
@@ -565,7 +590,7 @@
             const div = document.createElement('div');
             div.className = 'team-item';
             div.innerHTML = `
-                <div style="background:rgba(0,242,254,0.2); width:45px; text-align:center; padding:0.5rem; border-radius:30px;">${idx+1}</div>
+                <div style="background:rgba(0,242,254,0.25); width:45px; text-align:center; padding:0.4rem; border-radius:30px;">${idx+1}</div>
                 <div><div class="${cls}" style="font-weight:700;">${t.name}</div></div>
                 <div class="team-points">${t.points} pts</div>
             `;
@@ -580,13 +605,13 @@
         winnersList.forEach(w => {
             const card = document.createElement('div');
             card.className = 'winner-card';
-            card.innerHTML = `<i class="fas fa-trophy" style="font-size:2rem; color:#ffd966;"></i>
+            card.innerHTML = `<i class="fas fa-trophy" style="font-size:1.8rem; color:#ffcd4a;"></i>
             <div><div style="font-weight:800;">${w.race}</div><div><span class="${teamColorClass(w.colorKey)}">${w.winner}</span> (${w.team})</div></div>`;
             grid.appendChild(card);
         });
     }
 
-    // Навигация
+    // навигация
     function setupNavigation() {
         const links = document.querySelectorAll('.nav-link');
         const pages = document.querySelectorAll('.page');
