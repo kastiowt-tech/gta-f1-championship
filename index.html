@@ -20,7 +20,6 @@
             overflow-x: hidden;
         }
 
-        /* кибер-сетка */
         .glow-matrix {
             position: fixed;
             top: 0;
@@ -207,7 +206,6 @@
         .dnf-badge { background: #dc2626; }
         .dsq-badge { background: #f97316; }
 
-        /* командные цвета */
         .team-benefactor { color: #2dd4bf !important; text-shadow: 0 0 4px #2dd4bf; }
         .team-ocelot { color: #f9a8d4 !important; text-shadow: 0 0 3px #f472b6; }
         .team-atomic { color: #3b82f6 !important; text-shadow: 0 0 3px #3b82f6; }
@@ -300,22 +298,22 @@
     <div class="hero">
         <div class="season-badge"><i class="fas fa-fire"></i> СЕЗОН 3 — СТАРТОВАЛ!</div>
         <h1 class="hero-title">GTA Formula 1 Championship<br>НОВАЯ ЭРА СКОРОСТИ</h1>
-        <p style="font-size:1.2rem; margin:1rem 0">7 гонок позади, накал невероятный. Benefactor доминирует, но Ocelot и Atomic наступают.</p>
+        <p style="font-size:1.2rem; margin:1rem 0">8 гонок позади, накал невероятный. Benefactor доминирует, но Ocelot и Atomic наступают.</p>
         <a href="#results" class="btn" data-page="results">Изучить результаты →</a>
     </div>
     <div class="stats-grid">
-        <div class="stat-card"><div class="stat-number">15</div><div>Пилотов</div></div>
+        <div class="stat-card"><div class="stat-number">16</div><div>Пилотов</div></div>
         <div class="stat-card"><div class="stat-number">8</div><div>Команд</div></div>
-        <div class="stat-card"><div class="stat-number">7</div><div>Гонок</div></div>
-        <div class="stat-card"><div class="stat-number">92</div><div>Очков лидера</div></div>
+        <div class="stat-card"><div class="stat-number">8</div><div>Гонок</div></div>
+        <div class="stat-card"><div class="stat-number">110</div><div>Очков лидера</div></div>
     </div>
     <div class="glass-panel">
-        <h3><i class="fas fa-trophy" style="color: var(--cyan-core);"></i> Лидер чемпионата: jetleoden (Benefactor) — 92 очка</h3>
+        <h3><i class="fas fa-trophy" style="color: var(--cyan-core);"></i> Лидер чемпионата: jetleoden (Benefactor) — 110 очков</h3>
         <p style="margin-top: 10px;">kastillio и SOVYCH05 ведут жесткую борьбу за титул. Новые этапы уже в календаре!</p>
     </div>
 </section>
 
-<!-- Результаты гонок (все 7 этапов) -->
+<!-- Результаты гонок (все 8 этапов) -->
 <section id="results" class="page">
     <h2 style="margin-bottom: 2rem;">🏁 РЕЗУЛЬТАТЫ ГОНОК — СЕЗОН 3</h2>
     <div class="race-selector" id="raceSelector"></div>
@@ -342,7 +340,7 @@
 <section id="winners" class="page">
     <div class="winners-header">
         <h1 style="font-size:2.2rem;">🏆 WINNERS — 3 СЕЗОН</h1>
-        <p>Oracle · Mexico · Redwood Sprint · Redwood Race · Vinewood · China Sprint · China Race</p>
+        <p>Oracle · Mexico · Redwood Sprint · Redwood Race · Vinewood · China Sprint · China Race · Austria GP</p>
     </div>
     <div class="winners-grid" id="winnersGrid"></div>
 </section>
@@ -358,18 +356,19 @@
         <div class="timeline-item"><div class="timeline-date">✅ 08.05</div><h3>Vinewood Grand Prix</h3><span class="status-completed">Завершено</span></div>
         <div class="timeline-item"><div class="timeline-date">✅ 15.05</div><h3>China GP Sprint</h3><span class="status-completed">Завершено</span></div>
         <div class="timeline-item"><div class="timeline-date">✅ 22.05</div><h3>China GP Race</h3><span class="status-completed">Завершено</span></div>
-        <div class="timeline-item"><div class="timeline-date">🔥 05.06</div><h3>Senora Desert GP</h3><span class="status-upcoming">Предстоит</span></div>
-        <div class="timeline-item"><div class="timeline-date">19.06</div><h3>Downtown LS Circuit</h3><span class="status-upcoming">Предстоит</span></div>
+        <div class="timeline-item"><div class="timeline-date">✅ 29.05</div><h3>Austria GP</h3><span class="status-completed">Завершено</span></div>
+        <div class="timeline-item"><div class="timeline-date">🔥 12.06</div><h3>Senora Desert GP</h3><span class="status-upcoming">Предстоит</span></div>
+        <div class="timeline-item"><div class="timeline-date">26.06</div><h3>Downtown LS Circuit</h3><span class="status-upcoming">Предстоит</span></div>
     </div>
 </section>
 
 <footer class="footer">
-    <p>GTA Formula 1 Championship • СЕЗОН 3 • 7 гонок завершено • Погоня за титулом продолжается</p>
+    <p>GTA Formula 1 Championship • СЕЗОН 3 • 8 гонок завершено • Погоня за титулом продолжается</p>
 </footer>
 
 <script>
     // --------------------------------------------------------------
-    // ПОЛНЫЕ ДАННЫЕ 3 СЕЗОНА (7 гонок)
+    // ПОЛНЫЕ ДАННЫЕ 3 СЕЗОНА (8 гонок)
     // --------------------------------------------------------------
     const racesData = {
         'oracle-circuit': { title: 'Oracle Circuit Race', date: '10.04.2026',
@@ -402,7 +401,7 @@
                 {position:3, name:'kastillio', team:'Benefactor', points:6, status:'finished', teamKey:'benefactor', num:'1'},
                 {position:4, name:'femtuza', team:'Grotti', points:5, status:'finished', teamKey:'grotti', num:'11'},
                 {position:5, name:'Tihon34', team:'Banshee', points:4, status:'finished', teamKey:'banshee', num:'34'},
-                {position:'DSQ', name:'vitall_duo', team:'Redwood', points:0, status:'dsq', reason:'Нарушение', teamKey:'redwood', num:'5'}
+                {position:'DNF', name:'vitall_duo', team:'Redwood', points:0, status:'dnf', reason:'Авария', teamKey:'redwood', num:'5'}
             ]},
         'redwood-ring': { title: 'Redwood Ring Race', date: '01.05.2026',
             results: [
@@ -414,14 +413,13 @@
                 {position:6, name:'Vin_Disel69', team:'Atomic', points:8, status:'finished', teamKey:'atomic', num:'33'},
                 {position:7, name:'JOSYLVIO', team:'Ocelot', points:6, status:'finished', teamKey:'ocelot', num:'49'},
                 {position:8, name:'Tihon34', team:'Banshee', points:4, status:'finished', teamKey:'banshee', num:'34'},
-                {position:'DNF', name:'Tail_', team:'Racing Redwood', points:0, status:'dnf', reason:'Авария', teamKey:'racing-redwood'},
-                {position:'DSQ', name:'vitall_duo', team:'Redwood', points:0, status:'dsq', reason:'Дисквалификация', teamKey:'redwood'}
+                {position:'DNF', name:'Tail_', team:'Racing Redwood', points:0, status:'dnf', reason:'Авария', teamKey:'racing-redwood'}
             ]},
         'vinewood-gp': { title: 'Vinewood Grand Prix', date: '08.05.2026',
             results: [
                 {position:1, name:'jetleoden', team:'Benefactor', points:25, status:'finished', teamKey:'benefactor', num:'6'},
                 {position:2, name:'SOVYCH05', team:'Ocelot', points:18, status:'finished', teamKey:'ocelot', num:'88'},
-                {position:3, name:'JOSYLVIO', team:'Ocelot', points:15, status:'finished', teamKey:'ocelot', num:'49'},
+                {position:3, name:'JOSYLVIO', team:'Ocelot', points:12, status:'finished', teamKey:'ocelot', num:'49'},
                 {position:4, name:'Vin_Disel69', team:'Atomic', points:10, status:'finished', teamKey:'atomic', num:'33'},
                 {position:5, name:'Ruslan_222', team:'Banshee', points:8, status:'finished', teamKey:'banshee', num:'76'},
                 {position:'DSQ', name:'vitall_duo', team:'Redwood', points:0, status:'dsq', reason:'Многочисленные аварии', teamKey:'redwood'},
@@ -454,36 +452,49 @@
                 {position:'DNF', name:'SOVYCH05', team:'Ocelot', points:0, status:'dnf', reason:'Авария с kanatkazx', teamKey:'ocelot'},
                 {position:'DNF', name:'Vin_Disel69', team:'Atomic', points:0, status:'dnf', reason:'Авария с kanatkazx', teamKey:'atomic'},
                 {position:'DSQ', name:'vitall_duo', team:'Redwood', points:0, status:'dsq', reason:'Дисквалификация', teamKey:'redwood'}
+            ]},
+        'austria-gp': { title: 'Austria GP', date: '29.05.2026',
+            results: [
+                {position:1, name:'Tail_', team:'Atomic', points:25, status:'finished', teamKey:'atomic', num:'69', note:'Замена'},
+                {position:2, name:'jetleoden', team:'Benefactor', points:18, status:'finished', teamKey:'benefactor', num:'6'},
+                {position:3, name:'FloeSS', team:'Benefactor', points:15, status:'finished', teamKey:'benefactor', num:'7'},
+                {position:4, name:'SOVYCH05', team:'Ocelot', points:12, status:'finished', teamKey:'ocelot', num:'88'},
+                {position:5, name:'JOSYLVIO', team:'Ocelot', points:10, status:'finished', teamKey:'ocelot', num:'49'},
+                {position:6, name:'Moiandr', team:'Banshee', points:8, status:'finished', teamKey:'banshee', num:'86'},
+                {position:'DNF', name:'kastillio', team:'Benefactor', points:0, status:'dnf', reason:'Авария', teamKey:'benefactor'},
+                {position:'DNF', name:'femtuza', team:'Grotti', points:0, status:'dnf', reason:'Авария', teamKey:'grotti'},
+                {position:'DNF', name:'tom_kruiser', team:'Stronzo', points:0, status:'dnf', reason:'Авария', teamKey:'stronzo'}
             ]}
     };
 
     // Личный зачет (по заданию)
     const driverStandings = [
-        {name:'jetleoden', team:'Benefactor F1 Team', points:92, number:'6', teamKey:'benefactor'},
+        {name:'jetleoden', team:'Benefactor F1 Team', points:110, number:'6', teamKey:'benefactor'},
+        {name:'SOVYCH05', team:'Ocelot F1 Team', points:85, number:'88', teamKey:'ocelot'},
         {name:'kastillio', team:'Benefactor F1 Team', points:82, number:'1', teamKey:'benefactor'},
-        {name:'SOVYCH05', team:'Ocelot F1 Team', points:73, number:'88', teamKey:'ocelot'},
+        {name:'FloeSS', team:'Atomic F1 Team', points:60, number:'7', teamKey:'atomic'},
+        {name:'Tail_', team:'Racing Redwood F1 Team', points:50, number:'69', teamKey:'racing-redwood'},
         {name:'Vin_Disel69', team:'Atomic F1 Team', points:48, number:'33', teamKey:'atomic'},
-        {name:'FloeSS', team:'Atomic F1 Team', points:45, number:'7', teamKey:'atomic'},
-        {name:'Tail_', team:'Racing Redwood F1 Team', points:25, number:'69', teamKey:'racing-redwood'},
+        {name:'JOSYLVIO', team:'Ocelot F1 Team', points:31, number:'49', teamKey:'ocelot'},
         {name:'femtuza', team:'Grotti F1 Team', points:25, number:'11', teamKey:'grotti'},
-        {name:'JOSYLVIO', team:'Ocelot F1 Team', points:21, number:'49', teamKey:'ocelot'},
         {name:'Tihon34', team:'Banshee F1 Team', points:20, number:'34', teamKey:'banshee'},
         {name:'Mamin_Evreichic', team:'Ocelot F1 Team', points:17, number:'14', teamKey:'ocelot'},
         {name:'Ruslan_222', team:'Banshee F1 Team', points:13, number:'76', teamKey:'banshee'},
         {name:'kanatkazx', team:'Redwood F1 Team', points:9, number:'54', teamKey:'redwood'},
         {name:'LIL_MAGA', team:'Progen F1 Team', points:8, number:'4', teamKey:'progen'},
+        {name:'Moiandr', team:'Banshee F1 Team', points:8, number:'86', teamKey:'banshee'},
         {name:'vitall_duo', team:'Redwood F1 Team', points:0, number:'5', teamKey:'redwood'}
     ];
 
     const teamStandings = [
-        {name:'Benefactor F1 Team', points:174, key:'benefactor'},
-        {name:'Ocelot F1 Team', points:118, key:'ocelot'},
-        {name:'Atomic F1 Team', points:93, key:'atomic'},
-        {name:'Banshee F1 Team', points:33, key:'banshee'},
+        {name:'Benefactor F1 Team', points:192, key:'benefactor'},
+        {name:'Ocelot F1 Team', points:140, key:'ocelot'},
+        {name:'Atomic F1 Team', points:133, key:'atomic'},
         {name:'Racing Redwood F1 Team', points:25, key:'racing-redwood'},
-        {name:'Grotti F1 Team', points:25, key:'grotti'},
+        {name:'Banshee F1 Team', points:24, key:'banshee'},
+        {name:'Grotti F1 Team', points:20, key:'grotti'},
         {name:'Progen F1 Team', points:8, key:'progen'},
-        {name:'Redwood F1 Team', points:1, key:'redwood'}
+        {name:'Redwood F1 Team', points:0, key:'redwood'}
     ];
 
     const winnersList = [
@@ -493,7 +504,8 @@
         {race:'Redwood Ring Race', winner:'kastillio', team:'Benefactor', colorKey:'benefactor'},
         {race:'Vinewood GP', winner:'jetleoden', team:'Benefactor', colorKey:'benefactor'},
         {race:'China GP Sprint', winner:'kastillio', team:'Benefactor', colorKey:'benefactor'},
-        {race:'China GP Race', winner:'kastillio', team:'Benefactor', colorKey:'benefactor'}
+        {race:'China GP Race', winner:'kastillio', team:'Benefactor', colorKey:'benefactor'},
+        {race:'Austria GP', winner:'Tail_', team:'Atomic', colorKey:'atomic'}
     ];
 
     function teamColorClass(key) {
@@ -548,7 +560,8 @@
             {id:'redwood-ring', name:'Redwood Ring Race'},
             {id:'vinewood-gp', name:'Vinewood GP'},
             {id:'china-sprint', name:'China GP Sprint'},
-            {id:'china-race', name:'China GP Race'}
+            {id:'china-race', name:'China GP Race'},
+            {id:'austria-gp', name:'Austria GP'}
         ];
         racesList.forEach((r, idx) => {
             let btn = document.createElement('button');
@@ -611,7 +624,6 @@
         });
     }
 
-    // навигация
     function setupNavigation() {
         const links = document.querySelectorAll('.nav-link');
         const pages = document.querySelectorAll('.page');
