@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>GTA F1 | Сезон 3 — Абсолютная скорость</title>
+    <title>GTA F1 | Сезон 3 — Формула скорости</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         * {
@@ -13,282 +13,318 @@
         }
 
         body {
-            background: radial-gradient(circle at 30% 10%, #030514 0%, #000000 100%);
-            color: #eef5ff;
-            font-family: 'Poppins', 'Segoe UI', system-ui, sans-serif;
+            background: #0a0a0f;
+            color: #e8edf5;
+            font-family: 'Titillium Web', 'Segoe UI', system-ui, sans-serif;
             min-height: 100vh;
             overflow-x: hidden;
         }
 
-        .glow-matrix {
+        .f1-grid {
             position: fixed;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
             z-index: -2;
-            background-image: 
-                repeating-linear-gradient(0deg, rgba(0, 255, 255, 0.05) 1px, transparent 1px),
-                repeating-linear-gradient(90deg, rgba(255, 0, 255, 0.05) 1px, transparent 1px);
-            background-size: 55px 55px;
-            opacity: 0.5;
+            background: 
+                linear-gradient(rgba(255, 30, 30, 0.04) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(255, 30, 30, 0.04) 1px, transparent 1px);
+            background-size: 60px 60px;
+            opacity: 0.6;
             pointer-events: none;
         }
 
         :root {
-            --cyan-core: #00f2fe;
-            --magenta-accent: #ff66cc;
-            --amber-glow: #ffcd4a;
-            --dark-glass: rgba(5, 10, 25, 0.7);
-            --border-cyber: rgba(0, 242, 254, 0.35);
+            --f1-red: #e10600;
+            --f1-dark: #0f0f1a;
+            --f1-gold: #ffd700;
+            --f1-silver: #c0c0c0;
+            --glass-bg: rgba(10, 10, 20, 0.8);
+            --border-f1: rgba(225, 6, 0, 0.4);
         }
 
         .navbar {
-            background: rgba(0, 0, 0, 0.9);
-            backdrop-filter: blur(18px);
-            padding: 0.8rem 2.5rem;
+            background: rgba(8, 8, 16, 0.95);
+            backdrop-filter: blur(16px);
+            padding: 0.7rem 2.5rem;
             position: fixed;
             top: 0;
             width: 100%;
             z-index: 1000;
-            border-bottom: 2px solid var(--cyan-core);
+            border-bottom: 3px solid var(--f1-red);
             display: flex;
             justify-content: space-between;
             align-items: center;
             flex-wrap: wrap;
-            box-shadow: 0 10px 30px -5px rgba(0,242,254,0.2);
+            box-shadow: 0 8px 30px rgba(225, 6, 0, 0.15);
         }
 
         .logo {
-            font-size: 1.9rem;
-            font-weight: 800;
-            background: linear-gradient(135deg, #ffffff, var(--cyan-core), var(--magenta-accent));
-            -webkit-background-clip: text;
-            background-clip: text;
-            color: transparent;
+            font-size: 1.8rem;
+            font-weight: 900;
+            letter-spacing: 1px;
+            color: #fff;
+            text-shadow: 0 0 20px rgba(225, 6, 0, 0.3);
         }
-        .logo i { color: var(--cyan-core); margin-right: 8px; }
+        .logo i { color: var(--f1-red); margin-right: 10px; }
+        .logo span { color: var(--f1-red); }
 
         .nav-links {
             display: flex;
-            gap: 0.5rem;
+            gap: 0.3rem;
             flex-wrap: wrap;
         }
         .nav-link {
-            color: #ccddf8;
+            color: #b0b8cc;
             text-decoration: none;
-            font-weight: 600;
-            padding: 0.5rem 1.3rem;
-            border-radius: 40px;
+            font-weight: 700;
+            padding: 0.5rem 1.2rem;
+            border-radius: 30px;
             transition: 0.25s;
-            font-size: 0.9rem;
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
         }
         .nav-link:hover, .nav-link.active {
-            background: rgba(0, 242, 254, 0.25);
+            background: rgba(225, 6, 0, 0.2);
             color: white;
-            box-shadow: 0 0 10px var(--cyan-core);
+            box-shadow: 0 0 12px rgba(225, 6, 0, 0.2);
         }
 
         .page {
             display: none;
             padding: 7rem 2rem 3rem;
-            animation: fadeSlide 0.5s ease;
+            animation: fadeSlide 0.4s ease;
             max-width: 1400px;
             margin: 0 auto;
         }
         .page.active { display: block; }
         @keyframes fadeSlide {
-            from { opacity: 0; transform: translateY(18px); }
+            from { opacity: 0; transform: translateY(15px); }
             to { opacity: 1; transform: translateY(0); }
         }
 
         .glass-panel {
-            background: var(--dark-glass);
-            backdrop-filter: blur(14px);
-            border-radius: 36px;
-            border: 1px solid var(--border-cyber);
+            background: var(--glass-bg);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            border: 1px solid var(--border-f1);
             padding: 2rem;
         }
 
         .hero {
             text-align: center;
-            background: linear-gradient(145deg, rgba(0, 40, 50, 0.7), rgba(20, 5, 40, 0.85));
-            border-radius: 56px;
+            background: linear-gradient(145deg, rgba(20, 10, 10, 0.8), rgba(5, 5, 15, 0.9));
+            border-radius: 24px;
             padding: 3rem 2rem;
-            border: 1px solid var(--cyan-core);
-            box-shadow: 0 20px 30px -12px black;
+            border: 2px solid var(--f1-red);
+            box-shadow: 0 20px 40px -10px rgba(225, 6, 0, 0.2);
         }
         .season-badge {
-            background: rgba(255, 205, 74, 0.2);
+            background: rgba(225, 6, 0, 0.2);
             display: inline-block;
             padding: 0.3rem 1.5rem;
-            border-radius: 60px;
+            border-radius: 30px;
             font-weight: 700;
-            color: var(--amber-glow);
-            border: 1px solid var(--amber-glow);
+            color: var(--f1-red);
+            border: 1px solid var(--f1-red);
             margin-bottom: 1rem;
+            text-transform: uppercase;
         }
         .hero-title {
             font-size: 3.5rem;
-            font-weight: 800;
-            background: linear-gradient(120deg, #fff, var(--cyan-core), #ff99ff);
+            font-weight: 900;
+            text-transform: uppercase;
+            background: linear-gradient(135deg, #fff, #e10600);
             -webkit-background-clip: text;
             background-clip: text;
             color: transparent;
         }
         .stats-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
-            gap: 1.5rem;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 1.2rem;
             margin: 2rem 0;
         }
         .stat-card {
-            background: rgba(0, 0, 0, 0.6);
-            border-radius: 28px;
-            padding: 1.3rem;
+            background: rgba(0, 0, 0, 0.5);
+            border-radius: 16px;
+            padding: 1.2rem;
             text-align: center;
-            border: 1px solid var(--border-cyber);
+            border: 1px solid var(--border-f1);
         }
         .stat-number {
-            font-size: 2.8rem;
+            font-size: 2.5rem;
             font-weight: 900;
-            color: var(--cyan-core);
+            color: var(--f1-red);
         }
 
         .race-selector {
             display: flex;
-            gap: 12px;
+            gap: 10px;
             flex-wrap: wrap;
-            margin-bottom: 2rem;
+            margin-bottom: 1.5rem;
         }
         .race-btn {
-            background: #0a0e1c;
-            border: 1px solid #2a2f60;
-            padding: 0.7rem 1.6rem;
-            border-radius: 40px;
-            color: white;
-            font-weight: 600;
+            background: #14141f;
+            border: 1px solid #2a2a3a;
+            padding: 0.6rem 1.4rem;
+            border-radius: 30px;
+            color: #b0b8cc;
+            font-weight: 700;
             cursor: pointer;
             transition: 0.2s;
+            font-size: 0.8rem;
+            text-transform: uppercase;
         }
         .race-btn.active, .race-btn:hover {
-            background: var(--cyan-core);
-            color: #03050b;
-            border-color: var(--cyan-core);
-            box-shadow: 0 0 12px var(--cyan-core);
+            background: var(--f1-red);
+            color: white;
+            border-color: var(--f1-red);
+            box-shadow: 0 0 15px rgba(225, 6, 0, 0.3);
         }
         .results-table {
             width: 100%;
             border-collapse: collapse;
+            font-size: 0.95rem;
         }
         .results-table th {
             text-align: left;
-            padding: 1rem;
-            background: rgba(0, 242, 254, 0.15);
+            padding: 0.8rem 1rem;
+            background: rgba(225, 6, 0, 0.15);
+            font-weight: 700;
+            text-transform: uppercase;
         }
         .results-table td {
-            padding: 0.9rem 1rem;
-            border-bottom: 1px solid rgba(255,255,255,0.08);
+            padding: 0.7rem 1rem;
+            border-bottom: 1px solid rgba(255,255,255,0.06);
         }
         .position {
             display: inline-block;
-            width: 40px;
-            height: 40px;
-            line-height: 40px;
+            width: 36px;
+            height: 36px;
+            line-height: 36px;
             text-align: center;
-            border-radius: 20px;
-            font-weight: 800;
+            border-radius: 50%;
+            font-weight: 900;
         }
-        .pos-1 { background: linear-gradient(145deg, #FFD966, #f5a623); color: #000; box-shadow: 0 0 8px gold; }
-        .pos-2 { background: #b0c4de; color: #111; }
-        .pos-3 { background: #cd7f56; color: #111; }
-        .dnf-badge, .dsq-badge { padding: 4px 14px; border-radius: 50px; font-weight: 700; font-size: 0.75rem; }
+        .pos-1 { background: linear-gradient(135deg, #ffd700, #f5a623); color: #000; }
+        .pos-2 { background: linear-gradient(135deg, #c0c0c0, #a0a0a0); color: #000; }
+        .pos-3 { background: linear-gradient(135deg, #cd7f32, #a65c00); color: #000; }
+        .pos-other { background: rgba(255,255,255,0.08); color: #fff; }
+        .dnf-badge, .dsq-badge { padding: 3px 12px; border-radius: 20px; font-weight: 700; font-size: 0.7rem; }
         .dnf-badge { background: #dc2626; }
         .dsq-badge { background: #f97316; }
+        .qualy-pos { font-size: 0.65rem; color: #888; margin-left: 4px; display: inline-block; }
 
-        .team-benefactor { color: #2dd4bf !important; text-shadow: 0 0 4px #2dd4bf; }
-        .team-ocelot { color: #f9a8d4 !important; text-shadow: 0 0 3px #f472b6; }
-        .team-atomic { color: #3b82f6 !important; text-shadow: 0 0 3px #3b82f6; }
+        .team-benefactor { color: #2dd4bf !important; }
+        .team-ocelot { color: #f9a8d4 !important; }
+        .team-atomic { color: #3b82f6 !important; }
         .team-progen { color: #fb923c !important; }
         .team-racing-redwood { color: #b91c1c !important; }
         .team-grotti { color: #f472b6 !important; }
-        .team-banshee { color: #facc15 !important; text-shadow: 0 0 3px #eab308; }
+        .team-banshee { color: #facc15 !important; }
         .team-stronzo { color: #9ca3af !important; }
         .team-redwood { color: #ef4444 !important; }
+        .team-dewbauchee { color: #4ade80 !important; }
+        .team-meinmacht { color: #ff3333 !important; }
+        .team-xero { color: #9ca3af !important; }
 
         .driver-item, .team-item {
             display: flex;
             align-items: center;
             gap: 1rem;
-            padding: 0.8rem;
+            padding: 0.7rem;
             background: rgba(255,255,255,0.02);
-            border-radius: 28px;
-            margin-bottom: 0.6rem;
+            border-radius: 16px;
+            margin-bottom: 0.5rem;
             transition: 0.2s;
         }
-        .driver-points, .team-points { font-size: 1.5rem; font-weight: 800; color: var(--cyan-core); }
+        .driver-item:hover, .team-item:hover {
+            background: rgba(225, 6, 0, 0.08);
+        }
+        .driver-points, .team-points { font-size: 1.4rem; font-weight: 900; color: var(--f1-red); }
 
         .winners-header {
             text-align: center;
-            padding: 1.8rem;
-            background: rgba(0,0,0,0.6);
-            border-radius: 48px;
-            margin-bottom: 2rem;
+            padding: 1.5rem;
+            background: rgba(0,0,0,0.5);
+            border-radius: 20px;
+            margin-bottom: 1.5rem;
+            border: 2px solid var(--f1-red);
         }
         .winners-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(260px,1fr));
-            gap: 1.2rem;
+            grid-template-columns: repeat(auto-fit, minmax(240px,1fr));
+            gap: 1rem;
         }
         .winner-card {
-            background: #0b0e1a;
-            border-radius: 32px;
-            padding: 1rem 1.2rem;
+            background: #0f0f1a;
+            border-radius: 16px;
+            padding: 0.8rem 1.2rem;
             display: flex;
             align-items: center;
             gap: 1rem;
-            border-left: 6px solid var(--cyan-core);
+            border-left: 5px solid var(--f1-red);
         }
         .timeline-item {
             background: rgba(0,0,0,0.5);
-            border-radius: 24px;
-            padding: 1rem;
-            margin-bottom: 1rem;
-            border-left: 4px solid #2dd4bf;
+            border-radius: 16px;
+            padding: 0.8rem 1.2rem;
+            margin-bottom: 0.8rem;
+            border-left: 4px solid var(--f1-red);
         }
-        .status-completed { background: #00b37e; color: #000; padding: 4px 12px; border-radius: 20px; font-size: 0.75rem; margin-left: 12px; font-weight: 600; }
-        .status-upcoming { background: #facc15; color: #000; padding: 4px 12px; border-radius: 20px; font-size: 0.75rem; }
+        .status-completed { background: #16a34a; color: #fff; padding: 3px 12px; border-radius: 20px; font-size: 0.7rem; margin-left: 12px; font-weight: 600; }
+        .status-upcoming { background: #facc15; color: #000; padding: 3px 12px; border-radius: 20px; font-size: 0.7rem; }
         .btn {
-            background: linear-gradient(95deg, var(--cyan-core), #0e6b75);
-            color: #000;
-            padding: 0.8rem 2rem;
-            border-radius: 40px;
+            background: var(--f1-red);
+            color: #fff;
+            padding: 0.7rem 2rem;
+            border-radius: 30px;
             font-weight: 700;
             text-decoration: none;
             display: inline-block;
+            text-transform: uppercase;
+            transition: 0.2s;
         }
+        .btn:hover { box-shadow: 0 0 20px rgba(225, 6, 0, 0.4); transform: translateY(-2px); }
         .footer {
             text-align: center;
-            padding: 2rem;
-            border-top: 1px solid var(--border-cyber);
-            margin-top: 3rem;
+            padding: 1.5rem;
+            border-top: 1px solid var(--border-f1);
+            margin-top: 2.5rem;
+            color: #666;
+            font-size: 0.85rem;
         }
         @media (max-width: 780px) {
-            .navbar { flex-direction: column; gap: 10px; }
+            .navbar { flex-direction: column; gap: 8px; }
             .hero-title { font-size: 2rem; }
+            .results-table { font-size: 0.8rem; }
         }
+
+        .record-card {
+            background: rgba(0,0,0,0.4);
+            border-radius: 16px;
+            padding: 1.2rem;
+            border-left: 4px solid var(--f1-gold);
+            margin-bottom: 0.8rem;
+        }
+        .record-card .record-title { font-weight: 700; color: var(--f1-gold); }
+        .record-card .record-value { font-size: 1.2rem; }
     </style>
 </head>
 <body>
-<div class="glow-matrix"></div>
+<div class="f1-grid"></div>
 <nav class="navbar">
-    <div class="logo"><i class="fas fa-flag-checkered"></i> GTA F1 • СЕЗОН 3</div>
+    <div class="logo"><i class="fas fa-flag-checkered"></i> GTA <span>F1</span> • СЕЗОН 3</div>
     <div class="nav-links">
         <a href="#home" class="nav-link active" data-page="home">Главная</a>
         <a href="#results" class="nav-link" data-page="results">Результаты гонок</a>
         <a href="#drivers" class="nav-link" data-page="drivers">Личный зачет</a>
         <a href="#constructors" class="nav-link" data-page="constructors">Кубок конструкторов</a>
         <a href="#winners" class="nav-link" data-page="winners">Победители</a>
+        <a href="#records" class="nav-link" data-page="records">Рекорды</a>
         <a href="#schedule" class="nav-link" data-page="schedule">Расписание</a>
     </div>
 </nav>
@@ -298,22 +334,22 @@
     <div class="hero">
         <div class="season-badge"><i class="fas fa-fire"></i> СЕЗОН 3 — СТАРТОВАЛ!</div>
         <h1 class="hero-title">GTA Formula 1 Championship<br>НОВАЯ ЭРА СКОРОСТИ</h1>
-        <p style="font-size:1.2rem; margin:1rem 0">8 гонок позади, накал невероятный. Benefactor доминирует, но Ocelot и Atomic наступают.</p>
+        <p style="font-size:1.2rem; margin:1rem 0; color:#aaa;">13 гонок позади, накал невероятный. Benefactor лидирует в КК, но Dewbauchee и Atomic наступают.</p>
         <a href="#results" class="btn" data-page="results">Изучить результаты →</a>
     </div>
     <div class="stats-grid">
         <div class="stat-card"><div class="stat-number">16</div><div>Пилотов</div></div>
-        <div class="stat-card"><div class="stat-number">8</div><div>Команд</div></div>
-        <div class="stat-card"><div class="stat-number">8</div><div>Гонок</div></div>
-        <div class="stat-card"><div class="stat-number">110</div><div>Очков лидера</div></div>
+        <div class="stat-card"><div class="stat-number">9</div><div>Команд</div></div>
+        <div class="stat-card"><div class="stat-number">13</div><div>Гонок</div></div>
+        <div class="stat-card"><div class="stat-number">185</div><div>Очков лидера</div></div>
     </div>
     <div class="glass-panel">
-        <h3><i class="fas fa-trophy" style="color: var(--cyan-core);"></i> Лидер чемпионата: jetleoden (Benefactor) — 110 очков</h3>
-        <p style="margin-top: 10px;">kastillio и SOVYCH05 ведут жесткую борьбу за титул. Новые этапы уже в календаре!</p>
+        <h3><i class="fas fa-trophy" style="color: var(--f1-red);"></i> Лидер чемпионата: jetleoden (Benefactor) — 185 очков</h3>
+        <p style="margin-top: 10px;">kastillio на Dewbauchee сокращает отставание, а SOVYCH05 и Tail_ ведут жесткую борьбу за подиум.</p>
     </div>
 </section>
 
-<!-- Результаты гонок (все 8 этапов) -->
+<!-- Результаты гонок -->
 <section id="results" class="page">
     <h2 style="margin-bottom: 2rem;">🏁 РЕЗУЛЬТАТЫ ГОНОК — СЕЗОН 3</h2>
     <div class="race-selector" id="raceSelector"></div>
@@ -323,196 +359,281 @@
 <!-- Личный зачет -->
 <section id="drivers" class="page">
     <h2 style="margin-bottom: 2rem;">🏆 ЛИЧНЫЙ ЗАЧЕТ ПИЛОТОВ</h2>
-    <div class="glass-panel">
-        <div id="driverStandingsList"></div>
-    </div>
+    <div class="glass-panel"><div id="driverStandingsList"></div></div>
 </section>
 
 <!-- Кубок конструкторов -->
 <section id="constructors" class="page">
     <h2 style="margin-bottom: 2rem;">🏭 КУБОК КОНСТРУКТОРОВ</h2>
-    <div class="glass-panel">
-        <div id="teamStandingsList"></div>
-    </div>
+    <div class="glass-panel"><div id="teamStandingsList"></div></div>
 </section>
 
 <!-- Победители -->
 <section id="winners" class="page">
-    <div class="winners-header">
-        <h1 style="font-size:2.2rem;">🏆 WINNERS — 3 СЕЗОН</h1>
-        <p>Oracle · Mexico · Redwood Sprint · Redwood Race · Vinewood · China Sprint · China Race · Austria GP</p>
-    </div>
+    <div class="winners-header"><h1 style="font-size:2rem;">🏆 ПОБЕДИТЕЛИ — СЕЗОН 3</h1></div>
     <div class="winners-grid" id="winnersGrid"></div>
+</section>
+
+<!-- Рекорды -->
+<section id="records" class="page">
+    <h2 style="margin-bottom: 2rem;">📊 РЕКОРДЫ ЧЕМПИОНАТА</h2>
+    <div class="glass-panel"><div id="recordsList"></div></div>
 </section>
 
 <!-- Расписание -->
 <section id="schedule" class="page">
     <h2 style="margin-bottom: 2rem;">📅 КАЛЕНДАРЬ 3 СЕЗОНА</h2>
-    <div style="max-width: 800px; margin:0 auto">
-        <div class="timeline-item"><div class="timeline-date">✅ 10.04</div><h3>Oracle Circuit Race</h3><span class="status-completed">Завершено</span></div>
-        <div class="timeline-item"><div class="timeline-date">✅ 17.04</div><h3>Mexico City GP</h3><span class="status-completed">Завершено</span></div>
-        <div class="timeline-item"><div class="timeline-date">✅ 24.04</div><h3>Redwood Ring Sprint</h3><span class="status-completed">Завершено</span></div>
-        <div class="timeline-item"><div class="timeline-date">✅ 01.05</div><h3>Redwood Ring Race</h3><span class="status-completed">Завершено</span></div>
-        <div class="timeline-item"><div class="timeline-date">✅ 08.05</div><h3>Vinewood Grand Prix</h3><span class="status-completed">Завершено</span></div>
-        <div class="timeline-item"><div class="timeline-date">✅ 15.05</div><h3>China GP Sprint</h3><span class="status-completed">Завершено</span></div>
-        <div class="timeline-item"><div class="timeline-date">✅ 22.05</div><h3>China GP Race</h3><span class="status-completed">Завершено</span></div>
-        <div class="timeline-item"><div class="timeline-date">✅ 29.05</div><h3>Austria GP</h3><span class="status-completed">Завершено</span></div>
-        <div class="timeline-item"><div class="timeline-date">🔥 12.06</div><h3>Senora Desert GP</h3><span class="status-upcoming">Предстоит</span></div>
-        <div class="timeline-item"><div class="timeline-date">26.06</div><h3>Downtown LS Circuit</h3><span class="status-upcoming">Предстоит</span></div>
-    </div>
+    <div style="max-width: 800px; margin:0 auto" id="scheduleList"></div>
 </section>
 
 <footer class="footer">
-    <p>GTA Formula 1 Championship • СЕЗОН 3 • 8 гонок завершено • Погоня за титулом продолжается</p>
+    <p>GTA Formula 1 Championship • СЕЗОН 3 • 13 гонок завершено • Погоня за титулом продолжается</p>
 </footer>
 
 <script>
     // --------------------------------------------------------------
-    // ПОЛНЫЕ ДАННЫЕ 3 СЕЗОНА (8 гонок)
+    // ПОЛНЫЕ ДАННЫЕ 3 СЕЗОНА (13 гонок с qualy для всех)
     // --------------------------------------------------------------
     const racesData = {
-        'oracle-circuit': { title: 'Oracle Circuit Race', date: '10.04.2026',
+        'oracle-circuit': { title: 'Oracle GP', date: '10.04.2026',
             results: [
-                {position:1, name:'jetleoden', team:'Benefactor', points:25, status:'finished', teamKey:'benefactor', num:'6'},
-                {position:2, name:'kastillio', team:'Benefactor', points:18, status:'finished', teamKey:'benefactor', num:'1'},
-                {position:3, name:'SOVYCH05', team:'Ocelot', points:15, status:'finished', teamKey:'ocelot', num:'88'},
-                {position:4, name:'Vin_Disel69', team:'Atomic', points:12, status:'finished', teamKey:'atomic', num:'33'},
-                {position:5, name:'San4ik_s', team:'Ocelot', points:10, status:'finished', teamKey:'ocelot', num:'—', note:'исключен из команды'},
-                {position:6, name:'LIL_MAGA', team:'Progen', points:8, status:'finished', teamKey:'progen', num:'4'},
-                {position:'DSQ', name:'FloeSS', team:'Atomic', points:0, status:'dsq', reason:'Несоответствие комплектации', teamKey:'atomic', num:'7'}
+                {position:1, name:'jetleoden', team:'Benefactor', points:25, status:'finished', teamKey:'benefactor', num:'6', qualy:'P3'},
+                {position:2, name:'kastillio', team:'Benefactor', points:18, status:'finished', teamKey:'benefactor', num:'1', qualy:'P1'},
+                {position:3, name:'SOVYCH05', team:'Ocelot', points:15, status:'finished', teamKey:'ocelot', num:'88', qualy:'P5'},
+                {position:4, name:'Vin_Disel69', team:'Atomic', points:12, status:'finished', teamKey:'atomic', num:'33', qualy:'P4'},
+                {position:5, name:'San4ik_s', team:'Ocelot', points:10, status:'finished', teamKey:'ocelot', num:'—', note:'исключен из команды', qualy:'P7'},
+                {position:6, name:'LIL_MAGA', team:'Progen', points:8, status:'finished', teamKey:'progen', num:'4', qualy:'P6'},
+                {position:'DSQ', name:'FloeSS', team:'Atomic', points:0, status:'dsq', reason:'Несоответствие комплектации', teamKey:'atomic', num:'7', qualy:'P2'}
             ]},
         'mexico-city': { title: 'Mexico City GP', date: '17.04.2026',
             results: [
-                {position:1, name:'Tail_', team:'Racing Redwood', points:25, status:'finished', teamKey:'racing-redwood', num:'69'},
-                {position:2, name:'SOVYCH05', team:'Ocelot', points:18, status:'finished', teamKey:'ocelot', num:'88'},
-                {position:3, name:'FloeSS', team:'Atomic', points:15, status:'finished', teamKey:'atomic', num:'7'},
-                {position:4, name:'Vin_Disel69', team:'Atomic', points:12, status:'finished', teamKey:'atomic', num:'33'},
-                {position:5, name:'jetleoden', team:'Benefactor', points:10, status:'finished', teamKey:'benefactor', num:'6'},
-                {position:'DNF', name:'kastillio', team:'Benefactor', points:0, status:'dnf', reason:'Авария', teamKey:'benefactor'},
-                {position:'DNF', name:'Xtiss-200', team:'Racing Redwood', points:0, status:'dnf', reason:'Авария', teamKey:'racing-redwood'},
-                {position:'DNF', name:'VoyderKa', team:'Stronzo', points:0, status:'dnf', reason:'Авария', teamKey:'stronzo'},
-                {position:'DSQ', name:'Tihon34', team:'Banshee', points:0, status:'dsq', reason:'Виновник массовой аварии', teamKey:'banshee', num:'34'},
-                {position:'DSQ', name:'vitall_duo', team:'Redwood', points:0, status:'dsq', reason:'Многочисленные аварии', teamKey:'redwood', num:'5'}
+                {position:1, name:'Tail_', team:'Racing Redwood', points:25, status:'finished', teamKey:'racing-redwood', num:'69', qualy:'P2'},
+                {position:2, name:'SOVYCH05', team:'Ocelot', points:18, status:'finished', teamKey:'ocelot', num:'88', qualy:'P6'},
+                {position:3, name:'FloeSS', team:'Atomic', points:15, status:'finished', teamKey:'atomic', num:'7', qualy:'P3'},
+                {position:4, name:'Vin_Disel69', team:'Atomic', points:12, status:'finished', teamKey:'atomic', num:'33', qualy:'P4'},
+                {position:5, name:'jetleoden', team:'Benefactor', points:10, status:'finished', teamKey:'benefactor', num:'6', qualy:'P5'},
+                {position:'DNF', name:'kastillio', team:'Benefactor', points:0, status:'dnf', reason:'Авария', teamKey:'benefactor', qualy:'P1'},
+                {position:'DNF', name:'Xtiss-200', team:'Racing Redwood', points:0, status:'dnf', reason:'Авария', teamKey:'racing-redwood', qualy:'P7'},
+                {position:'DNF', name:'VoyderKa', team:'Xero', points:0, status:'dnf', reason:'Авария', teamKey:'xero', qualy:'P9'},
+                {position:'DSQ', name:'tihon34', team:'Banshee', points:0, status:'dsq', reason:'Виновник массовой аварии', teamKey:'banshee', num:'34', qualy:'P10'},
+                {position:'DSQ', name:'vitall_duo', team:'Redwood', points:0, status:'dsq', reason:'Многочисленные аварии', teamKey:'redwood', qualy:'P8'}
             ]},
         'redwood-sprint': { title: 'Redwood Ring Sprint', date: '24.04.2026',
             results: [
-                {position:1, name:'SOVYCH05', team:'Ocelot', points:8, status:'finished', teamKey:'ocelot', num:'88'},
-                {position:2, name:'jetleoden', team:'Benefactor', points:7, status:'finished', teamKey:'benefactor', num:'6'},
-                {position:3, name:'kastillio', team:'Benefactor', points:6, status:'finished', teamKey:'benefactor', num:'1'},
-                {position:4, name:'femtuza', team:'Grotti', points:5, status:'finished', teamKey:'grotti', num:'11'},
-                {position:5, name:'Tihon34', team:'Banshee', points:4, status:'finished', teamKey:'banshee', num:'34'},
-                {position:'DNF', name:'vitall_duo', team:'Redwood', points:0, status:'dnf', reason:'Авария', teamKey:'redwood', num:'5'}
+                {position:1, name:'SOVYCH05', team:'Ocelot', points:8, status:'finished', teamKey:'ocelot', num:'88', qualy:'P3'},
+                {position:2, name:'jetleoden', team:'Benefactor', points:7, status:'finished', teamKey:'benefactor', num:'6', qualy:'P1'},
+                {position:3, name:'kastillio', team:'Benefactor', points:6, status:'finished', teamKey:'benefactor', num:'1', qualy:'P2'},
+                {position:4, name:'femtuza', team:'Grotti', points:5, status:'finished', teamKey:'grotti', num:'11', qualy:'P7'},
+                {position:5, name:'tihon34', team:'Banshee', points:4, status:'finished', teamKey:'banshee', num:'34', qualy:'P6'},
+                {position:'DSQ', name:'vitall_duo', team:'Redwood', points:0, status:'dsq', reason:'Нарушение', teamKey:'redwood', qualy:'P4'}
             ]},
         'redwood-ring': { title: 'Redwood Ring Race', date: '01.05.2026',
             results: [
-                {position:1, name:'kastillio', team:'Benefactor', points:25, status:'finished', teamKey:'benefactor', num:'1'},
-                {position:2, name:'jetleoden', team:'Benefactor', points:18, status:'finished', teamKey:'benefactor', num:'6'},
-                {position:3, name:'femtuza', team:'Grotti', points:15, status:'finished', teamKey:'grotti', num:'11'},
-                {position:4, name:'FloeSS', team:'Atomic', points:12, status:'finished', teamKey:'atomic', num:'7'},
-                {position:5, name:'SOVYCH05', team:'Ocelot', points:10, status:'finished', teamKey:'ocelot', num:'88'},
-                {position:6, name:'Vin_Disel69', team:'Atomic', points:8, status:'finished', teamKey:'atomic', num:'33'},
-                {position:7, name:'JOSYLVIO', team:'Ocelot', points:6, status:'finished', teamKey:'ocelot', num:'49'},
-                {position:8, name:'Tihon34', team:'Banshee', points:4, status:'finished', teamKey:'banshee', num:'34'},
-                {position:'DNF', name:'Tail_', team:'Racing Redwood', points:0, status:'dnf', reason:'Авария', teamKey:'racing-redwood'}
+                {position:1, name:'kastillio', team:'Benefactor', points:25, status:'finished', teamKey:'benefactor', num:'1', qualy:'P3'},
+                {position:2, name:'jetleoden', team:'Benefactor', points:18, status:'finished', teamKey:'benefactor', num:'6', qualy:'P2'},
+                {position:3, name:'femtuza', team:'Grotti', points:15, status:'finished', teamKey:'grotti', num:'11', qualy:'P6'},
+                {position:4, name:'FloeSS', team:'Atomic', points:12, status:'finished', teamKey:'atomic', num:'7', qualy:'P1'},
+                {position:5, name:'SOVYCH05', team:'Ocelot', points:10, status:'finished', teamKey:'ocelot', num:'88', qualy:'P4'},
+                {position:6, name:'Vin_Disel69', team:'Atomic', points:8, status:'finished', teamKey:'atomic', num:'33', qualy:'P8'},
+                {position:7, name:'JOSYLVIO', team:'Ocelot', points:6, status:'finished', teamKey:'ocelot', num:'49', qualy:'P10'},
+                {position:8, name:'tihon34', team:'Banshee', points:4, status:'finished', teamKey:'banshee', num:'34', qualy:'P7'},
+                {position:'DNF', name:'Tail_', team:'Atomic', points:0, status:'dnf', reason:'Авария', teamKey:'atomic', qualy:'P9'}
             ]},
-        'vinewood-gp': { title: 'Vinewood Grand Prix', date: '08.05.2026',
+        'vinewood-gp': { title: 'Vinewood GP', date: '08.05.2026',
             results: [
-                {position:1, name:'jetleoden', team:'Benefactor', points:25, status:'finished', teamKey:'benefactor', num:'6'},
-                {position:2, name:'SOVYCH05', team:'Ocelot', points:18, status:'finished', teamKey:'ocelot', num:'88'},
-                {position:3, name:'JOSYLVIO', team:'Ocelot', points:12, status:'finished', teamKey:'ocelot', num:'49'},
-                {position:4, name:'Vin_Disel69', team:'Atomic', points:10, status:'finished', teamKey:'atomic', num:'33'},
-                {position:5, name:'Ruslan_222', team:'Banshee', points:8, status:'finished', teamKey:'banshee', num:'76'},
-                {position:'DSQ', name:'vitall_duo', team:'Redwood', points:0, status:'dsq', reason:'Многочисленные аварии', teamKey:'redwood'},
-                {position:'DNF', name:'kastillio', team:'Benefactor', points:0, status:'dnf', reason:'Авария c Vin_Disel69', teamKey:'benefactor'},
-                {position:'DNF', name:'FloeSS', team:'Atomic', points:0, status:'dnf', reason:'Авария с Vin_Disel69', teamKey:'atomic'}
+                {position:1, name:'jetleoden', team:'Benefactor', points:25, status:'finished', teamKey:'benefactor', num:'6', qualy:'P1'},
+                {position:2, name:'SOVYCH05', team:'Ocelot', points:18, status:'finished', teamKey:'ocelot', num:'88', qualy:'P4'},
+                {position:3, name:'JOSYLVIO', team:'Ocelot', points:15, status:'finished', teamKey:'ocelot', num:'49', qualy:'P5'},
+                {position:4, name:'Vin_Disel69', team:'Atomic', points:12, status:'finished', teamKey:'atomic', num:'33', qualy:'P3'},
+                {position:5, name:'Ruslan_222', team:'Banshee', points:10, status:'finished', teamKey:'banshee', num:'76', qualy:'P8'},
+                {position:'DNF', name:'tihon34', team:'Banshee', points:0, status:'dnf', reason:'Авария', teamKey:'banshee', qualy:'P6'},
+                {position:'DNF', name:'kanatkazx', team:'Redwood', points:0, status:'dnf', reason:'Авария', teamKey:'redwood', qualy:'P7'}
             ]},
         'china-sprint': { title: 'China GP Sprint', date: '15.05.2026',
             results: [
-                {position:1, name:'kastillio', team:'Benefactor', points:8, status:'finished', teamKey:'benefactor', num:'1'},
-                {position:2, name:'jetleoden', team:'Benefactor', points:7, status:'finished', teamKey:'benefactor', num:'6'},
-                {position:3, name:'Vin_Disel69', team:'Atomic', points:6, status:'finished', teamKey:'atomic', num:'33'},
-                {position:4, name:'femtuza', team:'Grotti', points:5, status:'finished', teamKey:'grotti', num:'11'},
-                {position:5, name:'SOVYCH05', team:'Ocelot', points:4, status:'finished', teamKey:'ocelot', num:'88'},
-                {position:6, name:'Ruslan_222', team:'Banshee', points:3, status:'finished', teamKey:'banshee', num:'76'},
-                {position:7, name:'Mamin_Evreichic', team:'Ocelot', points:2, status:'finished', teamKey:'ocelot', num:'14'},
-                {position:8, name:'kanatkazx', team:'Redwood', points:1, status:'finished', teamKey:'redwood', num:'54'},
-                {position:9, name:'Tihon34', team:'Banshee', points:0, status:'finished', teamKey:'banshee', num:'34'},
-                {position:'DSQ', name:'vitall_duo', team:'Redwood', points:0, status:'dsq', reason:'Нарушение', teamKey:'redwood'},
-                {position:'DNF', name:'kana67', team:'Stronzo', points:0, status:'dnf', reason:'Сход', teamKey:'stronzo'}
+                {position:1, name:'kastillio', team:'Benefactor', points:8, status:'finished', teamKey:'benefactor', num:'1', qualy:'P1'},
+                {position:2, name:'jetleoden', team:'Benefactor', points:7, status:'finished', teamKey:'benefactor', num:'6', qualy:'P2'},
+                {position:3, name:'Vin_Disel69', team:'Atomic', points:6, status:'finished', teamKey:'atomic', num:'33', qualy:'P3'},
+                {position:4, name:'femtuza', team:'Grotti', points:5, status:'finished', teamKey:'grotti', num:'11', qualy:'P5'},
+                {position:5, name:'SOVYCH05', team:'Ocelot', points:4, status:'finished', teamKey:'ocelot', num:'88', qualy:'P4'},
+                {position:6, name:'Ruslan_222', team:'Banshee', points:3, status:'finished', teamKey:'banshee', num:'76', qualy:'P11'},
+                {position:7, name:'Mamin_evreichic', team:'Ocelot', points:2, status:'finished', teamKey:'ocelot', num:'14', qualy:'P6'},
+                {position:8, name:'kanatkazx', team:'Redwood', points:1, status:'finished', teamKey:'redwood', num:'54', qualy:'P8'},
+                {position:9, name:'tihon34', team:'Banshee', points:0, status:'finished', teamKey:'banshee', num:'34', qualy:'P9'},
+                {position:'DNF', name:'kana67', team:'Xero', points:0, status:'dnf', reason:'Сход', teamKey:'xero', qualy:'P7'},
+                {position:'DSQ', name:'vitall_duo', team:'Redwood', points:0, status:'dsq', reason:'Нарушение', teamKey:'redwood', qualy:'P10'}
             ]},
         'china-race': { title: 'China GP Race', date: '22.05.2026',
             results: [
-                {position:1, name:'kastillio', team:'Benefactor', points:25, status:'finished', teamKey:'benefactor', num:'1'},
-                {position:2, name:'FloeSS', team:'Atomic', points:18, status:'finished', teamKey:'atomic', num:'7'},
-                {position:3, name:'Mamin_Evreichic', team:'Ocelot', points:15, status:'finished', teamKey:'ocelot', num:'14'},
-                {position:4, name:'Tihon34', team:'Banshee', points:12, status:'finished', teamKey:'banshee', num:'34'},
-                {position:5, name:'Ruslan_222', team:'Banshee', points:10, status:'finished', teamKey:'banshee', num:'76'},
-                {position:6, name:'kanatkazx', team:'Redwood', points:8, status:'finished', teamKey:'redwood', num:'54'},
-                {position:'DNF', name:'jetleoden', team:'Benefactor', points:0, status:'dnf', reason:'Авария с Ruslan_222', teamKey:'benefactor'},
-                {position:'DNF', name:'SOVYCH05', team:'Ocelot', points:0, status:'dnf', reason:'Авария с kanatkazx', teamKey:'ocelot'},
-                {position:'DNF', name:'Vin_Disel69', team:'Atomic', points:0, status:'dnf', reason:'Авария с kanatkazx', teamKey:'atomic'},
-                {position:'DSQ', name:'vitall_duo', team:'Redwood', points:0, status:'dsq', reason:'Дисквалификация', teamKey:'redwood'}
+                {position:1, name:'kastillio', team:'Benefactor', points:25, status:'finished', teamKey:'benefactor', num:'1', qualy:'P2'},
+                {position:2, name:'FloeSS', team:'Atomic', points:18, status:'finished', teamKey:'atomic', num:'7', qualy:'P1'},
+                {position:3, name:'Mamin_evreichic', team:'Ocelot', points:15, status:'finished', teamKey:'ocelot', num:'14', qualy:'P6'},
+                {position:4, name:'tihon34', team:'Banshee', points:12, status:'finished', teamKey:'banshee', num:'34', qualy:'P8'},
+                {position:5, name:'Ruslan_222', team:'Banshee', points:10, status:'finished', teamKey:'banshee', num:'76', qualy:'P9'},
+                {position:6, name:'kanatkazx', team:'Redwood', points:8, status:'finished', teamKey:'redwood', num:'54', qualy:'P7'},
+                {position:'DNF', name:'jetleoden', team:'Benefactor', points:0, status:'dnf', reason:'Авария с Ruslan_222', teamKey:'benefactor', qualy:'P4'},
+                {position:'DNF', name:'SOVYCH05', team:'Ocelot', points:0, status:'dnf', reason:'Авария с kanatkazx', teamKey:'ocelot', qualy:'P5'},
+                {position:'DNF', name:'Vin_Disel69', team:'Atomic', points:0, status:'dnf', reason:'Авария с kanatkazx', teamKey:'atomic', qualy:'P3'},
+                {position:'DSQ', name:'vitall_duo', team:'Redwood', points:0, status:'dsq', reason:'Дисквалификация', teamKey:'redwood', qualy:'P10'}
             ]},
         'austria-gp': { title: 'Austria GP', date: '29.05.2026',
             results: [
-                {position:1, name:'Tail_', team:'Atomic', points:25, status:'finished', teamKey:'atomic', num:'69', note:'Замена'},
-                {position:2, name:'jetleoden', team:'Benefactor', points:18, status:'finished', teamKey:'benefactor', num:'6'},
-                {position:3, name:'FloeSS', team:'Benefactor', points:15, status:'finished', teamKey:'benefactor', num:'7'},
-                {position:4, name:'SOVYCH05', team:'Ocelot', points:12, status:'finished', teamKey:'ocelot', num:'88'},
-                {position:5, name:'JOSYLVIO', team:'Ocelot', points:10, status:'finished', teamKey:'ocelot', num:'49'},
-                {position:6, name:'Moiandr', team:'Banshee', points:8, status:'finished', teamKey:'banshee', num:'86'},
-                {position:'DNF', name:'kastillio', team:'Benefactor', points:0, status:'dnf', reason:'Авария', teamKey:'benefactor'},
-                {position:'DNF', name:'femtuza', team:'Grotti', points:0, status:'dnf', reason:'Авария', teamKey:'grotti'},
-                {position:'DNF', name:'tom_kruiser', team:'Stronzo', points:0, status:'dnf', reason:'Авария', teamKey:'stronzo'}
+                {position:1, name:'Tail_', team:'Atomic', points:25, status:'finished', teamKey:'atomic', num:'69', qualy:'P3'},
+                {position:2, name:'jetleoden', team:'Benefactor', points:18, status:'finished', teamKey:'benefactor', num:'6', qualy:'P1'},
+                {position:3, name:'FloeSS', team:'Atomic', points:15, status:'finished', teamKey:'atomic', num:'7', qualy:'P2'},
+                {position:4, name:'SOVYCH05', team:'Ocelot', points:12, status:'finished', teamKey:'ocelot', num:'88', qualy:'P4'},
+                {position:5, name:'JOSYLVIO', team:'Ocelot', points:10, status:'finished', teamKey:'ocelot', num:'49', qualy:'P5'},
+                {position:6, name:'Moiandr', team:'Banshee', points:8, status:'finished', teamKey:'banshee', num:'86', qualy:'P6'},
+                {position:'DNF', name:'kastillio', team:'Benefactor', points:0, status:'dnf', reason:'Авария', teamKey:'benefactor', qualy:'P8'},
+                {position:'DNF', name:'femtuza', team:'Grotti', points:0, status:'dnf', reason:'Авария', teamKey:'grotti', qualy:'P7'},
+                {position:'DNF', name:'tom_kruiser', team:'Stronzo', points:0, status:'dnf', reason:'Авария', teamKey:'stronzo', qualy:'P9'}
+            ]},
+        'burger-shot-gp': { title: 'Burger Shot GP', date: '05.06.2026',
+            results: [
+                {position:1, name:'Tail_', team:'Atomic', points:25, status:'finished', teamKey:'atomic', num:'69', qualy:'P10'},
+                {position:2, name:'jetleoden', team:'Benefactor', points:18, status:'finished', teamKey:'benefactor', num:'6', qualy:'P2'},
+                {position:3, name:'kastillio', team:'Benefactor', points:15, status:'finished', teamKey:'benefactor', num:'1', qualy:'P1'},
+                {position:4, name:'SOVYCH05', team:'Ocelot', points:12, status:'finished', teamKey:'ocelot', num:'88', qualy:'P3'},
+                {position:5, name:'JOSYLVIO', team:'Atomic', points:10, status:'finished', teamKey:'atomic', num:'49', qualy:'P4'},
+                {position:6, name:'femtuza', team:'Grotti', points:8, status:'finished', teamKey:'grotti', num:'11', qualy:'P5'},
+                {position:7, name:'kanatkazx', team:'Redwood', points:6, status:'finished', teamKey:'redwood', num:'54', qualy:'P7'},
+                {position:8, name:'jok', team:'Banshee', points:4, status:'finished', teamKey:'banshee', num:'26', qualy:'P6'},
+                {position:'DNF', name:'vitall_duo', team:'Redwood', points:0, status:'dnf', reason:'Авария', teamKey:'redwood', qualy:'P8'},
+                {position:'DNF', name:'FloeSS', team:'Atomic', points:0, status:'dnf', reason:'Авария', teamKey:'atomic', qualy:'P9'}
+            ]},
+        'bee-sprint': { title: 'BEE Sprint', date: '12.06.2026',
+            results: [
+                {position:1, name:'kastillio', team:'Dewbauchee', points:8, status:'finished', teamKey:'dewbauchee', num:'1', qualy:'P2'},
+                {position:2, name:'Vin_Disel69', team:'Atomic', points:7, status:'finished', teamKey:'atomic', num:'33', qualy:'P3'},
+                {position:3, name:'jetleoden', team:'Benefactor', points:6, status:'finished', teamKey:'benefactor', num:'6', qualy:'P1'},
+                {position:4, name:'SOVYCH05', team:'Benefactor', points:5, status:'finished', teamKey:'benefactor', num:'88', qualy:'P5'},
+                {position:5, name:'Tihon34', team:'Banshee', points:4, status:'finished', teamKey:'banshee', num:'34', qualy:'P8'},
+                {position:6, name:'JOSYLVIO', team:'Atomic', points:3, status:'finished', teamKey:'atomic', num:'49', qualy:'P9'},
+                {position:7, name:'Tail_', team:'Dewbauchee', points:2, status:'finished', teamKey:'dewbauchee', num:'69', qualy:'P4'},
+                {position:8, name:'femtuza', team:'Grotti', points:1, status:'finished', teamKey:'grotti', num:'11', qualy:'P7'},
+                {position:9, name:'kanatkazx', team:'Redwood', points:0, status:'finished', teamKey:'redwood', num:'54', qualy:'P6'}
+            ]},
+        'bee-gp': { title: 'BEE GP', date: '19.06.2026',
+            results: [
+                {position:1, name:'Tail_', team:'Dewbauchee', points:25, status:'finished', teamKey:'dewbauchee', num:'69', qualy:'P5'},
+                {position:2, name:'kastillio', team:'Dewbauchee', points:18, status:'finished', teamKey:'dewbauchee', num:'1', qualy:'P1'},
+                {position:3, name:'jetleoden', team:'Benefactor', points:15, status:'finished', teamKey:'benefactor', num:'6', qualy:'P2'},
+                {position:4, name:'Vin_Disel69', team:'Atomic', points:12, status:'finished', teamKey:'atomic', num:'33', qualy:'P3'},
+                {position:5, name:'SOVYCH05', team:'Benefactor', points:10, status:'finished', teamKey:'benefactor', num:'88', qualy:'P4'},
+                {position:6, name:'JOSYLVIO', team:'Atomic', points:8, status:'finished', teamKey:'atomic', num:'49', qualy:'P8'},
+                {position:7, name:'kanatkazx', team:'Redwood', points:6, status:'finished', teamKey:'redwood', num:'54', qualy:'P7'},
+                {position:'DNF', name:'femtuza', team:'Grotti', points:0, status:'dnf', reason:'Авария', teamKey:'grotti', qualy:'P6'},
+                {position:'DNF', name:'tihon34', team:'Banshee', points:0, status:'dnf', reason:'Авария', teamKey:'banshee', qualy:'P9'},
+                {position:'DNF', name:'Mishanya', team:'Banshee', points:0, status:'dnf', reason:'Авария', teamKey:'banshee', qualy:'P10'}
+            ]},
+        'sochi-gp': { title: 'Sochi Autodrom GP', date: '26.06.2026',
+            results: [
+                {position:1, name:'kastillio', team:'Dewbauchee', points:25, status:'finished', teamKey:'dewbauchee', num:'1', qualy:'P1'},
+                {position:2, name:'jetleoden', team:'Benefactor', points:18, status:'finished', teamKey:'benefactor', num:'6', qualy:'P2'},
+                {position:3, name:'FloeSS', team:'Meinmacht', points:15, status:'finished', teamKey:'meinmacht', num:'7', qualy:'P10'},
+                {position:4, name:'Tail_', team:'Dewbauchee', points:12, status:'finished', teamKey:'dewbauchee', num:'69', qualy:'P3'},
+                {position:5, name:'SOVYCH05', team:'Benefactor', points:10, status:'finished', teamKey:'benefactor', num:'88', qualy:'P6'},
+                {position:6, name:'JOSYLVIO', team:'Atomic', points:8, status:'finished', teamKey:'atomic', num:'49', qualy:'P11'},
+                {position:7, name:'Mamin_evreichic', team:'Ocelot', points:6, status:'finished', teamKey:'ocelot', num:'14', qualy:'P9'},
+                {position:8, name:'Vin_Disel69', team:'Atomic', points:9, status:'finished', teamKey:'atomic', num:'33', qualy:'P4', note:'+5 очков по решению FIA'},
+                {position:9, name:'femtuza', team:'Grotti', points:5, status:'finished', teamKey:'grotti', num:'11', qualy:'P5', note:'+5 очков по решению FIA'}
+            ]},
+        'maze-bank-gp': { title: 'Maze Bank GP', date: '03.07.2026',
+            results: [
+                {position:1, name:'kastillio', team:'Dewbauchee', points:25, status:'finished', teamKey:'dewbauchee', num:'1', qualy:'P2'},
+                {position:2, name:'jetleoden', team:'Benefactor', points:18, status:'finished', teamKey:'benefactor', num:'6', qualy:'P1'},
+                {position:3, name:'FloeSS', team:'Meinmacht', points:15, status:'finished', teamKey:'meinmacht', num:'7', qualy:'P5'},
+                {position:4, name:'ALIN', team:'Meinmacht', points:12, status:'finished', teamKey:'meinmacht', num:'2', qualy:'P3'},
+                {position:5, name:'Tail_', team:'Dewbauchee', points:10, status:'finished', teamKey:'dewbauchee', num:'69', qualy:'P4'},
+                {position:6, name:'SOVYCH05', team:'Benefactor', points:8, status:'finished', teamKey:'benefactor', num:'88', qualy:'P6'},
+                {position:7, name:'JOSYLVIO', team:'Atomic', points:6, status:'finished', teamKey:'atomic', num:'49', qualy:'P8'},
+                {position:8, name:'kanatkazx', team:'Redwood', points:4, status:'finished', teamKey:'redwood', num:'54', qualy:'P7'},
+                {position:'DNF', name:'Vin_Disel69', team:'Atomic', points:0, status:'dnf', reason:'Авария', teamKey:'atomic', qualy:'P9'}
             ]}
     };
 
-    // Личный зачет (по заданию)
+    // Личный зачет
     const driverStandings = [
-        {name:'jetleoden', team:'Benefactor F1 Team', points:110, number:'6', teamKey:'benefactor'},
-        {name:'SOVYCH05', team:'Ocelot F1 Team', points:85, number:'88', teamKey:'ocelot'},
-        {name:'kastillio', team:'Benefactor F1 Team', points:82, number:'1', teamKey:'benefactor'},
-        {name:'FloeSS', team:'Atomic F1 Team', points:60, number:'7', teamKey:'atomic'},
-        {name:'Tail_', team:'Racing Redwood F1 Team', points:50, number:'69', teamKey:'racing-redwood'},
-        {name:'Vin_Disel69', team:'Atomic F1 Team', points:48, number:'33', teamKey:'atomic'},
-        {name:'JOSYLVIO', team:'Ocelot F1 Team', points:31, number:'49', teamKey:'ocelot'},
-        {name:'femtuza', team:'Grotti F1 Team', points:25, number:'11', teamKey:'grotti'},
-        {name:'Tihon34', team:'Banshee F1 Team', points:20, number:'34', teamKey:'banshee'},
-        {name:'Mamin_Evreichic', team:'Ocelot F1 Team', points:17, number:'14', teamKey:'ocelot'},
+        {name:'jetleoden', team:'Benefactor F1 Team', points:185, number:'6', teamKey:'benefactor'},
+        {name:'kastillio', team:'Dewbauchee F1 Team', points:173, number:'1', teamKey:'dewbauchee'},
+        {name:'SOVYCH05', team:'Benefactor F1 Team', points:130, number:'88', teamKey:'benefactor'},
+        {name:'Tail_', team:'Dewbauchee F1 Team', points:124, number:'69', teamKey:'dewbauchee'},
+        {name:'FloeSS', team:'Meinmacht F1 Team', points:90, number:'7', teamKey:'meinmacht'},
+        {name:'Vin_Disel69', team:'Atomic F1 Team', points:76, number:'33', teamKey:'atomic'},
+        {name:'JOSYLVIO', team:'Atomic F1 Team', points:66, number:'49', teamKey:'atomic'},
+        {name:'femtuza', team:'Grotti F1 Team', points:39, number:'11', teamKey:'grotti'},
+        {name:'kanatkazx', team:'Redwood F1 Team', points:25, number:'54', teamKey:'redwood'},
+        {name:'tihon34', team:'Banshee F1 Team', points:24, number:'34', teamKey:'banshee'},
+        {name:'Mamin_evreichic', team:'Ocelot F1 Team', points:23, number:'14', teamKey:'ocelot'},
         {name:'Ruslan_222', team:'Banshee F1 Team', points:13, number:'76', teamKey:'banshee'},
-        {name:'kanatkazx', team:'Redwood F1 Team', points:9, number:'54', teamKey:'redwood'},
-        {name:'LIL_MAGA', team:'Progen F1 Team', points:8, number:'4', teamKey:'progen'},
         {name:'Moiandr', team:'Banshee F1 Team', points:8, number:'86', teamKey:'banshee'},
         {name:'vitall_duo', team:'Redwood F1 Team', points:0, number:'5', teamKey:'redwood'}
     ];
 
     const teamStandings = [
-        {name:'Benefactor F1 Team', points:192, key:'benefactor'},
-        {name:'Ocelot F1 Team', points:140, key:'ocelot'},
-        {name:'Atomic F1 Team', points:133, key:'atomic'},
+        {name:'Benefactor F1 Team', points:315, key:'benefactor'},
+        {name:'Atomic F1 Team', points:221, key:'atomic'},
+        {name:'Ocelot F1 Team', points:158, key:'ocelot'},
+        {name:'Dewbauchee F1 Team', points:125, key:'dewbauchee'},
+        {name:'Grotti F1 Team', points:39, key:'grotti'},
+        {name:'Banshee F1 Team', points:28, key:'banshee'},
+        {name:'Redwood F1 Team', points:25, key:'redwood'},
         {name:'Racing Redwood F1 Team', points:25, key:'racing-redwood'},
-        {name:'Banshee F1 Team', points:24, key:'banshee'},
-        {name:'Grotti F1 Team', points:20, key:'grotti'},
-        {name:'Progen F1 Team', points:8, key:'progen'},
-        {name:'Redwood F1 Team', points:0, key:'redwood'}
+        {name:'Progen F1 Team', points:8, key:'progen'}
     ];
 
     const winnersList = [
-        {race:'Oracle Circuit Race', winner:'jetleoden', team:'Benefactor', colorKey:'benefactor'},
+        {race:'Oracle GP', winner:'jetleoden', team:'Benefactor', colorKey:'benefactor'},
         {race:'Mexico City GP', winner:'Tail_', team:'Racing Redwood', colorKey:'racing-redwood'},
         {race:'Redwood Ring Sprint', winner:'SOVYCH05', team:'Ocelot', colorKey:'ocelot'},
         {race:'Redwood Ring Race', winner:'kastillio', team:'Benefactor', colorKey:'benefactor'},
         {race:'Vinewood GP', winner:'jetleoden', team:'Benefactor', colorKey:'benefactor'},
         {race:'China GP Sprint', winner:'kastillio', team:'Benefactor', colorKey:'benefactor'},
         {race:'China GP Race', winner:'kastillio', team:'Benefactor', colorKey:'benefactor'},
-        {race:'Austria GP', winner:'Tail_', team:'Atomic', colorKey:'atomic'}
+        {race:'Austria GP', winner:'Tail_', team:'Atomic', colorKey:'atomic'},
+        {race:'Burger Shot GP', winner:'Tail_', team:'Atomic', colorKey:'atomic'},
+        {race:'BEE Sprint', winner:'kastillio', team:'Dewbauchee', colorKey:'dewbauchee'},
+        {race:'BEE GP', winner:'Tail_', team:'Dewbauchee', colorKey:'dewbauchee'},
+        {race:'Sochi Autodrom GP', winner:'kastillio', team:'Dewbauchee', colorKey:'dewbauchee'},
+        {race:'Maze Bank GP', winner:'kastillio', team:'Dewbauchee', colorKey:'dewbauchee'}
+    ];
+
+    // Рекорды (исправлено: у kastillio только 2 победы подряд)
+    const records = [
+        {title:'Наибольшее количество побед', value:'kastillio — 7 побед'},
+        {title:'Наибольшее количество поул-позиций', value:'jetleoden — 5 поулов'},
+        {title:'Наибольшее количество очков за сезон', value:'jetleoden — 185 очков'},
+        {title:'Самая большая победа с последнего места', value:'Tail_ — Burger Shot GP (P10 → P1)'},
+        {title:'Наибольший прогресс в гонке', value:'FloeSS — Sochi GP (P10 → P3)'},
+        {title:'Наибольшее количество подиумов', value:'jetleoden — 11 подиумов'},
+        {title:'Наибольшее количество финишей в очках', value:'jetleoden — 12 гонок'},
+        {title:'Самая длинная серия побед', value:'kastillio — 2 победы подряд (China Sprint, China Race) и (Sochi GP, Maze Bank GP)'}
+    ];
+
+    const scheduleRaces = [
+        {date:'✅ 10.04', name:'Oracle GP', status:'completed'},
+        {date:'✅ 17.04', name:'Mexico City GP', status:'completed'},
+        {date:'✅ 24.04', name:'Redwood Ring Sprint', status:'completed'},
+        {date:'✅ 01.05', name:'Redwood Ring Race', status:'completed'},
+        {date:'✅ 08.05', name:'Vinewood GP', status:'completed'},
+        {date:'✅ 15.05', name:'China GP Sprint', status:'completed'},
+        {date:'✅ 22.05', name:'China GP Race', status:'completed'},
+        {date:'✅ 29.05', name:'Austria GP', status:'completed'},
+        {date:'✅ 05.06', name:'Burger Shot GP', status:'completed'},
+        {date:'✅ 12.06', name:'BEE Sprint', status:'completed'},
+        {date:'✅ 19.06', name:'BEE GP', status:'completed'},
+        {date:'✅ 26.06', name:'Sochi Autodrom GP', status:'completed'},
+        {date:'✅ 03.07', name:'Maze Bank GP', status:'completed'},
+        {date:'🔥 10.07', name:'Zancudo Sprint', status:'upcoming'},
+        {date:'17.07', name:'Zancudo GP', status:'upcoming'}
     ];
 
     function teamColorClass(key) {
         const map = {
             'benefactor':'team-benefactor', 'ocelot':'team-ocelot', 'atomic':'team-atomic',
             'progen':'team-progen', 'racing-redwood':'team-racing-redwood', 'grotti':'team-grotti',
-            'banshee':'team-banshee', 'stronzo':'team-stronzo', 'redwood':'team-redwood'
+            'banshee':'team-banshee', 'stronzo':'team-stronzo', 'redwood':'team-redwood',
+            'dewbauchee':'team-dewbauchee', 'meinmacht':'team-meinmacht', 'xero':'team-xero'
         };
         return map[key] || '';
     }
@@ -520,7 +641,7 @@
     function renderRaceResults(raceId) {
         const race = racesData[raceId];
         if (!race) return;
-        let html = `<div><h3>${race.title}</h3><div>${race.date}</div></div>
+        let html = `<div style="display:flex;justify-content:space-between;flex-wrap:wrap;margin-bottom:1rem;"><h3>${race.title}</h3><div>${race.date}</div></div>
         <table class="results-table"><thead><tr><th>Поз.</th><th>Пилот</th><th>Команда</th><th>Очки</th><th>Статус</th></tr></thead><tbody>`;
         race.results.forEach(r => {
             let posHtml = '';
@@ -531,17 +652,26 @@
                 else if (r.position === 2) pClass = 'pos-2';
                 else if (r.position === 3) pClass = 'pos-3';
                 posHtml = `<span class="position ${pClass}">${r.position}</span>`;
+                if (r.qualy) {
+                    posHtml += `<span class="qualy-pos">${r.qualy}</span>`;
+                }
             } else if (r.status === 'dnf') {
                 posHtml = `<span class="dnf-badge">DNF</span>`;
+                if (r.qualy) {
+                    posHtml += `<span class="qualy-pos">${r.qualy}</span>`;
+                }
                 statusText = `Не финишировал (${r.reason || 'Авария'})`;
             } else if (r.status === 'dsq') {
                 posHtml = `<span class="dsq-badge">DSQ</span>`;
+                if (r.qualy) {
+                    posHtml += `<span class="qualy-pos">${r.qualy}</span>`;
+                }
                 statusText = `Дисквалификация (${r.reason || 'Нарушение'})`;
             }
             const teamCl = teamColorClass(r.teamKey);
             html += `<tr>
                 <td>${posHtml}</td>
-                <td><strong class="${teamCl}">${r.name} #${r.num || '?'}</strong>${r.note ? `<br><small>${r.note}</small>` : ''}</td>
+                <td><strong class="${teamCl}">${r.name} #${r.num || '?'}</strong>${r.note ? `<br><small style="color:#888;">${r.note}</small>` : ''}</td>
                 <td class="${teamCl}">${r.team} F1 Team</td>
                 <td><strong>${r.points}</strong></td>
                 <td>${statusText}</td>
@@ -554,14 +684,19 @@
     function initResultsPage() {
         const selector = document.getElementById('raceSelector');
         const racesList = [
-            {id:'oracle-circuit', name:'Oracle Circuit Race'},
+            {id:'oracle-circuit', name:'Oracle GP'},
             {id:'mexico-city', name:'Mexico City GP'},
-            {id:'redwood-sprint', name:'Redwood Ring Sprint'},
-            {id:'redwood-ring', name:'Redwood Ring Race'},
+            {id:'redwood-sprint', name:'Redwood Sprint'},
+            {id:'redwood-ring', name:'Redwood Race'},
             {id:'vinewood-gp', name:'Vinewood GP'},
-            {id:'china-sprint', name:'China GP Sprint'},
-            {id:'china-race', name:'China GP Race'},
-            {id:'austria-gp', name:'Austria GP'}
+            {id:'china-sprint', name:'China Sprint'},
+            {id:'china-race', name:'China Race'},
+            {id:'austria-gp', name:'Austria GP'},
+            {id:'burger-shot-gp', name:'Burger Shot GP'},
+            {id:'bee-sprint', name:'BEE Sprint'},
+            {id:'bee-gp', name:'BEE GP'},
+            {id:'sochi-gp', name:'Sochi GP'},
+            {id:'maze-bank-gp', name:'Maze Bank GP'}
         ];
         racesList.forEach((r, idx) => {
             let btn = document.createElement('button');
@@ -586,9 +721,9 @@
             const div = document.createElement('div');
             div.className = 'driver-item';
             div.innerHTML = `
-                <div style="background:rgba(0,242,254,0.25); width:45px; text-align:center; padding:0.4rem; border-radius:30px;">${idx+1}</div>
-                <div><div class="${cls}" style="font-weight:700;">${d.name} #${d.number}</div><div style="font-size:0.75rem;">${d.team}</div></div>
-                <div class="driver-points">${d.points} pts</div>
+                <div style="background:rgba(225,6,0,0.2); width:40px; text-align:center; padding:0.3rem; border-radius:12px; font-weight:900;">${idx+1}</div>
+                <div><div class="${cls}" style="font-weight:700;">${d.name} #${d.number}</div><div style="font-size:0.75rem;color:#888;">${d.team}</div></div>
+                <div class="driver-points">${d.points}</div>
             `;
             container.appendChild(div);
         });
@@ -603,9 +738,9 @@
             const div = document.createElement('div');
             div.className = 'team-item';
             div.innerHTML = `
-                <div style="background:rgba(0,242,254,0.25); width:45px; text-align:center; padding:0.4rem; border-radius:30px;">${idx+1}</div>
+                <div style="background:rgba(225,6,0,0.2); width:40px; text-align:center; padding:0.3rem; border-radius:12px; font-weight:900;">${idx+1}</div>
                 <div><div class="${cls}" style="font-weight:700;">${t.name}</div></div>
-                <div class="team-points">${t.points} pts</div>
+                <div class="team-points">${t.points}</div>
             `;
             container.appendChild(div);
         });
@@ -618,9 +753,35 @@
         winnersList.forEach(w => {
             const card = document.createElement('div');
             card.className = 'winner-card';
-            card.innerHTML = `<i class="fas fa-trophy" style="font-size:1.8rem; color:#ffcd4a;"></i>
-            <div><div style="font-weight:800;">${w.race}</div><div><span class="${teamColorClass(w.colorKey)}">${w.winner}</span> (${w.team})</div></div>`;
+            card.innerHTML = `<i class="fas fa-trophy" style="font-size:1.5rem; color:#ffd700;"></i>
+            <div><div style="font-weight:700;">${w.race}</div><div><span class="${teamColorClass(w.colorKey)}">${w.winner}</span> (${w.team})</div></div>`;
             grid.appendChild(card);
+        });
+    }
+
+    function renderRecords() {
+        const container = document.getElementById('recordsList');
+        if(!container) return;
+        container.innerHTML = '';
+        records.forEach(r => {
+            const div = document.createElement('div');
+            div.className = 'record-card';
+            div.innerHTML = `<div class="record-title">${r.title}</div><div class="record-value">${r.value}</div>`;
+            container.appendChild(div);
+        });
+    }
+
+    function renderSchedule() {
+        const container = document.getElementById('scheduleList');
+        if(!container) return;
+        container.innerHTML = '';
+        scheduleRaces.forEach(r => {
+            const div = document.createElement('div');
+            div.className = 'timeline-item';
+            const statusClass = r.status === 'completed' ? 'status-completed' : 'status-upcoming';
+            const statusText = r.status === 'completed' ? 'Завершено' : 'Предстоит';
+            div.innerHTML = `<div class="timeline-date">${r.date}</div><h3>${r.name}</h3><span class="${statusClass}">${statusText}</span>`;
+            container.appendChild(div);
         });
     }
 
@@ -663,6 +824,8 @@
         renderDriverStandings();
         renderTeamStandings();
         renderWinners();
+        renderRecords();
+        renderSchedule();
         setupNavigation();
     });
 </script>
