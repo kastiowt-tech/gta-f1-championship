@@ -312,6 +312,42 @@
             color: transparent;
         }
 
+        /* ---- ВЫБОР ГОНОК (ПОЛНОСТЬЮ ВОССТАНОВЛЕН) ---- */
+        .race-selector {
+            display: flex;
+            gap: 8px;
+            flex-wrap: wrap;
+            margin-bottom: 1.8rem;
+        }
+        .race-btn {
+            background: #18161f;
+            border: 1px solid #2f2a3a;
+            padding: 0.5rem 1.4rem;
+            border-radius: 40px;
+            color: #b8ad92;
+            font-weight: 700;
+            cursor: pointer;
+            transition: 0.3s;
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            font-family: 'Titillium Web', 'Segoe UI', system-ui, sans-serif;
+        }
+        .race-btn:hover {
+            background: rgba(212, 175, 55, 0.15);
+            color: #fff4d6;
+            border-color: var(--f1-gold);
+            transform: scale(1.02);
+            box-shadow: 0 0 20px rgba(212, 175, 55, 0.08);
+        }
+        .race-btn.active {
+            background: var(--f1-gold);
+            color: #0a080e;
+            border-color: var(--f1-gold);
+            box-shadow: 0 0 30px rgba(212, 175, 55, 0.2);
+            transform: scale(1.02);
+        }
+
         /* ---- ТАБЛИЦЫ ---- */
         .results-table {
             width: 100%;
@@ -529,6 +565,7 @@
             transition: 0.3s;
             border: none;
             cursor: pointer;
+            font-family: 'Titillium Web', 'Segoe UI', system-ui, sans-serif;
         }
         .btn:hover {
             box-shadow: 0 0 40px rgba(212, 175, 55, 0.3);
@@ -590,6 +627,10 @@
                 height: 28px;
                 line-height: 28px;
                 font-size: 0.7rem;
+            }
+            .race-btn {
+                font-size: 0.65rem;
+                padding: 0.4rem 1rem;
             }
         }
     </style>
@@ -708,7 +749,7 @@
         })();
 
         // ============================================================
-        //  ПОЛНЫЕ ДАННЫЕ 3 СЕЗОНА (18 гонок, добавлен GREENLIGHT GP)
+        //  ПОЛНЫЕ ДАННЫЕ 3 СЕЗОНА (18 гонок)
         // ============================================================
         const racesData = {
             'oracle-circuit': { title: 'Oracle GP', date: '10.04.2026',
@@ -921,7 +962,6 @@
                     {position:10, name:'JOSYLVIO', team:'Atomic', points:0, status:'finished', teamKey:'atomic', num:'49', qualy:'P11>P10'},
                     {position:'DNF', name:'vitall_duo', team:'Redwood', points:0, status:'dnf', reason:'Авария', teamKey:'redwood', num:'81', qualy:'P9>DNF'}
                 ]},
-            // ===== НОВАЯ ГОНКА: GREENLIGHT GP =====
             'greenlight-gp': { title: 'GREENLIGHT GP', date: '25.08.2026',
                 results: [
                     {position:1, name:'kastillio', team:'Dewbauchee', points:25, status:'finished', teamKey:'dewbauchee', num:'1', qualy:'P1=P1'},
@@ -935,13 +975,13 @@
                 ]}
         };
 
-        // ---- ЛИЧНЫЙ ЗАЧЕТ (обновленный) ----
+        // ---- ЛИЧНЫЙ ЗАЧЕТ (исправлено: FloeSS 144,5) ----
         const driverStandings = [
             {name:'kastillio', team:'Dewbauchee F1 Team', points:255.5, number:'1', teamKey:'dewbauchee', title:'Чемпион'},
             {name:'jetleoden', team:'Benefactor F1 Team', points:246, number:'6', teamKey:'benefactor', title:'Вице-чемпион'},
             {name:'Tail_', team:'Dewbauchee F1 Team', points:175.5, number:'69', teamKey:'dewbauchee', title:'Бронзовый призер'},
             {name:'SOVYCH05', team:'Benefactor F1 Team', points:154, number:'88', teamKey:'benefactor', title:'Лучший новичок'},
-            {name:'FloeSS', team:'Meinmacht F1 Team', points:144, number:'7', teamKey:'meinmacht'},
+            {name:'FloeSS', team:'Meinmacht F1 Team', points:144.5, number:'7', teamKey:'meinmacht'},
             {name:'Vin_Disel69', team:'Atomic F1 Team', points:132.5, number:'33', teamKey:'atomic'},
             {name:'JOSYLVIO', team:'Atomic F1 Team', points:82, number:'49', teamKey:'atomic'},
             {name:'ALIN', team:'Meinmacht F1 Team', points:78, number:'2', teamKey:'meinmacht'},
@@ -957,7 +997,7 @@
             {name:'kotmatveika', team:'Progen F1 Team', points:0, number:'—', teamKey:'progen'}
         ];
 
-        // ---- КУБОК КОНСТРУКТОРОВ (обновленный) ----
+        // ---- КУБОК КОНСТРУКТОРОВ ----
         const teamStandings = [
             {name:'Benefactor F1 Team', points:409, key:'benefactor', title:'Чемпионы'},
             {name:'Atomic F1 Team', points:293.5, key:'atomic', title:'Вице-чемпионы'},
