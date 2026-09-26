@@ -6,7 +6,7 @@
     <title>GTA F1 • СЕЗОН 4 — Старт!</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
-        /* ---------- КИБЕР-ФОРМУЛА (неон, металл, динамика) ---------- */
+        /* ---------- КИБЕР-ФОРМУЛА ---------- */
         * {
             margin: 0;
             padding: 0;
@@ -85,8 +85,6 @@
             --neon-orange: #ff6a00;
             --dark-metal: #0b0e14;
             --glass-bg: rgba(8, 12, 20, 0.92);
-            --border-glow: rgba(0, 240, 255, 0.25);
-            --shadow-glow: 0 8px 32px rgba(0, 240, 255, 0.1);
         }
 
         .navbar {
@@ -113,7 +111,6 @@
             -webkit-background-clip: text;
             background-clip: text;
             color: transparent;
-            text-shadow: 0 0 30px rgba(0, 240, 255, 0.15);
         }
         .logo i {
             color: var(--neon-cyan);
@@ -132,11 +129,7 @@
             color: transparent;
         }
 
-        .nav-links {
-            display: flex;
-            gap: 0.2rem;
-            flex-wrap: wrap;
-        }
+        .nav-links { display: flex; gap: 0.2rem; flex-wrap: wrap; }
         .nav-link {
             color: #8892a0;
             text-decoration: none;
@@ -148,10 +141,8 @@
             text-transform: uppercase;
             letter-spacing: 0.6px;
             border: 1px solid transparent;
-            position: relative;
         }
-        .nav-link:hover,
-        .nav-link.active {
+        .nav-link:hover, .nav-link.active {
             background: rgba(0, 240, 255, 0.08);
             color: #fff;
             border-color: var(--neon-cyan);
@@ -210,13 +201,6 @@
             0% { transform: rotate(-6deg) scale(1); }
             100% { transform: rotate(6deg) scale(1.08); }
         }
-        .hero::after {
-            content: '';
-            position: absolute;
-            inset: 0;
-            background: radial-gradient(circle at 30% 40%, rgba(0, 240, 255, 0.03), transparent 60%);
-            pointer-events: none;
-        }
 
         .season-badge {
             background: rgba(0, 240, 255, 0.08);
@@ -246,7 +230,6 @@
             background-clip: text;
             color: transparent;
             line-height: 1.1;
-            filter: drop-shadow(0 0 40px rgba(0, 240, 255, 0.08));
             animation: titleNeon 5s ease-in-out infinite alternate;
         }
         @keyframes titleNeon {
@@ -273,7 +256,6 @@
             text-transform: uppercase;
             letter-spacing: 2px;
             margin: 1.5rem 0;
-            box-shadow: 0 0 60px rgba(0, 240, 255, 0.15);
             animation: starterGlow 2s ease-in-out infinite alternate;
         }
         @keyframes starterGlow {
@@ -330,12 +312,7 @@
             transform: translateY(-3px) scale(1.02);
         }
 
-        .race-selector {
-            display: flex;
-            gap: 8px;
-            flex-wrap: wrap;
-            margin-bottom: 1.8rem;
-        }
+        .race-selector { display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 1.8rem; }
         .race-btn {
             background: #10141e;
             border: 1px solid #1f2633;
@@ -364,11 +341,7 @@
             transform: scale(1.02);
         }
 
-        .results-table {
-            width: 100%;
-            border-collapse: collapse;
-            font-size: 0.92rem;
-        }
+        .results-table { width: 100%; border-collapse: collapse; font-size: 0.92rem; }
         .results-table th {
             text-align: left;
             padding: 0.8rem 1rem;
@@ -379,13 +352,8 @@
             color: #00f0ff;
             border-bottom: 2px solid var(--neon-cyan);
         }
-        .results-table td {
-            padding: 0.65rem 1rem;
-            border-bottom: 1px solid rgba(255, 255, 255, 0.03);
-        }
-        .results-table tr:hover td {
-            background: rgba(0, 240, 255, 0.02);
-        }
+        .results-table td { padding: 0.65rem 1rem; border-bottom: 1px solid rgba(255, 255, 255, 0.03); }
+        .results-table tr:hover td { background: rgba(0, 240, 255, 0.02); }
 
         .position {
             display: inline-block;
@@ -397,23 +365,10 @@
             font-weight: 900;
             font-size: 0.85rem;
         }
-        .pos-1 {
-            background: linear-gradient(135deg, #00f0ff, #ff2d95);
-            color: #0b0e14;
-            box-shadow: 0 0 30px rgba(0, 240, 255, 0.15);
-        }
-        .pos-2 {
-            background: linear-gradient(135deg, #8892a0, #4a5260);
-            color: #0b0e14;
-        }
-        .pos-3 {
-            background: linear-gradient(135deg, #ff6a00, #b84a00);
-            color: #0b0e14;
-        }
-        .pos-other {
-            background: rgba(255, 255, 255, 0.04);
-            color: #c0c8d0;
-        }
+        .pos-1 { background: linear-gradient(135deg, #00f0ff, #ff2d95); color: #0b0e14; box-shadow: 0 0 30px rgba(0, 240, 255, 0.15); }
+        .pos-2 { background: linear-gradient(135deg, #8892a0, #4a5260); color: #0b0e14; }
+        .pos-3 { background: linear-gradient(135deg, #ff6a00, #b84a00); color: #0b0e14; }
+        .pos-other { background: rgba(255, 255, 255, 0.04); color: #c0c8d0; }
 
         .dnf-badge, .dsq-badge {
             padding: 3px 14px;
@@ -433,12 +388,27 @@
             padding: 0 8px;
             border-radius: 12px;
         }
+        .fastest-lap {
+            display: inline-block;
+            margin-left: 6px;
+            padding: 1px 8px;
+            border-radius: 10px;
+            font-size: 0.6rem;
+            font-weight: 800;
+            background: linear-gradient(135deg, #a020f0, #ff2d95);
+            color: #fff;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            box-shadow: 0 0 12px rgba(160, 32, 240, 0.4);
+        }
 
-        .team-dewbauchee { color: #ff6a6a !important; }
-        .team-dinka { color: #1a1a1a !important; }
-        .team-atomic { color: #ff8c00 !important; }
-        .team-meinmacht { color: #cc1122 !important; }
-        .team-xero { color: #ffd700 !important; }
+        /* ЦВЕТА КОМАНД — ОБНОВЛЕНЫ */
+        .team-mercedes { color: #00d2be !important; }   /* бирюзовый */
+        .team-mclaren { color: #ff8700 !important; }    /* оранжевый */
+        .team-redbull { color: #4d7cff !important; }    /* тёмно-синий (осветлён для видимости) */
+        .team-ferrari { color: #ff2800 !important; }    /* красный */
+        .team-haas { color: #ffffff !important; }       /* белый */
+        .team-williams { color: #5a9fdc !important; }   /* светло-синий */
 
         .driver-item, .team-item {
             display: flex;
@@ -477,7 +447,6 @@
             border-radius: 24px;
             margin-bottom: 1.8rem;
             border: 2px solid var(--neon-cyan);
-            box-shadow: 0 0 40px rgba(0, 240, 255, 0.02);
         }
         .winners-grid {
             display: grid;
@@ -494,10 +463,7 @@
             border-left: 5px solid var(--neon-cyan);
             transition: 0.3s;
         }
-        .winner-card:hover {
-            background: #181e2a;
-            transform: translateX(4px);
-        }
+        .winner-card:hover { background: #181e2a; transform: translateX(4px); }
 
         .timeline-item {
             background: rgba(0, 0, 0, 0.4);
@@ -511,14 +477,8 @@
             flex-wrap: wrap;
             transition: 0.3s;
         }
-        .timeline-item:hover {
-            background: rgba(0, 240, 255, 0.02);
-        }
-        .timeline-item .date {
-            font-weight: 700;
-            color: var(--neon-cyan);
-            min-width: 70px;
-        }
+        .timeline-item:hover { background: rgba(0, 240, 255, 0.02); }
+        .timeline-item .date { font-weight: 700; color: var(--neon-cyan); min-width: 70px; }
         .status-completed {
             background: #1a3a3a;
             color: #00f0ff;
@@ -560,9 +520,7 @@
             margin-bottom: 0.8rem;
             transition: 0.3s;
         }
-        .record-card:hover {
-            background: rgba(0, 240, 255, 0.02);
-        }
+        .record-card:hover { background: rgba(0, 240, 255, 0.02); }
         .record-card .record-title {
             font-weight: 700;
             color: var(--neon-cyan);
@@ -570,10 +528,7 @@
             text-transform: uppercase;
             letter-spacing: 0.5px;
         }
-        .record-card .record-value {
-            font-size: 1.2rem;
-            margin-top: 4px;
-        }
+        .record-card .record-value { font-size: 1.2rem; margin-top: 4px; }
 
         .footer {
             text-align: center;
@@ -585,30 +540,12 @@
         }
 
         @media (max-width: 780px) {
-            .navbar {
-                flex-direction: column;
-                gap: 8px;
-                padding: 0.6rem 1rem;
-            }
-            .hero-title {
-                font-size: 2.2rem;
-            }
-            .results-table {
-                font-size: 0.75rem;
-            }
-            .results-table td, .results-table th {
-                padding: 0.4rem 0.6rem;
-            }
-            .position {
-                width: 28px;
-                height: 28px;
-                line-height: 28px;
-                font-size: 0.7rem;
-            }
-            .race-btn {
-                font-size: 0.65rem;
-                padding: 0.4rem 1rem;
-            }
+            .navbar { flex-direction: column; gap: 8px; padding: 0.6rem 1rem; }
+            .hero-title { font-size: 2.2rem; }
+            .results-table { font-size: 0.75rem; }
+            .results-table td, .results-table th { padding: 0.4rem 0.6rem; }
+            .position { width: 28px; height: 28px; line-height: 28px; font-size: 0.7rem; }
+            .race-btn { font-size: 0.65rem; padding: 0.4rem 1rem; }
         }
     </style>
 </head>
@@ -636,25 +573,25 @@
             <h1 class="hero-title">GTA Formula 1<br><small>Новый сезон — новые гонки!</small></h1>
             <div class="season-starter"><i class="fas fa-play"></i> СЕЗОН НАЧАЛСЯ!</div>
             <p style="font-size:1.2rem; margin:1.2rem 0; color:#a0b0c0; max-width:700px; margin-left:auto; margin-right:auto;">
-                <strong>4 гонки</strong> уже позади. <strong>kastillio</strong> лидирует в личном зачете,
-                <strong>Dewbauchee F1</strong> — в конструкторах. Сезон только разгоняется!
+                <strong>6 гонок</strong> уже позади. <strong>kastillio</strong> лидирует в личном зачете,
+                <strong>Mercedes-AMG F1</strong> — в конструкторах. Сезон только разгоняется!
             </p>
             <a href="#results" class="btn" data-page="results">Смотреть результаты →</a>
         </div>
 
         <div class="stats-grid">
             <div class="stat-card"><div class="stat-number">18</div><div>Пилотов</div></div>
-            <div class="stat-card"><div class="stat-number">7</div><div>Команд</div></div>
-            <div class="stat-card"><div class="stat-number">4</div><div>Гонки</div></div>
-            <div class="stat-card"><div class="stat-number">68</div><div>Очков лидера</div></div>
+            <div class="stat-card"><div class="stat-number">6</div><div>Команд</div></div>
+            <div class="stat-card"><div class="stat-number">6</div><div>Гонок</div></div>
+            <div class="stat-card"><div class="stat-number">101</div><div>Очко лидера</div></div>
         </div>
 
         <div class="glass-panel" style="border-color: var(--neon-cyan);">
             <h3 style="text-align:center; color: var(--neon-cyan);">
-                <i class="fas fa-flag"></i> Лидер сезона — kastillio (Dewbauchee) — 68 очков
+                <i class="fas fa-flag"></i> Лидер сезона — kastillio (Mercedes-AMG) — 101 очко
             </h3>
             <p style="text-align:center; margin-top:10px; color:#a0b0c0;">
-                SOVYCH05 — 2-й (47 очков), jetleoden — 3-й (33 очка). Битва продолжается!
+                SOVYCH05 — 2-й (66 очков), jetleoden — 3-й (54 очка). Битва продолжается!
             </p>
         </div>
     </section>
@@ -723,96 +660,128 @@
                 title: 'Oracle GP',
                 date: '10.04.2026',
                 results: [
-                    { position: 1, name: 'jetleoden', team: 'Dewbauchee', points: 25, status: 'finished', teamKey: 'dewbauchee', num: '6', qualy: 'P2>P1' },
-                    { position: 2, name: 'kastillio', team: 'Dewbauchee', points: 18, status: 'finished', teamKey: 'dewbauchee', num: '1', qualy: 'P1>P2' },
-                    { position: 3, name: 'Vin_Diselll', team: 'Atomic', points: 15, status: 'finished', teamKey: 'atomic', num: '33', qualy: 'P4>P3' },
-                    { position: 4, name: 'ALIN', team: 'Meinmacht', points: 12, status: 'finished', teamKey: 'meinmacht', num: '2', qualy: 'P8>P4' },
-                    { position: 5, name: 'FloeSS', team: 'Meinmacht', points: 10, status: 'finished', teamKey: 'meinmacht', num: '7', qualy: 'P4>P5' },
-                    { position: 6, name: 'SOVYCH05', team: 'Dinka', points: 8, status: 'finished', teamKey: 'dinka', num: '88', qualy: 'P6=P6' },
-                    { position: 7, name: 'JOSYLVIO', team: 'Atomic', points: 6, status: 'finished', teamKey: 'atomic', num: '49', qualy: 'P9>P7' },
-                    { position: 8, name: 'kanatkazx', team: 'Xero', points: 4, status: 'finished', teamKey: 'xero', num: '54', qualy: 'P10>P8' },
-                    { position: 'DSQ', name: 'Ruslan_222', team: 'Xero', points: 0, status: 'dsq', reason: 'Ахуел', teamKey: 'xero', num: '76', qualy: 'P5>OUT' },
-                    { position: 'DSQ', name: 'bramkloet', team: 'Dinka', points: 0, status: 'dsq', reason: 'Авария без сообщения', teamKey: 'dinka', num: '48', qualy: 'P7>OUT' }
+                    { position: 1, name: 'jetleoden', team: 'Mercedes-AMG', points: 25, status: 'finished', teamKey: 'mercedes', num: '6', qualy: 'P2>P1' },
+                    { position: 2, name: 'kastillio', team: 'Mercedes-AMG', points: 18, status: 'finished', teamKey: 'mercedes', num: '1', qualy: 'P1>P2' },
+                    { position: 3, name: 'Vin_Diselll', team: 'Red Bull Racing', points: 15, status: 'finished', teamKey: 'redbull', num: '33', qualy: 'P4>P3' },
+                    { position: 4, name: 'ALIN', team: 'Scuderia Ferrari', points: 12, status: 'finished', teamKey: 'ferrari', num: '2', qualy: 'P8>P4' },
+                    { position: 5, name: 'FloeSS', team: 'Scuderia Ferrari', points: 10, status: 'finished', teamKey: 'ferrari', num: '7', qualy: 'P4>P5' },
+                    { position: 6, name: 'SOVYCH05', team: 'McLaren', points: 8, status: 'finished', teamKey: 'mclaren', num: '88', qualy: 'P6=P6' },
+                    { position: 7, name: 'JOSYLVIO', team: 'Red Bull Racing', points: 6, status: 'finished', teamKey: 'redbull', num: '49', qualy: 'P9>P7' },
+                    { position: 8, name: 'kanatkazx', team: 'Haas', points: 4, status: 'finished', teamKey: 'haas', num: '54', qualy: 'P10>P8' },
+                    { position: 'DSQ', name: 'Ruslan_222', team: 'Haas', points: 0, status: 'dsq', reason: 'Ахуел', teamKey: 'haas', num: '76', qualy: 'P5>OUT' },
+                    { position: 'DSQ', name: 'bramkloet', team: 'McLaren', points: 0, status: 'dsq', reason: 'Авария без сообщения', teamKey: 'mclaren', num: '48', qualy: 'P7>OUT' }
                 ]
             },
             'redwood-sprint': {
                 title: 'Redwood Ring Sprint',
                 date: '17.04.2026',
                 results: [
-                    { position: 1, name: 'jetleoden', team: 'Dewbauchee', points: 8, status: 'finished', teamKey: 'dewbauchee', num: '6', qualy: 'P1=P1' },
-                    { position: 2, name: 'ALIN', team: 'Meinmacht', points: 7, status: 'finished', teamKey: 'meinmacht', num: '2', qualy: 'P2=P2' },
-                    { position: 3, name: 'SOVYCH05', team: 'Dinka', points: 6, status: 'finished', teamKey: 'dinka', num: '88', qualy: 'P3=P3' },
-                    { position: 4, name: 'kanatkazx', team: 'Xero', points: 5, status: 'finished', teamKey: 'xero', num: '54', qualy: 'P4=P4' },
-                    { position: 'DNF', name: 'kastillio', team: 'Dewbauchee', points: 0, status: 'dnf', reason: 'Авария', teamKey: 'dewbauchee', num: '1', qualy: 'P5>OUT' }
+                    { position: 1, name: 'jetleoden', team: 'Mercedes-AMG', points: 8, status: 'finished', teamKey: 'mercedes', num: '6', qualy: 'P1=P1' },
+                    { position: 2, name: 'ALIN', team: 'Scuderia Ferrari', points: 7, status: 'finished', teamKey: 'ferrari', num: '2', qualy: 'P2=P2' },
+                    { position: 3, name: 'SOVYCH05', team: 'McLaren', points: 6, status: 'finished', teamKey: 'mclaren', num: '88', qualy: 'P3=P3' },
+                    { position: 4, name: 'kanatkazx', team: 'Haas', points: 5, status: 'finished', teamKey: 'haas', num: '54', qualy: 'P4=P4' },
+                    { position: 'DNF', name: 'kastillio', team: 'Mercedes-AMG', points: 0, status: 'dnf', reason: 'Авария', teamKey: 'mercedes', num: '1', qualy: 'P5>OUT' }
                 ]
             },
             'redwood-gp': {
                 title: 'Redwood Ring GP',
                 date: '24.04.2026',
                 results: [
-                    { position: 1, name: 'kastillio', team: 'Dewbauchee', points: 25, status: 'finished', teamKey: 'dewbauchee', num: '1', qualy: 'P3>P1' },
-                    { position: 2, name: 'SOVYCH05', team: 'Dinka', points: 18, status: 'finished', teamKey: 'dinka', num: '88', qualy: 'P4>P2' },
-                    { position: 3, name: 'kanatkazx', team: 'Xero', points: 15, status: 'finished', teamKey: 'xero', num: '54', qualy: 'P6>P3' },
-                    { position: 'DNF', name: 'jetleoden', team: 'Dewbauchee', points: 0, status: 'dnf', reason: 'Авария', teamKey: 'dewbauchee', num: '6', qualy: 'P1>OUT' },
-                    { position: 'DNF', name: 'Vin_Diselll', team: 'Atomic', points: 0, status: 'dnf', reason: 'Авария', teamKey: 'atomic', num: '33', qualy: 'P2>OUT' },
-                    { position: 'DNF', name: 'ALIN', team: 'Meinmacht', points: 0, status: 'dnf', reason: 'Авария', teamKey: 'meinmacht', num: '2', qualy: 'P5>OUT' },
-                    { position: 'DNF', name: 'FloeSS', team: 'Meinmacht', points: 0, status: 'dnf', reason: 'Авария', teamKey: 'meinmacht', num: '7', qualy: 'P7>OUT' },
-                    { position: 'DNF', name: 'JOSYLVIO', team: 'Atomic', points: 0, status: 'dnf', reason: 'Авария', teamKey: 'atomic', num: '49', qualy: 'P8>OUT' }
+                    { position: 1, name: 'kastillio', team: 'Mercedes-AMG', points: 25, status: 'finished', teamKey: 'mercedes', num: '1', qualy: 'P3>P1' },
+                    { position: 2, name: 'SOVYCH05', team: 'McLaren', points: 18, status: 'finished', teamKey: 'mclaren', num: '88', qualy: 'P4>P2' },
+                    { position: 3, name: 'kanatkazx', team: 'Haas', points: 15, status: 'finished', teamKey: 'haas', num: '54', qualy: 'P6>P3' },
+                    { position: 'DNF', name: 'jetleoden', team: 'Mercedes-AMG', points: 0, status: 'dnf', reason: 'Авария', teamKey: 'mercedes', num: '6', qualy: 'P1>OUT' },
+                    { position: 'DNF', name: 'Vin_Diselll', team: 'Red Bull Racing', points: 0, status: 'dnf', reason: 'Авария', teamKey: 'redbull', num: '33', qualy: 'P2>OUT' },
+                    { position: 'DNF', name: 'ALIN', team: 'Scuderia Ferrari', points: 0, status: 'dnf', reason: 'Авария', teamKey: 'ferrari', num: '2', qualy: 'P5>OUT' },
+                    { position: 'DNF', name: 'FloeSS', team: 'Scuderia Ferrari', points: 0, status: 'dnf', reason: 'Авария', teamKey: 'ferrari', num: '7', qualy: 'P7>OUT' },
+                    { position: 'DNF', name: 'JOSYLVIO', team: 'Red Bull Racing', points: 0, status: 'dnf', reason: 'Авария', teamKey: 'redbull', num: '49', qualy: 'P8>OUT' }
                 ]
             },
             'austria-gp': {
                 title: 'Austria GP',
                 date: '01.05.2026',
                 results: [
-                    { position: 1, name: 'kastillio', team: 'Dewbauchee', points: 25, status: 'finished', teamKey: 'dewbauchee', num: '1', qualy: 'P1=P1' },
-                    { position: 2, name: 'ALIN', team: 'Meinmacht', points: 18, status: 'finished', teamKey: 'meinmacht', num: '2', qualy: 'P6>P2' },
-                    { position: 3, name: 'SOVYCH05', team: 'Dinka', points: 15, status: 'finished', teamKey: 'dinka', num: '88', qualy: 'P4>P3' },
-                    { position: 4, name: 'Vin_Diselll', team: 'Atomic', points: 12, status: 'finished', teamKey: 'atomic', num: '33', qualy: 'P5>P4' },
-                    { position: 'DNF', name: 'jetleoden', team: 'Dewbauchee', points: 0, status: 'dnf', reason: 'Авария с Vin_Diselll', teamKey: 'dewbauchee', num: '6', qualy: 'P2>OUT' },
-                    { position: 'DNF', name: 'bramkloet', team: 'Dinka', points: 0, status: 'dnf', reason: 'Авария с kastillio', teamKey: 'dinka', num: '48', qualy: 'P3>OUT' }
+                    { position: 1, name: 'kastillio', team: 'Mercedes-AMG', points: 25, status: 'finished', teamKey: 'mercedes', num: '1', qualy: 'P1=P1' },
+                    { position: 2, name: 'ALIN', team: 'Scuderia Ferrari', points: 18, status: 'finished', teamKey: 'ferrari', num: '2', qualy: 'P6>P2' },
+                    { position: 3, name: 'SOVYCH05', team: 'McLaren', points: 15, status: 'finished', teamKey: 'mclaren', num: '88', qualy: 'P4>P3' },
+                    { position: 4, name: 'Vin_Diselll', team: 'Red Bull Racing', points: 12, status: 'finished', teamKey: 'redbull', num: '33', qualy: 'P5>P4' },
+                    { position: 'DNF', name: 'jetleoden', team: 'Mercedes-AMG', points: 0, status: 'dnf', reason: 'Авария с Vin_Diselll', teamKey: 'mercedes', num: '6', qualy: 'P2>OUT' },
+                    { position: 'DNF', name: 'bramkloet', team: 'McLaren', points: 0, status: 'dnf', reason: 'Авария с kastillio', teamKey: 'mclaren', num: '48', qualy: 'P3>OUT' }
+                ]
+            },
+            'bee-gp-sprint': {
+                title: 'BEE GP Sprint',
+                date: '08.05.2026',
+                results: [
+                    { position: 1, name: 'kastillio', team: 'Mercedes-AMG', points: 8, status: 'finished', teamKey: 'mercedes', num: '1', qualy: 'P1=P1', fastestLap: true },
+                    { position: 2, name: 'SOVYCH05', team: 'Mercedes-AMG', points: 7, status: 'finished', teamKey: 'mercedes', num: '88', qualy: 'P2=P2' },
+                    { position: 3, name: 'jetleoden', team: 'Williams', points: 6, status: 'finished', teamKey: 'williams', num: '6', qualy: 'P3=P3' },
+                    { position: 4, name: 'Vin_Diselll', team: 'Red Bull Racing', points: 5, status: 'finished', teamKey: 'redbull', num: '33', qualy: 'P4=P4' },
+                    { position: 5, name: 'Liquer', team: 'Scuderia Ferrari', points: 4, status: 'finished', teamKey: 'ferrari', num: '77', qualy: 'P5=P5' },
+                    { position: 6, name: 'CCDINKA', team: 'Scuderia Ferrari', points: 3, status: 'finished', teamKey: 'ferrari', num: '54', qualy: 'P6=P6' },
+                    { position: 7, name: 'Trevor', team: 'Haas', points: 2, status: 'finished', teamKey: 'haas', num: '22', qualy: 'P7=P7' }
+                ]
+            },
+            'bee-gp-race': {
+                title: 'BEE GP Race',
+                date: '15.05.2026',
+                results: [
+                    { position: 1, name: 'kastillio', team: 'Mercedes-AMG', points: 25, status: 'finished', teamKey: 'mercedes', num: '1', qualy: 'P1=P1', fastestLap: true },
+                    { position: 2, name: 'Vin_Diselll', team: 'Red Bull Racing', points: 18, status: 'finished', teamKey: 'redbull', num: '33', qualy: 'P3>P2' },
+                    { position: 3, name: 'jetleoden', team: 'Williams', points: 15, status: 'finished', teamKey: 'williams', num: '6', qualy: 'P6>P3' },
+                    { position: 4, name: 'SOVYCH05', team: 'Mercedes-AMG', points: 12, status: 'finished', teamKey: 'mercedes', num: '88', qualy: 'P2>P4' },
+                    { position: 5, name: 'nuvem', team: 'Red Bull Racing', points: 10, status: 'finished', teamKey: 'redbull', num: '27', qualy: 'P4>P5' },
+                    { position: 6, name: 'Liquer', team: 'Scuderia Ferrari', points: 8, status: 'finished', teamKey: 'ferrari', num: '77', qualy: 'P5>P6' },
+                    { position: 7, name: 'CCDINKA', team: 'Scuderia Ferrari', points: 6, status: 'finished', teamKey: 'ferrari', num: '54', qualy: 'P7=P7' }
                 ]
             }
         };
 
         // ЛИЧНЫЙ ЗАЧЕТ
         const driverStandings = [
-            { name: 'kastillio', team: 'Dewbauchee F1 Team', points: 68, number: '1', teamKey: 'dewbauchee', title: 'Лидер' },
-            { name: 'SOVYCH05', team: 'Dinka F1 Team', points: 47, number: '88', teamKey: 'dinka' },
-            { name: 'jetleoden', team: 'Dewbauchee F1 Team', points: 33, number: '6', teamKey: 'dewbauchee' },
-            { name: 'ALIN', team: 'Meinmacht F1 Team', points: 30, number: '2', teamKey: 'meinmacht' },
-            { name: 'Vin_Diselll', team: 'Atomic F1 Team', points: 27, number: '33', teamKey: 'atomic' },
-            { name: 'kanatkazx', team: 'Xero F1 Team', points: 24, number: '54', teamKey: 'xero' },
-            { name: 'FloeSS', team: 'Meinmacht F1 Team', points: 10, number: '7', teamKey: 'meinmacht' },
-            { name: 'JOSYLVIO', team: 'Atomic F1 Team', points: 6, number: '49', teamKey: 'atomic' },
-            { name: 'bramkloet', team: 'Dinka F1 Team', points: 0, number: '48', teamKey: 'dinka' },
-            { name: 'Ruslan_222', team: 'Xero F1 Team', points: 0, number: '76', teamKey: 'xero', title: 'Изгнан из Формулы-1' }
+            { name: 'kastillio', team: 'Mercedes-AMG F1 Team', points: 101, number: '1', teamKey: 'mercedes', title: 'Лидер' },
+            { name: 'SOVYCH05', team: 'Mercedes-AMG F1 Team', points: 66, number: '88', teamKey: 'mercedes' },
+            { name: 'jetleoden', team: 'Williams F1 Team', points: 54, number: '6', teamKey: 'williams' },
+            { name: 'Vin_Diselll', team: 'Red Bull Racing F1 Team', points: 50, number: '33', teamKey: 'redbull' },
+            { name: 'ALIN', team: 'Scuderia Ferrari F1 Team', points: 30, number: '2', teamKey: 'ferrari', title: 'Завершил карьеру' },
+            { name: 'kanatkazx', team: 'Haas F1 Team', points: 24, number: '54', teamKey: 'haas', title: 'Приостановил карьеру' },
+            { name: 'Liquer', team: 'Scuderia Ferrari F1 Team', points: 12, number: '77', teamKey: 'ferrari' },
+            { name: 'nuvem', team: 'Red Bull Racing F1 Team', points: 10, number: '27', teamKey: 'redbull' },
+            { name: 'FloeSS', team: 'Scuderia Ferrari F1 Team', points: 10, number: '7', teamKey: 'ferrari', title: 'Завершил карьеру' },
+            { name: 'CCDINKA', team: 'Scuderia Ferrari F1 Team', points: 9, number: '54', teamKey: 'ferrari' },
+            { name: 'JOSYLVIO', team: 'Red Bull Racing F1 Team', points: 6, number: '49', teamKey: 'redbull', title: 'Завершил карьеру' },
+            { name: 'Trevor', team: 'Haas F1 Team', points: 2, number: '22', teamKey: 'haas' }
         ];
 
         // КУБОК КОНСТРУКТОРОВ
         const teamStandings = [
-            { name: 'Dewbauchee F1 Team', points: 101, key: 'dewbauchee', title: 'Лидер' },
-            { name: 'Dinka F1 Team', points: 47, key: 'dinka' },
-            { name: 'Meinmacht F1 Team', points: 40, key: 'meinmacht' },
-            { name: 'Atomic F1 Team', points: 33, key: 'atomic' },
-            { name: 'Xero F1 Team', points: 24, key: 'xero' }
+            { name: 'Mercedes-AMG F1 Team', points: 153, key: 'mercedes', title: 'Лидер' },
+            { name: 'Red Bull Racing F1 Team', points: 66, key: 'redbull' },
+            { name: 'Scuderia Ferrari F1 Team', points: 61, key: 'ferrari' },
+            { name: 'McLaren F1 Team', points: 47, key: 'mclaren' },
+            { name: 'Haas F1 Team', points: 26, key: 'haas' },
+            { name: 'Williams F1 Team', points: 21, key: 'williams' }
         ];
 
         // ПОБЕДИТЕЛИ
         const winnersList = [
-            { race: 'Oracle GP', winner: 'jetleoden', team: 'Dewbauchee', colorKey: 'dewbauchee' },
-            { race: 'Redwood Ring Sprint', winner: 'jetleoden', team: 'Dewbauchee', colorKey: 'dewbauchee' },
-            { race: 'Redwood Ring GP', winner: 'kastillio', team: 'Dewbauchee', colorKey: 'dewbauchee' },
-            { race: 'Austria GP', winner: 'kastillio', team: 'Dewbauchee', colorKey: 'dewbauchee' }
+            { race: 'Oracle GP', winner: 'jetleoden', team: 'Mercedes-AMG', colorKey: 'mercedes' },
+            { race: 'Redwood Ring Sprint', winner: 'jetleoden', team: 'Mercedes-AMG', colorKey: 'mercedes' },
+            { race: 'Redwood Ring GP', winner: 'kastillio', team: 'Mercedes-AMG', colorKey: 'mercedes' },
+            { race: 'Austria GP', winner: 'kastillio', team: 'Mercedes-AMG', colorKey: 'mercedes' },
+            { race: 'BEE GP Sprint', winner: 'kastillio', team: 'Mercedes-AMG', colorKey: 'mercedes' },
+            { race: 'BEE GP Race', winner: 'kastillio', team: 'Mercedes-AMG', colorKey: 'mercedes' }
         ];
 
         // РЕКОРДЫ
         const records = [
-            { title: 'Лидер сезона (очки)', value: 'kastillio — 68 очков' },
-            { title: 'Наибольшее количество побед', value: 'kastillio — 2 победы' },
+            { title: 'Лидер сезона (очки)', value: 'kastillio — 101 очко' },
+            { title: 'Наибольшее количество побед', value: 'kastillio — 4 победы' },
             { title: 'Наибольший прогресс в гонке', value: 'ALIN — Austria GP (P6 → P2)' },
-            { title: 'Самая быстрая гонка', value: 'Oracle GP — 25 очков за победу' },
-            { title: 'Команда-лидер', value: 'Dewbauchee F1 Team — 101 очко' },
-            { title: 'Лучший новичок', value: 'SOVYCH05 — 47 очков (Dinka)' }
+            { title: 'Быстрейший круг', value: 'kastillio — BEE GP Sprint и BEE GP Race' },
+            { title: 'Команда-лидер', value: 'Mercedes-AMG F1 Team — 153 очка' },
+            { title: 'Самая длинная серия побед', value: 'kastillio — 3 победы подряд (Redwood GP, Austria, BEE Sprint, BEE Race)' },
+            { title: 'Лучший новичок сезона', value: 'SOVYCH05 — 66 очков (Mercedes-AMG)' }
         ];
 
         // РАСПИСАНИЕ
@@ -821,26 +790,26 @@
             { date: '✅ 17.04', name: 'Redwood Ring Sprint', status: 'completed' },
             { date: '✅ 24.04', name: 'Redwood Ring GP', status: 'completed' },
             { date: '✅ 01.05', name: 'Austria GP', status: 'completed' },
-            { date: '⏳ 08.05', name: 'Burger Shot GP', status: 'upcoming' },
-            { date: '⏳ 15.05', name: 'BEE Sprint', status: 'upcoming' },
-            { date: '⏳ 22.05', name: 'BEE GP', status: 'upcoming' },
-            { date: '⏳ 29.05', name: 'Sochi Autodrom GP', status: 'upcoming' },
-            { date: '⏳ 05.06', name: 'Maze Bank GP', status: 'upcoming' },
-            { date: '⏳ 12.06', name: 'Zancudo GP', status: 'upcoming' },
-            { date: '⏳ 19.06', name: 'Airport GP', status: 'upcoming' },
-            { date: '⏳ 26.06', name: 'Barcelona GP', status: 'upcoming' },
-            { date: '⏳ 03.07', name: 'SANDY CIRCUIT', status: 'upcoming' },
-            { date: '🏁 10.07', name: 'GREENLIGHT GP (Финал)', status: 'upcoming' }
+            { date: '✅ 08.05', name: 'BEE GP Sprint', status: 'completed' },
+            { date: '✅ 15.05', name: 'BEE GP Race', status: 'completed' },
+            { date: '⏳ 22.05', name: 'Sochi Autodrom GP', status: 'upcoming' },
+            { date: '⏳ 29.05', name: 'Maze Bank GP', status: 'upcoming' },
+            { date: '⏳ 05.06', name: 'Zancudo GP', status: 'upcoming' },
+            { date: '⏳ 12.06', name: 'Airport GP', status: 'upcoming' },
+            { date: '⏳ 19.06', name: 'Barcelona GP', status: 'upcoming' },
+            { date: '⏳ 26.06', name: 'SANDY CIRCUIT', status: 'upcoming' },
+            { date: '🏁 03.07', name: 'GREENLIGHT GP (Финал)', status: 'upcoming' }
         ];
 
         // ========== ВСПОМОГАТЕЛЬНЫЕ ФУНКЦИИ ==========
         function teamColorClass(key) {
             const map = {
-                'dewbauchee': 'team-dewbauchee',
-                'dinka': 'team-dinka',
-                'atomic': 'team-atomic',
-                'meinmacht': 'team-meinmacht',
-                'xero': 'team-xero'
+                'mercedes': 'team-mercedes',
+                'mclaren': 'team-mclaren',
+                'redbull': 'team-redbull',
+                'ferrari': 'team-ferrari',
+                'haas': 'team-haas',
+                'williams': 'team-williams'
             };
             return map[key] || '';
         }
@@ -875,9 +844,10 @@
                     statusText = `Дисквалификация (${r.reason || 'Нарушение'})`;
                 }
                 const teamCl = teamColorClass(r.teamKey);
+                const flBadge = r.fastestLap ? ' <span class="fastest-lap">⚡ Fastest Lap</span>' : '';
                 html += `<tr>
                     <td>${posHtml}</td>
-                    <td><strong class="${teamCl}">${r.name} #${r.num || ''}</strong></td>
+                    <td><strong class="${teamCl}">${r.name} #${r.num || ''}</strong>${flBadge}</td>
                     <td class="${teamCl}">${r.team} F1 Team</td>
                     <td><strong>${r.points}</strong></td>
                     <td>${statusText}</td>
@@ -893,7 +863,9 @@
                 { id: 'oracle-gp', name: 'Oracle GP' },
                 { id: 'redwood-sprint', name: 'Redwood Sprint' },
                 { id: 'redwood-gp', name: 'Redwood GP' },
-                { id: 'austria-gp', name: 'Austria GP' }
+                { id: 'austria-gp', name: 'Austria GP' },
+                { id: 'bee-gp-sprint', name: 'BEE GP Sprint' },
+                { id: 'bee-gp-race', name: 'BEE GP Race' }
             ];
             racesList.forEach((r, idx) => {
                 let btn = document.createElement('button');
