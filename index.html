@@ -6,12 +6,7 @@
     <title>GTA F1 • СЕЗОН 4 — Старт!</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
-        /* ---------- КИБЕР-ФОРМУЛА ---------- */
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
 
         body {
             background: #06080b;
@@ -23,10 +18,8 @@
 
         .f1-grid {
             position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
+            top: 0; left: 0;
+            width: 100%; height: 100%;
             z-index: -2;
             background:
                 radial-gradient(circle at 20% 30%, rgba(0, 255, 255, 0.08) 0%, transparent 50%),
@@ -58,18 +51,15 @@
 
         .confetti-container {
             position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
+            top: 0; left: 0;
+            width: 100%; height: 100%;
             pointer-events: none;
             z-index: -1;
             overflow: hidden;
         }
         .confetti {
             position: absolute;
-            width: 8px;
-            height: 8px;
+            width: 8px; height: 8px;
             opacity: 0.6;
             animation: confettiRain linear infinite;
             filter: drop-shadow(0 0 6px currentColor);
@@ -83,7 +73,6 @@
             --neon-cyan: #00f0ff;
             --neon-pink: #ff2d95;
             --neon-orange: #ff6a00;
-            --dark-metal: #0b0e14;
             --glass-bg: rgba(8, 12, 20, 0.92);
         }
 
@@ -92,8 +81,7 @@
             backdrop-filter: blur(20px);
             padding: 0.5rem 2.5rem;
             position: fixed;
-            top: 0;
-            width: 100%;
+            top: 0; width: 100%;
             z-index: 1000;
             border-bottom: 2px solid var(--neon-cyan);
             display: flex;
@@ -190,8 +178,7 @@
         .hero::before {
             content: '🏁';
             position: absolute;
-            top: -20%;
-            right: -5%;
+            top: -20%; right: -5%;
             font-size: 14rem;
             opacity: 0.04;
             pointer-events: none;
@@ -357,8 +344,7 @@
 
         .position {
             display: inline-block;
-            width: 36px;
-            height: 36px;
+            width: 36px; height: 36px;
             line-height: 36px;
             text-align: center;
             border-radius: 50%;
@@ -402,13 +388,14 @@
             box-shadow: 0 0 12px rgba(160, 32, 240, 0.4);
         }
 
-        /* ЦВЕТА КОМАНД — ОБНОВЛЕНЫ */
-        .team-mercedes { color: #00d2be !important; }   /* бирюзовый */
-        .team-mclaren { color: #ff8700 !important; }    /* оранжевый */
-        .team-redbull { color: #4d7cff !important; }    /* тёмно-синий (осветлён для видимости) */
-        .team-ferrari { color: #ff2800 !important; }    /* красный */
-        .team-haas { color: #ffffff !important; }       /* белый */
-        .team-williams { color: #5a9fdc !important; }   /* светло-синий */
+        /* ЦВЕТА КОМАНД */
+        .team-mercedes { color: #00d2be !important; }
+        .team-mclaren { color: #ff8700 !important; }
+        .team-redbull { color: #4d7cff !important; }
+        .team-ferrari { color: #ff2800 !important; }
+        .team-haas { color: #ffffff !important; }
+        .team-williams { color: #5a9fdc !important; }
+        .team-cadillac { color: #a0a0a0 !important; }
 
         .driver-item, .team-item {
             display: flex;
@@ -573,25 +560,25 @@
             <h1 class="hero-title">GTA Formula 1<br><small>Новый сезон — новые гонки!</small></h1>
             <div class="season-starter"><i class="fas fa-play"></i> СЕЗОН НАЧАЛСЯ!</div>
             <p style="font-size:1.2rem; margin:1.2rem 0; color:#a0b0c0; max-width:700px; margin-left:auto; margin-right:auto;">
-                <strong>6 гонок</strong> уже позади. <strong>kastillio</strong> лидирует в личном зачете,
+                <strong>7 гонок</strong> уже позади. <strong>kastillio</strong> лидирует в личном зачете,
                 <strong>Mercedes-AMG F1</strong> — в конструкторах. Сезон только разгоняется!
             </p>
             <a href="#results" class="btn" data-page="results">Смотреть результаты →</a>
         </div>
 
         <div class="stats-grid">
-            <div class="stat-card"><div class="stat-number">18</div><div>Пилотов</div></div>
-            <div class="stat-card"><div class="stat-number">6</div><div>Команд</div></div>
-            <div class="stat-card"><div class="stat-number">6</div><div>Гонок</div></div>
-            <div class="stat-card"><div class="stat-number">101</div><div>Очко лидера</div></div>
+            <div class="stat-card"><div class="stat-number">14</div><div>Пилотов</div></div>
+            <div class="stat-card"><div class="stat-number">7</div><div>Команд</div></div>
+            <div class="stat-card"><div class="stat-number">7</div><div>Гонок</div></div>
+            <div class="stat-card"><div class="stat-number">119</div><div>Очков лидера</div></div>
         </div>
 
         <div class="glass-panel" style="border-color: var(--neon-cyan);">
             <h3 style="text-align:center; color: var(--neon-cyan);">
-                <i class="fas fa-flag"></i> Лидер сезона — kastillio (Mercedes-AMG) — 101 очко
+                <i class="fas fa-flag"></i> Лидер сезона — kastillio (Mercedes-AMG) — 119 очков
             </h3>
             <p style="text-align:center; margin-top:10px; color:#a0b0c0;">
-                SOVYCH05 — 2-й (66 очков), jetleoden — 3-й (54 очка). Битва продолжается!
+                SOVYCH05 — 2-й (91 очко), jetleoden — 3-й (54 очка). Битва продолжается!
             </p>
         </div>
     </section>
@@ -734,33 +721,49 @@
                     { position: 6, name: 'Liquer', team: 'Scuderia Ferrari', points: 8, status: 'finished', teamKey: 'ferrari', num: '77', qualy: 'P5>P6' },
                     { position: 7, name: 'CCDINKA', team: 'Scuderia Ferrari', points: 6, status: 'finished', teamKey: 'ferrari', num: '54', qualy: 'P7=P7' }
                 ]
+            },
+            'italian-gp': {
+                title: 'Italian GP Race',
+                date: '22.05.2026',
+                results: [
+                    { position: 1, name: 'SOVYCH05', team: 'Mercedes-AMG', points: 25, status: 'finished', teamKey: 'mercedes', num: '88', qualy: 'P2>P1' },
+                    { position: 2, name: 'kastillio', team: 'Mercedes-AMG', points: 18, status: 'finished', teamKey: 'mercedes', num: '1', qualy: 'P1>P2', fastestLap: true },
+                    { position: 3, name: 'nuvem', team: 'Red Bull Racing', points: 15, status: 'finished', teamKey: 'redbull', num: '27', qualy: 'P3=P3' },
+                    { position: 4, name: 'Trevor', team: 'Haas', points: 12, status: 'finished', teamKey: 'haas', num: '22', qualy: 'P5>P4' },
+                    { position: 5, name: 'Liquer', team: 'Scuderia Ferrari', points: 10, status: 'finished', teamKey: 'ferrari', num: '77', qualy: 'P4>P5' },
+                    { position: 6, name: 'Tema_East', team: 'Haas', points: 8, status: 'finished', teamKey: 'haas', num: '69', qualy: 'P6=P6' },
+                    { position: 7, name: 'VoyderKa', team: 'Cadillac', points: 6, status: 'finished', teamKey: 'cadillac', num: '65', qualy: 'P7=P7' }
+                ]
             }
         };
 
         // ЛИЧНЫЙ ЗАЧЕТ
         const driverStandings = [
-            { name: 'kastillio', team: 'Mercedes-AMG F1 Team', points: 101, number: '1', teamKey: 'mercedes', title: 'Лидер' },
-            { name: 'SOVYCH05', team: 'Mercedes-AMG F1 Team', points: 66, number: '88', teamKey: 'mercedes' },
+            { name: 'kastillio', team: 'Mercedes-AMG F1 Team', points: 119, number: '1', teamKey: 'mercedes', title: 'Лидер' },
+            { name: 'SOVYCH05', team: 'Mercedes-AMG F1 Team', points: 91, number: '88', teamKey: 'mercedes' },
             { name: 'jetleoden', team: 'Williams F1 Team', points: 54, number: '6', teamKey: 'williams' },
             { name: 'Vin_Diselll', team: 'Red Bull Racing F1 Team', points: 50, number: '33', teamKey: 'redbull' },
             { name: 'ALIN', team: 'Scuderia Ferrari F1 Team', points: 30, number: '2', teamKey: 'ferrari', title: 'Завершил карьеру' },
+            { name: 'nuvem', team: 'Red Bull Racing F1 Team', points: 25, number: '27', teamKey: 'redbull' },
             { name: 'kanatkazx', team: 'Haas F1 Team', points: 24, number: '54', teamKey: 'haas', title: 'Приостановил карьеру' },
-            { name: 'Liquer', team: 'Scuderia Ferrari F1 Team', points: 12, number: '77', teamKey: 'ferrari' },
-            { name: 'nuvem', team: 'Red Bull Racing F1 Team', points: 10, number: '27', teamKey: 'redbull' },
+            { name: 'Liquer', team: 'Scuderia Ferrari F1 Team', points: 22, number: '77', teamKey: 'ferrari' },
+            { name: 'Trevor', team: 'Haas F1 Team', points: 12, number: '22', teamKey: 'haas' },
             { name: 'FloeSS', team: 'Scuderia Ferrari F1 Team', points: 10, number: '7', teamKey: 'ferrari', title: 'Завершил карьеру' },
             { name: 'CCDINKA', team: 'Scuderia Ferrari F1 Team', points: 9, number: '54', teamKey: 'ferrari' },
-            { name: 'JOSYLVIO', team: 'Red Bull Racing F1 Team', points: 6, number: '49', teamKey: 'redbull', title: 'Завершил карьеру' },
-            { name: 'Trevor', team: 'Haas F1 Team', points: 2, number: '22', teamKey: 'haas' }
+            { name: 'Tema_East', team: 'Haas F1 Team', points: 8, number: '69', teamKey: 'haas' },
+            { name: 'VoyderKa', team: 'Cadillac F1 Team', points: 6, number: '65', teamKey: 'cadillac' },
+            { name: 'JOSYLVIO', team: 'Red Bull Racing F1 Team', points: 6, number: '49', teamKey: 'redbull', title: 'Завершил карьеру' }
         ];
 
         // КУБОК КОНСТРУКТОРОВ
         const teamStandings = [
-            { name: 'Mercedes-AMG F1 Team', points: 153, key: 'mercedes', title: 'Лидер' },
-            { name: 'Red Bull Racing F1 Team', points: 66, key: 'redbull' },
-            { name: 'Scuderia Ferrari F1 Team', points: 61, key: 'ferrari' },
+            { name: 'Mercedes-AMG F1 Team', points: 196, key: 'mercedes', title: 'Лидер' },
+            { name: 'Red Bull Racing F1 Team', points: 81, key: 'redbull' },
+            { name: 'Scuderia Ferrari F1 Team', points: 71, key: 'ferrari' },
             { name: 'McLaren F1 Team', points: 47, key: 'mclaren' },
-            { name: 'Haas F1 Team', points: 26, key: 'haas' },
-            { name: 'Williams F1 Team', points: 21, key: 'williams' }
+            { name: 'Haas F1 Team', points: 46, key: 'haas' },
+            { name: 'Williams F1 Team', points: 21, key: 'williams' },
+            { name: 'Cadillac F1 Team', points: 6, key: 'cadillac' }
         ];
 
         // ПОБЕДИТЕЛИ
@@ -770,18 +773,21 @@
             { race: 'Redwood Ring GP', winner: 'kastillio', team: 'Mercedes-AMG', colorKey: 'mercedes' },
             { race: 'Austria GP', winner: 'kastillio', team: 'Mercedes-AMG', colorKey: 'mercedes' },
             { race: 'BEE GP Sprint', winner: 'kastillio', team: 'Mercedes-AMG', colorKey: 'mercedes' },
-            { race: 'BEE GP Race', winner: 'kastillio', team: 'Mercedes-AMG', colorKey: 'mercedes' }
+            { race: 'BEE GP Race', winner: 'kastillio', team: 'Mercedes-AMG', colorKey: 'mercedes' },
+            { race: 'Italian GP', winner: 'SOVYCH05', team: 'Mercedes-AMG', colorKey: 'mercedes' }
         ];
 
         // РЕКОРДЫ
         const records = [
-            { title: 'Лидер сезона (очки)', value: 'kastillio — 101 очко' },
+            { title: 'Лидер сезона (очки)', value: 'kastillio — 119 очков' },
             { title: 'Наибольшее количество побед', value: 'kastillio — 4 победы' },
+            { title: 'Наибольшее количество поул-позиций', value: 'kastillio — 4 поула' },
             { title: 'Наибольший прогресс в гонке', value: 'ALIN — Austria GP (P6 → P2)' },
-            { title: 'Быстрейший круг', value: 'kastillio — BEE GP Sprint и BEE GP Race' },
-            { title: 'Команда-лидер', value: 'Mercedes-AMG F1 Team — 153 очка' },
-            { title: 'Самая длинная серия побед', value: 'kastillio — 3 победы подряд (Redwood GP, Austria, BEE Sprint, BEE Race)' },
-            { title: 'Лучший новичок сезона', value: 'SOVYCH05 — 66 очков (Mercedes-AMG)' }
+            { title: 'Быстрейший круг', value: 'kastillio — 3 быстрых круга (BEE Sprint, BEE Race, Italian GP)' },
+            { title: 'Команда-лидер', value: 'Mercedes-AMG F1 Team — 196 очков' },
+            { title: 'Самая длинная серия побед', value: 'kastillio — 4 победы подряд (Redwood GP, Austria, BEE Sprint, BEE Race)' },
+            { title: 'Лучший новичок сезона', value: 'SOVYCH05 — 91 очко (Mercedes-AMG)' },
+            { title: 'Первый дебютант сезона', value: 'Cadillac F1 Team — дебют в Italian GP' }
         ];
 
         // РАСПИСАНИЕ
@@ -792,13 +798,14 @@
             { date: '✅ 01.05', name: 'Austria GP', status: 'completed' },
             { date: '✅ 08.05', name: 'BEE GP Sprint', status: 'completed' },
             { date: '✅ 15.05', name: 'BEE GP Race', status: 'completed' },
-            { date: '⏳ 22.05', name: 'Sochi Autodrom GP', status: 'upcoming' },
-            { date: '⏳ 29.05', name: 'Maze Bank GP', status: 'upcoming' },
-            { date: '⏳ 05.06', name: 'Zancudo GP', status: 'upcoming' },
-            { date: '⏳ 12.06', name: 'Airport GP', status: 'upcoming' },
-            { date: '⏳ 19.06', name: 'Barcelona GP', status: 'upcoming' },
-            { date: '⏳ 26.06', name: 'SANDY CIRCUIT', status: 'upcoming' },
-            { date: '🏁 03.07', name: 'GREENLIGHT GP (Финал)', status: 'upcoming' }
+            { date: '✅ 22.05', name: 'Italian GP Race', status: 'completed' },
+            { date: '⏳ 29.05', name: 'Sochi Autodrom GP', status: 'upcoming' },
+            { date: '⏳ 05.06', name: 'Maze Bank GP', status: 'upcoming' },
+            { date: '⏳ 12.06', name: 'Zancudo GP', status: 'upcoming' },
+            { date: '⏳ 19.06', name: 'Airport GP', status: 'upcoming' },
+            { date: '⏳ 26.06', name: 'Barcelona GP', status: 'upcoming' },
+            { date: '⏳ 03.07', name: 'SANDY CIRCUIT', status: 'upcoming' },
+            { date: '🏁 10.07', name: 'GREENLIGHT GP (Финал)', status: 'upcoming' }
         ];
 
         // ========== ВСПОМОГАТЕЛЬНЫЕ ФУНКЦИИ ==========
@@ -809,7 +816,8 @@
                 'redbull': 'team-redbull',
                 'ferrari': 'team-ferrari',
                 'haas': 'team-haas',
-                'williams': 'team-williams'
+                'williams': 'team-williams',
+                'cadillac': 'team-cadillac'
             };
             return map[key] || '';
         }
@@ -865,7 +873,8 @@
                 { id: 'redwood-gp', name: 'Redwood GP' },
                 { id: 'austria-gp', name: 'Austria GP' },
                 { id: 'bee-gp-sprint', name: 'BEE GP Sprint' },
-                { id: 'bee-gp-race', name: 'BEE GP Race' }
+                { id: 'bee-gp-race', name: 'BEE GP Race' },
+                { id: 'italian-gp', name: 'Italian GP' }
             ];
             racesList.forEach((r, idx) => {
                 let btn = document.createElement('button');
