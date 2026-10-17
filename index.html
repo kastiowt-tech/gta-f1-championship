@@ -3,177 +3,166 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>GTA F1 • SEASON 04 • GRID EDITION</title>
+    <title>GTA F1 • СЕЗОН 4 ЗАВЕРШЁН • CRIMSON DYNASTY</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         /* ============================================================
-           GRID EDITION — настоящий формульный стиль
-           чёрный асфальт, красный спидометр, белые полосы, карбон
+           CRIMSON DYNASTY — финальный облик сезона
+           багровый • янтарный • пурпурный • золото
            ============================================================ */
         * { margin: 0; padding: 0; box-sizing: border-box; }
 
         :root {
-            --asphalt: #0d0d0d;
-            --asphalt-2: #161616;
-            --carbon: #1a1a1a;
-            --carbon-hi: #242424;
-            --line: #2e2e2e;
-            --line-hi: #3d3d3d;
-            --racing-red: #e10600;
-            --racing-red-hi: #ff2218;
-            --racing-yellow: #ffd800;
-            --racing-white: #f5f5f5;
-            --racing-blue: #0090d4;
-            --racing-green: #00d26a;
-            --text: #f5f5f5;
-            --muted: #8a8a8a;
-            --dim: #4a4a4a;
+            --bg: #0a0208;
+            --bg-2: #12040e;
+            --panel: #170610;
+            --panel-2: #200814;
+            --panel-3: #2a0c1a;
+            --crimson: #dc143c;
+            --crimson-hi: #ff3366;
+            --crimson-deep: #8a0a26;
+            --amber: #f59e0b;
+            --amber-hi: #fbbf24;
+            --amber-deep: #b45309;
+            --rose: #f43f5e;
+            --magenta: #d946ef;
+            --purple: #7c3aed;
+            --purple-deep: #4a148c;
+            --gold: #ffd24a;
+            --text: #fdf4e3;
+            --muted: #a87a82;
+            --dim: #4a1c28;
+            --line: rgba(220, 20, 60, 0.25);
+            --line-amber: rgba(245, 158, 11, 0.35);
         }
 
         html { scroll-behavior: smooth; }
 
         body {
-            background: var(--asphalt);
+            background: var(--bg);
             color: var(--text);
             font-family: 'Titillium Web', 'Segoe UI', system-ui, sans-serif;
             min-height: 100vh;
             overflow-x: hidden;
-            letter-spacing: 0.2px;
+            letter-spacing: 0.3px;
             position: relative;
         }
 
-        /* ============ ASPHALT BACKGROUND ============ */
-        .track-bg {
+        /* ============ FIRE SKY BACKGROUND ============ */
+        .fire-sky {
             position: fixed;
             inset: 0;
             z-index: -5;
             background:
-                radial-gradient(ellipse at 50% 0%, rgba(225, 6, 0, 0.08), transparent 55%),
-                radial-gradient(ellipse at 50% 100%, rgba(255, 216, 0, 0.05), transparent 55%),
-                linear-gradient(180deg, #0d0d0d 0%, #0a0a0a 50%, #0d0d0d 100%);
+                radial-gradient(ellipse at 20% 0%, rgba(220, 20, 60, 0.18), transparent 55%),
+                radial-gradient(ellipse at 80% 100%, rgba(245, 158, 11, 0.15), transparent 55%),
+                radial-gradient(ellipse at 50% 50%, rgba(74, 20, 140, 0.15), transparent 70%),
+                linear-gradient(180deg, #0a0208 0%, #12040e 40%, #180510 70%, #0a0208 100%);
             pointer-events: none;
         }
 
-        /* CARBON FIBER TEXTURE */
-        .track-bg::before {
+        /* ДИАГОНАЛЬНЫЙ УЗОР */
+        .fire-sky::after {
             content: '';
             position: absolute;
             inset: 0;
             background-image:
-                repeating-linear-gradient(45deg, transparent 0, transparent 2px, rgba(255, 255, 255, 0.015) 2px, rgba(255, 255, 255, 0.015) 3px),
-                repeating-linear-gradient(-45deg, transparent 0, transparent 2px, rgba(255, 255, 255, 0.015) 2px, rgba(255, 255, 255, 0.015) 3px);
-            opacity: 0.8;
+                repeating-linear-gradient(
+                    135deg,
+                    transparent 0,
+                    transparent 60px,
+                    rgba(220, 20, 60, 0.025) 60px,
+                    rgba(220, 20, 60, 0.025) 62px
+                );
+            animation: patternShift 40s linear infinite;
         }
-
-        /* CURBS (бордюры) — динамическая полоса внизу */
-        .curbs {
-            position: fixed;
-            bottom: 0; left: 0; right: 0;
-            height: 20px;
-            z-index: -3;
-            background: repeating-linear-gradient(
-                90deg,
-                var(--racing-red) 0,
-                var(--racing-red) 30px,
-                var(--racing-white) 30px,
-                var(--racing-white) 60px
-            );
-            opacity: 0.85;
-            pointer-events: none;
-            animation: curbSlide 4s linear infinite;
-            box-shadow: 0 -4px 20px rgba(225, 6, 0, 0.3);
-        }
-        @keyframes curbSlide {
+        @keyframes patternShift {
             0% { background-position: 0 0; }
-            100% { background-position: 60px 0; }
+            100% { background-position: 200px 200px; }
         }
 
-        /* SPEED LINES */
-        .speed-lines {
+        /* УГЛЕВЫЕ ИСКРЫ */
+        .embers {
             position: fixed;
             inset: 0;
-            z-index: -4;
+            z-index: -3;
             pointer-events: none;
             overflow: hidden;
         }
-        .speed-line {
+        .ember {
             position: absolute;
-            height: 2px;
-            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.6), transparent);
-            animation: speedLine linear infinite;
+            width: 4px;
+            height: 4px;
+            border-radius: 50%;
+            animation: emberRise linear infinite;
+            filter: blur(0.5px);
         }
-        @keyframes speedLine {
-            0% { transform: translateX(-100%); opacity: 0; }
-            10% { opacity: 1; }
-            90% { opacity: 1; }
-            100% { transform: translateX(200%); opacity: 0; }
+        @keyframes emberRise {
+            0% { transform: translateY(110vh) translateX(0) scale(0.4); opacity: 0; }
+            10% { opacity: 0.9; }
+            50% { opacity: 0.7; transform: translateY(50vh) translateX(20px) scale(1); }
+            90% { opacity: 0.5; }
+            100% { transform: translateY(-10vh) translateX(-30px) scale(0.3); opacity: 0; }
         }
 
-        /* SCANLINE TRACK */
-        .scanlines {
+        /* МЯГКИЙ ДЫМ */
+        .smoke {
+            position: fixed;
+            inset: 0;
+            z-index: -2;
+            pointer-events: none;
+            background:
+                radial-gradient(circle at 15% 30%, rgba(220, 20, 60, 0.04), transparent 40%),
+                radial-gradient(circle at 85% 70%, rgba(245, 158, 11, 0.03), transparent 40%);
+            animation: smokeDrift 25s ease-in-out infinite alternate;
+        }
+        @keyframes smokeDrift {
+            0% { opacity: 0.6; transform: scale(1) translateX(-10px); }
+            100% { opacity: 1; transform: scale(1.08) translateX(10px); }
+        }
+
+        /* ВИНЬЕТКА */
+        .vignette {
             position: fixed;
             inset: 0;
             z-index: 9998;
             pointer-events: none;
-            background: repeating-linear-gradient(
-                0deg,
-                transparent 0,
-                transparent 3px,
-                rgba(0, 0, 0, 0.15) 3px,
-                rgba(0, 0, 0, 0.15) 4px
-            );
-            opacity: 0.4;
+            background: radial-gradient(ellipse at center, transparent 40%, rgba(0, 0, 0, 0.6) 100%);
         }
 
         /* ============ NAVBAR ============ */
         .navbar {
-            background: rgba(13, 13, 13, 0.95);
-            backdrop-filter: blur(20px) saturate(180%);
-            -webkit-backdrop-filter: blur(20px) saturate(180%);
+            background: rgba(10, 2, 8, 0.96);
+            backdrop-filter: blur(24px) saturate(160%);
+            -webkit-backdrop-filter: blur(24px) saturate(160%);
             padding: 0 2rem;
             position: fixed;
             top: 0; left: 0; right: 0;
             z-index: 1000;
-            height: 72px;
+            height: 76px;
             display: flex;
             justify-content: space-between;
             align-items: center;
             flex-wrap: wrap;
-            border-bottom: 3px solid var(--racing-red);
-            box-shadow: 0 4px 30px rgba(225, 6, 0, 0.25);
+            border-bottom: 1px solid var(--line);
+            box-shadow: 0 8px 40px rgba(0, 0, 0, 0.6), 0 0 60px rgba(220, 20, 60, 0.15);
         }
-        /* ЧЕКЕРД СТРИП */
         .navbar::before {
             content: '';
             position: absolute;
-            top: 0; left: 0; right: 0;
-            height: 6px;
-            background-image:
-                linear-gradient(45deg, #000 25%, transparent 25%),
-                linear-gradient(-45deg, #000 25%, transparent 25%),
-                linear-gradient(45deg, transparent 75%, #000 75%),
-                linear-gradient(-45deg, transparent 75%, #000 75%);
-            background-size: 12px 12px;
-            background-position: 0 0, 0 6px, 6px -6px, -6px 0px;
-            background-color: #fff;
-            opacity: 0.9;
-        }
-        .navbar::after {
-            content: '';
-            position: absolute;
-            bottom: -3px; left: 0; right: 0;
-            height: 3px;
-            background: linear-gradient(90deg, var(--racing-red), var(--racing-yellow), var(--racing-red));
+            bottom: -1px; left: 0; right: 0;
+            height: 2px;
+            background: linear-gradient(90deg, transparent, var(--amber), var(--crimson), var(--amber), transparent);
             background-size: 200% 100%;
-            animation: navStripe 4s linear infinite;
+            animation: navSweep 5s linear infinite;
         }
-        @keyframes navStripe {
-            0% { background-position: 0% 0; }
+        @keyframes navSweep {
+            0% { background-position: -200% 0; }
             100% { background-position: 200% 0; }
         }
 
         .logo {
-            font-size: 1.4rem;
+            font-size: 1.5rem;
             font-weight: 900;
             letter-spacing: 2px;
             font-style: italic;
@@ -184,48 +173,44 @@
             color: var(--text);
         }
         .logo-icon {
-            width: 40px;
-            height: 40px;
-            background: var(--racing-red);
+            width: 42px;
+            height: 42px;
+            background: linear-gradient(135deg, var(--crimson), var(--crimson-deep));
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 1.1rem;
-            color: #fff;
+            font-size: 1.15rem;
+            color: var(--text);
             font-style: normal;
-            clip-path: polygon(0 0, 100% 0, 100% 70%, 70% 100%, 0 100%);
-            box-shadow: 0 0 25px rgba(225, 6, 0, 0.6);
-            animation: logoPulse 3s ease-in-out infinite;
+            border-radius: 50% 50% 50% 8px;
+            box-shadow: 0 0 30px rgba(220, 20, 60, 0.6);
+            animation: logoRotate 6s ease-in-out infinite;
         }
-        @keyframes logoPulse {
-            0%, 100% { box-shadow: 0 0 25px rgba(225, 6, 0, 0.6); }
-            50% { box-shadow: 0 0 45px rgba(225, 6, 0, 0.9); }
+        @keyframes logoRotate {
+            0%, 100% { transform: rotate(0deg); box-shadow: 0 0 30px rgba(220, 20, 60, 0.6); }
+            50% { transform: rotate(-8deg); box-shadow: 0 0 45px rgba(245, 158, 11, 0.7); }
         }
         .season-chip {
             font-size: 0.55rem;
             font-weight: 900;
             letter-spacing: 2px;
-            color: var(--racing-yellow);
-            background: rgba(255, 216, 0, 0.08);
-            border: 1px solid rgba(255, 216, 0, 0.5);
+            color: var(--amber);
+            background: rgba(245, 158, 11, 0.1);
+            border: 1px solid rgba(245, 158, 11, 0.5);
             padding: 4px 10px;
             font-style: normal;
-            clip-path: polygon(6px 0, 100% 0, 100% calc(100% - 6px), calc(100% - 6px) 100%, 0 100%, 0 6px);
+            border-radius: 4px;
+            text-shadow: 0 0 10px rgba(245, 158, 11, 0.6);
         }
-        .round-chip {
-            font-size: 0.5rem;
-            font-weight: 900;
-            letter-spacing: 1.5px;
+        .season-chip.ended {
+            background: var(--crimson);
             color: #fff;
-            background: var(--racing-red);
-            padding: 4px 10px;
-            font-style: normal;
-            margin-left: 6px;
-            animation: warningPulse 1.5s ease-in-out infinite;
+            border-color: var(--crimson);
+            animation: endedPulse 2s ease-in-out infinite;
         }
-        @keyframes warningPulse {
-            0%, 100% { box-shadow: 0 0 8px rgba(225, 6, 0, 0.5); }
-            50% { box-shadow: 0 0 24px rgba(225, 6, 0, 0.9); }
+        @keyframes endedPulse {
+            0%, 100% { box-shadow: 0 0 10px rgba(220, 20, 60, 0.5); }
+            50% { box-shadow: 0 0 25px rgba(220, 20, 60, 0.9); }
         }
 
         .nav-links { display: flex; gap: 4px; flex-wrap: wrap; }
@@ -233,112 +218,150 @@
             color: var(--muted);
             text-decoration: none;
             font-weight: 800;
-            padding: 0.55rem 1.1rem;
-            transition: all 0.2s ease;
+            padding: 0.6rem 1.1rem;
+            transition: all 0.25s ease;
             font-size: 0.7rem;
             text-transform: uppercase;
             letter-spacing: 1.5px;
+            border-radius: 30px;
             border: 1px solid transparent;
-            position: relative;
         }
         .nav-link:hover {
-            color: var(--racing-white);
-            border-color: var(--racing-red);
-            background: rgba(225, 6, 0, 0.08);
+            color: var(--text);
+            background: rgba(220, 20, 60, 0.1);
+            border-color: var(--line);
         }
         .nav-link.active {
-            color: #fff;
-            background: var(--racing-red);
-            border-color: var(--racing-red);
-            box-shadow: 0 0 25px rgba(225, 6, 0, 0.6);
+            color: var(--text);
+            background: linear-gradient(135deg, var(--crimson), var(--crimson-deep));
+            border-color: var(--crimson);
+            box-shadow: 0 0 25px rgba(220, 20, 60, 0.5);
         }
 
-        /* ============ PAGE ============ */
+        /* ============ PAGES ============ */
         .page {
             display: none;
             padding: 8rem 2rem 4rem;
             max-width: 1400px;
             margin: 0 auto;
-            animation: pageZoom 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+            animation: pageRise 0.6s cubic-bezier(0.2, 0.9, 0.3, 1);
         }
         .page.active { display: block; }
-        @keyframes pageZoom {
-            0% { opacity: 0; transform: scale(0.96); filter: blur(6px); }
-            100% { opacity: 1; transform: scale(1); filter: blur(0); }
+        @keyframes pageRise {
+            0% { opacity: 0; transform: translateY(40px); }
+            100% { opacity: 1; transform: translateY(0); }
+        }
+
+        /* ============ FINAL BANNER ============ */
+        .final-banner {
+            background: linear-gradient(90deg, var(--crimson), var(--amber), var(--crimson));
+            background-size: 200% 100%;
+            padding: 1rem 2rem;
+            text-align: center;
+            font-weight: 900;
+            text-transform: uppercase;
+            letter-spacing: 4px;
+            font-size: 0.8rem;
+            color: #fff;
+            margin-bottom: 2rem;
+            border-radius: 4px;
+            box-shadow: 0 0 40px rgba(220, 20, 60, 0.5);
+            animation: bannerFlow 4s linear infinite;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 12px;
+        }
+        @keyframes bannerFlow {
+            0% { background-position: 0% 0; }
+            100% { background-position: 200% 0; }
+        }
+        .final-banner i { animation: bellRotate 2s ease-in-out infinite; }
+        @keyframes bellRotate {
+            0%, 100% { transform: rotate(-15deg); }
+            50% { transform: rotate(15deg); }
         }
 
         /* ============ HERO ============ */
         .hero {
-            background: linear-gradient(135deg, #1a1a1a 0%, #0d0d0d 100%);
-            border: 1px solid var(--line-hi);
-            padding: 4.5rem 3rem;
+            background: linear-gradient(135deg, rgba(220, 20, 60, 0.08), rgba(245, 158, 11, 0.05), rgba(74, 20, 140, 0.08));
+            border: 1px solid var(--line);
+            padding: 5rem 3rem;
             text-align: center;
             position: relative;
             overflow: hidden;
             margin-bottom: 2rem;
-            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.7);
+            border-radius: 40px 8px 40px 8px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
         }
+        /* Вращающееся гало */
         .hero::before {
             content: '';
             position: absolute;
-            top: 0; left: 0;
-            width: 8px;
-            height: 100%;
-            background: linear-gradient(180deg, var(--racing-red), var(--racing-yellow), var(--racing-red));
-            background-size: 100% 200%;
-            animation: sideStripe 3s linear infinite;
+            top: 50%; left: 50%;
+            transform: translate(-50%, -50%);
+            width: 150%;
+            height: 150%;
+            background: conic-gradient(
+                from 0deg,
+                transparent 0%,
+                rgba(220, 20, 60, 0.08) 25%,
+                transparent 50%,
+                rgba(245, 158, 11, 0.08) 75%,
+                transparent 100%
+            );
+            animation: haloRotate 30s linear infinite;
+            pointer-events: none;
         }
-        @keyframes sideStripe {
-            0% { background-position: 0 0%; }
-            100% { background-position: 0 200%; }
+        @keyframes haloRotate {
+            0% { transform: translate(-50%, -50%) rotate(0deg); }
+            100% { transform: translate(-50%, -50%) rotate(360deg); }
         }
         .hero::after {
-            content: '01';
+            content: '★';
             position: absolute;
-            top: 20px; right: 40px;
-            font-size: 12rem;
-            font-weight: 900;
-            font-style: italic;
-            color: rgba(225, 6, 0, 0.06);
+            bottom: -60px; right: 30px;
+            font-size: 18rem;
+            color: rgba(245, 158, 11, 0.05);
             line-height: 1;
             pointer-events: none;
-            font-family: 'Arial Black', sans-serif;
-            letter-spacing: -10px;
+            animation: starSpin 40s linear infinite;
+        }
+        @keyframes starSpin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
         }
 
         .hero-badge {
             display: inline-flex;
             align-items: center;
             gap: 10px;
-            background: rgba(225, 6, 0, 0.1);
-            border: 2px solid var(--racing-red);
-            padding: 8px 24px;
-            font-weight: 900;
+            background: rgba(220, 20, 60, 0.12);
+            border: 1px solid var(--crimson);
+            padding: 8px 22px;
+            border-radius: 40px;
+            font-weight: 800;
             text-transform: uppercase;
             letter-spacing: 4px;
-            font-size: 0.68rem;
+            font-size: 0.7rem;
             margin-bottom: 1.5rem;
-            color: #fff;
+            color: var(--crimson-hi);
             position: relative;
             z-index: 1;
-            clip-path: polygon(12px 0, 100% 0, 100% calc(100% - 12px), calc(100% - 12px) 100%, 0 100%, 0 12px);
-            animation: badgeFlash 2s ease-in-out infinite;
+            text-shadow: 0 0 12px rgba(220, 20, 60, 0.6);
+            animation: badgeBreathe 3s ease-in-out infinite;
         }
-        @keyframes badgeFlash {
-            0%, 100% { box-shadow: 0 0 15px rgba(225, 6, 0, 0.4); }
-            50% { box-shadow: 0 0 35px rgba(225, 6, 0, 0.8); }
+        @keyframes badgeBreathe {
+            0%, 100% { box-shadow: 0 0 15px rgba(220, 20, 60, 0.3); }
+            50% { box-shadow: 0 0 35px rgba(220, 20, 60, 0.6); }
         }
-        .hero-badge .pulse-dot {
-            width: 8px;
-            height: 8px;
-            border-radius: 50%;
-            background: var(--racing-red);
-            box-shadow: 0 0 12px var(--racing-red);
-            animation: dotPulse 1s ease-in-out infinite;
+        .hero-badge .star {
+            color: var(--amber);
+            animation: starTwinkle 1.5s ease-in-out infinite;
         }
-        @keyframes dotPulse {
+        @keyframes starTwinkle {
             0%, 100% { opacity: 1; transform: scale(1); }
-            50% { opacity: 0.3; transform: scale(1.6); }
+            50% { opacity: 0.5; transform: scale(0.8); }
         }
 
         .hero-title {
@@ -348,23 +371,19 @@
             line-height: 0.92;
             font-style: italic;
             letter-spacing: -3px;
-            color: var(--racing-white);
             position: relative;
             z-index: 1;
             margin-bottom: 1rem;
-            text-shadow: 4px 4px 0 var(--racing-red), 8px 8px 30px rgba(225, 6, 0, 0.4);
-        }
-        .hero-title .grad {
-            background: linear-gradient(90deg, var(--racing-red) 0%, var(--racing-yellow) 50%, var(--racing-red) 100%);
-            background-size: 200% 100%;
+            background: linear-gradient(135deg, #ffd24a 0%, #f59e0b 35%, #dc143c 70%, #7c3aed 100%);
+            background-size: 200% 200%;
             -webkit-background-clip: text;
             background-clip: text;
             color: transparent;
-            animation: gradScroll 4s ease infinite;
+            animation: titleShine 6s ease-in-out infinite;
         }
-        @keyframes gradScroll {
-            0%, 100% { background-position: 0% 50%; }
-            50% { background-position: 100% 50%; }
+        @keyframes titleShine {
+            0%, 100% { background-position: 0% 50%; filter: drop-shadow(0 0 30px rgba(220, 20, 60, 0.4)); }
+            50% { background-position: 100% 50%; filter: drop-shadow(0 0 40px rgba(245, 158, 11, 0.5)); }
         }
         .hero-title small {
             display: block;
@@ -375,26 +394,27 @@
             font-weight: 700;
             margin-top: 1.2rem;
             text-transform: uppercase;
-            text-shadow: none;
+            -webkit-text-fill-color: var(--muted);
+            background: none;
         }
 
         .hero-sub {
             font-size: 1.05rem;
             color: var(--muted);
-            max-width: 680px;
+            max-width: 700px;
             margin: 1.5rem auto;
             position: relative;
             z-index: 1;
             line-height: 1.7;
         }
-        .hero-sub strong { color: var(--racing-red-hi); font-weight: 900; }
-        .hero-sub .yellow { color: var(--racing-yellow); font-weight: 900; }
+        .hero-sub strong { color: var(--amber-hi); font-weight: 900; }
+        .hero-sub .crimson { color: var(--crimson-hi); font-weight: 900; }
 
         .cta-btn {
             display: inline-flex;
             align-items: center;
             gap: 12px;
-            background: var(--racing-red);
+            background: linear-gradient(135deg, var(--crimson), var(--crimson-deep));
             color: #fff;
             padding: 16px 44px;
             font-weight: 900;
@@ -402,18 +422,19 @@
             letter-spacing: 3px;
             text-decoration: none;
             font-size: 0.82rem;
-            transition: all 0.25s ease;
+            border-radius: 40px;
+            transition: all 0.3s cubic-bezier(0.2, 0.9, 0.3, 1);
             position: relative;
             z-index: 1;
             margin-top: 1rem;
-            clip-path: polygon(14px 0, 100% 0, 100% calc(100% - 14px), calc(100% - 14px) 100%, 0 100%, 0 14px);
-            box-shadow: 0 0 30px rgba(225, 6, 0, 0.5);
+            box-shadow: 0 10px 40px rgba(220, 20, 60, 0.4);
+            border: 1px solid rgba(255, 255, 255, 0.1);
         }
         .cta-btn:hover {
-            background: var(--racing-yellow);
-            color: #000;
-            transform: translateY(-3px);
-            box-shadow: 0 8px 40px rgba(255, 216, 0, 0.6);
+            background: linear-gradient(135deg, var(--amber), var(--amber-deep));
+            color: #1a0510;
+            transform: translateY(-4px);
+            box-shadow: 0 15px 50px rgba(245, 158, 11, 0.5);
         }
         .cta-btn i { transition: transform 0.3s; }
         .cta-btn:hover i { transform: translateX(8px); }
@@ -422,106 +443,117 @@
         .stats-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-            gap: 12px;
+            gap: 16px;
             margin: 2rem 0;
         }
         .stat-card {
-            background: var(--carbon);
-            border: 1px solid var(--line-hi);
-            border-top: 3px solid var(--racing-red);
-            padding: 1.8rem 1rem;
+            background: var(--panel);
+            border: 1px solid var(--line);
+            border-radius: 30px 8px 30px 8px;
+            padding: 2rem 1rem;
             text-align: center;
-            transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+            transition: all 0.3s cubic-bezier(0.2, 0.9, 0.3, 1);
             position: relative;
             overflow: hidden;
-            clip-path: polygon(0 0, calc(100% - 16px) 0, 100% 16px, 100% 100%, 16px 100%, 0 calc(100% - 16px));
         }
         .stat-card::before {
             content: '';
             position: absolute;
-            top: 0; left: -100%;
-            width: 100%; height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(225, 6, 0, 0.15), transparent);
-            transition: left 0.6s;
+            top: -50%; left: -50%;
+            width: 200%; height: 200%;
+            background: radial-gradient(circle, rgba(220, 20, 60, 0.08) 0%, transparent 70%);
+            opacity: 0;
+            transition: opacity 0.4s;
+            pointer-events: none;
         }
-        .stat-card:hover::before { left: 100%; }
+        .stat-card:hover::before { opacity: 1; }
         .stat-card:hover {
-            border-color: var(--racing-red);
-            transform: translateY(-6px);
-            box-shadow: 0 12px 40px rgba(225, 6, 0, 0.3);
+            border-color: var(--crimson);
+            transform: translateY(-8px) rotate(-0.5deg);
+            box-shadow: 0 15px 45px rgba(220, 20, 60, 0.35);
         }
         .stat-number {
-            font-size: 3rem;
+            font-size: 3.2rem;
             font-weight: 900;
             font-style: italic;
             line-height: 1;
-            color: var(--racing-white);
+            background: linear-gradient(135deg, #ffd24a, #f59e0b, #dc143c);
+            background-size: 200% 200%;
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
             letter-spacing: -2px;
-            text-shadow: 3px 3px 0 var(--racing-red);
+            animation: numberGlow 4s ease-in-out infinite;
+        }
+        @keyframes numberGlow {
+            0%, 100% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
         }
         .stat-label {
-            font-size: 0.66rem;
+            font-size: 0.68rem;
             text-transform: uppercase;
             letter-spacing: 2.5px;
             color: var(--muted);
-            margin-top: 12px;
+            margin-top: 14px;
             font-weight: 800;
         }
 
         /* ============ CHAMPION BANNER ============ */
         .champion-banner {
-            background: linear-gradient(135deg, rgba(225, 6, 0, 0.15), rgba(255, 216, 0, 0.08));
-            border: 2px solid var(--racing-red);
-            padding: 2rem;
+            background: linear-gradient(135deg, rgba(220, 20, 60, 0.15), rgba(245, 158, 11, 0.1));
+            border: 1px solid var(--amber);
+            border-radius: 40px 8px 40px 8px;
+            padding: 2.5rem;
             text-align: center;
             margin-bottom: 2rem;
             position: relative;
             overflow: hidden;
-            animation: champGlow 3s ease-in-out infinite;
-            clip-path: polygon(24px 0, 100% 0, 100% calc(100% - 24px), calc(100% - 24px) 100%, 0 100%, 0 24px);
+            animation: championAura 3s ease-in-out infinite;
         }
-        @keyframes champGlow {
-            0%, 100% { box-shadow: 0 0 30px rgba(225, 6, 0, 0.3); }
-            50% { box-shadow: 0 0 70px rgba(225, 6, 0, 0.6); }
+        @keyframes championAura {
+            0%, 100% { box-shadow: 0 0 30px rgba(220, 20, 60, 0.3), inset 0 0 40px rgba(245, 158, 11, 0.03); }
+            50% { box-shadow: 0 0 70px rgba(245, 158, 11, 0.5), inset 0 0 60px rgba(220, 20, 60, 0.08); }
         }
-        /* checker pattern */
         .champion-banner::before {
             content: '';
             position: absolute;
-            top: 0; right: 0;
-            width: 120px;
-            height: 120px;
-            background-image:
-                linear-gradient(45deg, #fff 25%, transparent 25%),
-                linear-gradient(-45deg, #fff 25%, transparent 25%),
-                linear-gradient(45deg, transparent 75%, #fff 75%),
-                linear-gradient(-45deg, transparent 75%, #fff 75%);
-            background-size: 20px 20px;
-            background-position: 0 0, 0 10px, 10px -10px, -10px 0;
-            opacity: 0.08;
+            top: 0; left: -100%;
+            width: 100%; height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 210, 74, 0.15), transparent);
+            animation: bannerShimmer 3s linear infinite;
         }
-        .champion-banner .tag {
-            font-family: 'Arial Black', sans-serif;
-            color: var(--racing-yellow);
-            font-size: 0.7rem;
-            letter-spacing: 4px;
-            margin-bottom: 8px;
-            font-style: italic;
+        @keyframes bannerShimmer {
+            0% { left: -100%; }
+            100% { left: 100%; }
+        }
+        .champion-banner::after {
+            content: '👑';
+            position: absolute;
+            font-size: 10rem;
+            opacity: 0.05;
+            top: -30px; right: 20px;
+            animation: crownBounce 3s ease-in-out infinite;
+        }
+        @keyframes crownBounce {
+            0%, 100% { transform: translateY(0) rotate(-5deg); }
+            50% { transform: translateY(-10px) rotate(5deg); }
         }
         .champion-banner h2 {
-            font-size: 1.75rem;
+            font-size: 1.85rem;
             font-weight: 900;
             font-style: italic;
             text-transform: uppercase;
             letter-spacing: 2px;
-            color: #fff;
+            background: linear-gradient(135deg, #ffd24a, #f59e0b, #dc143c);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
             position: relative;
             z-index: 1;
         }
-        .champion-banner h2 .accent { color: var(--racing-yellow); }
         .champion-banner p {
-            margin-top: 8px;
-            color: var(--muted);
+            margin-top: 10px;
+            color: var(--text);
             font-weight: 700;
             letter-spacing: 1px;
             position: relative;
@@ -530,29 +562,29 @@
 
         /* ============ LEADER PANEL ============ */
         .leader-panel {
-            background: var(--carbon);
-            border: 1px solid var(--line-hi);
-            border-left: 6px solid var(--racing-red);
+            background: var(--panel);
+            border: 1px solid var(--line);
+            border-left: 4px solid var(--amber);
+            border-radius: 8px 30px 8px 30px;
             padding: 2rem;
             text-align: center;
+            margin-top: 1rem;
             position: relative;
-            clip-path: polygon(0 0, 100% 0, 100% calc(100% - 20px), calc(100% - 20px) 100%, 0 100%);
         }
         .leader-panel .label {
-            font-family: 'Arial Black', sans-serif;
-            color: var(--racing-red-hi);
             font-size: 0.7rem;
+            color: var(--amber);
             letter-spacing: 4px;
             font-weight: 900;
+            text-transform: uppercase;
             font-style: italic;
         }
         .leader-panel h3 {
-            color: #fff;
+            color: var(--text);
             font-size: 1.5rem;
             font-weight: 900;
             font-style: italic;
             margin-top: 12px;
-            text-shadow: 3px 3px 0 rgba(225, 6, 0, 0.5);
         }
         .leader-panel p { color: var(--muted); margin-top: 10px; }
 
@@ -567,35 +599,31 @@
             display: flex;
             align-items: center;
             gap: 18px;
-            color: #fff;
+            color: var(--text);
         }
         .page-title .icon {
             width: 52px;
             height: 52px;
-            background: var(--racing-red);
+            background: linear-gradient(135deg, var(--crimson), var(--crimson-deep));
+            border-radius: 30px 8px 30px 8px;
             display: flex;
             align-items: center;
             justify-content: center;
             font-size: 1.3rem;
             font-style: normal;
-            color: #fff;
-            clip-path: polygon(0 0, 100% 0, 100% 70%, 70% 100%, 0 100%);
-            box-shadow: 0 0 25px rgba(225, 6, 0, 0.6);
-            transform: skewX(-8deg);
+            color: var(--text);
+            box-shadow: 0 0 25px rgba(220, 20, 60, 0.5);
+            animation: iconRotate 4s ease-in-out infinite;
+        }
+        @keyframes iconRotate {
+            0%, 100% { transform: rotate(0deg); }
+            50% { transform: rotate(-6deg); }
         }
         .page-title .grad {
-            background: linear-gradient(90deg, var(--racing-red), var(--racing-yellow));
+            background: linear-gradient(135deg, var(--amber), var(--crimson), var(--purple));
             -webkit-background-clip: text;
             background-clip: text;
             color: transparent;
-        }
-        /* КРАСНАЯ ЛИНИЯ */
-        .page-title::after {
-            content: '';
-            flex: 1;
-            height: 4px;
-            background: linear-gradient(90deg, var(--racing-red), transparent);
-            margin-left: 20px;
         }
 
         /* ============ RACE SELECTOR ============ */
@@ -605,34 +633,35 @@
             flex-wrap: wrap;
             margin-bottom: 2rem;
             padding: 14px;
-            background: var(--carbon);
-            border: 1px solid var(--line-hi);
-            border-top: 3px solid var(--racing-red);
+            background: var(--panel);
+            border: 1px solid var(--line);
+            border-radius: 8px 30px 8px 30px;
         }
         .race-btn {
-            background: var(--asphalt-2);
-            border: 1px solid var(--line-hi);
+            background: var(--panel-2);
+            border: 1px solid var(--line);
             padding: 0.6rem 1.2rem;
             color: var(--muted);
             font-weight: 800;
             cursor: pointer;
-            transition: all 0.2s ease;
+            transition: all 0.25s ease;
             font-size: 0.68rem;
             text-transform: uppercase;
             letter-spacing: 1.3px;
             font-family: inherit;
-            clip-path: polygon(6px 0, 100% 0, 100% calc(100% - 6px), calc(100% - 6px) 100%, 0 100%, 0 6px);
+            border-radius: 30px;
         }
         .race-btn:hover {
-            color: #fff;
-            border-color: var(--racing-red);
-            background: rgba(225, 6, 0, 0.1);
+            color: var(--text);
+            border-color: var(--crimson);
+            background: rgba(220, 20, 60, 0.08);
+            transform: translateY(-2px);
         }
         .race-btn.active {
-            background: var(--racing-red);
+            background: linear-gradient(135deg, var(--crimson), var(--crimson-deep));
             color: #fff;
-            border-color: var(--racing-red);
-            box-shadow: 0 0 20px rgba(225, 6, 0, 0.6);
+            border-color: var(--crimson);
+            box-shadow: 0 0 20px rgba(220, 20, 60, 0.5);
         }
 
         /* ============ RACE HEADER ============ */
@@ -643,11 +672,10 @@
             align-items: center;
             margin-bottom: 1.5rem;
             padding: 1.4rem 1.6rem;
-            background: var(--carbon);
-            border: 1px solid var(--line-hi);
-            border-left: 6px solid var(--racing-red);
-            position: relative;
-            clip-path: polygon(0 0, 100% 0, 100% calc(100% - 20px), calc(100% - 20px) 100%, 0 100%);
+            background: var(--panel);
+            border: 1px solid var(--line);
+            border-left: 4px solid var(--amber);
+            border-radius: 8px 30px 8px 30px;
         }
         .race-header h3 {
             font-size: 1.35rem;
@@ -655,13 +683,14 @@
             font-style: italic;
             text-transform: uppercase;
             letter-spacing: 1.5px;
-            color: #fff;
-            text-shadow: 2px 2px 0 rgba(225, 6, 0, 0.6);
+            background: linear-gradient(135deg, var(--amber-hi), var(--crimson-hi));
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
         }
         .race-header .race-date {
-            font-family: 'Arial Black', sans-serif;
-            color: var(--racing-yellow);
-            font-weight: 900;
+            color: var(--muted);
+            font-weight: 800;
             font-size: 0.78rem;
             letter-spacing: 2px;
             font-style: italic;
@@ -672,29 +701,31 @@
             width: 100%;
             border-collapse: collapse;
             font-size: 0.9rem;
-            background: var(--carbon);
-            border: 1px solid var(--line-hi);
+            background: var(--panel);
+            border: 1px solid var(--line);
+            border-radius: 8px 30px 8px 30px;
+            overflow: hidden;
         }
         .results-table th {
             text-align: left;
             padding: 1rem 1.2rem;
-            background: var(--asphalt-2);
+            background: var(--panel-3);
             font-weight: 900;
             text-transform: uppercase;
             letter-spacing: 2px;
-            color: var(--racing-red-hi);
-            border-bottom: 3px solid var(--racing-red);
+            color: var(--amber);
+            border-bottom: 2px solid var(--crimson);
             font-size: 0.66rem;
         }
         .results-table td {
             padding: 0.9rem 1.2rem;
-            border-bottom: 1px solid var(--line);
+            border-bottom: 1px solid rgba(220, 20, 60, 0.12);
         }
         .results-table tr:last-child td { border-bottom: none; }
         .results-table tbody tr { transition: all 0.2s; }
         .results-table tbody tr:hover {
-            background: var(--carbon-hi);
-            box-shadow: inset 5px 0 0 var(--racing-red);
+            background: var(--panel-2);
+            box-shadow: inset 4px 0 0 var(--amber);
         }
 
         .pos {
@@ -706,28 +737,27 @@
             font-weight: 900;
             font-size: 0.92rem;
             font-style: italic;
-            background: var(--asphalt-2);
+            background: var(--panel-3);
             color: var(--text);
-            border: 2px solid var(--line-hi);
-            clip-path: polygon(0 0, 100% 0, 100% 75%, 75% 100%, 0 100%);
+            border: 1px solid var(--line);
+            border-radius: 50%;
         }
         .pos.p1 {
-            background: var(--racing-yellow);
-            color: #000;
-            border-color: var(--racing-yellow);
-            box-shadow: 0 0 20px rgba(255, 216, 0, 0.6);
+            background: linear-gradient(135deg, #ffd24a, #f59e0b);
+            color: #1a0510;
+            border-color: transparent;
+            box-shadow: 0 0 20px rgba(255, 210, 74, 0.6);
         }
         .pos.p2 {
-            background: #c0c0c0;
-            color: #000;
-            border-color: #c0c0c0;
-            box-shadow: 0 0 15px rgba(192, 192, 192, 0.5);
+            background: linear-gradient(135deg, #d4d4d8, #a1a1aa);
+            color: #1a0510;
+            border-color: transparent;
         }
         .pos.p3 {
-            background: #cd7f32;
-            color: #000;
-            border-color: #cd7f32;
-            box-shadow: 0 0 15px rgba(205, 127, 50, 0.5);
+            background: linear-gradient(135deg, #dc143c, #8a0a26);
+            color: #fff;
+            border-color: transparent;
+            box-shadow: 0 0 15px rgba(220, 20, 60, 0.5);
         }
 
         .dnf-tag, .dsq-tag {
@@ -737,49 +767,49 @@
             font-size: 0.63rem;
             letter-spacing: 1.5px;
             text-transform: uppercase;
-            clip-path: polygon(6px 0, 100% 0, 100% calc(100% - 6px), calc(100% - 6px) 100%, 0 100%, 0 6px);
+            border-radius: 30px;
         }
         .dnf-tag {
-            background: var(--racing-red);
-            color: #fff;
-            box-shadow: 0 0 12px rgba(225, 6, 0, 0.5);
+            background: rgba(220, 20, 60, 0.15);
+            color: var(--crimson-hi);
+            border: 1px solid var(--crimson);
+            text-shadow: 0 0 8px rgba(220, 20, 60, 0.6);
         }
         .dsq-tag {
-            background: #000;
-            color: var(--racing-yellow);
-            border: 1px solid var(--racing-yellow);
-            box-shadow: 0 0 12px rgba(255, 216, 0, 0.4);
+            background: rgba(245, 158, 11, 0.15);
+            color: var(--amber);
+            border: 1px solid var(--amber);
+            text-shadow: 0 0 8px rgba(245, 158, 11, 0.6);
         }
 
         .qualy-tag {
-            font-family: 'Arial Black', sans-serif;
             font-size: 0.6rem;
             color: var(--muted);
             margin-left: 8px;
             padding: 2px 8px;
-            background: var(--asphalt-2);
-            font-weight: 900;
+            background: var(--panel-3);
+            border-radius: 30px;
+            font-weight: 800;
             display: inline-block;
-            border-left: 2px solid var(--racing-yellow);
             font-style: italic;
         }
         .fl-tag {
             display: inline-block;
             margin-left: 8px;
             padding: 3px 10px;
-            font-size: 0.55rem;
+            font-size: 0.56rem;
             font-weight: 900;
             letter-spacing: 1px;
-            background: linear-gradient(90deg, #9b00ff, var(--racing-red));
+            background: linear-gradient(90deg, var(--purple), var(--magenta));
             color: #fff;
             text-transform: uppercase;
-            clip-path: polygon(5px 0, 100% 0, 100% calc(100% - 5px), calc(100% - 5px) 100%, 0 100%, 0 5px);
-            box-shadow: 0 0 12px rgba(155, 0, 255, 0.6);
-            animation: flPulse 1.5s ease-in-out infinite;
+            border-radius: 30px;
+            box-shadow: 0 0 15px rgba(217, 70, 239, 0.5);
+            animation: flPulse 2s ease-in-out infinite;
         }
         @keyframes flPulse {
-            0%, 100% { box-shadow: 0 0 12px rgba(155, 0, 255, 0.6); }
-            50% { box-shadow: 0 0 24px rgba(155, 0, 255, 1); }
+            0%, 100% { box-shadow: 0 0 15px rgba(217, 70, 239, 0.5); }
+            50% { box-shadow: 0 0 25px rgba(217, 70, 239, 0.9); }
         }
 
         /* ============ TEAM COLORS ============ */
@@ -795,75 +825,74 @@
         .standings-grid {
             display: grid;
             grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
-            gap: 12px;
+            gap: 14px;
         }
         .standing-box {
-            background: var(--carbon);
-            border: 1px solid var(--line-hi);
+            background: var(--panel);
+            border: 1px solid var(--line);
+            border-radius: 30px 8px 30px 8px;
             display: grid;
-            grid-template-columns: 70px 1fr auto;
+            grid-template-columns: 74px 1fr auto;
             align-items: stretch;
-            min-height: 90px;
-            transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+            min-height: 94px;
+            transition: all 0.3s cubic-bezier(0.2, 0.9, 0.3, 1);
             position: relative;
-            clip-path: polygon(0 0, calc(100% - 20px) 0, 100% 20px, 100% 100%, 20px 100%, 0 calc(100% - 20px));
+            overflow: hidden;
         }
         .standing-box::before {
             content: '';
             position: absolute;
-            top: 0; left: 0;
-            width: 4px;
-            height: 0;
-            background: var(--racing-red);
-            transition: height 0.3s ease;
-            z-index: 1;
+            inset: 0;
+            background: linear-gradient(135deg, rgba(220, 20, 60, 0.05), transparent 60%);
+            opacity: 0;
+            transition: opacity 0.3s;
+            pointer-events: none;
         }
-        .standing-box:hover::before { height: 100%; }
+        .standing-box:hover::before { opacity: 1; }
         .standing-box:hover {
-            background: var(--carbon-hi);
-            border-color: var(--line-hi);
-            transform: translateX(6px);
+            transform: translateY(-3px) scale(1.01);
+            border-color: var(--crimson);
+            box-shadow: 0 15px 40px rgba(220, 20, 60, 0.3);
         }
         .standing-box.rank-1 {
-            border-color: var(--racing-yellow);
-            background: linear-gradient(135deg, rgba(255, 216, 0, 0.06), var(--carbon));
+            border-color: var(--amber);
+            background: linear-gradient(135deg, rgba(245, 158, 11, 0.1), var(--panel));
+            box-shadow: 0 0 25px rgba(245, 158, 11, 0.2);
         }
-        .standing-box.rank-1::before {
-            height: 100%;
-            background: var(--racing-yellow);
-            box-shadow: 0 0 20px var(--racing-yellow);
+        .standing-box.rank-1:hover {
+            box-shadow: 0 20px 50px rgba(245, 158, 11, 0.45);
         }
-        .standing-box.rank-2 { border-color: #a0a0a0; }
-        .standing-box.rank-3 { border-color: #cd7f32; }
+        .standing-box.rank-2 { border-color: #a1a1aa; }
+        .standing-box.rank-3 { border-color: var(--crimson); }
 
         .standing-rank {
-            background: var(--asphalt-2);
+            background: var(--panel-3);
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 1.9rem;
+            font-size: 2rem;
             font-weight: 900;
             font-style: italic;
             color: var(--muted);
             letter-spacing: -2px;
-            border-right: 1px solid var(--line-hi);
-            font-family: 'Arial Black', sans-serif;
+            border-right: 1px solid var(--line);
+            border-radius: 30px 0 0 8px;
         }
         .standing-box.rank-1 .standing-rank {
-            background: var(--racing-yellow);
-            color: #000;
+            background: linear-gradient(135deg, #ffd24a, #f59e0b);
+            color: #1a0510;
         }
         .standing-box.rank-2 .standing-rank {
-            background: #c0c0c0;
-            color: #000;
+            background: linear-gradient(135deg, #d4d4d8, #a1a1aa);
+            color: #1a0510;
         }
         .standing-box.rank-3 .standing-rank {
-            background: #cd7f32;
-            color: #000;
+            background: linear-gradient(135deg, var(--crimson), var(--crimson-deep));
+            color: #fff;
         }
 
         .standing-info {
-            padding: 12px 18px;
+            padding: 14px 18px;
             display: flex;
             flex-direction: column;
             justify-content: center;
@@ -872,7 +901,7 @@
         }
         .standing-name {
             font-weight: 900;
-            font-size: 0.98rem;
+            font-size: 1rem;
             white-space: nowrap;
             overflow: hidden;
             text-overflow: ellipsis;
@@ -880,14 +909,13 @@
         }
         .standing-name .num {
             color: var(--muted);
-            font-family: 'Arial Black', sans-serif;
-            font-weight: 900;
-            font-size: 0.78rem;
+            font-weight: 800;
+            font-size: 0.8rem;
             margin-left: 6px;
             font-style: normal;
         }
         .standing-team {
-            font-size: 0.64rem;
+            font-size: 0.66rem;
             color: var(--muted);
             text-transform: uppercase;
             letter-spacing: 1.3px;
@@ -898,107 +926,117 @@
         }
         .standing-tag {
             display: inline-block;
-            background: var(--racing-red);
+            background: var(--crimson);
             color: #fff;
             font-size: 0.5rem;
             font-weight: 900;
-            padding: 2px 7px;
+            padding: 2px 8px;
             letter-spacing: 1px;
             text-transform: uppercase;
             margin-left: 6px;
             vertical-align: middle;
-            font-style: normal;
-            clip-path: polygon(4px 0, 100% 0, 100% calc(100% - 4px), calc(100% - 4px) 100%, 0 100%, 0 4px);
+            border-radius: 30px;
         }
         .standing-tag.champ {
-            background: var(--racing-yellow);
-            color: #000;
-            animation: champTagPulse 1.5s ease-in-out infinite;
+            background: linear-gradient(90deg, #ffd24a, #f59e0b);
+            color: #1a0510;
+            animation: champTagPulse 2s ease-in-out infinite;
         }
         @keyframes champTagPulse {
-            0%, 100% { box-shadow: 0 0 8px rgba(255, 216, 0, 0.5); }
-            50% { box-shadow: 0 0 20px rgba(255, 216, 0, 0.9); }
+            0%, 100% { box-shadow: 0 0 8px rgba(255, 210, 74, 0.5); }
+            50% { box-shadow: 0 0 20px rgba(255, 210, 74, 0.9); }
         }
 
         .standing-points {
-            background: var(--asphalt-2);
+            background: var(--panel-3);
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 1.55rem;
+            font-size: 1.6rem;
             font-weight: 900;
             font-style: italic;
             color: var(--text);
             padding: 0 20px;
             letter-spacing: -1px;
-            border-left: 1px solid var(--line-hi);
-            font-family: 'Arial Black', sans-serif;
+            border-left: 1px solid var(--line);
+            border-radius: 0 8px 30px 0;
         }
         .standing-box.rank-1 .standing-points {
-            background: linear-gradient(135deg, rgba(255, 216, 0, 0.2), rgba(255, 216, 0, 0.05));
-            color: var(--racing-yellow);
+            background: linear-gradient(135deg, rgba(255, 210, 74, 0.2), rgba(245, 158, 11, 0.05));
+            color: var(--amber-hi);
         }
 
         /* ============ TEAMS ============ */
         .teams-grid {
             display: grid;
             grid-template-columns: repeat(auto-fill, minmax(360px, 1fr));
-            gap: 12px;
+            gap: 14px;
         }
         .team-box {
-            background: var(--carbon);
-            border: 1px solid var(--line-hi);
+            background: var(--panel);
+            border: 1px solid var(--line);
+            border-radius: 30px 8px 30px 8px;
             display: grid;
-            grid-template-columns: 70px 1fr auto;
+            grid-template-columns: 74px 1fr auto;
             align-items: stretch;
-            min-height: 90px;
-            transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+            min-height: 94px;
+            transition: all 0.3s cubic-bezier(0.2, 0.9, 0.3, 1);
             position: relative;
-            clip-path: polygon(0 0, calc(100% - 20px) 0, 100% 20px, 100% 100%, 20px 100%, 0 calc(100% - 20px));
+            overflow: hidden;
         }
         .team-box:hover {
-            background: var(--carbon-hi);
-            transform: translateX(6px);
+            transform: translateY(-3px);
+            border-color: var(--crimson);
+            box-shadow: 0 15px 40px rgba(220, 20, 60, 0.3);
         }
-        .team-box.rank-1 { border-color: var(--racing-yellow); }
+        .team-box.rank-1 { border-color: var(--amber); }
         .team-box.champion-team {
-            border: 2px solid var(--racing-yellow);
-            background: linear-gradient(135deg, rgba(255, 216, 0, 0.1), var(--carbon));
-            animation: championPulse 2.5s ease-in-out infinite;
+            border: 2px solid var(--amber);
+            background: linear-gradient(135deg, rgba(245, 158, 11, 0.1), var(--panel));
+            animation: champTeamGlow 2.5s ease-in-out infinite;
         }
-        @keyframes championPulse {
-            0%, 100% { box-shadow: 0 0 20px rgba(255, 216, 0, 0.3); }
-            50% { box-shadow: 0 0 50px rgba(255, 216, 0, 0.6); }
+        @keyframes champTeamGlow {
+            0%, 100% { box-shadow: 0 0 25px rgba(245, 158, 11, 0.3); }
+            50% { box-shadow: 0 0 60px rgba(245, 158, 11, 0.5); }
         }
         .team-box.champion-team::before {
             content: '';
             position: absolute;
             inset: 0;
-            background: linear-gradient(90deg, transparent 40%, rgba(255, 216, 0, 0.15) 50%, transparent 60%);
+            background: linear-gradient(90deg, transparent 40%, rgba(255, 210, 74, 0.12) 50%, transparent 60%);
             background-size: 200% 100%;
-            animation: shine 3s linear infinite;
+            animation: shimmerSweep 3s linear infinite;
             pointer-events: none;
         }
-        @keyframes shine {
+        @keyframes shimmerSweep {
             0% { background-position: -100% 0; }
             100% { background-position: 200% 0; }
         }
         .team-rank {
-            background: var(--asphalt-2);
+            background: var(--panel-3);
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 1.9rem;
+            font-size: 2rem;
             font-weight: 900;
             font-style: italic;
             color: var(--muted);
-            border-right: 1px solid var(--line-hi);
-            font-family: 'Arial Black', sans-serif;
+            border-right: 1px solid var(--line);
+            letter-spacing: -2px;
+            border-radius: 30px 0 0 8px;
         }
-        .team-box.rank-1 .team-rank { background: var(--racing-yellow); color: #000; }
-        .team-box.rank-2 .team-rank { background: #c0c0c0; color: #000; }
-        .team-box.rank-3 .team-rank { background: #cd7f32; color: #000; }
-
+        .team-box.rank-1 .team-rank {
+            background: linear-gradient(135deg, #ffd24a, #f59e0b);
+            color: #1a0510;
+        }
+        .team-box.rank-2 .team-rank {
+            background: linear-gradient(135deg, #d4d4d8, #a1a1aa);
+            color: #1a0510;
+        }
+        .team-box.rank-3 .team-rank {
+            background: linear-gradient(135deg, var(--crimson), var(--crimson-deep));
+            color: #fff;
+        }
         .team-info {
             padding: 14px 18px;
             display: flex;
@@ -1012,134 +1050,120 @@
             z-index: 1;
         }
         .champ-crown {
-            color: var(--racing-yellow);
-            font-size: 1.15rem;
-            filter: drop-shadow(0 0 10px rgba(255, 216, 0, 0.9));
-            animation: crownBob 1.5s ease-in-out infinite alternate;
-        }
-        @keyframes crownBob {
-            0% { transform: translateY(0) rotate(-5deg); }
-            100% { transform: translateY(-4px) rotate(5deg); }
+            color: var(--amber-hi);
+            font-size: 1.2rem;
+            filter: drop-shadow(0 0 12px rgba(255, 210, 74, 0.9));
+            animation: crownBounce 2s ease-in-out infinite;
         }
         .champ-tag {
-            background: var(--racing-yellow);
-            color: #000;
+            background: linear-gradient(90deg, #ffd24a, #f59e0b);
+            color: #1a0510;
             font-size: 0.52rem;
             font-weight: 900;
-            padding: 3px 9px;
+            padding: 3px 10px;
             letter-spacing: 1.5px;
             text-transform: uppercase;
-            font-style: normal;
-            clip-path: polygon(5px 0, 100% 0, 100% calc(100% - 5px), calc(100% - 5px) 100%, 0 100%, 0 5px);
-            animation: champTagPulse 1.5s ease-in-out infinite;
+            border-radius: 30px;
+            animation: champTagPulse 2s ease-in-out infinite;
         }
         .team-points-box {
-            background: var(--asphalt-2);
+            background: var(--panel-3);
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 1.55rem;
+            font-size: 1.6rem;
             font-weight: 900;
             font-style: italic;
             color: var(--text);
             padding: 0 20px;
-            border-left: 1px solid var(--line-hi);
-            font-family: 'Arial Black', sans-serif;
+            border-left: 1px solid var(--line);
+            border-radius: 0 8px 30px 0;
         }
-        .team-box.rank-1 .team-points-box { color: var(--racing-yellow); }
+        .team-box.rank-1 .team-points-box { color: var(--amber-hi); }
 
         /* ============ WINNERS ============ */
         .winners-header {
             text-align: center;
-            padding: 2rem;
-            background: var(--carbon);
-            border: 1px solid var(--line-hi);
-            border-top: 4px solid var(--racing-red);
+            padding: 2.5rem;
+            background: var(--panel);
+            border: 1px solid var(--line);
+            border-radius: 40px 8px 40px 8px;
             margin-bottom: 1.5rem;
             position: relative;
             overflow: hidden;
-            clip-path: polygon(24px 0, 100% 0, 100% calc(100% - 24px), calc(100% - 24px) 100%, 0 100%, 0 24px);
         }
         .winners-header::before {
             content: '';
             position: absolute;
             top: 0; left: 0; right: 0;
-            height: 4px;
-            background: linear-gradient(90deg, transparent, var(--racing-red), var(--racing-yellow), var(--racing-red), transparent);
+            height: 3px;
+            background: linear-gradient(90deg, transparent, var(--crimson), var(--amber), var(--crimson), transparent);
             background-size: 200% 100%;
-            animation: stripeFlow 3s linear infinite;
-        }
-        @keyframes stripeFlow {
-            0% { background-position: -200% 0; }
-            100% { background-position: 200% 0; }
+            animation: navSweep 3s linear infinite;
         }
         .winners-header h1 {
-            font-size: 1.8rem;
+            font-size: 1.9rem;
             font-weight: 900;
             font-style: italic;
             text-transform: uppercase;
             letter-spacing: 3px;
-            color: var(--racing-white);
-            text-shadow: 3px 3px 0 var(--racing-red);
-        }
-        .winners-header h1 .grad {
-            background: linear-gradient(90deg, var(--racing-red), var(--racing-yellow));
+            background: linear-gradient(135deg, #ffd24a, #f59e0b, #dc143c, #7c3aed);
+            background-size: 200% 200%;
             -webkit-background-clip: text;
             background-clip: text;
             color: transparent;
-            text-shadow: none;
+            animation: titleShine 6s ease-in-out infinite;
         }
         .winners-grid {
             display: grid;
             grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-            gap: 12px;
+            gap: 14px;
         }
         .winner-card {
-            background: var(--carbon);
-            border: 1px solid var(--line-hi);
-            border-left: 5px solid var(--racing-red);
-            padding: 1.1rem 1.3rem;
+            background: var(--panel);
+            border: 1px solid var(--line);
+            border-left: 4px solid var(--crimson);
+            border-radius: 8px 30px 8px 30px;
+            padding: 1.2rem 1.3rem;
             display: flex;
             align-items: center;
             gap: 1rem;
-            transition: all 0.25s ease;
+            transition: all 0.3s cubic-bezier(0.2, 0.9, 0.3, 1);
             position: relative;
-            clip-path: polygon(0 0, 100% 0, 100% calc(100% - 16px), calc(100% - 16px) 100%, 0 100%);
+            overflow: hidden;
         }
         .winner-card::before {
             content: '';
             position: absolute;
             left: -100%; top: 0;
             width: 100%; height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(225, 6, 0, 0.15), transparent);
+            background: linear-gradient(90deg, transparent, rgba(245, 158, 11, 0.12), transparent);
             transition: left 0.6s;
         }
         .winner-card:hover::before { left: 100%; }
         .winner-card:hover {
-            background: var(--carbon-hi);
             transform: translateX(6px);
-            border-left-color: var(--racing-yellow);
-            box-shadow: 0 0 30px rgba(225, 6, 0, 0.3);
+            border-left-color: var(--amber);
+            box-shadow: 0 10px 30px rgba(220, 20, 60, 0.25);
         }
         .winner-icon {
-            width: 44px;
-            height: 44px;
-            background: var(--racing-red);
+            width: 46px;
+            height: 46px;
+            background: linear-gradient(135deg, var(--crimson), var(--purple-deep));
             color: #fff;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 1.15rem;
+            font-size: 1.2rem;
             flex-shrink: 0;
-            clip-path: polygon(0 0, 100% 0, 100% 70%, 70% 100%, 0 100%);
+            border-radius: 50% 50% 50% 8px;
+            box-shadow: 0 0 20px rgba(220, 20, 60, 0.5);
             transition: all 0.3s;
-            box-shadow: 0 0 20px rgba(225, 6, 0, 0.5);
         }
         .winner-card:hover .winner-icon {
             transform: rotate(-12deg) scale(1.1);
-            background: var(--racing-yellow);
-            color: #000;
-            box-shadow: 0 0 30px rgba(255, 216, 0, 0.7);
+            background: linear-gradient(135deg, #ffd24a, #f59e0b);
+            color: #1a0510;
         }
         .winner-race {
             font-weight: 900;
@@ -1157,37 +1181,36 @@
 
         /* ============ TIMELINE ============ */
         .timeline-item {
-            background: var(--carbon);
-            border: 1px solid var(--line-hi);
-            border-left: 5px solid var(--line-hi);
+            background: var(--panel);
+            border: 1px solid var(--line);
+            border-left: 4px solid var(--line);
+            border-radius: 8px 30px 8px 30px;
             padding: 1rem 1.5rem;
-            margin-bottom: 8px;
+            margin-bottom: 10px;
             display: flex;
             align-items: center;
             gap: 1rem;
             flex-wrap: wrap;
-            transition: all 0.25s ease;
+            transition: all 0.3s ease;
             position: relative;
-            clip-path: polygon(0 0, 100% 0, 100% calc(100% - 16px), calc(100% - 16px) 100%, 0 100%);
         }
         .timeline-item:hover {
-            background: var(--carbon-hi);
+            background: var(--panel-2);
             transform: translateX(6px);
-            border-left-color: var(--racing-red);
+            border-left-color: var(--crimson);
         }
         .timeline-item.final {
-            border-left-color: var(--racing-red);
-            background: linear-gradient(90deg, rgba(225, 6, 0, 0.1), var(--carbon));
-            animation: finalItem 2s ease-in-out infinite;
+            border-left-color: var(--amber);
+            background: linear-gradient(90deg, rgba(245, 158, 11, 0.1), var(--panel));
+            animation: finalGlow 2.5s ease-in-out infinite;
         }
-        @keyframes finalItem {
-            0%, 100% { box-shadow: 0 0 15px rgba(225, 6, 0, 0.2); }
-            50% { box-shadow: 0 0 35px rgba(225, 6, 0, 0.5); }
+        @keyframes finalGlow {
+            0%, 100% { box-shadow: 0 0 15px rgba(245, 158, 11, 0.2); }
+            50% { box-shadow: 0 0 35px rgba(245, 158, 11, 0.5); }
         }
         .timeline-date {
-            font-family: 'Arial Black', sans-serif;
             font-weight: 900;
-            color: var(--racing-yellow);
+            color: var(--amber);
             min-width: 90px;
             font-size: 0.82rem;
             letter-spacing: 1px;
@@ -1205,29 +1228,23 @@
             letter-spacing: 1.5px;
             text-transform: uppercase;
             margin-left: auto;
-            clip-path: polygon(5px 0, 100% 0, 100% calc(100% - 5px), calc(100% - 5px) 100%, 0 100%, 0 5px);
+            border-radius: 30px;
             font-style: italic;
         }
         .status-done {
             background: transparent;
             color: var(--muted);
-            border: 1px solid var(--line-hi);
+            border: 1px solid var(--line);
         }
-        .status-next {
-            background: var(--racing-yellow);
-            color: #000;
-            animation: champTagPulse 1.5s ease-in-out infinite;
-        }
-        .status-final {
-            background: var(--racing-red);
-            color: #fff;
-            animation: warningPulse 1.5s ease-in-out infinite;
+        .status-champ {
+            background: linear-gradient(90deg, #ffd24a, #f59e0b);
+            color: #1a0510;
+            animation: champTagPulse 2s ease-in-out infinite;
         }
 
         /* ============ RECORDS ============ */
         .records-section { margin-bottom: 3rem; }
         .records-section-title {
-            font-family: 'Arial Black', sans-serif;
             font-size: 0.85rem;
             font-weight: 900;
             text-transform: uppercase;
@@ -1235,7 +1252,7 @@
             margin-bottom: 1.2rem;
             padding-left: 20px;
             position: relative;
-            color: var(--racing-red-hi);
+            color: var(--amber);
             font-style: italic;
         }
         .records-section-title::before {
@@ -1243,44 +1260,44 @@
             position: absolute;
             left: 0; top: 50%;
             transform: translateY(-50%);
-            width: 5px;
+            width: 4px;
             height: 60%;
-            background: var(--racing-red);
-            box-shadow: 0 0 10px var(--racing-red);
+            background: var(--amber);
+            border-radius: 4px;
+            box-shadow: 0 0 10px var(--amber);
         }
-        .records-section-title.anti { color: var(--racing-yellow); }
+        .records-section-title.anti { color: var(--crimson-hi); }
         .records-section-title.anti::before {
-            background: var(--racing-yellow);
-            box-shadow: 0 0 10px var(--racing-yellow);
+            background: var(--crimson);
+            box-shadow: 0 0 10px var(--crimson);
         }
         .record-card {
-            background: var(--carbon);
-            border: 1px solid var(--line-hi);
-            border-left: 5px solid var(--racing-red);
-            padding: 1.2rem 1.5rem;
-            margin-bottom: 8px;
-            transition: all 0.25s ease;
+            background: var(--panel);
+            border: 1px solid var(--line);
+            border-left: 4px solid var(--amber);
+            border-radius: 8px 30px 8px 30px;
+            padding: 1.3rem 1.6rem;
+            margin-bottom: 10px;
+            transition: all 0.3s ease;
             position: relative;
-            clip-path: polygon(0 0, 100% 0, 100% calc(100% - 16px), calc(100% - 16px) 100%, 0 100%);
         }
-        .record-card.anti-record { border-left-color: var(--racing-yellow); }
+        .record-card.anti-record { border-left-color: var(--crimson); }
         .record-card:hover {
-            background: var(--carbon-hi);
+            background: var(--panel-2);
             transform: translateX(6px);
-            box-shadow: 0 0 25px rgba(225, 6, 0, 0.25);
+            box-shadow: 0 10px 30px rgba(220, 20, 60, 0.2);
         }
         .record-title {
-            font-family: 'Arial Black', sans-serif;
-            color: var(--racing-red-hi);
+            font-weight: 900;
+            color: var(--amber);
             font-size: 0.68rem;
             text-transform: uppercase;
             letter-spacing: 2px;
-            font-weight: 900;
             font-style: italic;
         }
-        .record-card.anti-record .record-title { color: var(--racing-yellow); }
+        .record-card.anti-record .record-title { color: var(--crimson-hi); }
         .record-value {
-            font-size: 1.05rem;
+            font-size: 1.08rem;
             margin-top: 8px;
             font-weight: 700;
             color: var(--text);
@@ -1292,88 +1309,62 @@
             padding: 2.5rem;
             margin-top: 4rem;
             color: var(--muted);
-            font-family: 'Arial Black', sans-serif;
-            font-size: 0.7rem;
-            letter-spacing: 3px;
+            font-size: 0.72rem;
+            letter-spacing: 4px;
             text-transform: uppercase;
+            font-weight: 800;
             font-style: italic;
-            border-top: 3px solid var(--racing-red);
+            border-top: 1px solid var(--line);
             position: relative;
         }
         .footer::before {
             content: '';
             position: absolute;
-            top: -3px; left: 50%;
+            top: -1px; left: 50%;
             transform: translateX(-50%);
             width: 200px;
-            height: 3px;
-            background: var(--racing-yellow);
-            box-shadow: 0 0 20px var(--racing-yellow);
-        }
-
-        /* ============ FINAL WARNING ============ */
-        .final-warning {
-            background: linear-gradient(90deg, rgba(225, 6, 0, 0.15), rgba(255, 216, 0, 0.08));
-            border: 2px solid var(--racing-red);
-            padding: 1rem 1.5rem;
-            text-align: center;
-            margin-bottom: 2rem;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 12px;
-            font-weight: 900;
-            text-transform: uppercase;
-            letter-spacing: 3px;
-            font-size: 0.75rem;
-            color: #fff;
-            font-style: italic;
-            clip-path: polygon(15px 0, 100% 0, 100% calc(100% - 15px), calc(100% - 15px) 100%, 0 100%, 0 15px);
-            animation: warningPulse 2s ease-in-out infinite;
-        }
-        .final-warning i { color: var(--racing-yellow); animation: bellShake 1s ease-in-out infinite; }
-        @keyframes bellShake {
-            0%, 100% { transform: rotate(-10deg); }
-            50% { transform: rotate(10deg); }
+            height: 2px;
+            background: linear-gradient(90deg, transparent, var(--amber), transparent);
+            box-shadow: 0 0 15px var(--amber);
         }
 
         @media (max-width: 820px) {
             .navbar { flex-direction: column; height: auto; padding: 0.8rem 1rem; gap: 10px; }
             .nav-links { justify-content: center; }
             .nav-link { padding: 0.5rem 0.85rem; font-size: 0.62rem; }
-            .hero-title { font-size: 2.3rem; letter-spacing: -1px; }
+            .hero-title { font-size: 2.4rem; letter-spacing: -1px; }
             .hero { padding: 3rem 1.5rem; }
-            .page-title { font-size: 1.4rem; }
+            .hero::after { font-size: 10rem; }
+            .page-title { font-size: 1.45rem; }
             .page-title .icon { width: 42px; height: 42px; font-size: 1.1rem; }
-            .standing-box, .team-box { grid-template-columns: 55px 1fr auto; min-height: 78px; }
+            .standing-box, .team-box { grid-template-columns: 55px 1fr auto; min-height: 80px; }
             .standing-rank, .team-rank { font-size: 1.4rem; }
             .standing-points, .team-points-box { font-size: 1.15rem; padding: 0 14px; }
             .results-table { font-size: 0.72rem; }
             .results-table td, .results-table th { padding: 0.5rem 0.7rem; }
             .pos { width: 30px; height: 30px; font-size: 0.75rem; }
             .race-btn { font-size: 0.58rem; padding: 0.5rem 0.8rem; }
-            .champion-banner h2 { font-size: 1.05rem; letter-spacing: 1px; }
-            .hero::after { font-size: 8rem; }
+            .champion-banner h2 { font-size: 1.1rem; letter-spacing: 1px; }
+            .final-banner { font-size: 0.65rem; letter-spacing: 2px; padding: 0.8rem 1rem; }
         }
     </style>
 </head>
 <body>
-    <!-- BACKGROUND -->
-    <div class="track-bg"></div>
-    <div class="speed-lines" id="speedLines"></div>
-    <div class="curbs"></div>
-    <div class="scanlines"></div>
+    <div class="fire-sky"></div>
+    <div class="smoke"></div>
+    <div class="embers" id="embers"></div>
+    <div class="vignette"></div>
 
     <!-- NAVBAR -->
     <nav class="navbar">
         <div class="logo">
-            <span class="logo-icon"><i class="fas fa-flag-checkered"></i></span>
-            GTA<span style="color: var(--racing-red);">·</span>F1
+            <span class="logo-icon"><i class="fas fa-crown"></i></span>
+            GTA<span style="color: var(--crimson);">·</span>F1
             <span class="season-chip">S04</span>
-            <span class="round-chip">FINAL ROUND</span>
+            <span class="season-chip ended">СЕЗОН ЗАВЕРШЁН</span>
         </div>
         <div class="nav-links">
-            <a href="#home" class="nav-link active" data-page="home">Обзор</a>
+            <a href="#home" class="nav-link active" data-page="home">Итоги</a>
             <a href="#results" class="nav-link" data-page="results">Результаты</a>
             <a href="#drivers" class="nav-link" data-page="drivers">Пилоты</a>
             <a href="#constructors" class="nav-link" data-page="constructors">Команды</a>
@@ -1385,27 +1376,30 @@
 
     <!-- ГЛАВНАЯ -->
     <section id="home" class="page active">
-        <div class="final-warning">
+        <div class="final-banner">
             <i class="fas fa-flag-checkered"></i>
-            ОСТАЛСЯ ОДИН ЭТАП — ФИНАЛ СЕЗОНА 4!
+            СЕЗОН 4 ОФИЦИАЛЬНО ЗАВЕРШЁН — GREENLIGHT GP ФИНАЛ
+            <i class="fas fa-flag-checkered"></i>
         </div>
 
         <div class="hero">
             <div class="hero-badge">
-                <span class="pulse-dot"></span>
-                SEASON 04 • CHAMPIONSHIP FINALE APPROACHING
+                <span class="star">★</span>
+                СЕЗОН 4 • ФИНАЛЬНЫЕ ИТОГИ
+                <span class="star">★</span>
             </div>
             <h1 class="hero-title">
-                <span class="grad">GTA</span> FORMULA 1<br>
-                <small>Grid Edition • Racing Championship</small>
+                <span class="grad" style="background: linear-gradient(135deg, #ffd24a, #f59e0b, #dc143c, #7c3aed); -webkit-background-clip: text; background-clip: text; color: transparent;">GTA</span> FORMULA 1<br>
+                <small>Сезон завершён • Чемпион определён</small>
             </h1>
             <p class="hero-sub">
-                <strong>11 гонок</strong> позади. <strong>kastillio</strong> — ЧЕМПИОН Сезона 4!
-                <strong class="yellow">Mercedes-AMG</strong> — обладатели Кубка Конструкторов.
-                Впереди — <strong class="yellow">ГРАН-ПРИ GREENLIGHT</strong>.
+                <strong>12 гонок</strong> позади. Сезон 4 официально закрыт!
+                <strong class="crimson">kastillio</strong> — ЧЕМПИОН с 212 очками!
+                <strong>Mercedes-AMG</strong> — обладатели Кубка Конструкторов (352 очка).
+                Поздравляем победителей!
             </p>
             <a href="#results" class="cta-btn" data-page="results">
-                ОТКРЫТЬ РЕЗУЛЬТАТЫ <i class="fas fa-arrow-right"></i>
+                ИТОГОВЫЕ РЕЗУЛЬТАТЫ <i class="fas fa-arrow-right"></i>
             </a>
         </div>
 
@@ -1419,25 +1413,24 @@
                 <div class="stat-label">Команд</div>
             </div>
             <div class="stat-card">
-                <div class="stat-number">11</div>
+                <div class="stat-number">12</div>
                 <div class="stat-label">Гонок</div>
             </div>
             <div class="stat-card">
-                <div class="stat-number">187</div>
-                <div class="stat-label">Очков лидера</div>
+                <div class="stat-number">212</div>
+                <div class="stat-label">Очков чемпиона</div>
             </div>
         </div>
 
         <div class="champion-banner">
-            <div class="tag">// CHECKERED FLAG — CHAMPIONS CONFIRMED</div>
-            <h2>◆ <span class="accent">MERCEDES-AMG</span> — ЧЕМПИОНЫ КОНСТРУКТОРОВ</h2>
-            <p>319 очков • Досрочная победа в Кубке Конструкторов Сезона 4</p>
+            <h2>👑 KASTILLIO — ЧЕМПИОН СЕЗОНА 4 👑</h2>
+            <p>212 очков • 7 побед • Mercedes-AMG F1 Team</p>
         </div>
 
         <div class="leader-panel">
-            <div class="label">◆ TOP DRIVER • CHAMPIONSHIP LEADER</div>
-            <h3>kastillio #1 — 187 очков — ЧЕМПИОН</h3>
-            <p>SOVYCH05 — 2-й (146, ВИЦЕ-ЧЕМПИОН) • Vin_Diselll — 3-й (90)</p>
+            <div class="label">◆ ФИНАЛЬНАЯ ТАБЛИЦА • TOP-3</div>
+            <h3>1. kastillio — 212 • 2. SOVYCH05 — 164 • 3. Vin_Diselll — 105</h3>
+            <p>Mercedes-AMG F1 Team — 352 очка в Кубке Конструкторов</p>
         </div>
     </section>
 
@@ -1455,7 +1448,7 @@
     <section id="drivers" class="page">
         <h2 class="page-title">
             <span class="icon"><i class="fas fa-trophy"></i></span>
-            Личный <span class="grad">зачёт</span>
+            Финальный <span class="grad">зачёт</span>
         </h2>
         <div id="driverStandingsList" class="standings-grid"></div>
     </section>
@@ -1472,7 +1465,7 @@
     <!-- ПОБЕДИТЕЛИ -->
     <section id="winners" class="page">
         <div class="winners-header">
-            <h1>◆ <span class="grad">ПОБЕДИТЕЛИ СЕЗОНА 4</span> ◆</h1>
+            <h1>★ ПОБЕДИТЕЛИ СЕЗОНА 4 ★</h1>
         </div>
         <div class="winners-grid" id="winnersGrid"></div>
     </section>
@@ -1485,7 +1478,7 @@
         </h2>
 
         <div class="records-section">
-            <div class="records-section-title">★ РЕКОРДЫ ЧЕМПИОНАТА</div>
+            <div class="records-section-title">★ РЕКОРДЫ СЕЗОНА 4</div>
             <div id="recordsList"></div>
         </div>
 
@@ -1505,21 +1498,26 @@
     </section>
 
     <footer class="footer">
-        GTA FORMULA 1 • SEASON 04 • GRID EDITION • 2026
+        GTA FORMULA 1 • SEASON 04 • CRIMSON DYNASTY • FINALE
     </footer>
 
     <script>
-        // ========== SPEED LINES ==========
-        (function createSpeedLines() {
-            const container = document.getElementById('speedLines');
-            for (let i = 0; i < 15; i++) {
+        // ========== EMBERS ==========
+        (function createEmbers() {
+            const container = document.getElementById('embers');
+            const colors = ['#dc143c', '#f59e0b', '#ffd24a', '#f43f5e', '#d946ef'];
+            for (let i = 0; i < 40; i++) {
                 const el = document.createElement('div');
-                el.className = 'speed-line';
-                el.style.top = Math.random() * 100 + '%';
-                el.style.width = (Math.random() * 200 + 100) + 'px';
-                el.style.animationDuration = (Math.random() * 4 + 3) + 's';
-                el.style.animationDelay = (Math.random() * 8) + 's';
-                el.style.opacity = Math.random() * 0.3 + 0.1;
+                el.className = 'ember';
+                const size = Math.random() * 4 + 2;
+                el.style.width = size + 'px';
+                el.style.height = size + 'px';
+                el.style.left = Math.random() * 100 + '%';
+                el.style.background = colors[Math.floor(Math.random() * colors.length)];
+                el.style.boxShadow = '0 0 10px ' + el.style.background;
+                el.style.animationDuration = (Math.random() * 15 + 10) + 's';
+                el.style.animationDelay = (Math.random() * 20) + 's';
+                el.style.opacity = Math.random() * 0.5 + 0.3;
                 container.appendChild(el);
             }
         })();
@@ -1657,44 +1655,56 @@
                 title: 'Germany GP', date: '19.06.2026',
                 results: [
                     { position: 1, name: 'SOVYCH05', team: 'Mercedes-AMG', points: 25, status: 'finished', teamKey: 'mercedes', num: '88', qualy: 'P1=P1', fastestLap: true },
-                    { position: 2, name: 'kastillio', team: 'Mercedes-AMG', points: 18, status: 'finished', teamKey: 'mercedes', num: '1', qualy: 'P7>P2', champion: true },
+                    { position: 2, name: 'kastillio', team: 'Mercedes-AMG', points: 18, status: 'finished', teamKey: 'mercedes', num: '1', qualy: 'P7>P2' },
                     { position: 3, name: 'Liquer', team: 'Scuderia Ferrari', points: 15, status: 'finished', teamKey: 'ferrari', num: '77', qualy: 'P4>P3' },
                     { position: 4, name: 'FD', team: 'Cadillac', points: 12, status: 'finished', teamKey: 'cadillac', num: '25', qualy: 'P2>P4' },
                     { position: 5, name: 'Vin_Diselll', team: 'Red Bull Racing', points: 10, status: 'finished', teamKey: 'redbull', num: '33', qualy: 'P3>P5' },
                     { position: 6, name: 'tom_kruiser', team: 'Haas', points: 8, status: 'finished', teamKey: 'haas', num: '12', qualy: 'P6=P6' },
                     { position: 'DSQ', name: 'overshadowed', team: 'Red Bull Racing', points: 0, status: 'dsq', reason: 'Нарушение регламента', teamKey: 'redbull', num: '—', qualy: 'P5>OUT' }
                 ]
+            },
+            'greenlight-gp': {
+                title: 'Greenlight GP — ФИНАЛ', date: '26.06.2026',
+                results: [
+                    { position: 1, name: 'kastillio', team: 'Mercedes-AMG', points: 25, status: 'finished', teamKey: 'mercedes', num: '1', qualy: 'P1=P1', fastestLap: true, champion: true },
+                    { position: 2, name: 'SOVYCH05', team: 'Mercedes-AMG', points: 18, status: 'finished', teamKey: 'mercedes', num: '88', qualy: 'P3>P2' },
+                    { position: 3, name: 'Vin_Diselll', team: 'Red Bull Racing', points: 15, status: 'finished', teamKey: 'redbull', num: '33', qualy: 'P4>P3' },
+                    { position: 4, name: 'jetleoden', team: 'Williams', points: 12, status: 'finished', teamKey: 'williams', num: '6', qualy: 'P2>P4' },
+                    { position: 5, name: 'overshadower', team: 'Red Bull Racing', points: 10, status: 'finished', teamKey: 'redbull', num: '—', qualy: 'P5=P5' },
+                    { position: 6, name: 'vitall_duo', team: 'Haas', points: 8, status: 'finished', teamKey: 'haas', num: '81', qualy: 'P6=P6' },
+                    { position: 7, name: 'tom_kruiser', team: 'Haas', points: 6, status: 'finished', teamKey: 'haas', num: '12', qualy: 'P7=P7' }
+                ]
             }
         };
 
         const driverStandings = [
-            { name: 'kastillio', team: 'Mercedes-AMG F1 Team', points: 187, number: '1', teamKey: 'mercedes', title: 'ЧЕМПИОН', champion: true },
-            { name: 'SOVYCH05', team: 'Mercedes-AMG F1 Team', points: 146, number: '88', teamKey: 'mercedes', title: 'ВИЦЕ-ЧЕМПИОН' },
-            { name: 'Vin_Diselll', team: 'Red Bull Racing F1 Team', points: 90, number: '33', teamKey: 'redbull' },
-            { name: 'jetleoden', team: 'Williams F1 Team', points: 82, number: '6', teamKey: 'williams' },
+            { name: 'kastillio', team: 'Mercedes-AMG F1 Team', points: 212, number: '1', teamKey: 'mercedes', title: 'ЧЕМПИОН', champion: true },
+            { name: 'SOVYCH05', team: 'Mercedes-AMG F1 Team', points: 164, number: '88', teamKey: 'mercedes', title: 'ВИЦЕ-ЧЕМПИОН' },
+            { name: 'Vin_Diselll', team: 'Red Bull Racing F1 Team', points: 105, number: '33', teamKey: 'redbull', title: 'БРОНЗА' },
+            { name: 'jetleoden', team: 'Williams F1 Team', points: 94, number: '6', teamKey: 'williams' },
             { name: 'Liquer', team: 'Scuderia Ferrari F1 Team', points: 80, number: '77', teamKey: 'ferrari' },
             { name: 'nuvem', team: 'Red Bull Racing F1 Team', points: 37, number: '27', teamKey: 'redbull' },
-            { name: 'ALIN', team: 'Scuderia Ferrari F1 Team', points: 30, number: '2', teamKey: 'ferrari' },
+            { name: 'ALIN', team: 'Scuderia Ferrari F1 Team', points: 30, number: '2', teamKey: 'ferrari', title: 'ЗАВЕРШИЛ КАРЬЕРУ' },
             { name: 'VLADIVOSTOK', team: 'Williams F1 Team', points: 28, number: '23', teamKey: 'williams' },
-            { name: 'kanatkazx', team: 'Haas F1 Team', points: 24, number: '54', teamKey: 'haas' },
+            { name: 'kanatkazx', team: 'Haas F1 Team', points: 24, number: '54', teamKey: 'haas', title: 'ПРИОСТАНОВИЛ' },
             { name: 'Vlad2012', team: 'Cadillac F1 Team', points: 21, number: '42', teamKey: 'cadillac' },
-            { name: 'tom_kruiser', team: 'Haas F1 Team', points: 14, number: '12', teamKey: 'haas' },
-            { name: 'Trevor', team: 'Haas F1 Team', points: 12, number: '22', teamKey: 'haas' },
+            { name: 'tom_kruiser', team: 'Haas F1 Team', points: 20, number: '12', teamKey: 'haas' },
+            { name: 'vitall_duo', team: 'Haas F1 Team', points: 18, number: '81', teamKey: 'haas' },
+            { name: 'Trevor', team: 'Haas F1 Team', points: 12, number: '22', teamKey: 'haas', title: 'ЗАВЕРШИЛ КАРЬЕРУ' },
             { name: 'FD', team: 'Cadillac F1 Team', points: 12, number: '25', teamKey: 'cadillac' },
-            { name: 'vitall_duo', team: 'Cadillac F1 Team', points: 10, number: '81', teamKey: 'cadillac' },
-            { name: 'FloeSS', team: 'Scuderia Ferrari F1 Team', points: 10, number: '7', teamKey: 'ferrari' },
+            { name: 'overshadower', team: 'Red Bull Racing F1 Team', points: 10, number: '—', teamKey: 'redbull' },
+            { name: 'FloeSS', team: 'Scuderia Ferrari F1 Team', points: 10, number: '7', teamKey: 'ferrari', title: 'ЗАВЕРШИЛ КАРЬЕРУ' },
             { name: 'Tema_East', team: 'Haas F1 Team', points: 8, number: '69', teamKey: 'haas' },
             { name: 'VoyderKa', team: 'Cadillac F1 Team', points: 6, number: '65', teamKey: 'cadillac' },
-            { name: 'JOSYLVIO', team: 'Red Bull Racing F1 Team', points: 6, number: '49', teamKey: 'redbull' },
-            { name: 'overshadowed', team: 'Red Bull Racing F1 Team', points: 0, number: '—', teamKey: 'redbull' }
+            { name: 'JOSYLVIO', team: 'Red Bull Racing F1 Team', points: 6, number: '49', teamKey: 'redbull', title: 'ПРИОСТАНОВИЛ' }
         ];
 
         const teamStandings = [
-            { name: 'Mercedes-AMG F1 Team', points: 319, key: 'mercedes', champion: true },
-            { name: 'Red Bull Racing F1 Team', points: 133, key: 'redbull' },
+            { name: 'Mercedes-AMG F1 Team', points: 352, key: 'mercedes', champion: true },
+            { name: 'Red Bull Racing F1 Team', points: 158, key: 'redbull' },
             { name: 'Scuderia Ferrari F1 Team', points: 129, key: 'ferrari' },
-            { name: 'Williams F1 Team', points: 69, key: 'williams' },
-            { name: 'Haas F1 Team', points: 68, key: 'haas' },
+            { name: 'Haas F1 Team', points: 82, key: 'haas' },
+            { name: 'Williams F1 Team', points: 81, key: 'williams' },
             { name: 'Cadillac F1 Team', points: 49, key: 'cadillac' },
             { name: 'McLaren F1 Team', points: 47, key: 'mclaren' }
         ];
@@ -1710,31 +1720,34 @@
             { race: 'USA GP', winner: 'kastillio', team: 'Mercedes-AMG', colorKey: 'mercedes' },
             { race: 'Azerbaijan GP', winner: 'kastillio', team: 'Mercedes-AMG', colorKey: 'mercedes' },
             { race: 'China GP', winner: 'Liquer', team: 'Scuderia Ferrari', colorKey: 'ferrari' },
-            { race: 'Germany GP', winner: 'SOVYCH05', team: 'Mercedes-AMG', colorKey: 'mercedes' }
+            { race: 'Germany GP', winner: 'SOVYCH05', team: 'Mercedes-AMG', colorKey: 'mercedes' },
+            { race: 'Greenlight GP', winner: 'kastillio', team: 'Mercedes-AMG', colorKey: 'mercedes' }
         ];
 
         const records = [
-            { title: 'Лидер сезона', value: 'kastillio — 187 очков' },
-            { title: 'Чемпион Сезона 4', value: 'kastillio — Mercedes-AMG F1 Team' },
-            { title: 'Вице-чемпион Сезона 4', value: 'SOVYCH05 — Mercedes-AMG F1 Team (146 очков)' },
-            { title: 'Кубок Конструкторов', value: 'Mercedes-AMG F1 Team — 319 очков' },
-            { title: 'Наибольшее количество побед', value: 'kastillio — 6 побед' },
+            { title: 'Чемпион Сезона 4', value: 'kastillio — Mercedes-AMG F1 Team (212 очков)' },
+            { title: 'Вице-чемпион Сезона 4', value: 'SOVYCH05 — Mercedes-AMG F1 Team (164 очка)' },
+            { title: 'Бронзовый призёр', value: 'Vin_Diselll — Red Bull Racing (105 очков)' },
+            { title: 'Кубок Конструкторов', value: 'Mercedes-AMG F1 Team — 352 очка' },
+            { title: 'Наибольшее количество побед', value: 'kastillio — 7 побед' },
             { title: 'Наибольшее количество поул-позиций', value: 'kastillio — 5 поулов' },
-            { title: 'Наибольший прогресс в гонке', value: 'kastillio — Germany GP (P7 → P2, обеспечил титул)' },
-            { title: 'Быстрейшие круги', value: 'kastillio — 3 быстрых круга' },
-            { title: 'Самая длинная серия побед', value: 'kastillio — 4 победы подряд' },
-            { title: 'Лучший новичок сезона', value: 'SOVYCH05 — 146 очков' },
-            { title: 'Первый подиум Cadillac', value: 'FD — Germany GP (P4), Vlad2012 — Azerbaijan (P3)' }
+            { title: 'Быстрейшие круги', value: 'kastillio — 4 быстрых круга' },
+            { title: 'Наибольший прогресс в гонке', value: 'kastillio — Azerbaijan GP (P9 → P1)' },
+            { title: 'Победа с последнего места', value: 'Liquer — China GP (P10 → P1)' },
+            { title: 'Самая длинная серия побед', value: 'kastillio — 4 победы подряд (Redwood GP → Azerbaijan)' },
+            { title: 'Победители Гран-При', value: '4 разных пилота одержали победы: kastillio, jetleoden, SOVYCH05, Liquer' },
+            { title: 'Команда сезона', value: 'Mercedes-AMG — 352 очка, 9 побед из 12 гонок' }
         ];
 
         const antiRecords = [
             { title: 'Наибольшее количество сходов в гонке', value: 'Azerbaijan GP — 5 пилотов (DNF)' },
-            { title: 'Худший финиш лидера сезона', value: 'China GP — kastillio (P1 → DNF)' },
+            { title: 'Худший финиш чемпиона', value: 'China GP — kastillio (P1 → DNF)' },
             { title: 'Наибольшее количество дисквалификаций', value: 'Oracle GP — 2 DSQ (Ruslan_222, bramkloet)' },
-            { title: 'Антирекорд сезона по очкам', value: 'Ruslan_222 — 0 очков (изгнан из F1)' },
-            { title: 'Пилот без очков', value: 'overshadowed — 0 очков (дисквалификация в Germany GP)' },
-            { title: 'Команда с наибольшими потерями', value: 'McLaren F1 Team — 47 очков (не оправдали ожиданий)' },
-            { title: 'Неудачная серия лидера', value: 'kastillio — 2 DNF (Redwood Sprint, China GP)' }
+            { title: 'Пилот без очков', value: 'overshadowed — 0 очков (дисквалифицирован)' },
+            { title: 'Изгнанный пилот', value: 'Ruslan_222 — 0 очков (изгнан из Формулы-1)' },
+            { title: 'Команда с наибольшими потерями', value: 'McLaren F1 Team — 47 очков (последнее место)' },
+            { title: 'Неудачная серия чемпиона', value: 'kastillio — 2 DNF за сезон (Redwood Sprint, China GP)' },
+            { title: 'Нулевой финал сезона', value: 'Ruslan_222, bramkloet, femtuza, overshadowed — без очков' }
         ];
 
         const scheduleRaces = [
@@ -1749,9 +1762,7 @@
             { date: '✓ 05.06', name: 'Azerbaijan GP', status: 'completed' },
             { date: '✓ 12.06', name: 'China GP', status: 'completed' },
             { date: '✓ 19.06', name: 'Germany GP', status: 'completed' },
-            { date: '⏳ 26.06', name: 'Barcelona GP', status: 'upcoming' },
-            { date: '⏳ 03.07', name: 'SANDY CIRCUIT', status: 'upcoming' },
-            { date: '🏁 10.07', name: 'GREENLIGHT GP (ФИНАЛ)', status: 'final' }
+            { date: '🏆 26.06', name: 'GREENLIGHT GP — ФИНАЛ СЕЗОНА', status: 'champ' }
         ];
 
         function teamColorClass(key) {
@@ -1795,7 +1806,7 @@
                 }
                 const teamCl = teamColorClass(r.teamKey);
                 const flBadge = r.fastestLap ? ' <span class="fl-tag">⚡ FL</span>' : '';
-                const champBadge = r.champion ? ' <span class="fl-tag" style="background: var(--racing-yellow); color: #000;">👑 ЧЕМПИОН</span>' : '';
+                const champBadge = r.champion ? ' <span class="fl-tag" style="background: linear-gradient(90deg, #ffd24a, #f59e0b); color: #1a0510;">👑 ЧЕМПИОН</span>' : '';
                 html += `<tr>
                     <td>${posHtml}</td>
                     <td><strong class="${teamCl}">${r.name} #${r.num || ''}</strong>${flBadge}${champBadge}</td>
@@ -1821,7 +1832,8 @@
                 { id: 'usa-gp', name: 'USA' },
                 { id: 'azerbaijan-gp', name: 'Azerbaijan' },
                 { id: 'china-gp', name: 'China' },
-                { id: 'germany-gp', name: '🇩🇪 Germany' }
+                { id: 'germany-gp', name: 'Germany' },
+                { id: 'greenlight-gp', name: '🏆 GREENLIGHT' }
             ];
             racesList.forEach((r, idx) => {
                 let btn = document.createElement('button');
@@ -1932,15 +1944,12 @@
             container.innerHTML = '';
             scheduleRaces.forEach(r => {
                 const div = document.createElement('div');
-                div.className = 'timeline-item' + (r.status === 'final' ? ' final' : '');
+                div.className = 'timeline-item' + (r.status === 'champ' ? ' final' : '');
                 let statusClass = 'status-done';
                 let statusText = '✓ Завершено';
-                if (r.status === 'final') {
-                    statusClass = 'status-final';
-                    statusText = '🏁 ФИНАЛ';
-                } else if (r.status === 'upcoming') {
-                    statusClass = 'status-next';
-                    statusText = 'Ожидается';
+                if (r.status === 'champ') {
+                    statusClass = 'status-champ';
+                    statusText = '🏆 ФИНАЛ';
                 }
                 div.innerHTML = `
                     <span class="timeline-date">${r.date}</span>
