@@ -43,7 +43,6 @@
             line-height: 1.5;
         }
 
-        /* ============ DRAMATIC BACKGROUND ============ */
         .bg-layer {
             position: fixed;
             inset: 0;
@@ -67,7 +66,6 @@
                 rgba(255, 184, 77, 0.02) 91px
             );
         }
-        /* Мягкий янтарный свет сверху */
         .bg-layer::after {
             content: '';
             position: absolute;
@@ -85,7 +83,6 @@
             100% { transform: translateX(-50%) scale(1.15); opacity: 1; }
         }
 
-        /* ЗВЁЗДЫ */
         .stars {
             position: fixed;
             inset: 0;
@@ -108,7 +105,6 @@
             100% { background-position: 1000px 500px; }
         }
 
-        /* Искры */
         .embers {
             position: fixed;
             inset: 0;
@@ -130,7 +126,6 @@
             100% { transform: translateY(-10vh) scale(1); opacity: 0; }
         }
 
-        /* ============ NAVBAR ============ */
         .navbar {
             background: rgba(10, 10, 31, 0.94);
             backdrop-filter: blur(20px) saturate(160%);
@@ -233,7 +228,6 @@
             letter-spacing: 1.3px;
             border-radius: 4px;
             border: 1px solid transparent;
-            position: relative;
         }
         .nav-link:hover {
             color: var(--gold-hi);
@@ -256,7 +250,6 @@
             border-color: var(--coral);
         }
 
-        /* ============ PAGES ============ */
         .page {
             display: none;
             padding: 8rem 2rem 4rem;
@@ -272,7 +265,6 @@
             100% { opacity: 1; transform: translateY(0); }
         }
 
-        /* ============ NEW SEASON BANNER ============ */
         .new-season-banner {
             background: linear-gradient(90deg, var(--coral), var(--gold), var(--coral));
             background-size: 200% 100%;
@@ -304,7 +296,6 @@
             50% { transform: rotate(15deg); }
         }
 
-        /* ============ HERO ============ */
         .hero {
             background: linear-gradient(135deg, rgba(20, 20, 58, 0.9), rgba(28, 28, 78, 0.9));
             border: 2px solid var(--line-hi);
@@ -485,7 +476,6 @@
         .cta-btn i { transition: transform 0.3s; }
         .cta-btn:hover i { transform: translateX(6px); }
 
-        /* ============ STATS BAR ============ */
         .stats-bar {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
@@ -539,7 +529,6 @@
             font-weight: 800;
         }
 
-        /* ============ LEADER CARD ============ */
         .leader-card {
             background: linear-gradient(135deg, var(--panel), var(--panel-2));
             border: 2px solid var(--gold);
@@ -588,7 +577,6 @@
             letter-spacing: -3px;
         }
 
-        /* ============ PAGE TITLE ============ */
         .page-title {
             font-size: 2.4rem;
             font-weight: 900;
@@ -630,7 +618,6 @@
             margin-left: 12px;
         }
 
-        /* ============ RACE SELECTOR ============ */
         .race-selector {
             display: flex;
             gap: 8px;
@@ -667,7 +654,6 @@
             box-shadow: 0 0 20px rgba(255, 184, 77, 0.5);
         }
 
-        /* ============ RACE HEADER ============ */
         .race-header {
             display: flex;
             justify-content: space-between;
@@ -696,7 +682,6 @@
             font-style: italic;
         }
 
-        /* ============ RESULTS TABLE ============ */
         .results-table {
             width: 100%;
             border-collapse: collapse;
@@ -808,7 +793,6 @@
             50% { box-shadow: 0 0 22px rgba(255, 95, 126, 0.7); }
         }
 
-        /* ============ TEAM COLORS ============ */
         .team-mercedes { color: #00d2be !important; }
         .team-mclaren { color: #ff8700 !important; }
         .team-redbull { color: #4d7cff !important; }
@@ -818,7 +802,6 @@
         .team-cadillac { color: #a0a0a0 !important; }
         .team-alpine { color: #ff87bc !important; }
 
-        /* ============ STANDINGS — СТОЛБИК ============ */
         .standings-grid {
             display: flex;
             flex-direction: column;
@@ -961,7 +944,6 @@
             color: var(--gold-hi);
         }
 
-        /* ============ TEAMS — СТОЛБИК ============ */
         .teams-grid {
             display: flex;
             flex-direction: column;
@@ -1083,7 +1065,6 @@
             color: var(--gold-hi);
         }
 
-        /* ============ WINNERS ============ */
         .winners-header {
             text-align: left;
             padding: 1.6rem 2rem;
@@ -1162,7 +1143,6 @@
             margin-top: 4px;
         }
 
-        /* ============ TIMELINE ============ */
         .timeline-item {
             background: var(--panel);
             border: 1px solid var(--line);
@@ -1223,7 +1203,6 @@
             color: var(--bg);
         }
 
-        /* ============ RECORDS ============ */
         .records-section { margin-bottom: 3rem; }
         .records-section-title {
             font-size: 0.85rem;
@@ -1279,7 +1258,6 @@
             color: var(--cream);
         }
 
-        /* ============ MEMORY PAGE ============ */
         .memory-hero {
             background: var(--panel);
             border: 2px solid var(--coral);
@@ -1429,7 +1407,6 @@
         }
         .mem-timeline-content .desc strong { color: var(--gold-hi); }
 
-        /* ============ FOOTER ============ */
         .footer {
             text-align: center;
             padding: 2.5rem;
@@ -1453,7 +1430,6 @@
             background: linear-gradient(90deg, transparent, var(--gold), var(--coral), transparent);
         }
 
-        /* ============ RESPONSIVE ============ */
         @media (max-width: 900px) {
             .hero {
                 grid-template-columns: 1fr;
@@ -1498,7 +1474,6 @@
     <div class="stars"></div>
     <div class="embers" id="embers"></div>
 
-    <!-- NAVBAR -->
     <nav class="navbar">
         <div class="logo">
             <span class="logo-icon"><i class="fas fa-fire"></i></span>
@@ -1518,7 +1493,6 @@
         </div>
     </nav>
 
-    <!-- ГЛАВНАЯ -->
     <section id="home" class="page active">
         <div class="new-season-banner">
             <i class="fas fa-fire"></i>
@@ -1539,7 +1513,7 @@
                 </h1>
                 <p class="hero-sub">
                     <strong>4 гонки</strong> позади! <strong>SOVYCH05</strong> удерживает лидерство с 58 очками, но
-                    <strong>Fan_JoJo</strong> одержал первую победу на Austrian GP и поднялся на 2-е место!
+                    <strong>Fan_JoJo</strong> одержал первую победу на Austrian GP!
                     <strong class="coral">Сезон набирает обороты!</strong>
                 </p>
                 <a href="#results" class="cta-btn" data-page="results">
@@ -1572,13 +1546,12 @@
             <div>
                 <div class="label">◆ ЛИДЕР СЕЗОНА 5</div>
                 <h3>SOVYCH05 #88 — Mercedes-AMG F1 Team</h3>
-                <p>Fan_JoJo — 2-й (43) • Vin_Diselll — 3-й (43) • vitall_duo — 4-й (33)</p>
+                <p>Fan_JoJo — 2-й (43) • vitall_duo — 3-й (33) • Liquer — 4-й (32)</p>
             </div>
             <div class="big-number">58</div>
         </div>
     </section>
 
-    <!-- РЕЗУЛЬТАТЫ -->
     <section id="results" class="page">
         <h2 class="page-title">
             <span class="icon"><i class="fas fa-flag-checkered"></i></span>
@@ -1588,7 +1561,6 @@
         <div id="raceResults"></div>
     </section>
 
-    <!-- ПИЛОТЫ -->
     <section id="drivers" class="page">
         <h2 class="page-title">
             <span class="icon"><i class="fas fa-trophy"></i></span>
@@ -1597,7 +1569,6 @@
         <div id="driverStandingsList" class="standings-grid"></div>
     </section>
 
-    <!-- КОМАНДЫ -->
     <section id="constructors" class="page">
         <h2 class="page-title">
             <span class="icon"><i class="fas fa-industry"></i></span>
@@ -1606,7 +1577,6 @@
         <div id="teamStandingsList" class="teams-grid"></div>
     </section>
 
-    <!-- ПОБЕДИТЕЛИ -->
     <section id="winners" class="page">
         <div class="winners-header">
             <h1>★ ПОБЕДИТЕЛИ <span class="accent">СЕЗОНА 5</span> ★</h1>
@@ -1614,7 +1584,6 @@
         <div class="winners-grid" id="winnersGrid"></div>
     </section>
 
-    <!-- РЕКОРДЫ -->
     <section id="records" class="page">
         <h2 class="page-title">
             <span class="icon"><i class="fas fa-chart-line"></i></span>
@@ -1632,7 +1601,6 @@
         </div>
     </section>
 
-    <!-- РАСПИСАНИЕ -->
     <section id="schedule" class="page">
         <h2 class="page-title">
             <span class="icon"><i class="fas fa-calendar"></i></span>
@@ -1641,7 +1609,6 @@
         <div style="max-width:900px;" id="scheduleList"></div>
     </section>
 
-    <!-- ПАМЯТЬ -->
     <section id="memory" class="page">
         <div class="memory-hero">
             <h2 class="memory-title">★ <span class="accent">ПАМЯТЬ СЕЗОНА 4</span> ★</h2>
@@ -1763,7 +1730,6 @@
     </footer>
 
     <script>
-        // ========== EMBERS ==========
         (function createEmbers() {
             const container = document.getElementById('embers');
             const colors = ['#ffb84d', '#ff5f7e', '#ffd47f'];
@@ -1830,8 +1796,8 @@
                 results: [
                     { position: 1, name: 'Fan_JoJo', team: 'Mercedes-AMG', points: 25, status: 'finished', teamKey: 'mercedes', num: '35', qualy: 'P1=P1' },
                     { position: 2, name: 'vitall_duo', team: 'Scuderia Ferrari', points: 18, status: 'finished', teamKey: 'ferrari', num: '27', qualy: 'P7>P2' },
-                    { position: 3, name: 'Vin_Diselll', team: 'Red Bull Racing', points: 15, status: 'finished', teamKey: 'redbull', num: '33', qualy: 'P2>P3' },
-                    { position: 4, name: 'Liquer', team: 'Scuderia Ferrari', points: 12, status: 'finished', teamKey: 'ferrari', num: '77', qualy: 'P5>P4' },
+                    { position: 3, name: 'Liquer', team: 'Scuderia Ferrari', points: 15, status: 'finished', teamKey: 'ferrari', num: '77', qualy: 'P5>P3' },
+                    { position: 'DSQ', name: 'Vin_Diselll', team: 'Red Bull Racing', points: 0, status: 'dsq', reason: 'Столкновение с Liquer', teamKey: 'redbull', num: '33', qualy: 'P2>DSQ' },
                     { position: 'DNF', name: 'SOVYCH05', team: 'Mercedes-AMG', points: 0, status: 'dnf', reason: 'Авария', teamKey: 'mercedes', num: '88', qualy: 'P4>DNF' },
                     { position: 'DNF', name: 'tom_kruiser', team: 'Alpine', points: 0, status: 'dnf', reason: 'Авария', teamKey: 'alpine', num: '12', qualy: 'P3>DNF' },
                     { position: 'DNF', name: 'Wallableb', team: 'Cadillac', points: 0, status: 'dnf', reason: 'Авария', teamKey: 'cadillac', num: '3', qualy: 'P6>DNF' }
@@ -1842,11 +1808,11 @@
         const driverStandings = [
             { name: 'SOVYCH05', team: 'Mercedes-AMG F1 Team', points: 58, number: '88', teamKey: 'mercedes' },
             { name: 'Fan_JoJo', team: 'Mercedes-AMG F1 Team', points: 43, number: '35', teamKey: 'mercedes' },
-            { name: 'Vin_Diselll', team: 'Red Bull Racing F1 Team', points: 43, number: '33', teamKey: 'redbull' },
             { name: 'vitall_duo', team: 'Scuderia Ferrari F1 Team', points: 33, number: '27', teamKey: 'ferrari' },
+            { name: 'Liquer', team: 'Scuderia Ferrari F1 Team', points: 32, number: '77', teamKey: 'ferrari' },
             { name: 'tom_kruiser', team: 'Alpine F1 Team', points: 30, number: '12', teamKey: 'alpine' },
-            { name: 'Liquer', team: 'Scuderia Ferrari F1 Team', points: 29, number: '77', teamKey: 'ferrari' },
             { name: 'kastillio', team: 'Mercedes-AMG F1 Team', points: 25, number: '1', teamKey: 'mercedes', title: 'РЕЗЕРВИСТ' },
+            { name: 'Vin_Diselll', team: 'Red Bull Racing F1 Team', points: 25, number: '33', teamKey: 'redbull' },
             { name: 'jetleoden', team: 'Scuderia Ferrari F1 Team', points: 15, number: '6', teamKey: 'ferrari', title: 'РЕЗЕРВИСТ' },
             { name: 'YOKI4', team: 'McLaren F1 Team', points: 14, number: '7', teamKey: 'mclaren' },
             { name: 'VLADIVOSTOK', team: 'Williams F1 Team', points: 4, number: '23', teamKey: 'williams' },
@@ -1855,9 +1821,9 @@
 
         const teamStandings = [
             { name: 'Mercedes-AMG F1 Team', points: 126, key: 'mercedes' },
-            { name: 'Scuderia Ferrari F1 Team', points: 69, key: 'ferrari' },
-            { name: 'Red Bull Racing F1 Team', points: 43, key: 'redbull' },
+            { name: 'Scuderia Ferrari F1 Team', points: 72, key: 'ferrari' },
             { name: 'Alpine F1 Team', points: 30, key: 'alpine' },
+            { name: 'Red Bull Racing F1 Team', points: 25, key: 'redbull' },
             { name: 'McLaren F1 Team', points: 14, key: 'mclaren' },
             { name: 'Haas F1 Team', points: 8, key: 'haas' },
             { name: 'Williams F1 Team', points: 4, key: 'williams' },
@@ -1883,7 +1849,8 @@
 
         const antiRecords = [
             { title: 'Первый сход лидера', value: 'SOVYCH05 — впервые сошёл в AUSTRIAN GP' },
-            { title: 'Массовый сход', value: 'AUSTRIAN GP — 3 схода (SOVYCH05, tom_kruiser, Wallableb)' },
+            { title: 'Столкновение Ferrari vs Red Bull', value: 'Vin_Diselll DSQ за столкновение с Liquer на AUSTRIAN GP' },
+            { title: 'Массовый сход', value: 'AUSTRIAN GP — 3 DNF (SOVYCH05, tom_kruiser, Wallableb) + 1 DSQ' },
             { title: 'Провал после подиума', value: 'Wallableb — DSQ в ITALIAN GP, DNF в AUSTRIAN GP' }
         ];
 
