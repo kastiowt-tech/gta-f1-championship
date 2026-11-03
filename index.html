@@ -3,31 +3,31 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>GTA F1 • СЕЗОН 5 • PHOENIX CHAMPIONSHIP</title>
+    <title>GTA F1 • СЕЗОН 5 • ARCTIC CIRCUIT</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         /* ============================================================
-           PHOENIX CHAMPIONSHIP — полуночный синий, янтарное золото, коралл
+           ARCTIC CIRCUIT — глубокий navy, ледяной голубой, лаванда
            ============================================================ */
         * { margin: 0; padding: 0; box-sizing: border-box; }
 
         :root {
-            --bg: #0a0a1f;
-            --bg-2: #10102e;
-            --panel: #14143a;
-            --panel-2: #1c1c4e;
-            --panel-3: #25255e;
-            --gold: #ffb84d;
-            --gold-hi: #ffd47f;
-            --gold-deep: #cc8a1f;
-            --coral: #ff5f7e;
-            --coral-hi: #ff8fa3;
-            --cream: #fff8e7;
-            --text: #ede6d3;
-            --muted: #8a86a8;
-            --line: rgba(255, 184, 77, 0.25);
-            --line-hi: rgba(255, 184, 77, 0.5);
-            --line-coral: rgba(255, 95, 126, 0.35);
+            --bg: #050810;
+            --bg-2: #0a1020;
+            --panel: #0f1728;
+            --panel-2: #16233a;
+            --panel-3: #1e2f4a;
+            --sunset: #64d2ff;               /* ледяной голубой */
+            --sunset-hi: #9ee5ff;
+            --sunset-deep: #1e88b8;
+            --rose: #a78bfa;                 /* лаванда / cool violet */
+            --rose-hi: #c4b5fd;
+            --cream: #e8f4ff;
+            --text: #dce8f5;
+            --muted: #7888a0;
+            --line: rgba(100, 210, 255, 0.25);
+            --line-hi: rgba(100, 210, 255, 0.5);
+            --line-rose: rgba(167, 139, 250, 0.35);
         }
 
         html { scroll-behavior: smooth; }
@@ -43,16 +43,17 @@
             line-height: 1.5;
         }
 
+        /* ============ BACKGROUND ============ */
         .bg-layer {
             position: fixed;
             inset: 0;
             z-index: -3;
             pointer-events: none;
             background:
-                radial-gradient(ellipse at 0% 0%, rgba(255, 184, 77, 0.10), transparent 40%),
-                radial-gradient(ellipse at 100% 100%, rgba(255, 95, 126, 0.08), transparent 40%),
-                radial-gradient(ellipse at 50% 50%, rgba(80, 60, 160, 0.15), transparent 70%),
-                linear-gradient(160deg, #0a0a1f 0%, #10102e 50%, #0a0a1f 100%);
+                radial-gradient(ellipse at 0% 0%, rgba(100, 210, 255, 0.14), transparent 40%),
+                radial-gradient(ellipse at 100% 100%, rgba(167, 139, 250, 0.12), transparent 40%),
+                radial-gradient(ellipse at 50% 50%, rgba(20, 40, 80, 0.4), transparent 70%),
+                linear-gradient(160deg, #050810 0%, #0a1020 50%, #050810 100%);
         }
         .bg-layer::before {
             content: '';
@@ -62,8 +63,8 @@
                 125deg,
                 transparent 0,
                 transparent 90px,
-                rgba(255, 184, 77, 0.02) 90px,
-                rgba(255, 184, 77, 0.02) 91px
+                rgba(100, 210, 255, 0.025) 90px,
+                rgba(100, 210, 255, 0.025) 91px
             );
         }
         .bg-layer::after {
@@ -72,10 +73,10 @@
             top: -20%;
             left: 50%;
             transform: translateX(-50%);
-            width: 800px;
-            height: 800px;
-            background: radial-gradient(circle, rgba(255, 184, 77, 0.08), transparent 60%);
-            filter: blur(60px);
+            width: 900px;
+            height: 900px;
+            background: radial-gradient(circle, rgba(100, 210, 255, 0.10), transparent 60%);
+            filter: blur(70px);
             animation: bgGlow 12s ease-in-out infinite alternate;
         }
         @keyframes bgGlow {
@@ -83,19 +84,20 @@
             100% { transform: translateX(-50%) scale(1.15); opacity: 1; }
         }
 
+        /* ЗВЁЗДЫ */
         .stars {
             position: fixed;
             inset: 0;
             z-index: -2;
             pointer-events: none;
             background-image:
-                radial-gradient(1px 1px at 40px 60px, rgba(255, 216, 128, 0.5), transparent),
+                radial-gradient(1px 1px at 40px 60px, rgba(158, 229, 255, 0.55), transparent),
                 radial-gradient(1px 1px at 160px 220px, rgba(255, 255, 255, 0.3), transparent),
-                radial-gradient(1px 1px at 300px 80px, rgba(255, 216, 128, 0.4), transparent),
+                radial-gradient(1px 1px at 300px 80px, rgba(158, 229, 255, 0.4), transparent),
                 radial-gradient(1px 1px at 480px 400px, rgba(255, 255, 255, 0.25), transparent),
-                radial-gradient(1px 1px at 600px 180px, rgba(255, 216, 128, 0.5), transparent),
+                radial-gradient(1px 1px at 600px 180px, rgba(158, 229, 255, 0.5), transparent),
                 radial-gradient(1px 1px at 780px 320px, rgba(255, 255, 255, 0.3), transparent),
-                radial-gradient(1px 1px at 920px 120px, rgba(255, 216, 128, 0.4), transparent);
+                radial-gradient(1px 1px at 920px 120px, rgba(158, 229, 255, 0.4), transparent);
             background-size: 1000px 500px;
             animation: starDrift 90s linear infinite;
             opacity: 0.8;
@@ -126,8 +128,9 @@
             100% { transform: translateY(-10vh) scale(1); opacity: 0; }
         }
 
+        /* ============ NAVBAR ============ */
         .navbar {
-            background: rgba(10, 10, 31, 0.94);
+            background: rgba(5, 8, 16, 0.94);
             backdrop-filter: blur(20px) saturate(160%);
             -webkit-backdrop-filter: blur(20px) saturate(160%);
             padding: 0 2rem;
@@ -139,15 +142,15 @@
             justify-content: space-between;
             align-items: center;
             flex-wrap: wrap;
-            border-bottom: 2px solid var(--gold);
-            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.6), 0 0 80px rgba(255, 184, 77, 0.08);
+            border-bottom: 2px solid var(--sunset);
+            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.6), 0 0 80px rgba(100, 210, 255, 0.10);
         }
         .navbar::before {
             content: '';
             position: absolute;
             top: 0; left: 0; right: 0;
             height: 3px;
-            background: linear-gradient(90deg, transparent, var(--gold), var(--coral), var(--gold), transparent);
+            background: linear-gradient(90deg, transparent, var(--sunset), var(--rose), var(--sunset), transparent);
             background-size: 200% 100%;
             animation: navStripes 5s linear infinite;
         }
@@ -170,7 +173,7 @@
         .logo-icon {
             width: 44px;
             height: 44px;
-            background: linear-gradient(135deg, var(--gold), var(--gold-deep));
+            background: linear-gradient(135deg, var(--sunset), var(--sunset-deep));
             display: flex;
             align-items: center;
             justify-content: center;
@@ -179,18 +182,16 @@
             font-style: normal;
             border-radius: 8px;
             transform: skewX(-6deg);
-            box-shadow: 0 0 25px rgba(255, 184, 77, 0.5);
+            box-shadow: 0 0 25px rgba(100, 210, 255, 0.55);
             transition: all 0.3s ease;
         }
-        .logo-icon i {
-            transform: skewX(6deg);
-        }
+        .logo-icon i { transform: skewX(6deg); }
         .logo:hover .logo-icon {
-            box-shadow: 0 0 40px rgba(255, 184, 77, 0.8);
+            box-shadow: 0 0 40px rgba(100, 210, 255, 0.85);
             transform: skewX(-6deg) rotate(-6deg);
         }
         .logo .dot {
-            color: var(--gold);
+            color: var(--sunset);
             font-weight: 900;
             margin: 0 2px;
         }
@@ -199,7 +200,7 @@
             font-weight: 900;
             letter-spacing: 2px;
             color: var(--bg);
-            background: var(--gold);
+            background: var(--sunset);
             padding: 5px 12px;
             font-style: normal;
             border-radius: 3px;
@@ -207,7 +208,7 @@
             transform: skewX(-6deg);
         }
         .season-chip.new {
-            background: var(--coral);
+            background: var(--rose);
             color: var(--cream);
             animation: chipBeat 2s ease-in-out infinite;
         }
@@ -230,26 +231,27 @@
             border: 1px solid transparent;
         }
         .nav-link:hover {
-            color: var(--gold-hi);
-            background: rgba(255, 184, 77, 0.08);
+            color: var(--sunset-hi);
+            background: rgba(100, 210, 255, 0.08);
             border-color: var(--line);
         }
         .nav-link.active {
             color: var(--bg);
-            background: var(--gold);
-            border-color: var(--gold);
-            box-shadow: 0 0 20px rgba(255, 184, 77, 0.5);
+            background: var(--sunset);
+            border-color: var(--sunset);
+            box-shadow: 0 0 20px rgba(100, 210, 255, 0.55);
         }
         .nav-link.memory {
-            color: var(--coral-hi);
-            border-color: var(--line-coral);
+            color: var(--rose-hi);
+            border-color: var(--line-rose);
         }
         .nav-link.memory.active {
-            background: var(--coral);
+            background: var(--rose);
             color: var(--cream);
-            border-color: var(--coral);
+            border-color: var(--rose);
         }
 
+        /* ============ PAGES ============ */
         .page {
             display: none;
             padding: 8rem 2rem 4rem;
@@ -265,8 +267,9 @@
             100% { opacity: 1; transform: translateY(0); }
         }
 
+        /* ============ NEW SEASON BANNER ============ */
         .new-season-banner {
-            background: linear-gradient(90deg, var(--coral), var(--gold), var(--coral));
+            background: linear-gradient(90deg, var(--rose), var(--sunset), var(--rose));
             background-size: 200% 100%;
             padding: 1rem 2rem;
             text-align: center;
@@ -277,7 +280,7 @@
             color: var(--bg);
             margin-bottom: 2rem;
             border-radius: 6px;
-            box-shadow: 0 8px 30px rgba(255, 95, 126, 0.3);
+            box-shadow: 0 8px 30px rgba(167, 139, 250, 0.3);
             animation: bannerGlow 5s linear infinite;
             display: flex;
             align-items: center;
@@ -296,15 +299,16 @@
             50% { transform: rotate(15deg); }
         }
 
+        /* ============ HERO ============ */
         .hero {
-            background: linear-gradient(135deg, rgba(20, 20, 58, 0.9), rgba(28, 28, 78, 0.9));
+            background: linear-gradient(135deg, rgba(15, 23, 40, 0.9), rgba(22, 35, 58, 0.9));
             border: 2px solid var(--line-hi);
             border-radius: 8px;
             padding: 4rem 3rem;
             position: relative;
             margin-bottom: 2rem;
             overflow: hidden;
-            box-shadow: 0 25px 60px rgba(0, 0, 0, 0.5), inset 0 1px 0 rgba(255, 216, 128, 0.1);
+            box-shadow: 0 25px 60px rgba(0, 0, 0, 0.5), inset 0 1px 0 rgba(158, 229, 255, 0.1);
             display: grid;
             grid-template-columns: 1fr auto;
             gap: 2rem;
@@ -320,8 +324,8 @@
                 -45deg,
                 transparent 0,
                 transparent 15px,
-                rgba(255, 184, 77, 0.06) 15px,
-                rgba(255, 184, 77, 0.06) 16px
+                rgba(100, 210, 255, 0.06) 15px,
+                rgba(100, 210, 255, 0.06) 16px
             );
             pointer-events: none;
         }
@@ -332,15 +336,15 @@
             right: -100px;
             width: 300px;
             height: 300px;
-            border: 2px solid var(--coral);
+            border: 2px solid var(--rose);
             border-radius: 50%;
             transform: translateY(-50%);
-            opacity: 0.15;
+            opacity: 0.18;
             animation: pulseRing 4s ease-in-out infinite;
         }
         @keyframes pulseRing {
-            0%, 100% { transform: translateY(-50%) scale(1); opacity: 0.15; }
-            50% { transform: translateY(-50%) scale(1.15); opacity: 0.25; }
+            0%, 100% { transform: translateY(-50%) scale(1); opacity: 0.18; }
+            50% { transform: translateY(-50%) scale(1.15); opacity: 0.3; }
         }
 
         .hero-content { position: relative; z-index: 1; }
@@ -350,26 +354,26 @@
             font-style: italic;
             line-height: 0.8;
             color: transparent;
-            -webkit-text-stroke: 3px var(--gold);
-            text-stroke: 3px var(--gold);
+            -webkit-text-stroke: 3px var(--sunset);
+            text-stroke: 3px var(--sunset);
             letter-spacing: -12px;
             user-select: none;
             position: relative;
             z-index: 1;
-            filter: drop-shadow(0 0 30px rgba(255, 184, 77, 0.3));
+            filter: drop-shadow(0 0 30px rgba(100, 210, 255, 0.3));
             animation: numberPulse 4s ease-in-out infinite;
         }
         @keyframes numberPulse {
-            0%, 100% { filter: drop-shadow(0 0 30px rgba(255, 184, 77, 0.3)); }
-            50% { filter: drop-shadow(0 0 50px rgba(255, 95, 126, 0.5)); }
+            0%, 100% { filter: drop-shadow(0 0 30px rgba(100, 210, 255, 0.3)); }
+            50% { filter: drop-shadow(0 0 50px rgba(167, 139, 250, 0.5)); }
         }
 
         .hero-badge {
             display: inline-flex;
             align-items: center;
             gap: 10px;
-            background: rgba(255, 184, 77, 0.08);
-            border: 1px solid var(--gold);
+            background: rgba(100, 210, 255, 0.08);
+            border: 1px solid var(--sunset);
             padding: 8px 20px;
             border-radius: 40px;
             font-weight: 800;
@@ -377,14 +381,14 @@
             letter-spacing: 3px;
             font-size: 0.68rem;
             margin-bottom: 1.5rem;
-            color: var(--gold-hi);
+            color: var(--sunset-hi);
         }
         .hero-badge .dot {
             width: 10px;
             height: 10px;
             border-radius: 50%;
-            background: var(--gold);
-            box-shadow: 0 0 12px var(--gold);
+            background: var(--sunset);
+            box-shadow: 0 0 12px var(--sunset);
             animation: dotBeat 1.2s ease-in-out infinite;
         }
         @keyframes dotBeat {
@@ -403,7 +407,7 @@
             margin-bottom: 1rem;
         }
         .hero-title .accent {
-            background: linear-gradient(135deg, var(--gold) 0%, var(--coral) 100%);
+            background: linear-gradient(135deg, var(--sunset) 0%, var(--rose) 100%);
             -webkit-background-clip: text;
             background-clip: text;
             color: transparent;
@@ -418,7 +422,7 @@
             left: 0; right: 0;
             bottom: 4px;
             height: 8px;
-            background: linear-gradient(90deg, var(--gold), var(--coral));
+            background: linear-gradient(90deg, var(--sunset), var(--rose));
             z-index: -1;
             opacity: 0.7;
         }
@@ -441,11 +445,11 @@
             line-height: 1.7;
         }
         .hero-sub strong {
-            color: var(--gold-hi);
+            color: var(--sunset-hi);
             font-weight: 900;
         }
-        .hero-sub .coral {
-            color: var(--coral-hi);
+        .hero-sub .rose {
+            color: var(--rose-hi);
             font-weight: 900;
         }
 
@@ -453,7 +457,7 @@
             display: inline-flex;
             align-items: center;
             gap: 12px;
-            background: linear-gradient(135deg, var(--gold), var(--gold-deep));
+            background: linear-gradient(135deg, var(--sunset), var(--sunset-deep));
             color: var(--bg);
             padding: 14px 36px;
             font-weight: 900;
@@ -465,17 +469,18 @@
             border: none;
             transition: all 0.3s cubic-bezier(0.2, 0.9, 0.3, 1);
             margin-top: 1rem;
-            box-shadow: 0 8px 30px rgba(255, 184, 77, 0.4);
+            box-shadow: 0 8px 30px rgba(100, 210, 255, 0.4);
         }
         .cta-btn:hover {
-            background: linear-gradient(135deg, var(--coral), var(--gold));
+            background: linear-gradient(135deg, var(--rose), var(--sunset));
             color: var(--cream);
-            box-shadow: 0 12px 40px rgba(255, 95, 126, 0.5);
+            box-shadow: 0 12px 40px rgba(167, 139, 250, 0.5);
             transform: translateY(-3px);
         }
         .cta-btn i { transition: transform 0.3s; }
         .cta-btn:hover i { transform: translateX(6px); }
 
+        /* ============ STATS BAR ============ */
         .stats-bar {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
@@ -497,7 +502,7 @@
             position: absolute;
             top: 0; left: 0;
             width: 100%; height: 2px;
-            background: linear-gradient(90deg, var(--gold), var(--coral));
+            background: linear-gradient(90deg, var(--sunset), var(--rose));
             transform: scaleX(0);
             transform-origin: left;
             transition: transform 0.4s;
@@ -507,14 +512,14 @@
             border-color: var(--line-hi);
             background: var(--panel-2);
             transform: translateY(-4px);
-            box-shadow: 0 15px 40px rgba(255, 184, 77, 0.15);
+            box-shadow: 0 15px 40px rgba(100, 210, 255, 0.15);
         }
         .stat-number {
             font-size: 3rem;
             font-weight: 900;
             font-style: italic;
             line-height: 1;
-            background: linear-gradient(135deg, var(--gold) 0%, var(--coral) 100%);
+            background: linear-gradient(135deg, var(--sunset) 0%, var(--rose) 100%);
             -webkit-background-clip: text;
             background-clip: text;
             color: transparent;
@@ -529,16 +534,17 @@
             font-weight: 800;
         }
 
+        /* ============ LEADER CARD ============ */
         .leader-card {
             background: linear-gradient(135deg, var(--panel), var(--panel-2));
-            border: 2px solid var(--gold);
+            border: 2px solid var(--sunset);
             border-radius: 8px;
             padding: 2rem;
             display: grid;
             grid-template-columns: 1fr auto;
             gap: 2rem;
             align-items: center;
-            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.4), 0 0 40px rgba(255, 184, 77, 0.15);
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.4), 0 0 40px rgba(100, 210, 255, 0.15);
             position: relative;
             overflow: hidden;
         }
@@ -547,11 +553,11 @@
             position: absolute;
             top: 0; left: 0;
             width: 6px; height: 100%;
-            background: linear-gradient(180deg, var(--gold), var(--coral));
+            background: linear-gradient(180deg, var(--sunset), var(--rose));
         }
         .leader-card .label {
             font-size: 0.68rem;
-            color: var(--gold);
+            color: var(--sunset);
             letter-spacing: 4px;
             font-weight: 900;
             text-transform: uppercase;
@@ -569,7 +575,7 @@
             font-size: 5rem;
             font-weight: 900;
             font-style: italic;
-            background: linear-gradient(135deg, var(--gold), var(--coral));
+            background: linear-gradient(135deg, var(--sunset), var(--rose));
             -webkit-background-clip: text;
             background-clip: text;
             color: transparent;
@@ -577,6 +583,7 @@
             letter-spacing: -3px;
         }
 
+        /* ============ PAGE TITLE ============ */
         .page-title {
             font-size: 2.4rem;
             font-weight: 900;
@@ -592,7 +599,7 @@
         .page-title .icon {
             width: 52px;
             height: 52px;
-            background: linear-gradient(135deg, var(--gold), var(--gold-deep));
+            background: linear-gradient(135deg, var(--sunset), var(--sunset-deep));
             border-radius: 8px;
             display: flex;
             align-items: center;
@@ -601,11 +608,11 @@
             font-style: normal;
             color: var(--bg);
             transform: skewX(-8deg);
-            box-shadow: 0 0 25px rgba(255, 184, 77, 0.5);
+            box-shadow: 0 0 25px rgba(100, 210, 255, 0.5);
         }
         .page-title .icon i { transform: skewX(8deg); }
         .page-title .accent {
-            background: linear-gradient(135deg, var(--gold), var(--coral));
+            background: linear-gradient(135deg, var(--sunset), var(--rose));
             -webkit-background-clip: text;
             background-clip: text;
             color: transparent;
@@ -614,10 +621,11 @@
             content: '';
             flex: 1;
             height: 2px;
-            background: linear-gradient(90deg, var(--gold), transparent);
+            background: linear-gradient(90deg, var(--sunset), transparent);
             margin-left: 12px;
         }
 
+        /* ============ RACE SELECTOR ============ */
         .race-selector {
             display: flex;
             gap: 8px;
@@ -643,17 +651,18 @@
             border-radius: 4px;
         }
         .race-btn:hover {
-            color: var(--gold-hi);
-            border-color: var(--gold);
-            background: rgba(255, 184, 77, 0.06);
+            color: var(--sunset-hi);
+            border-color: var(--sunset);
+            background: rgba(100, 210, 255, 0.06);
         }
         .race-btn.active {
-            background: var(--gold);
+            background: var(--sunset);
             color: var(--bg);
-            border-color: var(--gold);
-            box-shadow: 0 0 20px rgba(255, 184, 77, 0.5);
+            border-color: var(--sunset);
+            box-shadow: 0 0 20px rgba(100, 210, 255, 0.55);
         }
 
+        /* ============ RACE HEADER ============ */
         .race-header {
             display: flex;
             justify-content: space-between;
@@ -663,7 +672,7 @@
             padding: 1.4rem 1.6rem;
             background: var(--panel);
             border: 1px solid var(--line);
-            border-left: 6px solid var(--gold);
+            border-left: 6px solid var(--sunset);
             border-radius: 6px;
         }
         .race-header h3 {
@@ -672,7 +681,7 @@
             font-style: italic;
             text-transform: uppercase;
             letter-spacing: 1.5px;
-            color: var(--gold-hi);
+            color: var(--sunset-hi);
         }
         .race-header .race-date {
             color: var(--muted);
@@ -682,6 +691,7 @@
             font-style: italic;
         }
 
+        /* ============ RESULTS TABLE ============ */
         .results-table {
             width: 100%;
             border-collapse: collapse;
@@ -698,8 +708,8 @@
             font-weight: 900;
             text-transform: uppercase;
             letter-spacing: 2px;
-            color: var(--gold);
-            border-bottom: 2px solid var(--gold);
+            color: var(--sunset);
+            border-bottom: 2px solid var(--sunset);
             font-size: 0.66rem;
         }
         .results-table td {
@@ -727,20 +737,20 @@
             border-radius: 4px;
         }
         .pos.p1 {
-            background: var(--gold);
+            background: var(--sunset);
             color: var(--bg);
-            border-color: var(--gold);
-            box-shadow: 0 0 20px rgba(255, 184, 77, 0.6);
+            border-color: var(--sunset);
+            box-shadow: 0 0 20px rgba(100, 210, 255, 0.6);
         }
         .pos.p2 {
             background: var(--panel-3);
-            color: var(--gold-hi);
-            border-color: var(--gold-deep);
+            color: var(--sunset-hi);
+            border-color: var(--sunset-deep);
         }
         .pos.p3 {
             background: var(--panel-3);
-            color: var(--coral-hi);
-            border-color: var(--line-coral);
+            color: var(--rose-hi);
+            border-color: var(--line-rose);
         }
 
         .dnf-tag, .dsq-tag {
@@ -753,14 +763,14 @@
             border-radius: 4px;
         }
         .dnf-tag {
-            background: var(--coral);
+            background: var(--rose);
             color: var(--cream);
-            box-shadow: 0 0 15px rgba(255, 95, 126, 0.4);
+            box-shadow: 0 0 15px rgba(167, 139, 250, 0.4);
         }
         .dsq-tag {
             background: var(--panel-3);
-            color: var(--coral-hi);
-            border: 1px solid var(--coral);
+            color: var(--rose-hi);
+            border: 1px solid var(--rose);
         }
 
         .qualy-tag {
@@ -782,26 +792,27 @@
             font-size: 0.56rem;
             font-weight: 900;
             letter-spacing: 1px;
-            background: linear-gradient(90deg, var(--gold), var(--coral));
+            background: linear-gradient(90deg, var(--sunset), var(--rose));
             color: var(--bg);
             text-transform: uppercase;
             border-radius: 4px;
             animation: flGlow 2s ease-in-out infinite;
         }
         @keyframes flGlow {
-            0%, 100% { box-shadow: 0 0 12px rgba(255, 184, 77, 0.4); }
-            50% { box-shadow: 0 0 22px rgba(255, 95, 126, 0.7); }
+            0%, 100% { box-shadow: 0 0 12px rgba(100, 210, 255, 0.4); }
+            50% { box-shadow: 0 0 22px rgba(167, 139, 250, 0.7); }
         }
 
         .team-mercedes { color: #00d2be !important; }
         .team-mclaren { color: #ff8700 !important; }
         .team-redbull { color: #4d7cff !important; }
         .team-ferrari { color: #ff4444 !important; }
-        .team-haas { color: #d4d4d4 !important; }
+        .team-haas { color: #e2e2e2 !important; }
         .team-williams { color: #5a9fdc !important; }
         .team-cadillac { color: #a0a0a0 !important; }
         .team-alpine { color: #ff87bc !important; }
 
+        /* ============ STANDINGS — СТОЛБИК ============ */
         .standings-grid {
             display: flex;
             flex-direction: column;
@@ -829,7 +840,7 @@
             transition: background 0.3s;
         }
         .standing-box:hover::before {
-            background: linear-gradient(180deg, var(--gold), var(--coral));
+            background: linear-gradient(180deg, var(--sunset), var(--rose));
         }
         .standing-box:hover {
             border-color: var(--line-hi);
@@ -837,15 +848,13 @@
             transform: translateX(4px);
         }
         .standing-box.rank-1 {
-            border-color: var(--gold);
-            background: linear-gradient(135deg, var(--panel), rgba(255, 184, 77, 0.06));
-            box-shadow: 0 0 25px rgba(255, 184, 77, 0.15);
+            border-color: var(--sunset);
+            background: linear-gradient(135deg, var(--panel), rgba(100, 210, 255, 0.06));
+            box-shadow: 0 0 25px rgba(100, 210, 255, 0.15);
         }
-        .standing-box.rank-1::before {
-            background: var(--gold);
-        }
-        .standing-box.rank-2 { border-color: var(--gold-deep); }
-        .standing-box.rank-3 { border-color: var(--line-coral); }
+        .standing-box.rank-1::before { background: var(--sunset); }
+        .standing-box.rank-2 { border-color: var(--sunset-deep); }
+        .standing-box.rank-3 { border-color: var(--line-rose); }
 
         .standing-rank {
             background: var(--panel-2);
@@ -860,16 +869,16 @@
             border-right: 1px solid var(--line);
         }
         .standing-box.rank-1 .standing-rank {
-            background: linear-gradient(135deg, var(--gold), var(--gold-deep));
+            background: linear-gradient(135deg, var(--sunset), var(--sunset-deep));
             color: var(--bg);
         }
         .standing-box.rank-2 .standing-rank {
             background: var(--panel-3);
-            color: var(--gold-hi);
+            color: var(--sunset-hi);
         }
         .standing-box.rank-3 .standing-rank {
             background: var(--panel-3);
-            color: var(--coral-hi);
+            color: var(--rose-hi);
         }
 
         .standing-info {
@@ -908,7 +917,7 @@
         }
         .standing-tag {
             display: inline-block;
-            background: var(--gold);
+            background: var(--sunset);
             color: var(--bg);
             font-size: 0.5rem;
             font-weight: 900;
@@ -921,7 +930,7 @@
             font-style: normal;
         }
         .standing-tag.white {
-            background: var(--coral);
+            background: var(--rose);
             color: var(--cream);
         }
 
@@ -940,10 +949,11 @@
             min-width: 90px;
         }
         .standing-box.rank-1 .standing-points {
-            background: linear-gradient(135deg, rgba(255, 184, 77, 0.15), rgba(255, 95, 126, 0.08));
-            color: var(--gold-hi);
+            background: linear-gradient(135deg, rgba(100, 210, 255, 0.15), rgba(167, 139, 250, 0.08));
+            color: var(--sunset-hi);
         }
 
+        /* ============ TEAMS — СТОЛБИК ============ */
         .teams-grid {
             display: flex;
             flex-direction: column;
@@ -968,23 +978,23 @@
             transform: translateX(4px);
         }
         .team-box.rank-1 {
-            border-color: var(--gold);
-            box-shadow: 0 0 25px rgba(255, 184, 77, 0.15);
+            border-color: var(--sunset);
+            box-shadow: 0 0 25px rgba(100, 210, 255, 0.15);
         }
         .team-box.champion-team {
-            border: 2px solid var(--gold);
-            background: linear-gradient(135deg, var(--panel), rgba(255, 184, 77, 0.08));
+            border: 2px solid var(--sunset);
+            background: linear-gradient(135deg, var(--panel), rgba(100, 210, 255, 0.08));
             animation: champPulse 2.5s ease-in-out infinite;
         }
         @keyframes champPulse {
-            0%, 100% { box-shadow: 0 0 20px rgba(255, 184, 77, 0.2); }
-            50% { box-shadow: 0 0 50px rgba(255, 184, 77, 0.4); }
+            0%, 100% { box-shadow: 0 0 20px rgba(100, 210, 255, 0.2); }
+            50% { box-shadow: 0 0 50px rgba(100, 210, 255, 0.4); }
         }
         .team-box.champion-team::before {
             content: '';
             position: absolute;
             inset: 0;
-            background: linear-gradient(90deg, transparent 40%, rgba(255, 184, 77, 0.12) 50%, transparent 60%);
+            background: linear-gradient(90deg, transparent 40%, rgba(100, 210, 255, 0.12) 50%, transparent 60%);
             background-size: 200% 100%;
             animation: shine 3s linear infinite;
             pointer-events: none;
@@ -1006,16 +1016,16 @@
             letter-spacing: -2px;
         }
         .team-box.rank-1 .team-rank {
-            background: linear-gradient(135deg, var(--gold), var(--gold-deep));
+            background: linear-gradient(135deg, var(--sunset), var(--sunset-deep));
             color: var(--bg);
         }
         .team-box.rank-2 .team-rank {
             background: var(--panel-3);
-            color: var(--gold-hi);
+            color: var(--sunset-hi);
         }
         .team-box.rank-3 .team-rank {
             background: var(--panel-3);
-            color: var(--coral-hi);
+            color: var(--rose-hi);
         }
         .team-info {
             padding: 14px 18px;
@@ -1029,7 +1039,7 @@
             color: var(--cream);
         }
         .champ-crown {
-            color: var(--gold);
+            color: var(--sunset);
             font-size: 1.15rem;
             animation: crownBob 2s ease-in-out infinite;
         }
@@ -1038,7 +1048,7 @@
             50% { transform: translateY(-3px) rotate(5deg); }
         }
         .champ-tag {
-            background: var(--gold);
+            background: var(--sunset);
             color: var(--bg);
             font-size: 0.52rem;
             font-weight: 900;
@@ -1061,16 +1071,17 @@
             min-width: 90px;
         }
         .team-box.rank-1 .team-points-box {
-            background: linear-gradient(135deg, rgba(255, 184, 77, 0.15), rgba(255, 95, 126, 0.08));
-            color: var(--gold-hi);
+            background: linear-gradient(135deg, rgba(100, 210, 255, 0.15), rgba(167, 139, 250, 0.08));
+            color: var(--sunset-hi);
         }
 
+        /* ============ WINNERS ============ */
         .winners-header {
             text-align: left;
             padding: 1.6rem 2rem;
             background: var(--panel);
             border: 1px solid var(--line);
-            border-left: 6px solid var(--gold);
+            border-left: 6px solid var(--sunset);
             border-radius: 6px;
             margin-bottom: 1.5rem;
         }
@@ -1083,7 +1094,7 @@
             color: var(--cream);
         }
         .winners-header h1 .accent {
-            background: linear-gradient(135deg, var(--gold), var(--coral));
+            background: linear-gradient(135deg, var(--sunset), var(--rose));
             -webkit-background-clip: text;
             background-clip: text;
             color: transparent;
@@ -1096,7 +1107,7 @@
         .winner-card {
             background: var(--panel);
             border: 1px solid var(--line);
-            border-left: 4px solid var(--gold);
+            border-left: 4px solid var(--sunset);
             border-radius: 6px;
             padding: 1.2rem 1.3rem;
             display: flex;
@@ -1105,15 +1116,15 @@
             transition: all 0.3s cubic-bezier(0.2, 0.9, 0.3, 1);
         }
         .winner-card:hover {
-            border-left-color: var(--coral);
+            border-left-color: var(--rose);
             background: var(--panel-2);
             transform: translateX(4px);
-            box-shadow: 0 0 25px rgba(255, 95, 126, 0.15);
+            box-shadow: 0 0 25px rgba(167, 139, 250, 0.15);
         }
         .winner-icon {
             width: 46px;
             height: 46px;
-            background: linear-gradient(135deg, var(--gold), var(--gold-deep));
+            background: linear-gradient(135deg, var(--sunset), var(--sunset-deep));
             color: var(--bg);
             display: flex;
             align-items: center;
@@ -1124,7 +1135,7 @@
             transition: all 0.3s;
         }
         .winner-card:hover .winner-icon {
-            background: linear-gradient(135deg, var(--coral), var(--gold));
+            background: linear-gradient(135deg, var(--rose), var(--sunset));
             color: var(--cream);
             transform: rotate(-8deg) scale(1.05);
         }
@@ -1143,6 +1154,7 @@
             margin-top: 4px;
         }
 
+        /* ============ TIMELINE ============ */
         .timeline-item {
             background: var(--panel);
             border: 1px solid var(--line);
@@ -1159,15 +1171,15 @@
         .timeline-item:hover {
             background: var(--panel-2);
             transform: translateX(6px);
-            border-left-color: var(--gold);
+            border-left-color: var(--sunset);
         }
         .timeline-item.final {
-            border-left-color: var(--coral);
-            background: linear-gradient(90deg, rgba(255, 95, 126, 0.08), var(--panel));
+            border-left-color: var(--rose);
+            background: linear-gradient(90deg, rgba(167, 139, 250, 0.08), var(--panel));
         }
         .timeline-date {
             font-weight: 900;
-            color: var(--gold);
+            color: var(--sunset);
             min-width: 90px;
             font-size: 0.82rem;
             letter-spacing: 1px;
@@ -1195,14 +1207,15 @@
             border: 1px solid var(--line);
         }
         .status-champ {
-            background: var(--coral);
+            background: var(--rose);
             color: var(--cream);
         }
         .status-upcoming {
-            background: var(--gold);
+            background: var(--sunset);
             color: var(--bg);
         }
 
+        /* ============ RECORDS ============ */
         .records-section { margin-bottom: 3rem; }
         .records-section-title {
             font-size: 0.85rem;
@@ -1212,7 +1225,7 @@
             margin-bottom: 1.2rem;
             padding-left: 20px;
             position: relative;
-            color: var(--gold);
+            color: var(--sunset);
             font-style: italic;
         }
         .records-section-title::before {
@@ -1222,35 +1235,33 @@
             transform: translateY(-50%);
             width: 4px;
             height: 60%;
-            background: var(--gold);
+            background: var(--sunset);
         }
-        .records-section-title.anti { color: var(--coral-hi); }
-        .records-section-title.anti::before { background: var(--coral); }
+        .records-section-title.anti { color: var(--rose-hi); }
+        .records-section-title.anti::before { background: var(--rose); }
         .record-card {
             background: var(--panel);
             border: 1px solid var(--line);
-            border-left: 4px solid var(--gold);
+            border-left: 4px solid var(--sunset);
             border-radius: 6px;
             padding: 1.3rem 1.6rem;
             margin-bottom: 10px;
             transition: all 0.3s ease;
         }
-        .record-card.anti-record {
-            border-left-color: var(--coral);
-        }
+        .record-card.anti-record { border-left-color: var(--rose); }
         .record-card:hover {
             background: var(--panel-2);
             transform: translateX(6px);
         }
         .record-title {
             font-weight: 900;
-            color: var(--gold);
+            color: var(--sunset);
             font-size: 0.68rem;
             text-transform: uppercase;
             letter-spacing: 2px;
             font-style: italic;
         }
-        .record-card.anti-record .record-title { color: var(--coral-hi); }
+        .record-card.anti-record .record-title { color: var(--rose-hi); }
         .record-value {
             font-size: 1.08rem;
             margin-top: 8px;
@@ -1258,9 +1269,10 @@
             color: var(--cream);
         }
 
+        /* ============ MEMORY ============ */
         .memory-hero {
             background: var(--panel);
-            border: 2px solid var(--coral);
+            border: 2px solid var(--rose);
             padding: 3rem;
             margin-bottom: 2rem;
             border-radius: 8px;
@@ -1272,7 +1284,7 @@
             position: absolute;
             top: -50px; right: 20px;
             font-size: 14rem;
-            color: rgba(255, 95, 126, 0.08);
+            color: rgba(167, 139, 250, 0.08);
             line-height: 1;
             animation: starRotate 30s linear infinite;
         }
@@ -1291,7 +1303,7 @@
             position: relative;
             z-index: 1;
         }
-        .memory-title .accent { color: var(--coral-hi); }
+        .memory-title .accent { color: var(--rose-hi); }
         .memory-sub {
             color: var(--muted);
             font-size: 1rem;
@@ -1300,7 +1312,6 @@
             z-index: 1;
             line-height: 1.7;
         }
-
         .memory-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
@@ -1324,7 +1335,7 @@
         .memory-card .mem-icon {
             width: 52px;
             height: 52px;
-            background: linear-gradient(135deg, var(--gold), var(--gold-deep));
+            background: linear-gradient(135deg, var(--sunset), var(--sunset-deep));
             color: var(--bg);
             display: flex;
             align-items: center;
@@ -1347,8 +1358,7 @@
             font-size: 0.9rem;
             line-height: 1.6;
         }
-        .memory-card p strong { color: var(--gold-hi); }
-
+        .memory-card p strong { color: var(--sunset-hi); }
         .memory-timeline {
             background: var(--panel);
             border: 1px solid var(--line);
@@ -1357,7 +1367,7 @@
             margin-bottom: 2rem;
         }
         .memory-timeline h3 {
-            color: var(--gold);
+            color: var(--sunset);
             font-size: 1.3rem;
             font-weight: 900;
             font-style: italic;
@@ -1382,8 +1392,8 @@
             width: 44px;
             height: 44px;
             background: var(--panel-3);
-            color: var(--gold);
-            border: 2px solid var(--gold);
+            color: var(--sunset);
+            border: 2px solid var(--sunset);
             border-radius: 50%;
             display: flex;
             align-items: center;
@@ -1405,8 +1415,9 @@
             font-size: 0.86rem;
             line-height: 1.5;
         }
-        .mem-timeline-content .desc strong { color: var(--gold-hi); }
+        .mem-timeline-content .desc strong { color: var(--sunset-hi); }
 
+        /* ============ FOOTER ============ */
         .footer {
             text-align: center;
             padding: 2.5rem;
@@ -1427,33 +1438,24 @@
             transform: translateX(-50%);
             width: 200px;
             height: 2px;
-            background: linear-gradient(90deg, transparent, var(--gold), var(--coral), transparent);
+            background: linear-gradient(90deg, transparent, var(--sunset), var(--rose), transparent);
         }
 
         @media (max-width: 900px) {
-            .hero {
-                grid-template-columns: 1fr;
-                text-align: center;
-            }
+            .hero { grid-template-columns: 1fr; text-align: center; }
             .hero-content { text-align: center; }
             .hero-number { font-size: 10rem; letter-spacing: -6px; }
             .hero-sub { margin-left: auto; margin-right: auto; }
             .leader-card { grid-template-columns: 1fr; text-align: center; }
             .leader-card .big-number { text-align: center; }
         }
-
         @media (max-width: 820px) {
-            .navbar {
-                flex-direction: column;
-                height: auto;
-                padding: 0.8rem 1rem;
-                gap: 10px;
-            }
+            .navbar { flex-direction: column; height: auto; padding: 0.8rem 1rem; gap: 10px; }
             .nav-links { justify-content: center; }
             .nav-link { padding: 0.45rem 0.75rem; font-size: 0.58rem; }
             .hero-title { font-size: 2.4rem; letter-spacing: -1px; }
             .hero { padding: 2.5rem 1.5rem; }
-            .hero-number { font-size: 8rem; -webkit-text-stroke: 2px var(--gold); }
+            .hero-number { font-size: 8rem; -webkit-text-stroke: 2px var(--sunset); }
             .page-title { font-size: 1.4rem; }
             .page-title .icon { width: 42px; height: 42px; font-size: 1.1rem; }
             .standing-box, .team-box { grid-template-columns: 55px 1fr auto; min-height: 80px; }
@@ -1476,10 +1478,10 @@
 
     <nav class="navbar">
         <div class="logo">
-            <span class="logo-icon"><i class="fas fa-fire"></i></span>
+            <span class="logo-icon"><i class="fas fa-snowflake"></i></span>
             GTA<span class="dot">·</span>F1
             <span class="season-chip">S05</span>
-            <span class="season-chip new">PHOENIX</span>
+            <span class="season-chip new">ARCTIC</span>
         </div>
         <div class="nav-links">
             <a href="#home" class="nav-link active" data-page="home">Обзор</a>
@@ -1495,26 +1497,26 @@
 
     <section id="home" class="page active">
         <div class="new-season-banner">
-            <i class="fas fa-fire"></i>
-            <span>СЕЗОН 5 ПРОДОЛЖАЕТСЯ — ФЕНИКС ВОССТАЁТ</span>
-            <i class="fas fa-fire"></i>
+            <i class="fas fa-snowflake"></i>
+            <span>СЕЗОН 5 ПРОДОЛЖАЕТСЯ — ЛЕДЯНОЙ ФРОНТ</span>
+            <i class="fas fa-snowflake"></i>
         </div>
 
         <div class="hero">
             <div class="hero-content">
                 <div class="hero-badge">
                     <span class="dot"></span>
-                    SEASON 05 • PHOENIX CHAMPIONSHIP
+                    SEASON 05 • ARCTIC CIRCUIT
                 </div>
                 <h1 class="hero-title">
                     <span class="accent">GTA</span> FORMULA 1<br>
                     <span class="underline">Сезон 5</span><br>
-                    <small>Битва продолжается</small>
+                    <small>Ледяной фронт</small>
                 </h1>
                 <p class="hero-sub">
-                    <strong>4 гонки</strong> позади! <strong>SOVYCH05</strong> удерживает лидерство с 58 очками, но
-                    <strong>Fan_JoJo</strong> одержал первую победу на Austrian GP!
-                    <strong class="coral">Сезон набирает обороты!</strong>
+                    <strong>6 гонок</strong> позади! <strong>SOVYCH05</strong> доминирует с 90 очками.
+                    Но <strong>jetleoden</strong> одержал первую победу в спринте Бельгии!
+                    <strong class="rose">Сезон набирает обороты!</strong>
                 </p>
                 <a href="#results" class="cta-btn" data-page="results">
                     РЕЗУЛЬТАТЫ СЕЗОНА 5 <i class="fas fa-arrow-right"></i>
@@ -1525,19 +1527,19 @@
 
         <div class="stats-bar">
             <div class="stat-item">
-                <div class="stat-number">11</div>
+                <div class="stat-number">12</div>
                 <div class="stat-label">Пилотов</div>
             </div>
             <div class="stat-item">
-                <div class="stat-number">08</div>
+                <div class="stat-number">07</div>
                 <div class="stat-label">Команд</div>
             </div>
             <div class="stat-item">
-                <div class="stat-number">04</div>
+                <div class="stat-number">06</div>
                 <div class="stat-label">Гонок</div>
             </div>
             <div class="stat-item">
-                <div class="stat-number">58</div>
+                <div class="stat-number">90</div>
                 <div class="stat-label">Очков лидера</div>
             </div>
         </div>
@@ -1546,9 +1548,9 @@
             <div>
                 <div class="label">◆ ЛИДЕР СЕЗОНА 5</div>
                 <h3>SOVYCH05 #88 — Mercedes-AMG F1 Team</h3>
-                <p>Fan_JoJo — 2-й (43) • vitall_duo — 3-й (33) • Liquer — 4-й (32)</p>
+                <p>Fan_JoJo — 2-й (43) • kastillio — 3-й (43) • Vin_Diselll — 4-й (40)</p>
             </div>
-            <div class="big-number">58</div>
+            <div class="big-number">90</div>
         </div>
     </section>
 
@@ -1726,13 +1728,13 @@
     </section>
 
     <footer class="footer">
-        GTA FORMULA 1 • SEASON 05 • PHOENIX CHAMPIONSHIP • 2026
+        GTA FORMULA 1 • SEASON 05 • ARCTIC CIRCUIT • 2026
     </footer>
 
     <script>
         (function createEmbers() {
             const container = document.getElementById('embers');
-            const colors = ['#ffb84d', '#ff5f7e', '#ffd47f'];
+            const colors = ['#64d2ff', '#a78bfa', '#9ee5ff'];
             for (let i = 0; i < 30; i++) {
                 const el = document.createElement('div');
                 el.className = 'ember';
@@ -1749,7 +1751,6 @@
             }
         })();
 
-        // ========== DATA ==========
         const racesData = {
             'oracle-gp': {
                 title: 'Oracle GP', date: '10.04.2026',
@@ -1802,56 +1803,90 @@
                     { position: 'DNF', name: 'tom_kruiser', team: 'Alpine', points: 0, status: 'dnf', reason: 'Авария', teamKey: 'alpine', num: '12', qualy: 'P3>DNF' },
                     { position: 'DNF', name: 'Wallableb', team: 'Cadillac', points: 0, status: 'dnf', reason: 'Авария', teamKey: 'cadillac', num: '3', qualy: 'P6>DNF' }
                 ]
+            },
+            'belgium-sprint': {
+                title: 'Belgium Sprint', date: '08.05.2026',
+                results: [
+                    { position: 1, name: 'jetleoden', team: 'Haas', points: 8, status: 'finished', teamKey: 'haas', num: '6', qualy: 'P2>P1' },
+                    { position: 2, name: 'SOVYCH05', team: 'Mercedes-AMG', points: 7, status: 'finished', teamKey: 'mercedes', num: '88', qualy: 'P1>P2' },
+                    { position: 3, name: 'tom_kruiser', team: 'Alpine', points: 6, status: 'finished', teamKey: 'alpine', num: '12', qualy: 'P3=P3' },
+                    { position: 4, name: 'Vin_Diselll', team: 'Red Bull Racing', points: 5, status: 'finished', teamKey: 'redbull', num: '33', qualy: 'P4=P4' },
+                    { position: 5, name: 'overshadower', team: 'Haas', points: 4, status: 'finished', teamKey: 'haas', num: '14', qualy: 'P6>P5' },
+                    { position: 6, name: 'Wallableb', team: 'Cadillac', points: 3, status: 'finished', teamKey: 'cadillac', num: '3', qualy: 'P5>P6' },
+                    { position: 7, name: 'YOKI4', team: 'McLaren', points: 2, status: 'finished', teamKey: 'mclaren', num: '7', qualy: 'P9>P7' },
+                    { position: 8, name: 'VLADIVOSTOK', team: 'Alpine', points: 1, status: 'finished', teamKey: 'alpine', num: '23', qualy: 'P8=P8' },
+                    { position: 9, name: 'vitall_duo', team: 'Scuderia Ferrari', points: 0, status: 'finished', teamKey: 'ferrari', num: '27', qualy: 'P6>P9' }
+                ]
+            },
+            'belgium-gp': {
+                title: 'BELGIUM GP', date: '15.05.2026',
+                results: [
+                    { position: 1, name: 'SOVYCH05', team: 'Mercedes-AMG', points: 25, status: 'finished', teamKey: 'mercedes', num: '88', qualy: 'P1=P1' },
+                    { position: 2, name: 'kastillio', team: 'Mercedes-AMG', points: 18, status: 'finished', teamKey: 'mercedes', num: '1', qualy: 'P10>P2' },
+                    { position: 3, name: 'jetleoden', team: 'Haas', points: 15, status: 'finished', teamKey: 'haas', num: '6', qualy: 'P2>P3' },
+                    { position: 4, name: 'overshadower', team: 'Haas', points: 12, status: 'finished', teamKey: 'haas', num: '12', qualy: 'P7>P4' },
+                    { position: 5, name: 'Vin_Diselll', team: 'Red Bull Racing', points: 10, status: 'finished', teamKey: 'redbull', num: '33', qualy: 'P4>P5' },
+                    { position: 6, name: 'Wallableb', team: 'Cadillac', points: 8, status: 'finished', teamKey: 'cadillac', num: '3', qualy: 'P5>P6' },
+                    { position: 7, name: 'YOKI4', team: 'McLaren', points: 6, status: 'finished', teamKey: 'mclaren', num: '7', qualy: 'P9>P7' },
+                    { position: 8, name: 'VLADIVOSTOK', team: 'Williams', points: 4, status: 'finished', teamKey: 'williams', num: '23', qualy: 'P8=P8' },
+                    { position: 'DNF', name: 'vitall_duo', team: 'Scuderia Ferrari', points: 0, status: 'dnf', reason: 'Авария', teamKey: 'ferrari', num: '27', qualy: 'P6>DNF' },
+                    { position: 'DSQ', name: 'tom_kruiser', team: 'Alpine', points: 0, status: 'dsq', reason: 'Неправильный старт', teamKey: 'alpine', num: '12', qualy: 'P3>DSQ' }
+                ]
             }
         };
 
         const driverStandings = [
-            { name: 'SOVYCH05', team: 'Mercedes-AMG F1 Team', points: 58, number: '88', teamKey: 'mercedes' },
+            { name: 'SOVYCH05', team: 'Mercedes-AMG F1 Team', points: 90, number: '88', teamKey: 'mercedes' },
             { name: 'Fan_JoJo', team: 'Mercedes-AMG F1 Team', points: 43, number: '35', teamKey: 'mercedes' },
+            { name: 'kastillio', team: 'Mercedes-AMG F1 Team', points: 43, number: '1', teamKey: 'mercedes', title: 'РЕЗЕРВ' },
+            { name: 'Vin_Diselll', team: 'Red Bull Racing F1 Team', points: 40, number: '33', teamKey: 'redbull' },
+            { name: 'jetleoden', team: 'Haas F1 Team', points: 38, number: '6', teamKey: 'haas', title: 'РЕЗЕРВ' },
+            { name: 'tom_kruiser', team: 'Alpine F1 Team', points: 36, number: '12', teamKey: 'alpine' },
             { name: 'vitall_duo', team: 'Scuderia Ferrari F1 Team', points: 33, number: '27', teamKey: 'ferrari' },
             { name: 'Liquer', team: 'Scuderia Ferrari F1 Team', points: 32, number: '77', teamKey: 'ferrari' },
-            { name: 'tom_kruiser', team: 'Alpine F1 Team', points: 30, number: '12', teamKey: 'alpine' },
-            { name: 'kastillio', team: 'Mercedes-AMG F1 Team', points: 25, number: '1', teamKey: 'mercedes', title: 'РЕЗЕРВИСТ' },
-            { name: 'Vin_Diselll', team: 'Red Bull Racing F1 Team', points: 25, number: '33', teamKey: 'redbull' },
-            { name: 'jetleoden', team: 'Scuderia Ferrari F1 Team', points: 15, number: '6', teamKey: 'ferrari', title: 'РЕЗЕРВИСТ' },
-            { name: 'YOKI4', team: 'McLaren F1 Team', points: 14, number: '7', teamKey: 'mclaren' },
-            { name: 'VLADIVOSTOK', team: 'Williams F1 Team', points: 4, number: '23', teamKey: 'williams' },
-            { name: 'Wallableb', team: 'Cadillac F1 Team', points: 4, number: '3', teamKey: 'cadillac' }
+            { name: 'YOKI4', team: 'McLaren F1 Team', points: 22, number: '7', teamKey: 'mclaren' },
+            { name: 'overshadower', team: 'Haas F1 Team', points: 16, number: '14', teamKey: 'haas' },
+            { name: 'Wallableb', team: 'Cadillac F1 Team', points: 15, number: '3', teamKey: 'cadillac' },
+            { name: 'VLADIVOSTOK', team: 'Williams F1 Team', points: 9, number: '23', teamKey: 'williams' }
         ];
 
         const teamStandings = [
-            { name: 'Mercedes-AMG F1 Team', points: 126, key: 'mercedes' },
+            { name: 'Mercedes-AMG F1 Team', points: 176, key: 'mercedes' },
             { name: 'Scuderia Ferrari F1 Team', points: 72, key: 'ferrari' },
-            { name: 'Alpine F1 Team', points: 30, key: 'alpine' },
-            { name: 'Red Bull Racing F1 Team', points: 25, key: 'redbull' },
-            { name: 'McLaren F1 Team', points: 14, key: 'mclaren' },
-            { name: 'Haas F1 Team', points: 8, key: 'haas' },
-            { name: 'Williams F1 Team', points: 4, key: 'williams' },
-            { name: 'Cadillac F1 Team', points: 4, key: 'cadillac' }
+            { name: 'Haas F1 Team', points: 47, key: 'haas' },
+            { name: 'Alpine F1 Team', points: 41, key: 'alpine' },
+            { name: 'Red Bull Racing F1 Team', points: 40, key: 'redbull' },
+            { name: 'McLaren F1 Team', points: 22, key: 'mclaren' },
+            { name: 'Cadillac F1 Team', points: 15, key: 'cadillac' }
         ];
 
         const winnersList = [
             { race: 'Oracle GP', winner: 'SOVYCH05', team: 'Mercedes-AMG', colorKey: 'mercedes' },
             { race: 'Italian GP Sprint', winner: 'SOVYCH05', team: 'Mercedes-AMG', colorKey: 'mercedes' },
             { race: 'ITALIAN GP', winner: 'SOVYCH05', team: 'Mercedes-AMG', colorKey: 'mercedes' },
-            { race: 'AUSTRIAN GP', winner: 'Fan_JoJo', team: 'Mercedes-AMG', colorKey: 'mercedes' }
+            { race: 'AUSTRIAN GP', winner: 'Fan_JoJo', team: 'Mercedes-AMG', colorKey: 'mercedes' },
+            { race: 'Belgium Sprint', winner: 'jetleoden', team: 'Haas', colorKey: 'haas' },
+            { race: 'BELGIUM GP', winner: 'SOVYCH05', team: 'Mercedes-AMG', colorKey: 'mercedes' }
         ];
 
         const records = [
-            { title: 'Лидер сезона', value: 'SOVYCH05 — 58 очков' },
-            { title: 'Первая победа в карьере', value: 'Fan_JoJo — AUSTRIAN GP' },
-            { title: 'Наибольшее количество побед', value: 'SOVYCH05 — 3 победы' },
-            { title: 'Команда-лидер', value: 'Mercedes-AMG F1 Team — 126 очков' },
-            { title: 'Лучший прогресс в гонке', value: 'vitall_duo — AUSTRIAN GP (P7 → P2)' },
-            { title: 'Дебютант сезона', value: 'Fan_JoJo — уже с первой победой' },
+            { title: 'Лидер сезона', value: 'SOVYCH05 — 90 очков' },
+            { title: 'Наибольшее количество побед', value: 'SOVYCH05 — 5 побед' },
+            { title: 'Первая победа Haas', value: 'jetleoden — Belgium Sprint' },
+            { title: 'Первая победа Fan_JoJo', value: 'AUSTRIAN GP' },
+            { title: 'Команда-лидер', value: 'Mercedes-AMG F1 Team — 176 очков' },
+            { title: 'Наибольший прогресс в гонке', value: 'kastillio — Belgium GP (P10 → P2)' },
+            { title: 'Лучший новичок', value: 'overshadower — 16 очков в Haas' },
             { title: 'Резервисты сезона', value: 'kastillio и jetleoden — выступают как резервисты' }
         ];
 
         const antiRecords = [
-            { title: 'Первый сход лидера', value: 'SOVYCH05 — впервые сошёл в AUSTRIAN GP' },
-            { title: 'Столкновение Ferrari vs Red Bull', value: 'Vin_Diselll DSQ за столкновение с Liquer на AUSTRIAN GP' },
-            { title: 'Массовый сход', value: 'AUSTRIAN GP — 3 DNF (SOVYCH05, tom_kruiser, Wallableb) + 1 DSQ' },
-            { title: 'Провал после подиума', value: 'Wallableb — DSQ в ITALIAN GP, DNF в AUSTRIAN GP' }
+            { title: 'Худший уикенд Alpine', value: 'BELGIUM GP — tom_kruiser DSQ (неправильный старт)' },
+            { title: 'Первый DSQ за старт', value: 'tom_kruiser — BELGIUM GP' },
+            { title: 'Массовый сход', value: 'AUSTRIAN GP — 3 DNF + 1 DSQ' },
+            { title: 'Столкновение лидеров', value: 'Vin_Diselll DSQ за столкновение с Liquer' },
+            { title: 'Провал после подиума', value: 'Wallableb — DSQ в ITALIAN GP, DNF в AUSTRIAN GP' },
+            { title: 'Сход на последних позициях', value: 'vitall_duo — DNF в BELGIUM GP (был P6)' }
         ];
 
         const scheduleRaces = [
@@ -1859,16 +1894,16 @@
             { date: '✓ 17.04', name: 'Italian GP Sprint', status: 'completed' },
             { date: '✓ 24.04', name: 'ITALIAN GP', status: 'completed' },
             { date: '✓ 01.05', name: 'AUSTRIAN GP', status: 'completed' },
-            { date: '⏳ 08.05', name: 'Burger Shot GP', status: 'upcoming' },
-            { date: '⏳ 15.05', name: 'BEE Sprint', status: 'upcoming' },
-            { date: '⏳ 22.05', name: 'BEE GP', status: 'upcoming' },
-            { date: '⏳ 29.05', name: 'Sochi Autodrom GP', status: 'upcoming' },
-            { date: '⏳ 05.06', name: 'Maze Bank GP', status: 'upcoming' },
-            { date: '⏳ 12.06', name: 'Zancudo GP', status: 'upcoming' },
-            { date: '⏳ 19.06', name: 'Airport GP', status: 'upcoming' },
-            { date: '⏳ 26.06', name: 'Barcelona GP', status: 'upcoming' },
-            { date: '⏳ 03.07', name: 'SANDY CIRCUIT', status: 'upcoming' },
-            { date: '⏳ 10.07', name: 'GREENLIGHT GP (Финал)', status: 'upcoming' }
+            { date: '✓ 08.05', name: 'Belgium Sprint', status: 'completed' },
+            { date: '✓ 15.05', name: 'BELGIUM GP', status: 'completed' },
+            { date: '⏳ 22.05', name: 'BEE Sprint', status: 'upcoming' },
+            { date: '⏳ 29.05', name: 'BEE GP', status: 'upcoming' },
+            { date: '⏳ 05.06', name: 'Sochi Autodrom GP', status: 'upcoming' },
+            { date: '⏳ 12.06', name: 'Maze Bank GP', status: 'upcoming' },
+            { date: '⏳ 19.06', name: 'Zancudo GP', status: 'upcoming' },
+            { date: '⏳ 26.06', name: 'Airport GP', status: 'upcoming' },
+            { date: '⏳ 03.07', name: 'Barcelona GP', status: 'upcoming' },
+            { date: '🏁 10.07', name: 'GREENLIGHT GP (Финал)', status: 'upcoming' }
         ];
 
         function teamColorClass(key) {
@@ -1931,7 +1966,9 @@
                 { id: 'oracle-gp', name: 'Oracle' },
                 { id: 'italian-sprint', name: 'Italian Sprint' },
                 { id: 'italian-gp', name: 'ITALIAN GP' },
-                { id: 'austrian-gp', name: '🇦🇹 AUSTRIAN GP' }
+                { id: 'austrian-gp', name: '🇦🇹 AUSTRIAN GP' },
+                { id: 'belgium-sprint', name: 'Belgium Sprint' },
+                { id: 'belgium-gp', name: '🇧🇪 BELGIUM GP' }
             ];
             racesList.forEach((r, idx) => {
                 let btn = document.createElement('button');
