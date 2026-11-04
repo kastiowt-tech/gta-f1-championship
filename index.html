@@ -3,30 +3,30 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>GTA F1 • СЕЗОН 5 • ARCTIC CIRCUIT</title>
+    <title>GTA F1 • СЕЗОН 5 • MIDNIGHT ROSE</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         /* ============================================================
-           ARCTIC CIRCUIT — глубокий navy, ледяной голубой, лаванда
+           MIDNIGHT ROSE — глубокий пурпур, розовый, лаванда
            ============================================================ */
         * { margin: 0; padding: 0; box-sizing: border-box; }
 
         :root {
-            --bg: #050810;
-            --bg-2: #0a1020;
-            --panel: #0f1728;
-            --panel-2: #16233a;
-            --panel-3: #1e2f4a;
-            --sunset: #64d2ff;               /* ледяной голубой */
-            --sunset-hi: #9ee5ff;
-            --sunset-deep: #1e88b8;
-            --rose: #a78bfa;                 /* лаванда / cool violet */
+            --bg: #06040a;
+            --bg-2: #0e0818;
+            --panel: #110820;
+            --panel-2: #1a0f30;
+            --panel-3: #24153f;
+            --sunset: #f472b6;               /* розовый */
+            --sunset-hi: #f9a8d4;
+            --sunset-deep: #be185d;
+            --rose: #a78bfa;                 /* лаванда */
             --rose-hi: #c4b5fd;
-            --cream: #e8f4ff;
-            --text: #dce8f5;
-            --muted: #7888a0;
-            --line: rgba(100, 210, 255, 0.25);
-            --line-hi: rgba(100, 210, 255, 0.5);
+            --cream: #f5e8f7;
+            --text: #ebe0f5;
+            --muted: #9a8ab0;
+            --line: rgba(244, 114, 182, 0.25);
+            --line-hi: rgba(244, 114, 182, 0.5);
             --line-rose: rgba(167, 139, 250, 0.35);
         }
 
@@ -43,17 +43,16 @@
             line-height: 1.5;
         }
 
-        /* ============ BACKGROUND ============ */
         .bg-layer {
             position: fixed;
             inset: 0;
             z-index: -3;
             pointer-events: none;
             background:
-                radial-gradient(ellipse at 0% 0%, rgba(100, 210, 255, 0.14), transparent 40%),
+                radial-gradient(ellipse at 0% 0%, rgba(244, 114, 182, 0.14), transparent 40%),
                 radial-gradient(ellipse at 100% 100%, rgba(167, 139, 250, 0.12), transparent 40%),
-                radial-gradient(ellipse at 50% 50%, rgba(20, 40, 80, 0.4), transparent 70%),
-                linear-gradient(160deg, #050810 0%, #0a1020 50%, #050810 100%);
+                radial-gradient(ellipse at 50% 50%, rgba(45, 15, 60, 0.4), transparent 70%),
+                linear-gradient(160deg, #06040a 0%, #0e0818 50%, #06040a 100%);
         }
         .bg-layer::before {
             content: '';
@@ -63,8 +62,8 @@
                 125deg,
                 transparent 0,
                 transparent 90px,
-                rgba(100, 210, 255, 0.025) 90px,
-                rgba(100, 210, 255, 0.025) 91px
+                rgba(244, 114, 182, 0.025) 90px,
+                rgba(244, 114, 182, 0.025) 91px
             );
         }
         .bg-layer::after {
@@ -75,7 +74,7 @@
             transform: translateX(-50%);
             width: 900px;
             height: 900px;
-            background: radial-gradient(circle, rgba(100, 210, 255, 0.10), transparent 60%);
+            background: radial-gradient(circle, rgba(244, 114, 182, 0.10), transparent 60%);
             filter: blur(70px);
             animation: bgGlow 12s ease-in-out infinite alternate;
         }
@@ -84,20 +83,19 @@
             100% { transform: translateX(-50%) scale(1.15); opacity: 1; }
         }
 
-        /* ЗВЁЗДЫ */
         .stars {
             position: fixed;
             inset: 0;
             z-index: -2;
             pointer-events: none;
             background-image:
-                radial-gradient(1px 1px at 40px 60px, rgba(158, 229, 255, 0.55), transparent),
+                radial-gradient(1px 1px at 40px 60px, rgba(249, 168, 212, 0.55), transparent),
                 radial-gradient(1px 1px at 160px 220px, rgba(255, 255, 255, 0.3), transparent),
-                radial-gradient(1px 1px at 300px 80px, rgba(158, 229, 255, 0.4), transparent),
+                radial-gradient(1px 1px at 300px 80px, rgba(249, 168, 212, 0.4), transparent),
                 radial-gradient(1px 1px at 480px 400px, rgba(255, 255, 255, 0.25), transparent),
-                radial-gradient(1px 1px at 600px 180px, rgba(158, 229, 255, 0.5), transparent),
+                radial-gradient(1px 1px at 600px 180px, rgba(249, 168, 212, 0.5), transparent),
                 radial-gradient(1px 1px at 780px 320px, rgba(255, 255, 255, 0.3), transparent),
-                radial-gradient(1px 1px at 920px 120px, rgba(158, 229, 255, 0.4), transparent);
+                radial-gradient(1px 1px at 920px 120px, rgba(249, 168, 212, 0.4), transparent);
             background-size: 1000px 500px;
             animation: starDrift 90s linear infinite;
             opacity: 0.8;
@@ -128,9 +126,8 @@
             100% { transform: translateY(-10vh) scale(1); opacity: 0; }
         }
 
-        /* ============ NAVBAR ============ */
         .navbar {
-            background: rgba(5, 8, 16, 0.94);
+            background: rgba(6, 4, 10, 0.94);
             backdrop-filter: blur(20px) saturate(160%);
             -webkit-backdrop-filter: blur(20px) saturate(160%);
             padding: 0 2rem;
@@ -143,7 +140,7 @@
             align-items: center;
             flex-wrap: wrap;
             border-bottom: 2px solid var(--sunset);
-            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.6), 0 0 80px rgba(100, 210, 255, 0.10);
+            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.6), 0 0 80px rgba(244, 114, 182, 0.10);
         }
         .navbar::before {
             content: '';
@@ -182,12 +179,12 @@
             font-style: normal;
             border-radius: 8px;
             transform: skewX(-6deg);
-            box-shadow: 0 0 25px rgba(100, 210, 255, 0.55);
+            box-shadow: 0 0 25px rgba(244, 114, 182, 0.55);
             transition: all 0.3s ease;
         }
         .logo-icon i { transform: skewX(6deg); }
         .logo:hover .logo-icon {
-            box-shadow: 0 0 40px rgba(100, 210, 255, 0.85);
+            box-shadow: 0 0 40px rgba(244, 114, 182, 0.85);
             transform: skewX(-6deg) rotate(-6deg);
         }
         .logo .dot {
@@ -232,14 +229,14 @@
         }
         .nav-link:hover {
             color: var(--sunset-hi);
-            background: rgba(100, 210, 255, 0.08);
+            background: rgba(244, 114, 182, 0.08);
             border-color: var(--line);
         }
         .nav-link.active {
             color: var(--bg);
             background: var(--sunset);
             border-color: var(--sunset);
-            box-shadow: 0 0 20px rgba(100, 210, 255, 0.55);
+            box-shadow: 0 0 20px rgba(244, 114, 182, 0.55);
         }
         .nav-link.memory {
             color: var(--rose-hi);
@@ -251,7 +248,6 @@
             border-color: var(--rose);
         }
 
-        /* ============ PAGES ============ */
         .page {
             display: none;
             padding: 8rem 2rem 4rem;
@@ -267,7 +263,6 @@
             100% { opacity: 1; transform: translateY(0); }
         }
 
-        /* ============ NEW SEASON BANNER ============ */
         .new-season-banner {
             background: linear-gradient(90deg, var(--rose), var(--sunset), var(--rose));
             background-size: 200% 100%;
@@ -299,16 +294,15 @@
             50% { transform: rotate(15deg); }
         }
 
-        /* ============ HERO ============ */
         .hero {
-            background: linear-gradient(135deg, rgba(15, 23, 40, 0.9), rgba(22, 35, 58, 0.9));
+            background: linear-gradient(135deg, rgba(17, 8, 32, 0.9), rgba(26, 15, 48, 0.9));
             border: 2px solid var(--line-hi);
             border-radius: 8px;
             padding: 4rem 3rem;
             position: relative;
             margin-bottom: 2rem;
             overflow: hidden;
-            box-shadow: 0 25px 60px rgba(0, 0, 0, 0.5), inset 0 1px 0 rgba(158, 229, 255, 0.1);
+            box-shadow: 0 25px 60px rgba(0, 0, 0, 0.5), inset 0 1px 0 rgba(249, 168, 212, 0.1);
             display: grid;
             grid-template-columns: 1fr auto;
             gap: 2rem;
@@ -324,8 +318,8 @@
                 -45deg,
                 transparent 0,
                 transparent 15px,
-                rgba(100, 210, 255, 0.06) 15px,
-                rgba(100, 210, 255, 0.06) 16px
+                rgba(244, 114, 182, 0.06) 15px,
+                rgba(244, 114, 182, 0.06) 16px
             );
             pointer-events: none;
         }
@@ -360,11 +354,11 @@
             user-select: none;
             position: relative;
             z-index: 1;
-            filter: drop-shadow(0 0 30px rgba(100, 210, 255, 0.3));
+            filter: drop-shadow(0 0 30px rgba(244, 114, 182, 0.3));
             animation: numberPulse 4s ease-in-out infinite;
         }
         @keyframes numberPulse {
-            0%, 100% { filter: drop-shadow(0 0 30px rgba(100, 210, 255, 0.3)); }
+            0%, 100% { filter: drop-shadow(0 0 30px rgba(244, 114, 182, 0.3)); }
             50% { filter: drop-shadow(0 0 50px rgba(167, 139, 250, 0.5)); }
         }
 
@@ -372,7 +366,7 @@
             display: inline-flex;
             align-items: center;
             gap: 10px;
-            background: rgba(100, 210, 255, 0.08);
+            background: rgba(244, 114, 182, 0.08);
             border: 1px solid var(--sunset);
             padding: 8px 20px;
             border-radius: 40px;
@@ -469,7 +463,7 @@
             border: none;
             transition: all 0.3s cubic-bezier(0.2, 0.9, 0.3, 1);
             margin-top: 1rem;
-            box-shadow: 0 8px 30px rgba(100, 210, 255, 0.4);
+            box-shadow: 0 8px 30px rgba(244, 114, 182, 0.4);
         }
         .cta-btn:hover {
             background: linear-gradient(135deg, var(--rose), var(--sunset));
@@ -480,7 +474,6 @@
         .cta-btn i { transition: transform 0.3s; }
         .cta-btn:hover i { transform: translateX(6px); }
 
-        /* ============ STATS BAR ============ */
         .stats-bar {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
@@ -512,7 +505,7 @@
             border-color: var(--line-hi);
             background: var(--panel-2);
             transform: translateY(-4px);
-            box-shadow: 0 15px 40px rgba(100, 210, 255, 0.15);
+            box-shadow: 0 15px 40px rgba(244, 114, 182, 0.15);
         }
         .stat-number {
             font-size: 3rem;
@@ -534,7 +527,6 @@
             font-weight: 800;
         }
 
-        /* ============ LEADER CARD ============ */
         .leader-card {
             background: linear-gradient(135deg, var(--panel), var(--panel-2));
             border: 2px solid var(--sunset);
@@ -544,7 +536,7 @@
             grid-template-columns: 1fr auto;
             gap: 2rem;
             align-items: center;
-            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.4), 0 0 40px rgba(100, 210, 255, 0.15);
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.4), 0 0 40px rgba(244, 114, 182, 0.15);
             position: relative;
             overflow: hidden;
         }
@@ -583,7 +575,6 @@
             letter-spacing: -3px;
         }
 
-        /* ============ PAGE TITLE ============ */
         .page-title {
             font-size: 2.4rem;
             font-weight: 900;
@@ -608,7 +599,7 @@
             font-style: normal;
             color: var(--bg);
             transform: skewX(-8deg);
-            box-shadow: 0 0 25px rgba(100, 210, 255, 0.5);
+            box-shadow: 0 0 25px rgba(244, 114, 182, 0.5);
         }
         .page-title .icon i { transform: skewX(8deg); }
         .page-title .accent {
@@ -625,7 +616,6 @@
             margin-left: 12px;
         }
 
-        /* ============ RACE SELECTOR ============ */
         .race-selector {
             display: flex;
             gap: 8px;
@@ -653,16 +643,15 @@
         .race-btn:hover {
             color: var(--sunset-hi);
             border-color: var(--sunset);
-            background: rgba(100, 210, 255, 0.06);
+            background: rgba(244, 114, 182, 0.06);
         }
         .race-btn.active {
             background: var(--sunset);
             color: var(--bg);
             border-color: var(--sunset);
-            box-shadow: 0 0 20px rgba(100, 210, 255, 0.55);
+            box-shadow: 0 0 20px rgba(244, 114, 182, 0.55);
         }
 
-        /* ============ RACE HEADER ============ */
         .race-header {
             display: flex;
             justify-content: space-between;
@@ -691,7 +680,6 @@
             font-style: italic;
         }
 
-        /* ============ RESULTS TABLE ============ */
         .results-table {
             width: 100%;
             border-collapse: collapse;
@@ -740,7 +728,7 @@
             background: var(--sunset);
             color: var(--bg);
             border-color: var(--sunset);
-            box-shadow: 0 0 20px rgba(100, 210, 255, 0.6);
+            box-shadow: 0 0 20px rgba(244, 114, 182, 0.6);
         }
         .pos.p2 {
             background: var(--panel-3);
@@ -799,7 +787,7 @@
             animation: flGlow 2s ease-in-out infinite;
         }
         @keyframes flGlow {
-            0%, 100% { box-shadow: 0 0 12px rgba(100, 210, 255, 0.4); }
+            0%, 100% { box-shadow: 0 0 12px rgba(244, 114, 182, 0.4); }
             50% { box-shadow: 0 0 22px rgba(167, 139, 250, 0.7); }
         }
 
@@ -812,7 +800,6 @@
         .team-cadillac { color: #a0a0a0 !important; }
         .team-alpine { color: #ff87bc !important; }
 
-        /* ============ STANDINGS — СТОЛБИК ============ */
         .standings-grid {
             display: flex;
             flex-direction: column;
@@ -849,8 +836,8 @@
         }
         .standing-box.rank-1 {
             border-color: var(--sunset);
-            background: linear-gradient(135deg, var(--panel), rgba(100, 210, 255, 0.06));
-            box-shadow: 0 0 25px rgba(100, 210, 255, 0.15);
+            background: linear-gradient(135deg, var(--panel), rgba(244, 114, 182, 0.06));
+            box-shadow: 0 0 25px rgba(244, 114, 182, 0.15);
         }
         .standing-box.rank-1::before { background: var(--sunset); }
         .standing-box.rank-2 { border-color: var(--sunset-deep); }
@@ -949,11 +936,10 @@
             min-width: 90px;
         }
         .standing-box.rank-1 .standing-points {
-            background: linear-gradient(135deg, rgba(100, 210, 255, 0.15), rgba(167, 139, 250, 0.08));
+            background: linear-gradient(135deg, rgba(244, 114, 182, 0.15), rgba(167, 139, 250, 0.08));
             color: var(--sunset-hi);
         }
 
-        /* ============ TEAMS — СТОЛБИК ============ */
         .teams-grid {
             display: flex;
             flex-direction: column;
@@ -979,22 +965,22 @@
         }
         .team-box.rank-1 {
             border-color: var(--sunset);
-            box-shadow: 0 0 25px rgba(100, 210, 255, 0.15);
+            box-shadow: 0 0 25px rgba(244, 114, 182, 0.15);
         }
         .team-box.champion-team {
             border: 2px solid var(--sunset);
-            background: linear-gradient(135deg, var(--panel), rgba(100, 210, 255, 0.08));
+            background: linear-gradient(135deg, var(--panel), rgba(244, 114, 182, 0.08));
             animation: champPulse 2.5s ease-in-out infinite;
         }
         @keyframes champPulse {
-            0%, 100% { box-shadow: 0 0 20px rgba(100, 210, 255, 0.2); }
-            50% { box-shadow: 0 0 50px rgba(100, 210, 255, 0.4); }
+            0%, 100% { box-shadow: 0 0 20px rgba(244, 114, 182, 0.2); }
+            50% { box-shadow: 0 0 50px rgba(244, 114, 182, 0.4); }
         }
         .team-box.champion-team::before {
             content: '';
             position: absolute;
             inset: 0;
-            background: linear-gradient(90deg, transparent 40%, rgba(100, 210, 255, 0.12) 50%, transparent 60%);
+            background: linear-gradient(90deg, transparent 40%, rgba(244, 114, 182, 0.12) 50%, transparent 60%);
             background-size: 200% 100%;
             animation: shine 3s linear infinite;
             pointer-events: none;
@@ -1071,11 +1057,10 @@
             min-width: 90px;
         }
         .team-box.rank-1 .team-points-box {
-            background: linear-gradient(135deg, rgba(100, 210, 255, 0.15), rgba(167, 139, 250, 0.08));
+            background: linear-gradient(135deg, rgba(244, 114, 182, 0.15), rgba(167, 139, 250, 0.08));
             color: var(--sunset-hi);
         }
 
-        /* ============ WINNERS ============ */
         .winners-header {
             text-align: left;
             padding: 1.6rem 2rem;
@@ -1154,7 +1139,6 @@
             margin-top: 4px;
         }
 
-        /* ============ TIMELINE ============ */
         .timeline-item {
             background: var(--panel);
             border: 1px solid var(--line);
@@ -1215,7 +1199,6 @@
             color: var(--bg);
         }
 
-        /* ============ RECORDS ============ */
         .records-section { margin-bottom: 3rem; }
         .records-section-title {
             font-size: 0.85rem;
@@ -1269,7 +1252,6 @@
             color: var(--cream);
         }
 
-        /* ============ MEMORY ============ */
         .memory-hero {
             background: var(--panel);
             border: 2px solid var(--rose);
@@ -1417,7 +1399,6 @@
         }
         .mem-timeline-content .desc strong { color: var(--sunset-hi); }
 
-        /* ============ FOOTER ============ */
         .footer {
             text-align: center;
             padding: 2.5rem;
@@ -1478,10 +1459,10 @@
 
     <nav class="navbar">
         <div class="logo">
-            <span class="logo-icon"><i class="fas fa-snowflake"></i></span>
+            <span class="logo-icon"><i class="fas fa-bolt"></i></span>
             GTA<span class="dot">·</span>F1
             <span class="season-chip">S05</span>
-            <span class="season-chip new">ARCTIC</span>
+            <span class="season-chip new">ROSE</span>
         </div>
         <div class="nav-links">
             <a href="#home" class="nav-link active" data-page="home">Обзор</a>
@@ -1497,25 +1478,25 @@
 
     <section id="home" class="page active">
         <div class="new-season-banner">
-            <i class="fas fa-snowflake"></i>
-            <span>СЕЗОН 5 ПРОДОЛЖАЕТСЯ — ЛЕДЯНОЙ ФРОНТ</span>
-            <i class="fas fa-snowflake"></i>
+            <i class="fas fa-bolt"></i>
+            <span>СЕЗОН 5 ПРОДОЛЖАЕТСЯ — РОЗОВЫЙ ШТОРМ</span>
+            <i class="fas fa-bolt"></i>
         </div>
 
         <div class="hero">
             <div class="hero-content">
                 <div class="hero-badge">
                     <span class="dot"></span>
-                    SEASON 05 • ARCTIC CIRCUIT
+                    SEASON 05 • MIDNIGHT ROSE
                 </div>
                 <h1 class="hero-title">
                     <span class="accent">GTA</span> FORMULA 1<br>
                     <span class="underline">Сезон 5</span><br>
-                    <small>Ледяной фронт</small>
+                    <small>Полуночный шторм</small>
                 </h1>
                 <p class="hero-sub">
-                    <strong>6 гонок</strong> позади! <strong>SOVYCH05</strong> доминирует с 90 очками.
-                    Но <strong>jetleoden</strong> одержал первую победу в спринте Бельгии!
+                    <strong>6 гонок</strong> позади! <strong>SOVYCH05</strong> доминирует с 91 очком.
+                    <strong>jetleoden</strong> полностью дисквалифицирован с чемпионата!
                     <strong class="rose">Сезон набирает обороты!</strong>
                 </p>
                 <a href="#results" class="cta-btn" data-page="results">
@@ -1527,11 +1508,11 @@
 
         <div class="stats-bar">
             <div class="stat-item">
-                <div class="stat-number">12</div>
+                <div class="stat-number">11</div>
                 <div class="stat-label">Пилотов</div>
             </div>
             <div class="stat-item">
-                <div class="stat-number">07</div>
+                <div class="stat-number">08</div>
                 <div class="stat-label">Команд</div>
             </div>
             <div class="stat-item">
@@ -1539,7 +1520,7 @@
                 <div class="stat-label">Гонок</div>
             </div>
             <div class="stat-item">
-                <div class="stat-number">90</div>
+                <div class="stat-number">91</div>
                 <div class="stat-label">Очков лидера</div>
             </div>
         </div>
@@ -1548,9 +1529,9 @@
             <div>
                 <div class="label">◆ ЛИДЕР СЕЗОНА 5</div>
                 <h3>SOVYCH05 #88 — Mercedes-AMG F1 Team</h3>
-                <p>Fan_JoJo — 2-й (43) • kastillio — 3-й (43) • Vin_Diselll — 4-й (40)</p>
+                <p>Vin_Diselll — 2-й (49) • Fan_JoJo — 3-й (43) • kastillio — 4-й (43)</p>
             </div>
-            <div class="big-number">90</div>
+            <div class="big-number">91</div>
         </div>
     </section>
 
@@ -1728,13 +1709,13 @@
     </section>
 
     <footer class="footer">
-        GTA FORMULA 1 • SEASON 05 • ARCTIC CIRCUIT • 2026
+        GTA FORMULA 1 • SEASON 05 • MIDNIGHT ROSE • 2026
     </footer>
 
     <script>
         (function createEmbers() {
             const container = document.getElementById('embers');
-            const colors = ['#64d2ff', '#a78bfa', '#9ee5ff'];
+            const colors = ['#f472b6', '#a78bfa', '#f9a8d4'];
             for (let i = 0; i < 30; i++) {
                 const el = document.createElement('div');
                 el.className = 'ember';
@@ -1757,13 +1738,13 @@
                 results: [
                     { position: 1, name: 'SOVYCH05', team: 'Mercedes-AMG', points: 25, status: 'finished', teamKey: 'mercedes', num: '88', qualy: 'P1=P1' },
                     { position: 2, name: 'Fan_JoJo', team: 'Mercedes-AMG', points: 18, status: 'finished', teamKey: 'mercedes', num: '35', qualy: 'P2=P2' },
-                    { position: 3, name: 'jetleoden', team: 'Scuderia Ferrari', points: 15, status: 'finished', teamKey: 'ferrari', num: '6', qualy: 'P4>P3' },
-                    { position: 4, name: 'Vin_Diselll', team: 'Red Bull Racing', points: 12, status: 'finished', teamKey: 'redbull', num: '33', qualy: 'P3>P4' },
-                    { position: 5, name: 'tom_kruiser', team: 'Alpine', points: 10, status: 'finished', teamKey: 'alpine', num: '12', qualy: 'P9>P5' },
-                    { position: 6, name: 'vitall_duo', team: 'Haas', points: 8, status: 'finished', teamKey: 'haas', num: '81', qualy: 'P7>P6' },
-                    { position: 7, name: 'Liquer', team: 'Scuderia Ferrari', points: 6, status: 'finished', teamKey: 'ferrari', num: '77', qualy: 'P6>P7' },
-                    { position: 8, name: 'VLADIVOSTOK', team: 'Williams', points: 4, status: 'finished', teamKey: 'williams', num: '23', qualy: 'P5>P8' },
-                    { position: 9, name: 'Wallableb', team: 'Cadillac', points: 0, status: 'finished', teamKey: 'cadillac', num: '3', qualy: 'P8>P9' }
+                    { position: 3, name: 'Vin_Diselll', team: 'Red Bull Racing', points: 15, status: 'finished', teamKey: 'redbull', num: '33', qualy: 'P3=P3' },
+                    { position: 4, name: 'tom_kruiser', team: 'Alpine', points: 12, status: 'finished', teamKey: 'alpine', num: '12', qualy: 'P9>P4' },
+                    { position: 5, name: 'vitall_duo', team: 'Haas', points: 10, status: 'finished', teamKey: 'haas', num: '27', qualy: 'P7>P5' },
+                    { position: 6, name: 'Liquer', team: 'Scuderia Ferrari', points: 8, status: 'finished', teamKey: 'ferrari', num: '77', qualy: 'P6=P6' },
+                    { position: 7, name: 'VLADIVOSTOK', team: 'Williams', points: 6, status: 'finished', teamKey: 'williams', num: '23', qualy: 'P5>P7' },
+                    { position: 8, name: 'Wallableb', team: 'Cadillac', points: 4, status: 'finished', teamKey: 'cadillac', num: '3', qualy: 'P8=P8' },
+                    { position: 'DSQ', name: 'jetleoden', team: 'Haas', points: 0, status: 'dsq', reason: 'Полностью дисквалифицирован с чемпионата', teamKey: 'haas', num: '6', qualy: 'P3>DSQ' }
                 ]
             },
             'italian-sprint': {
@@ -1776,7 +1757,7 @@
                     { position: 5, name: 'Wallableb', team: 'Cadillac', points: 4, status: 'finished', teamKey: 'cadillac', num: '3', qualy: 'P8>P5' },
                     { position: 6, name: 'Liquer', team: 'Scuderia Ferrari', points: 3, status: 'finished', teamKey: 'ferrari', num: '77', qualy: 'P5>P6' },
                     { position: 7, name: 'YOKI4', team: 'McLaren', points: 2, status: 'finished', teamKey: 'mclaren', num: '7', qualy: 'P7=P7' },
-                    { position: 8, name: 'vitall_duo', team: 'Scuderia Ferrari', points: 1, status: 'finished', teamKey: 'ferrari', num: '81', qualy: 'P6>P8' }
+                    { position: 8, name: 'vitall_duo', team: 'Scuderia Ferrari', points: 1, status: 'finished', teamKey: 'ferrari', num: '27', qualy: 'P6>P8' }
                 ]
             },
             'italian-gp': {
@@ -1788,7 +1769,7 @@
                     { position: 4, name: 'YOKI4', team: 'McLaren', points: 12, status: 'finished', teamKey: 'mclaren', num: '7', qualy: 'P6>P4' },
                     { position: 5, name: 'Vin_Diselll', team: 'Red Bull Racing', points: 10, status: 'finished', teamKey: 'redbull', num: '33', qualy: 'P4>P5' },
                     { position: 6, name: 'Liquer', team: 'Scuderia Ferrari', points: 8, status: 'finished', teamKey: 'ferrari', num: '77', qualy: 'P7>P6' },
-                    { position: 7, name: 'vitall_duo', team: 'Scuderia Ferrari', points: 6, status: 'finished', teamKey: 'ferrari', num: '81', qualy: 'P5>P7' },
+                    { position: 7, name: 'vitall_duo', team: 'Scuderia Ferrari', points: 6, status: 'finished', teamKey: 'ferrari', num: '27', qualy: 'P5>P7' },
                     { position: 'DSQ', name: 'Wallableb', team: 'Cadillac', points: 0, status: 'dsq', reason: 'Игнорирование синих флагов', teamKey: 'cadillac', num: '3', qualy: 'P8>DSQ' }
                 ]
             },
@@ -1807,15 +1788,15 @@
             'belgium-sprint': {
                 title: 'Belgium Sprint', date: '08.05.2026',
                 results: [
-                    { position: 1, name: 'jetleoden', team: 'Haas', points: 8, status: 'finished', teamKey: 'haas', num: '6', qualy: 'P2>P1' },
-                    { position: 2, name: 'SOVYCH05', team: 'Mercedes-AMG', points: 7, status: 'finished', teamKey: 'mercedes', num: '88', qualy: 'P1>P2' },
-                    { position: 3, name: 'tom_kruiser', team: 'Alpine', points: 6, status: 'finished', teamKey: 'alpine', num: '12', qualy: 'P3=P3' },
-                    { position: 4, name: 'Vin_Diselll', team: 'Red Bull Racing', points: 5, status: 'finished', teamKey: 'redbull', num: '33', qualy: 'P4=P4' },
-                    { position: 5, name: 'overshadower', team: 'Haas', points: 4, status: 'finished', teamKey: 'haas', num: '14', qualy: 'P6>P5' },
-                    { position: 6, name: 'Wallableb', team: 'Cadillac', points: 3, status: 'finished', teamKey: 'cadillac', num: '3', qualy: 'P5>P6' },
-                    { position: 7, name: 'YOKI4', team: 'McLaren', points: 2, status: 'finished', teamKey: 'mclaren', num: '7', qualy: 'P9>P7' },
-                    { position: 8, name: 'VLADIVOSTOK', team: 'Alpine', points: 1, status: 'finished', teamKey: 'alpine', num: '23', qualy: 'P8=P8' },
-                    { position: 9, name: 'vitall_duo', team: 'Scuderia Ferrari', points: 0, status: 'finished', teamKey: 'ferrari', num: '27', qualy: 'P6>P9' }
+                    { position: 1, name: 'SOVYCH05', team: 'Mercedes-AMG', points: 8, status: 'finished', teamKey: 'mercedes', num: '88', qualy: 'P1=P1' },
+                    { position: 2, name: 'tom_kruiser', team: 'Alpine', points: 7, status: 'finished', teamKey: 'alpine', num: '12', qualy: 'P3>P2' },
+                    { position: 3, name: 'Vin_Diselll', team: 'Red Bull Racing', points: 6, status: 'finished', teamKey: 'redbull', num: '33', qualy: 'P4>P3' },
+                    { position: 4, name: 'overshadower', team: 'Haas', points: 5, status: 'finished', teamKey: 'haas', num: '14', qualy: 'P6>P4' },
+                    { position: 5, name: 'Wallableb', team: 'Cadillac', points: 4, status: 'finished', teamKey: 'cadillac', num: '3', qualy: 'P5=P5' },
+                    { position: 6, name: 'yoki4', team: 'McLaren', points: 3, status: 'finished', teamKey: 'mclaren', num: '7', qualy: 'P9>P6' },
+                    { position: 7, name: 'VLADIVOSTOK', team: 'Williams', points: 2, status: 'finished', teamKey: 'williams', num: '23', qualy: 'P8>P7' },
+                    { position: 8, name: 'vitall_duo', team: 'Scuderia Ferrari', points: 1, status: 'finished', teamKey: 'ferrari', num: '27', qualy: 'P6>P8' },
+                    { position: 'DSQ', name: 'jetleoden', team: 'Haas', points: 0, status: 'dsq', reason: 'Полностью дисквалифицирован', teamKey: 'haas', num: '6', qualy: 'P2>DSQ' }
                 ]
             },
             'belgium-gp': {
@@ -1823,41 +1804,41 @@
                 results: [
                     { position: 1, name: 'SOVYCH05', team: 'Mercedes-AMG', points: 25, status: 'finished', teamKey: 'mercedes', num: '88', qualy: 'P1=P1' },
                     { position: 2, name: 'kastillio', team: 'Mercedes-AMG', points: 18, status: 'finished', teamKey: 'mercedes', num: '1', qualy: 'P10>P2' },
-                    { position: 3, name: 'jetleoden', team: 'Haas', points: 15, status: 'finished', teamKey: 'haas', num: '6', qualy: 'P2>P3' },
-                    { position: 4, name: 'overshadower', team: 'Haas', points: 12, status: 'finished', teamKey: 'haas', num: '12', qualy: 'P7>P4' },
-                    { position: 5, name: 'Vin_Diselll', team: 'Red Bull Racing', points: 10, status: 'finished', teamKey: 'redbull', num: '33', qualy: 'P4>P5' },
-                    { position: 6, name: 'Wallableb', team: 'Cadillac', points: 8, status: 'finished', teamKey: 'cadillac', num: '3', qualy: 'P5>P6' },
-                    { position: 7, name: 'YOKI4', team: 'McLaren', points: 6, status: 'finished', teamKey: 'mclaren', num: '7', qualy: 'P9>P7' },
-                    { position: 8, name: 'VLADIVOSTOK', team: 'Williams', points: 4, status: 'finished', teamKey: 'williams', num: '23', qualy: 'P8=P8' },
-                    { position: 'DNF', name: 'vitall_duo', team: 'Scuderia Ferrari', points: 0, status: 'dnf', reason: 'Авария', teamKey: 'ferrari', num: '27', qualy: 'P6>DNF' },
-                    { position: 'DSQ', name: 'tom_kruiser', team: 'Alpine', points: 0, status: 'dsq', reason: 'Неправильный старт', teamKey: 'alpine', num: '12', qualy: 'P3>DSQ' }
+                    { position: 3, name: 'overshadower', team: 'Haas', points: 15, status: 'finished', teamKey: 'haas', num: '14', qualy: 'P7>P3' },
+                    { position: 4, name: 'Vin_Diselll', team: 'Red Bull Racing', points: 12, status: 'finished', teamKey: 'redbull', num: '33', qualy: 'P4=P4' },
+                    { position: 5, name: 'Wallableb', team: 'Cadillac', points: 10, status: 'finished', teamKey: 'cadillac', num: '3', qualy: 'P5=P5' },
+                    { position: 6, name: 'yoki4', team: 'McLaren', points: 8, status: 'finished', teamKey: 'mclaren', num: '7', qualy: 'P9>P6' },
+                    { position: 7, name: 'VLADIVOSTOK', team: 'Williams', points: 6, status: 'finished', teamKey: 'williams', num: '23', qualy: 'P8>P7' },
+                    { position: 'DSQ', name: 'jetleoden', team: 'Haas', points: 0, status: 'dsq', reason: 'Полностью дисквалифицирован', teamKey: 'haas', num: '6', qualy: 'P3>DSQ' },
+                    { position: 'DSQ', name: 'tom_kruiser', team: 'Alpine', points: 0, status: 'dsq', reason: 'Неправильный старт', teamKey: 'alpine', num: '12', qualy: 'P2>DSQ' },
+                    { position: 'DNF', name: 'vitall_duo', team: 'Scuderia Ferrari', points: 0, status: 'dnf', reason: 'Авария', teamKey: 'ferrari', num: '27', qualy: 'P6>DNF' }
                 ]
             }
         };
 
         const driverStandings = [
-            { name: 'SOVYCH05', team: 'Mercedes-AMG F1 Team', points: 90, number: '88', teamKey: 'mercedes' },
+            { name: 'SOVYCH05', team: 'Mercedes-AMG F1 Team', points: 91, number: '88', teamKey: 'mercedes' },
+            { name: 'Vin_Diselll', team: 'Red Bull Racing F1 Team', points: 49, number: '33', teamKey: 'redbull' },
             { name: 'Fan_JoJo', team: 'Mercedes-AMG F1 Team', points: 43, number: '35', teamKey: 'mercedes' },
             { name: 'kastillio', team: 'Mercedes-AMG F1 Team', points: 43, number: '1', teamKey: 'mercedes', title: 'РЕЗЕРВ' },
-            { name: 'Vin_Diselll', team: 'Red Bull Racing F1 Team', points: 40, number: '33', teamKey: 'redbull' },
-            { name: 'jetleoden', team: 'Haas F1 Team', points: 38, number: '6', teamKey: 'haas', title: 'РЕЗЕРВ' },
-            { name: 'tom_kruiser', team: 'Alpine F1 Team', points: 36, number: '12', teamKey: 'alpine' },
-            { name: 'vitall_duo', team: 'Scuderia Ferrari F1 Team', points: 33, number: '27', teamKey: 'ferrari' },
-            { name: 'Liquer', team: 'Scuderia Ferrari F1 Team', points: 32, number: '77', teamKey: 'ferrari' },
-            { name: 'YOKI4', team: 'McLaren F1 Team', points: 22, number: '7', teamKey: 'mclaren' },
-            { name: 'overshadower', team: 'Haas F1 Team', points: 16, number: '14', teamKey: 'haas' },
-            { name: 'Wallableb', team: 'Cadillac F1 Team', points: 15, number: '3', teamKey: 'cadillac' },
-            { name: 'VLADIVOSTOK', team: 'Williams F1 Team', points: 9, number: '23', teamKey: 'williams' }
+            { name: 'tom_kruiser', team: 'Red Bull Racing F1 Team', points: 39, number: '12', teamKey: 'redbull' },
+            { name: 'vitall_duo', team: 'Scuderia Ferrari F1 Team', points: 36, number: '27', teamKey: 'ferrari' },
+            { name: 'Liquer', team: 'Scuderia Ferrari F1 Team', points: 34, number: '77', teamKey: 'ferrari' },
+            { name: 'yoki4', team: 'McLaren F1 Team', points: 25, number: '7', teamKey: 'mclaren' },
+            { name: 'Wallableb', team: 'Cadillac F1 Team', points: 22, number: '3', teamKey: 'cadillac' },
+            { name: 'overshadower', team: 'Haas F1 Team', points: 20, number: '14', teamKey: 'haas' },
+            { name: 'VLADIVOSTOK', team: 'Williams F1 Team', points: 14, number: '23', teamKey: 'williams' }
         ];
 
         const teamStandings = [
-            { name: 'Mercedes-AMG F1 Team', points: 176, key: 'mercedes' },
-            { name: 'Scuderia Ferrari F1 Team', points: 72, key: 'ferrari' },
-            { name: 'Haas F1 Team', points: 47, key: 'haas' },
-            { name: 'Alpine F1 Team', points: 41, key: 'alpine' },
-            { name: 'Red Bull Racing F1 Team', points: 40, key: 'redbull' },
-            { name: 'McLaren F1 Team', points: 22, key: 'mclaren' },
-            { name: 'Cadillac F1 Team', points: 15, key: 'cadillac' }
+            { name: 'Mercedes-AMG F1 Team', points: 177, key: 'mercedes' },
+            { name: 'Scuderia Ferrari F1 Team', points: 75, key: 'ferrari' },
+            { name: 'Haas F1 Team', points: 53, key: 'haas' },
+            { name: 'Red Bull Racing F1 Team', points: 49, key: 'redbull' },
+            { name: 'Alpine F1 Team', points: 47, key: 'alpine' },
+            { name: 'McLaren F1 Team', points: 25, key: 'mclaren' },
+            { name: 'Cadillac F1 Team', points: 22, key: 'cadillac' },
+            { name: 'Williams F1 Team', points: 14, key: 'williams' }
         ];
 
         const winnersList = [
@@ -1865,28 +1846,28 @@
             { race: 'Italian GP Sprint', winner: 'SOVYCH05', team: 'Mercedes-AMG', colorKey: 'mercedes' },
             { race: 'ITALIAN GP', winner: 'SOVYCH05', team: 'Mercedes-AMG', colorKey: 'mercedes' },
             { race: 'AUSTRIAN GP', winner: 'Fan_JoJo', team: 'Mercedes-AMG', colorKey: 'mercedes' },
-            { race: 'Belgium Sprint', winner: 'jetleoden', team: 'Haas', colorKey: 'haas' },
+            { race: 'Belgium Sprint', winner: 'SOVYCH05', team: 'Mercedes-AMG', colorKey: 'mercedes' },
             { race: 'BELGIUM GP', winner: 'SOVYCH05', team: 'Mercedes-AMG', colorKey: 'mercedes' }
         ];
 
         const records = [
-            { title: 'Лидер сезона', value: 'SOVYCH05 — 90 очков' },
-            { title: 'Наибольшее количество побед', value: 'SOVYCH05 — 5 побед' },
-            { title: 'Первая победа Haas', value: 'jetleoden — Belgium Sprint' },
+            { title: 'Лидер сезона', value: 'SOVYCH05 — 91 очко' },
+            { title: 'Наибольшее количество побед', value: 'SOVYCH05 — 5 побед из 6 гонок' },
+            { title: 'Полная дисквалификация', value: 'jetleoden — исключён из чемпионата' },
             { title: 'Первая победа Fan_JoJo', value: 'AUSTRIAN GP' },
-            { title: 'Команда-лидер', value: 'Mercedes-AMG F1 Team — 176 очков' },
+            { title: 'Команда-лидер', value: 'Mercedes-AMG F1 Team — 177 очков' },
             { title: 'Наибольший прогресс в гонке', value: 'kastillio — Belgium GP (P10 → P2)' },
-            { title: 'Лучший новичок', value: 'overshadower — 16 очков в Haas' },
-            { title: 'Резервисты сезона', value: 'kastillio и jetleoden — выступают как резервисты' }
+            { title: 'Лучший новичок', value: 'overshadower — 20 очков (Haas)' },
+            { title: 'Смена команды', value: 'tom_kruiser — перешёл в Red Bull Racing' }
         ];
 
         const antiRecords = [
+            { title: 'Полная дисквалификация пилота', value: 'jetleoden — исключён из чемпионата' },
             { title: 'Худший уикенд Alpine', value: 'BELGIUM GP — tom_kruiser DSQ (неправильный старт)' },
-            { title: 'Первый DSQ за старт', value: 'tom_kruiser — BELGIUM GP' },
+            { title: 'Двойной DSQ', value: 'BELGIUM GP — jetleoden и tom_kruiser' },
             { title: 'Массовый сход', value: 'AUSTRIAN GP — 3 DNF + 1 DSQ' },
-            { title: 'Столкновение лидеров', value: 'Vin_Diselll DSQ за столкновение с Liquer' },
-            { title: 'Провал после подиума', value: 'Wallableb — DSQ в ITALIAN GP, DNF в AUSTRIAN GP' },
-            { title: 'Сход на последних позициях', value: 'vitall_duo — DNF в BELGIUM GP (был P6)' }
+            { title: 'Столкновение лидеров', value: 'Vin_Diselll DSQ за столкновение с Liquer (Austrian GP)' },
+            { title: 'Провал после подиума', value: 'Wallableb — DSQ в ITALIAN GP, DNF в AUSTRIAN GP' }
         ];
 
         const scheduleRaces = [
