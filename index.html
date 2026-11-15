@@ -6,225 +6,111 @@
     <title>GTA F1 • СЕЗОН 5 • RACE CONTROL</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
-        /* ============================================================
-           RACE CONTROL — F1 TIMING TOWER EDITION
-           карбон • красный • хром • телеметрия • углы
-           ============================================================ */
         * { margin: 0; padding: 0; box-sizing: border-box; }
 
         :root {
-            --carbon: #0d0d0f;
-            --carbon-2: #131316;
-            --carbon-3: #1a1a1e;
-            --carbon-4: #222228;
-            --steel: #2a2a30;
-            --steel-hi: #3a3a42;
-            --red: #e10600;
-            --red-hi: #ff2d20;
-            --red-deep: #a00400;
-            --silver: #c0c0c8;
-            --chrome: #e8e8f0;
-            --white: #ffffff;
-            --sector-purple: #b026ff;
-            --sector-green: #00d26a;
-            --sector-yellow: #ffd800;
-            --sector-blue: #00b8ff;
-            --text: #f0f0f0;
-            --muted: #8a8a95;
-            --dim: #4a4a52;
-            --line: rgba(225, 6, 0, 0.3);
-            --line-hi: rgba(225, 6, 0, 0.6);
+            --carbon: #0d0d0f; --carbon-2: #131316; --carbon-3: #1a1a1e; --carbon-4: #222228;
+            --steel: #2a2a30; --steel-hi: #3a3a42;
+            --red: #e10600; --red-hi: #ff2d20; --red-deep: #a00400;
+            --silver: #c0c0c8; --chrome: #e8e8f0; --white: #ffffff;
+            --purple: #b026ff; --green: #00d26a; --yellow: #ffd800; --blue: #00b8ff;
+            --text: #f0f0f0; --muted: #8a8a95; --dim: #4a4a52;
+            --line: rgba(225, 6, 0, 0.3); --line-hi: rgba(225, 6, 0, 0.6);
         }
 
         html { scroll-behavior: smooth; }
-
         body {
-            background: var(--carbon);
-            color: var(--text);
+            background: var(--carbon); color: var(--text);
             font-family: 'Titillium Web', 'Segoe UI', system-ui, sans-serif;
-            min-height: 100vh;
-            overflow-x: hidden;
-            letter-spacing: 0.3px;
-            position: relative;
-            line-height: 1.5;
-            font-feature-settings: "tnum";
+            min-height: 100vh; overflow-x: hidden; letter-spacing: 0.3px;
+            position: relative; line-height: 1.5; font-feature-settings: "tnum";
         }
 
-        /* ============ CARBON FIBER + SPEED LINES ============ */
-        .bg-layer {
-            position: fixed;
-            inset: 0;
-            z-index: -3;
-            pointer-events: none;
-            background: var(--carbon);
-        }
+        .bg-layer { position: fixed; inset: 0; z-index: -3; pointer-events: none; background: var(--carbon); }
         .bg-layer::before {
-            content: '';
-            position: absolute;
-            inset: 0;
+            content: ''; position: absolute; inset: 0;
             background-image:
                 repeating-linear-gradient(45deg, transparent 0, transparent 2px, rgba(255,255,255,0.012) 2px, rgba(255,255,255,0.012) 3px),
                 repeating-linear-gradient(-45deg, transparent 0, transparent 2px, rgba(255,255,255,0.012) 2px, rgba(255,255,255,0.012) 3px);
             opacity: 0.9;
         }
         .bg-layer::after {
-            content: '';
-            position: absolute;
-            inset: 0;
+            content: ''; position: absolute; inset: 0;
             background:
                 radial-gradient(ellipse at 0% 0%, rgba(225, 6, 0, 0.12), transparent 45%),
                 radial-gradient(ellipse at 100% 100%, rgba(176, 38, 255, 0.06), transparent 45%),
                 radial-gradient(ellipse at 50% 50%, rgba(0, 184, 255, 0.04), transparent 60%);
             animation: ambientGlow 8s ease-in-out infinite alternate;
         }
-        @keyframes ambientGlow {
-            0% { opacity: 0.7; }
-            100% { opacity: 1; }
-        }
+        @keyframes ambientGlow { 0% { opacity: 0.7; } 100% { opacity: 1; } }
 
-        /* Speed lines */
-        .speed-lines {
-            position: fixed;
-            inset: 0;
-            z-index: -1;
-            pointer-events: none;
-            overflow: hidden;
-        }
+        .speed-lines { position: fixed; inset: 0; z-index: -1; pointer-events: none; overflow: hidden; }
         .speed-line {
-            position: absolute;
-            height: 1px;
+            position: absolute; height: 1px;
             background: linear-gradient(90deg, transparent, var(--red), transparent);
-            animation: speedMove linear infinite;
-            opacity: 0.4;
+            animation: speedMove linear infinite; opacity: 0.4;
         }
         @keyframes speedMove {
             0% { transform: translateX(-100%); opacity: 0; }
-            10% { opacity: 0.6; }
-            90% { opacity: 0.6; }
+            10% { opacity: 0.6; } 90% { opacity: 0.6; }
             100% { transform: translateX(200%); opacity: 0; }
         }
 
-        /* Racing curb at bottom */
         .curb {
-            position: fixed;
-            bottom: 0; left: 0; right: 0;
-            height: 12px;
-            z-index: 9998;
-            background: repeating-linear-gradient(
-                90deg,
-                var(--red) 0,
-                var(--red) 20px,
-                var(--white) 20px,
-                var(--white) 40px
-            );
-            opacity: 0.9;
-            animation: curbSlide 3s linear infinite;
+            position: fixed; bottom: 0; left: 0; right: 0; height: 12px; z-index: 9998;
+            background: repeating-linear-gradient(90deg, var(--red) 0, var(--red) 20px, var(--white) 20px, var(--white) 40px);
+            opacity: 0.9; animation: curbSlide 3s linear infinite;
             box-shadow: 0 -2px 20px rgba(225, 6, 0, 0.4);
         }
-        @keyframes curbSlide {
-            0% { background-position: 0 0; }
-            100% { background-position: 40px 0; }
-        }
+        @keyframes curbSlide { 0% { background-position: 0 0; } 100% { background-position: 40px 0; } }
 
-        /* ============ NAVBAR — TIMING TOWER STYLE ============ */
         .navbar {
             background: rgba(13, 13, 15, 0.96);
             backdrop-filter: blur(20px) saturate(180%);
             -webkit-backdrop-filter: blur(20px) saturate(180%);
-            padding: 0 2rem;
-            position: fixed;
-            top: 0; left: 0; right: 0;
-            z-index: 1000;
-            height: 76px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            flex-wrap: wrap;
-            border-bottom: 2px solid var(--red);
+            padding: 0 2rem; position: fixed; top: 0; left: 0; right: 0; z-index: 1000;
+            height: 76px; display: flex; justify-content: space-between; align-items: center;
+            flex-wrap: wrap; border-bottom: 2px solid var(--red);
             box-shadow: 0 4px 30px rgba(0, 0, 0, 0.8), 0 0 60px rgba(225, 6, 0, 0.15);
         }
         .navbar::before {
-            content: '';
-            position: absolute;
-            top: 0; left: 0; right: 0;
-            height: 4px;
-            background-image: repeating-linear-gradient(
-                90deg,
-                var(--white) 0,
-                var(--white) 8px,
-                var(--carbon) 8px,
-                var(--carbon) 16px
-            );
+            content: ''; position: absolute; top: 0; left: 0; right: 0; height: 4px;
+            background-image: repeating-linear-gradient(90deg, var(--white) 0, var(--white) 8px, var(--carbon) 8px, var(--carbon) 16px);
             opacity: 0.5;
         }
         .navbar::after {
-            content: '';
-            position: absolute;
-            bottom: -2px; left: 0; right: 0;
-            height: 2px;
+            content: ''; position: absolute; bottom: -2px; left: 0; right: 0; height: 2px;
             background: linear-gradient(90deg, transparent, var(--red-hi), transparent);
             animation: navGlow 3s linear infinite;
         }
-        @keyframes navGlow {
-            0% { background-position: -100% 0; }
-            100% { background-position: 200% 0; }
-        }
+        @keyframes navGlow { 0% { background-position: -100% 0; } 100% { background-position: 200% 0; } }
 
         .logo {
-            font-size: 1.5rem;
-            font-weight: 900;
-            letter-spacing: 2px;
-            display: flex;
-            align-items: center;
-            gap: 12px;
-            text-transform: uppercase;
-            color: var(--white);
-            font-style: italic;
+            font-size: 1.5rem; font-weight: 900; letter-spacing: 2px;
+            display: flex; align-items: center; gap: 12px; text-transform: uppercase;
+            color: var(--white); font-style: italic;
         }
         .logo-icon {
-            width: 42px;
-            height: 42px;
-            background: var(--red);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 1.1rem;
-            color: var(--white);
-            font-style: normal;
+            width: 42px; height: 42px; background: var(--red);
+            display: flex; align-items: center; justify-content: center;
+            font-size: 1.1rem; color: var(--white); font-style: normal;
             clip-path: polygon(0 0, 100% 0, 100% 75%, 75% 100%, 0 100%);
-            box-shadow: 0 0 25px rgba(225, 6, 0, 0.6);
-            transition: all 0.3s ease;
-            position: relative;
+            box-shadow: 0 0 25px rgba(225, 6, 0, 0.6); transition: all 0.3s ease; position: relative;
         }
         .logo-icon::after {
-            content: '';
-            position: absolute;
-            inset: 0;
+            content: ''; position: absolute; inset: 0;
             background-image: repeating-linear-gradient(45deg, transparent 0, transparent 3px, rgba(255,255,255,0.1) 3px, rgba(255,255,255,0.1) 4px);
         }
-        .logo-icon i { transform: skewX(0deg); position: relative; z-index: 1; }
-        .logo:hover .logo-icon {
-            box-shadow: 0 0 40px rgba(225, 6, 0, 0.9);
-        }
-        .logo .dot {
-            color: var(--red);
-            font-weight: 900;
-            margin: 0 2px;
-        }
+        .logo-icon i { position: relative; z-index: 1; }
+        .logo:hover .logo-icon { box-shadow: 0 0 40px rgba(225, 6, 0, 0.9); }
+        .logo .dot { color: var(--red); font-weight: 900; margin: 0 2px; }
         .season-chip {
-            font-size: 0.6rem;
-            font-weight: 900;
-            letter-spacing: 2px;
-            color: var(--white);
-            background: var(--red);
-            padding: 4px 10px;
-            font-style: normal;
-            clip-path: polygon(6px 0, 100% 0, calc(100% - 6px) 100%, 0 100%);
-            margin-left: 6px;
+            font-size: 0.6rem; font-weight: 900; letter-spacing: 2px; color: var(--white);
+            background: var(--red); padding: 4px 10px; font-style: normal;
+            clip-path: polygon(6px 0, 100% 0, calc(100% - 6px) 100%, 0 100%); margin-left: 6px;
         }
         .season-chip.new {
-            background: var(--white);
-            color: var(--carbon);
+            background: var(--white); color: var(--carbon);
             animation: chipPulse 2s ease-in-out infinite;
         }
         @keyframes chipPulse {
@@ -234,634 +120,299 @@
 
         .nav-links { display: flex; gap: 2px; flex-wrap: wrap; }
         .nav-link {
-            color: var(--muted);
-            text-decoration: none;
-            font-weight: 800;
-            padding: 0.5rem 0.9rem;
-            transition: all 0.2s ease;
-            font-size: 0.66rem;
-            text-transform: uppercase;
-            letter-spacing: 1.4px;
-            border: 1px solid transparent;
-            clip-path: polygon(4px 0, 100% 0, calc(100% - 4px) 100%, 0 100%);
-            font-style: italic;
+            color: var(--muted); text-decoration: none; font-weight: 800;
+            padding: 0.5rem 0.85rem; transition: all 0.2s ease; font-size: 0.64rem;
+            text-transform: uppercase; letter-spacing: 1.3px; border: 1px solid transparent;
+            clip-path: polygon(4px 0, 100% 0, calc(100% - 4px) 100%, 0 100%); font-style: italic;
         }
-        .nav-link:hover {
-            color: var(--white);
-            background: rgba(225, 6, 0, 0.15);
-            border-color: var(--line);
-        }
-        .nav-link.active {
-            color: var(--white);
-            background: var(--red);
-            border-color: var(--red);
-            box-shadow: 0 0 20px rgba(225, 6, 0, 0.5);
-        }
-        .nav-link.memory {
-            color: var(--sector-yellow);
-            border-color: rgba(255, 216, 0, 0.4);
-        }
-        .nav-link.memory.active {
-            background: var(--sector-yellow);
-            color: var(--carbon);
-            border-color: var(--sector-yellow);
-        }
-        .nav-link.rating-link {
-            color: var(--sector-purple);
-            border-color: rgba(176, 38, 255, 0.4);
-        }
-        .nav-link.rating-link.active {
-            background: var(--sector-purple);
-            color: var(--white);
-            border-color: var(--sector-purple);
-        }
+        .nav-link:hover { color: var(--white); background: rgba(225, 6, 0, 0.15); border-color: var(--line); }
+        .nav-link.active { color: var(--white); background: var(--red); border-color: var(--red); box-shadow: 0 0 20px rgba(225, 6, 0, 0.5); }
+        .nav-link.memory { color: var(--yellow); border-color: rgba(255, 216, 0, 0.4); }
+        .nav-link.memory.active { background: var(--yellow); color: var(--carbon); border-color: var(--yellow); }
+        .nav-link.rating-link { color: var(--purple); border-color: rgba(176, 38, 255, 0.4); }
+        .nav-link.rating-link.active { background: var(--purple); color: var(--white); border-color: var(--purple); }
+        .nav-link.history-link { color: var(--blue); border-color: rgba(0, 184, 255, 0.4); }
+        .nav-link.history-link.active { background: var(--blue); color: var(--carbon); border-color: var(--blue); }
+        .nav-link.facts-link { color: var(--green); border-color: rgba(0, 210, 106, 0.4); }
+        .nav-link.facts-link.active { background: var(--green); color: var(--carbon); border-color: var(--green); }
+        .nav-link.rivals-link { color: #ff7b3d; border-color: rgba(255, 123, 61, 0.4); }
+        .nav-link.rivals-link.active { background: #ff7b3d; color: var(--carbon); border-color: #ff7b3d; }
+        .nav-link.compare-link { color: #f472b6; border-color: rgba(244, 114, 182, 0.4); }
+        .nav-link.compare-link.active { background: #f472b6; color: var(--carbon); border-color: #f472b6; }
+        .nav-link.achieve-link { color: #7ed957; border-color: rgba(126, 217, 87, 0.4); }
+        .nav-link.achieve-link.active { background: #7ed957; color: var(--carbon); border-color: #7ed957; }
 
-        /* ============ PAGES ============ */
-        .page {
-            display: none;
-            padding: 8rem 2rem 4rem;
-            max-width: 1400px;
-            margin: 0 auto;
-        }
-        .page.active {
-            display: block;
-            animation: pageSlide 0.5s cubic-bezier(0.2, 0.9, 0.3, 1);
-        }
+        .page { display: none; padding: 8rem 2rem 4rem; max-width: 1400px; margin: 0 auto; }
+        .page.active { display: block; animation: pageSlide 0.5s cubic-bezier(0.2, 0.9, 0.3, 1); }
         @keyframes pageSlide {
             0% { opacity: 0; transform: translateY(20px); }
             100% { opacity: 1; transform: translateY(0); }
         }
 
-        /* ============ BANNER — RACE CONTROL ============ */
         .new-season-banner {
-            background: var(--carbon-2);
-            border: 1px solid var(--line-hi);
-            border-left: 5px solid var(--red);
-            padding: 0.9rem 1.6rem;
-            font-weight: 900;
-            text-transform: uppercase;
-            letter-spacing: 3px;
-            font-size: 0.78rem;
-            color: var(--white);
-            margin-bottom: 1.5rem;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            gap: 12px;
-            position: relative;
-            overflow: hidden;
+            background: var(--carbon-2); border: 1px solid var(--line-hi);
+            border-left: 5px solid var(--red); padding: 0.9rem 1.6rem;
+            font-weight: 900; text-transform: uppercase; letter-spacing: 3px;
+            font-size: 0.78rem; color: var(--white); margin-bottom: 1.5rem;
+            display: flex; align-items: center; justify-content: space-between; gap: 12px;
+            position: relative; overflow: hidden;
             clip-path: polygon(12px 0, 100% 0, 100% calc(100% - 12px), calc(100% - 12px) 100%, 0 100%, 0 12px);
         }
         .new-season-banner::before {
-            content: '';
-            position: absolute;
-            top: 0; right: 0;
-            width: 200px;
-            height: 100%;
-            background-image: repeating-linear-gradient(
-                45deg,
-                transparent 0,
-                transparent 6px,
-                rgba(225, 6, 0, 0.1) 6px,
-                rgba(225, 6, 0, 0.1) 12px
-            );
+            content: ''; position: absolute; top: 0; right: 0; width: 200px; height: 100%;
+            background-image: repeating-linear-gradient(45deg, transparent 0, transparent 6px, rgba(225, 6, 0, 0.1) 6px, rgba(225, 6, 0, 0.1) 12px);
             pointer-events: none;
         }
         .new-season-banner .left { display: flex; align-items: center; gap: 12px; position: relative; z-index: 1; }
         .new-season-banner .right {
-            font-size: 0.62rem;
-            color: var(--sector-green);
-            font-weight: 900;
-            letter-spacing: 2px;
-            position: relative;
-            z-index: 1;
-            font-family: 'Courier New', monospace;
-            animation: blink 1.5s ease-in-out infinite;
+            font-size: 0.62rem; color: var(--green); font-weight: 900;
+            letter-spacing: 2px; position: relative; z-index: 1;
+            font-family: 'Courier New', monospace; animation: blink 1.5s ease-in-out infinite;
         }
-        @keyframes blink {
-            0%, 100% { opacity: 1; }
-            50% { opacity: 0.3; }
-        }
-        .new-season-banner i {
-            color: var(--red);
-            animation: boltFlash 1.5s ease-in-out infinite;
-        }
-        @keyframes boltFlash {
-            0%, 100% { opacity: 1; }
-            50% { opacity: 0.4; }
-        }
+        @keyframes blink { 0%, 100% { opacity: 1; } 50% { opacity: 0.3; } }
+        .new-season-banner i { color: var(--red); animation: boltFlash 1.5s ease-in-out infinite; }
+        @keyframes boltFlash { 0%, 100% { opacity: 1; } 50% { opacity: 0.4; } }
 
-        /* ============ HERO ============ */
         .hero {
             background: linear-gradient(135deg, var(--carbon-2) 0%, var(--carbon-3) 100%);
-            border: 1px solid var(--steel);
-            padding: 3.5rem 2.5rem;
-            position: relative;
-            margin-bottom: 1.5rem;
-            overflow: hidden;
-            display: grid;
-            grid-template-columns: 1fr auto;
-            gap: 2rem;
-            align-items: center;
+            border: 1px solid var(--steel); padding: 3.5rem 2.5rem;
+            position: relative; margin-bottom: 1.5rem; overflow: hidden;
+            display: grid; grid-template-columns: 1fr auto; gap: 2rem; align-items: center;
             clip-path: polygon(20px 0, 100% 0, 100% calc(100% - 20px), calc(100% - 20px) 100%, 0 100%, 0 20px);
         }
         .hero::before {
-            content: '';
-            position: absolute;
-            top: 0; left: 0;
-            width: 100%; height: 3px;
+            content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 3px;
             background: linear-gradient(90deg, var(--red), transparent 60%);
         }
         .hero::after {
-            content: '';
-            position: absolute;
-            top: 20px; right: 20px;
-            width: 80px;
-            height: 80px;
-            border-top: 2px solid var(--red);
-            border-right: 2px solid var(--red);
-            pointer-events: none;
+            content: ''; position: absolute; top: 20px; right: 20px;
+            width: 80px; height: 80px;
+            border-top: 2px solid var(--red); border-right: 2px solid var(--red); pointer-events: none;
         }
         .hero-grid-bg {
-            position: absolute;
-            inset: 0;
+            position: absolute; inset: 0;
             background-image:
                 linear-gradient(rgba(255,255,255,0.02) 1px, transparent 1px),
                 linear-gradient(90deg, rgba(255,255,255,0.02) 1px, transparent 1px);
-            background-size: 40px 40px;
-            pointer-events: none;
+            background-size: 40px 40px; pointer-events: none;
             mask-image: linear-gradient(180deg, #000 0%, transparent 100%);
             -webkit-mask-image: linear-gradient(180deg, #000 0%, transparent 100%);
         }
-
         .hero-content { position: relative; z-index: 1; }
         .hero-number {
-            font-size: 14rem;
-            font-weight: 900;
-            font-style: italic;
-            line-height: 0.75;
-            color: transparent;
-            -webkit-text-stroke: 2px var(--red);
-            text-stroke: 2px var(--red);
-            letter-spacing: -10px;
-            user-select: none;
-            position: relative;
-            z-index: 1;
-            filter: drop-shadow(0 0 30px rgba(225, 6, 0, 0.3));
-            font-family: 'Arial Black', sans-serif;
+            font-size: 14rem; font-weight: 900; font-style: italic; line-height: 0.75;
+            color: transparent; -webkit-text-stroke: 2px var(--red); text-stroke: 2px var(--red);
+            letter-spacing: -10px; user-select: none; position: relative; z-index: 1;
+            filter: drop-shadow(0 0 30px rgba(225, 6, 0, 0.3)); font-family: 'Arial Black', sans-serif;
         }
-
         .hero-badge {
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
-            background: rgba(225, 6, 0, 0.15);
-            border: 1px solid var(--red);
-            padding: 6px 16px;
-            font-weight: 900;
-            text-transform: uppercase;
-            letter-spacing: 2.5px;
-            font-size: 0.64rem;
-            margin-bottom: 1.2rem;
-            color: var(--white);
+            display: inline-flex; align-items: center; gap: 8px;
+            background: rgba(225, 6, 0, 0.15); border: 1px solid var(--red);
+            padding: 6px 16px; font-weight: 900; text-transform: uppercase;
+            letter-spacing: 2.5px; font-size: 0.64rem; margin-bottom: 1.2rem; color: var(--white);
             clip-path: polygon(8px 0, 100% 0, calc(100% - 8px) 100%, 0 100%);
         }
         .hero-badge .dot {
-            width: 8px;
-            height: 8px;
-            border-radius: 50%;
-            background: var(--red-hi);
-            box-shadow: 0 0 10px var(--red-hi);
+            width: 8px; height: 8px; border-radius: 50%;
+            background: var(--red-hi); box-shadow: 0 0 10px var(--red-hi);
             animation: dotPulse 1.2s ease-in-out infinite;
         }
         @keyframes dotPulse {
             0%, 100% { transform: scale(1); opacity: 1; }
             50% { transform: scale(1.5); opacity: 0.5; }
         }
-
         .hero-title {
-            font-size: 4rem;
-            font-weight: 900;
-            text-transform: uppercase;
-            line-height: 0.95;
-            font-style: italic;
-            letter-spacing: -2px;
-            color: var(--white);
-            margin-bottom: 1rem;
+            font-size: 4rem; font-weight: 900; text-transform: uppercase;
+            line-height: 0.95; font-style: italic; letter-spacing: -2px;
+            color: var(--white); margin-bottom: 1rem;
         }
-        .hero-title .accent {
-            color: var(--red);
-        }
-        .hero-title .underline {
-            position: relative;
-            display: inline-block;
-        }
+        .hero-title .accent { color: var(--red); }
+        .hero-title .underline { position: relative; display: inline-block; }
         .hero-title .underline::after {
-            content: '';
-            position: absolute;
-            left: 0; right: 0;
-            bottom: 6px;
-            height: 6px;
-            background: var(--red);
-            z-index: -1;
-            transform: skewX(-20deg);
+            content: ''; position: absolute; left: 0; right: 0; bottom: 6px;
+            height: 6px; background: var(--red); z-index: -1; transform: skewX(-20deg);
         }
         .hero-title small {
-            display: block;
-            font-size: 0.95rem;
-            color: var(--muted);
-            font-style: normal;
-            letter-spacing: 10px;
-            font-weight: 700;
-            margin-top: 1.2rem;
-            text-transform: uppercase;
-            font-family: 'Courier New', monospace;
+            display: block; font-size: 0.95rem; color: var(--muted);
+            font-style: normal; letter-spacing: 10px; font-weight: 700;
+            margin-top: 1.2rem; text-transform: uppercase; font-family: 'Courier New', monospace;
         }
-
         .hero-sub {
-            font-size: 1rem;
-            color: var(--muted);
-            max-width: 640px;
-            margin: 1.2rem 0;
-            line-height: 1.7;
+            font-size: 1rem; color: var(--muted); max-width: 640px;
+            margin: 1.2rem 0; line-height: 1.7;
         }
         .hero-sub strong { color: var(--white); font-weight: 900; }
-        .hero-sub .rose { color: var(--sector-purple); font-weight: 900; }
-
+        .hero-sub .rose { color: var(--purple); font-weight: 900; }
         .cta-btn {
-            display: inline-flex;
-            align-items: center;
-            gap: 10px;
-            background: var(--red);
-            color: var(--white);
-            padding: 14px 32px;
-            font-weight: 900;
-            text-transform: uppercase;
-            letter-spacing: 2.5px;
-            text-decoration: none;
-            font-size: 0.78rem;
-            transition: all 0.25s ease;
-            margin-top: 1rem;
-            clip-path: polygon(12px 0, 100% 0, calc(100% - 12px) 100%, 0 100%);
-            box-shadow: 0 0 30px rgba(225, 6, 0, 0.5);
-            font-style: italic;
+            display: inline-flex; align-items: center; gap: 10px;
+            background: var(--red); color: var(--white); padding: 14px 32px;
+            font-weight: 900; text-transform: uppercase; letter-spacing: 2.5px;
+            text-decoration: none; font-size: 0.78rem; transition: all 0.25s ease;
+            margin-top: 1rem; clip-path: polygon(12px 0, 100% 0, calc(100% - 12px) 100%, 0 100%);
+            box-shadow: 0 0 30px rgba(225, 6, 0, 0.5); font-style: italic;
         }
-        .cta-btn:hover {
-            background: var(--red-hi);
-            box-shadow: 0 0 50px rgba(255, 45, 32, 0.7);
-            transform: translateY(-2px);
-        }
+        .cta-btn:hover { background: var(--red-hi); box-shadow: 0 0 50px rgba(255, 45, 32, 0.7); transform: translateY(-2px); }
         .cta-btn i { transition: transform 0.3s; }
         .cta-btn:hover i { transform: translateX(6px); }
 
-        /* ============ STATS BAR — TELEMETRY ============ */
         .stats-bar {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
-            gap: 1px;
-            margin: 1.5rem 0;
-            background: var(--steel);
-            border: 1px solid var(--steel);
+            display: grid; grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+            gap: 1px; margin: 1.5rem 0; background: var(--steel); border: 1px solid var(--steel);
         }
         .stat-item {
-            background: var(--carbon-2);
-            padding: 1.5rem 1rem;
-            text-align: center;
-            position: relative;
-            transition: all 0.3s ease;
-            overflow: hidden;
+            background: var(--carbon-2); padding: 1.5rem 1rem; text-align: center;
+            position: relative; transition: all 0.3s ease; overflow: hidden;
         }
         .stat-item::before {
-            content: '';
-            position: absolute;
-            top: 0; left: 0;
-            width: 100%; height: 2px;
-            background: var(--red);
-            transform: scaleX(0);
-            transform-origin: left;
-            transition: transform 0.4s;
+            content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 2px;
+            background: var(--red); transform: scaleX(0); transform-origin: left; transition: transform 0.4s;
         }
         .stat-item:hover::before { transform: scaleX(1); }
-        .stat-item:hover {
-            background: var(--carbon-3);
-        }
+        .stat-item:hover { background: var(--carbon-3); }
         .stat-item::after {
-            content: '';
-            position: absolute;
-            bottom: 4px; right: 6px;
-            width: 6px; height: 6px;
-            background: var(--red);
-            clip-path: polygon(0 0, 100% 0, 100% 100%);
-            opacity: 0.5;
+            content: ''; position: absolute; bottom: 4px; right: 6px;
+            width: 6px; height: 6px; background: var(--red);
+            clip-path: polygon(0 0, 100% 0, 100% 100%); opacity: 0.5;
         }
         .stat-number {
-            font-size: 2.8rem;
-            font-weight: 900;
-            font-style: italic;
-            line-height: 1;
-            color: var(--white);
-            letter-spacing: -2px;
-            font-family: 'Arial Black', sans-serif;
+            font-size: 2.8rem; font-weight: 900; font-style: italic; line-height: 1;
+            color: var(--white); letter-spacing: -2px; font-family: 'Arial Black', sans-serif;
         }
         .stat-label {
-            font-size: 0.6rem;
-            text-transform: uppercase;
-            letter-spacing: 2.5px;
-            color: var(--muted);
-            margin-top: 10px;
-            font-weight: 800;
-            font-family: 'Courier New', monospace;
+            font-size: 0.6rem; text-transform: uppercase; letter-spacing: 2.5px;
+            color: var(--muted); margin-top: 10px; font-weight: 800; font-family: 'Courier New', monospace;
         }
 
-        /* ============ LEADER CARD ============ */
         .leader-card {
-            background: var(--carbon-2);
-            border: 1px solid var(--steel);
-            border-left: 5px solid var(--red);
-            padding: 1.8rem 2rem;
-            display: grid;
-            grid-template-columns: 1fr auto;
-            gap: 2rem;
-            align-items: center;
-            position: relative;
-            overflow: hidden;
+            background: var(--carbon-2); border: 1px solid var(--steel);
+            border-left: 5px solid var(--red); padding: 1.8rem 2rem;
+            display: grid; grid-template-columns: 1fr auto; gap: 2rem; align-items: center;
+            position: relative; overflow: hidden;
             clip-path: polygon(0 0, 100% 0, calc(100% - 20px) 100%, 0 100%);
         }
         .leader-card::before {
-            content: '01';
-            position: absolute;
-            top: 10px; right: 30px;
-            font-size: 8rem;
-            font-weight: 900;
-            font-style: italic;
-            color: rgba(225, 6, 0, 0.06);
-            line-height: 1;
-            pointer-events: none;
-            font-family: 'Arial Black', sans-serif;
-            letter-spacing: -8px;
+            content: '01'; position: absolute; top: 10px; right: 30px;
+            font-size: 8rem; font-weight: 900; font-style: italic;
+            color: rgba(225, 6, 0, 0.06); line-height: 1; pointer-events: none;
+            font-family: 'Arial Black', sans-serif; letter-spacing: -8px;
         }
         .leader-card .label {
-            font-size: 0.62rem;
-            color: var(--red);
-            letter-spacing: 3px;
-            font-weight: 900;
-            text-transform: uppercase;
-            font-family: 'Courier New', monospace;
+            font-size: 0.62rem; color: var(--red); letter-spacing: 3px;
+            font-weight: 900; text-transform: uppercase; font-family: 'Courier New', monospace;
         }
         .leader-card h3 {
-            color: var(--white);
-            font-size: 1.5rem;
-            font-weight: 900;
-            font-style: italic;
-            margin-top: 8px;
-            letter-spacing: -0.5px;
+            color: var(--white); font-size: 1.5rem; font-weight: 900;
+            font-style: italic; margin-top: 8px; letter-spacing: -0.5px;
         }
         .leader-card p { color: var(--muted); margin-top: 6px; font-size: 0.88rem; }
         .leader-card .big-number {
-            font-size: 5rem;
-            font-weight: 900;
-            font-style: italic;
-            color: var(--white);
-            line-height: 1;
-            letter-spacing: -3px;
-            font-family: 'Arial Black', sans-serif;
-            position: relative;
-            z-index: 1;
+            font-size: 5rem; font-weight: 900; font-style: italic; color: var(--white);
+            line-height: 1; letter-spacing: -3px; font-family: 'Arial Black', sans-serif;
+            position: relative; z-index: 1;
         }
         .leader-card .big-number::after {
-            content: '';
-            position: absolute;
-            bottom: -4px; left: 0;
-            width: 100%; height: 3px;
-            background: var(--red);
-            transform: skewX(-20deg);
+            content: ''; position: absolute; bottom: -4px; left: 0;
+            width: 100%; height: 3px; background: var(--red); transform: skewX(-20deg);
         }
 
-        /* ============ PAGE TITLE ============ */
         .page-title {
-            font-size: 2.2rem;
-            font-weight: 900;
-            font-style: italic;
-            text-transform: uppercase;
-            letter-spacing: -0.5px;
-            margin-bottom: 1.8rem;
-            color: var(--white);
-            display: flex;
-            align-items: center;
-            gap: 16px;
+            font-size: 2.2rem; font-weight: 900; font-style: italic;
+            text-transform: uppercase; letter-spacing: -0.5px; margin-bottom: 1.8rem;
+            color: var(--white); display: flex; align-items: center; gap: 16px;
         }
         .page-title .icon {
-            width: 48px;
-            height: 48px;
-            background: var(--red);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 1.2rem;
-            font-style: normal;
-            color: var(--white);
+            width: 48px; height: 48px; background: var(--red);
+            display: flex; align-items: center; justify-content: center;
+            font-size: 1.2rem; font-style: normal; color: var(--white);
             clip-path: polygon(0 0, 100% 0, 100% 70%, 70% 100%, 0 100%);
             box-shadow: 0 0 25px rgba(225, 6, 0, 0.5);
         }
-        .page-title .accent {
-            color: var(--red);
-        }
+        .page-title .accent { color: var(--red); }
         .page-title::after {
-            content: '';
-            flex: 1;
-            height: 2px;
-            background: linear-gradient(90deg, var(--red), transparent);
-            margin-left: 8px;
+            content: ''; flex: 1; height: 2px;
+            background: linear-gradient(90deg, var(--red), transparent); margin-left: 8px;
         }
-        .page-title .icon.icon-rating {
-            background: var(--sector-purple);
-            box-shadow: 0 0 25px rgba(176, 38, 255, 0.5);
-        }
+        .page-title .icon.icon-history { background: var(--blue); box-shadow: 0 0 25px rgba(0, 184, 255, 0.5); }
+        .page-title .icon.icon-facts { background: var(--green); box-shadow: 0 0 25px rgba(0, 210, 106, 0.5); }
+        .page-title .icon.icon-rivals { background: #ff7b3d; box-shadow: 0 0 25px rgba(255, 123, 61, 0.5); }
+        .page-title .icon.icon-compare { background: #f472b6; box-shadow: 0 0 25px rgba(244, 114, 182, 0.5); }
+        .page-title .icon.icon-achieve { background: #7ed957; box-shadow: 0 0 25px rgba(126, 217, 87, 0.5); }
+        .page-title .icon.icon-rating { background: var(--purple); box-shadow: 0 0 25px rgba(176, 38, 255, 0.5); }
 
-        /* ============ RACE SELECTOR ============ */
         .race-selector {
-            display: flex;
-            gap: 4px;
-            flex-wrap: wrap;
-            margin-bottom: 1.5rem;
-            padding: 8px;
-            background: var(--carbon-2);
-            border: 1px solid var(--steel);
+            display: flex; gap: 4px; flex-wrap: wrap; margin-bottom: 1.5rem;
+            padding: 8px; background: var(--carbon-2); border: 1px solid var(--steel);
         }
         .race-btn {
-            background: transparent;
-            border: 1px solid var(--steel);
-            padding: 0.5rem 1rem;
-            color: var(--muted);
-            font-weight: 800;
-            cursor: pointer;
-            transition: all 0.2s ease;
-            font-size: 0.66rem;
-            text-transform: uppercase;
-            letter-spacing: 1.2px;
-            font-family: inherit;
-            clip-path: polygon(5px 0, 100% 0, calc(100% - 5px) 100%, 0 100%);
-            font-style: italic;
+            background: transparent; border: 1px solid var(--steel);
+            padding: 0.5rem 1rem; color: var(--muted); font-weight: 800;
+            cursor: pointer; transition: all 0.2s ease; font-size: 0.66rem;
+            text-transform: uppercase; letter-spacing: 1.2px; font-family: inherit;
+            clip-path: polygon(5px 0, 100% 0, calc(100% - 5px) 100%, 0 100%); font-style: italic;
         }
-        .race-btn:hover {
-            color: var(--white);
-            border-color: var(--red);
-            background: rgba(225, 6, 0, 0.1);
-        }
-        .race-btn.active {
-            background: var(--red);
-            color: var(--white);
-            border-color: var(--red);
-            box-shadow: 0 0 20px rgba(225, 6, 0, 0.5);
-        }
+        .race-btn:hover { color: var(--white); border-color: var(--red); background: rgba(225, 6, 0, 0.1); }
+        .race-btn.active { background: var(--red); color: var(--white); border-color: var(--red); box-shadow: 0 0 20px rgba(225, 6, 0, 0.5); }
 
-        /* ============ RACE HEADER ============ */
         .race-header {
-            display: flex;
-            justify-content: space-between;
-            flex-wrap: wrap;
-            align-items: center;
-            margin-bottom: 1.2rem;
-            padding: 1.2rem 1.5rem;
-            background: var(--carbon-2);
-            border: 1px solid var(--steel);
-            border-left: 4px solid var(--red);
-            position: relative;
+            display: flex; justify-content: space-between; flex-wrap: wrap;
+            align-items: center; margin-bottom: 1.2rem; padding: 1.2rem 1.5rem;
+            background: var(--carbon-2); border: 1px solid var(--steel);
+            border-left: 4px solid var(--red); position: relative;
         }
-        .race-header h3 {
-            font-size: 1.25rem;
-            font-weight: 900;
-            font-style: italic;
-            text-transform: uppercase;
-            letter-spacing: 1.2px;
-            color: var(--white);
-        }
-        .race-header .race-date {
-            color: var(--red);
-            font-weight: 900;
-            font-size: 0.72rem;
-            letter-spacing: 2px;
-            font-style: italic;
-            font-family: 'Courier New', monospace;
-        }
+        .race-header h3 { font-size: 1.25rem; font-weight: 900; font-style: italic; text-transform: uppercase; letter-spacing: 1.2px; color: var(--white); }
+        .race-header .race-date { color: var(--red); font-weight: 900; font-size: 0.72rem; letter-spacing: 2px; font-style: italic; font-family: 'Courier New', monospace; }
 
-        /* ============ RESULTS TABLE ============ */
-        .results-table {
-            width: 100%;
-            border-collapse: collapse;
-            font-size: 0.88rem;
-            background: var(--carbon-2);
-            border: 1px solid var(--steel);
-        }
+        .results-table { width: 100%; border-collapse: collapse; font-size: 0.88rem; background: var(--carbon-2); border: 1px solid var(--steel); }
         .results-table th {
-            text-align: left;
-            padding: 0.9rem 1rem;
-            background: var(--carbon-4);
-            font-weight: 900;
-            text-transform: uppercase;
-            letter-spacing: 1.8px;
-            color: var(--white);
-            border-bottom: 2px solid var(--red);
-            font-size: 0.62rem;
+            text-align: left; padding: 0.9rem 1rem; background: var(--carbon-4);
+            font-weight: 900; text-transform: uppercase; letter-spacing: 1.8px;
+            color: var(--white); border-bottom: 2px solid var(--red); font-size: 0.62rem;
             font-family: 'Courier New', monospace;
         }
-        .results-table td {
-            padding: 0.8rem 1rem;
-            border-bottom: 1px solid var(--steel);
-            color: var(--text);
-        }
+        .results-table td { padding: 0.8rem 1rem; border-bottom: 1px solid var(--steel); color: var(--text); }
         .results-table tr:last-child td { border-bottom: none; }
         .results-table tbody tr { transition: all 0.2s; }
-        .results-table tbody tr:hover {
-            background: var(--carbon-3);
-        }
-        .results-table tbody tr:hover td:first-child {
-            box-shadow: inset 4px 0 0 var(--red);
-        }
+        .results-table tbody tr:hover { background: var(--carbon-3); }
+        .results-table tbody tr:hover td:first-child { box-shadow: inset 4px 0 0 var(--red); }
 
         .pos {
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            width: 36px;
-            height: 36px;
-            font-weight: 900;
-            font-size: 0.88rem;
-            font-style: italic;
-            background: var(--carbon-4);
-            color: var(--text);
+            display: inline-flex; align-items: center; justify-content: center;
+            width: 36px; height: 36px; font-weight: 900; font-size: 0.88rem;
+            font-style: italic; background: var(--carbon-4); color: var(--text);
             border: 1px solid var(--steel-hi);
             clip-path: polygon(0 0, 100% 0, 100% 70%, 70% 100%, 0 100%);
             font-family: 'Arial Black', sans-serif;
         }
-        .pos.p1 {
-            background: var(--red);
-            color: var(--white);
-            border-color: var(--red);
-            box-shadow: 0 0 15px rgba(225, 6, 0, 0.6);
-        }
-        .pos.p2 {
-            background: var(--silver);
-            color: var(--carbon);
-            border-color: var(--silver);
-        }
-        .pos.p3 {
-            background: var(--sector-yellow);
-            color: var(--carbon);
-            border-color: var(--sector-yellow);
-        }
+        .pos.p1 { background: var(--red); color: var(--white); border-color: var(--red); box-shadow: 0 0 15px rgba(225, 6, 0, 0.6); }
+        .pos.p2 { background: var(--silver); color: var(--carbon); border-color: var(--silver); }
+        .pos.p3 { background: var(--yellow); color: var(--carbon); border-color: var(--yellow); }
 
         .dnf-tag, .dsq-tag {
-            display: inline-block;
-            padding: 3px 10px;
-            font-weight: 900;
-            font-size: 0.6rem;
-            letter-spacing: 1.5px;
-            text-transform: uppercase;
+            display: inline-block; padding: 3px 10px; font-weight: 900;
+            font-size: 0.6rem; letter-spacing: 1.5px; text-transform: uppercase;
             clip-path: polygon(4px 0, 100% 0, calc(100% - 4px) 100%, 0 100%);
             font-family: 'Courier New', monospace;
         }
-        .dnf-tag {
-            background: var(--sector-yellow);
-            color: var(--carbon);
-        }
-        .dsq-tag {
-            background: var(--carbon-4);
-            color: var(--red);
-            border: 1px solid var(--red);
-        }
+        .dnf-tag { background: var(--yellow); color: var(--carbon); }
+        .dsq-tag { background: var(--carbon-4); color: var(--red); border: 1px solid var(--red); }
 
         .qualy-tag {
-            font-size: 0.58rem;
-            color: var(--muted);
-            margin-left: 8px;
-            padding: 2px 6px;
-            background: var(--carbon-4);
-            border: 1px solid var(--steel);
-            font-weight: 800;
-            display: inline-block;
-            font-style: italic;
+            font-size: 0.58rem; color: var(--muted); margin-left: 8px;
+            padding: 2px 6px; background: var(--carbon-4); border: 1px solid var(--steel);
+            font-weight: 800; display: inline-block; font-style: italic;
             font-family: 'Courier New', monospace;
         }
         .fl-tag {
-            display: inline-block;
-            margin-left: 8px;
-            padding: 2px 8px;
-            font-size: 0.54rem;
-            font-weight: 900;
-            letter-spacing: 1px;
-            background: var(--sector-purple);
-            color: var(--white);
-            text-transform: uppercase;
-            animation: flPulse 2s ease-in-out infinite;
-            font-family: 'Courier New', monospace;
+            display: inline-block; margin-left: 8px; padding: 2px 8px;
+            font-size: 0.54rem; font-weight: 900; letter-spacing: 1px;
+            background: var(--purple); color: var(--white); text-transform: uppercase;
+            animation: flPulse 2s ease-in-out infinite; font-family: 'Courier New', monospace;
         }
         @keyframes flPulse {
             0%, 100% { box-shadow: 0 0 8px rgba(176, 38, 255, 0.5); }
             50% { box-shadow: 0 0 20px rgba(176, 38, 255, 0.9); }
         }
 
-        /* ============ TEAM COLORS ============ */
         .team-mercedes { color: #00d2be !important; }
         .team-mclaren { color: #ff8700 !important; }
         .team-redbull { color: #4d7cff !important; }
@@ -871,608 +422,287 @@
         .team-cadillac { color: #a0a0a0 !important; }
         .team-alpine { color: #ff87bc !important; }
 
-        /* ============ STANDINGS — TIMING TOWER ============ */
         .standings-grid {
-            display: flex;
-            flex-direction: column;
-            gap: 2px;
-            max-width: 900px;
-            background: var(--steel);
-            border: 1px solid var(--steel);
+            display: flex; flex-direction: column; gap: 2px;
+            max-width: 900px; background: var(--steel); border: 1px solid var(--steel);
         }
         .standing-box {
-            background: var(--carbon-2);
-            display: grid;
-            grid-template-columns: 60px 1fr auto;
-            align-items: stretch;
-            min-height: 82px;
-            transition: all 0.25s ease;
-            position: relative;
-            overflow: hidden;
+            background: var(--carbon-2); display: grid;
+            grid-template-columns: 60px 1fr auto; align-items: stretch;
+            min-height: 82px; transition: all 0.25s ease; position: relative; overflow: hidden;
         }
         .standing-box::before {
-            content: '';
-            position: absolute;
-            left: 0; top: 0; bottom: 0;
-            width: 3px;
-            background: transparent;
-            transition: background 0.3s;
+            content: ''; position: absolute; left: 0; top: 0; bottom: 0;
+            width: 3px; background: transparent; transition: background 0.3s;
         }
-        .standing-box:hover::before {
-            background: var(--red);
-        }
-        .standing-box:hover {
-            background: var(--carbon-3);
-        }
-        .standing-box.rank-1 {
-            background: linear-gradient(90deg, rgba(225, 6, 0, 0.15), var(--carbon-2) 60%);
-        }
+        .standing-box:hover::before { background: var(--red); }
+        .standing-box:hover { background: var(--carbon-3); }
+        .standing-box.rank-1 { background: linear-gradient(90deg, rgba(225, 6, 0, 0.15), var(--carbon-2) 60%); }
         .standing-box.rank-1::before { background: var(--red); width: 4px; }
         .standing-box.rank-2::before { background: var(--silver); }
-        .standing-box.rank-3::before { background: var(--sector-yellow); }
+        .standing-box.rank-3::before { background: var(--yellow); }
 
         .standing-rank {
-            background: var(--carbon-4);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 1.7rem;
-            font-weight: 900;
-            font-style: italic;
-            color: var(--muted);
-            letter-spacing: -2px;
-            border-right: 1px solid var(--steel);
-            font-family: 'Arial Black', sans-serif;
+            background: var(--carbon-4); display: flex; align-items: center;
+            justify-content: center; font-size: 1.7rem; font-weight: 900;
+            font-style: italic; color: var(--muted); letter-spacing: -2px;
+            border-right: 1px solid var(--steel); font-family: 'Arial Black', sans-serif;
         }
-        .standing-box.rank-1 .standing-rank {
-            background: var(--red);
-            color: var(--white);
-        }
-        .standing-box.rank-2 .standing-rank {
-            background: var(--silver);
-            color: var(--carbon);
-        }
-        .standing-box.rank-3 .standing-rank {
-            background: var(--sector-yellow);
-            color: var(--carbon);
-        }
+        .standing-box.rank-1 .standing-rank { background: var(--red); color: var(--white); }
+        .standing-box.rank-2 .standing-rank { background: var(--silver); color: var(--carbon); }
+        .standing-box.rank-3 .standing-rank { background: var(--yellow); color: var(--carbon); }
 
         .standing-info {
-            padding: 12px 16px;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            gap: 4px;
-            min-width: 0;
+            padding: 12px 16px; display: flex; flex-direction: column;
+            justify-content: center; gap: 4px; min-width: 0;
         }
         .standing-name {
-            font-weight: 900;
-            font-size: 0.98rem;
-            white-space: nowrap;
-            overflow: hidden;
-            text-overflow: ellipsis;
-            font-style: italic;
-            color: var(--white);
+            font-weight: 900; font-size: 0.98rem; white-space: nowrap;
+            overflow: hidden; text-overflow: ellipsis; font-style: italic; color: var(--white);
         }
-        .standing-name .num {
-            color: var(--muted);
-            font-weight: 800;
-            font-size: 0.72rem;
-            margin-left: 6px;
-            font-style: normal;
-            font-family: 'Courier New', monospace;
-        }
+        .standing-name .num { color: var(--muted); font-weight: 800; font-size: 0.72rem; margin-left: 6px; font-style: normal; font-family: 'Courier New', monospace; }
         .standing-team {
-            font-size: 0.62rem;
-            color: var(--muted);
-            text-transform: uppercase;
-            letter-spacing: 1.2px;
-            font-weight: 700;
-            white-space: nowrap;
-            overflow: hidden;
-            text-overflow: ellipsis;
+            font-size: 0.62rem; color: var(--muted); text-transform: uppercase;
+            letter-spacing: 1.2px; font-weight: 700; white-space: nowrap;
+            overflow: hidden; text-overflow: ellipsis;
         }
         .standing-tag {
-            display: inline-block;
-            background: var(--red);
-            color: var(--white);
-            font-size: 0.48rem;
-            font-weight: 900;
-            padding: 2px 6px;
-            letter-spacing: 1px;
-            text-transform: uppercase;
-            margin-left: 6px;
-            vertical-align: middle;
-            font-style: normal;
-            font-family: 'Courier New', monospace;
+            display: inline-block; background: var(--red); color: var(--white);
+            font-size: 0.48rem; font-weight: 900; padding: 2px 6px;
+            letter-spacing: 1px; text-transform: uppercase; margin-left: 6px;
+            vertical-align: middle; font-style: normal; font-family: 'Courier New', monospace;
         }
-        .standing-tag.white {
-            background: var(--sector-yellow);
-            color: var(--carbon);
-        }
-
+        .standing-tag.white { background: var(--yellow); color: var(--carbon); }
         .standing-points {
-            background: var(--carbon-4);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 1.4rem;
-            font-weight: 900;
-            font-style: italic;
-            color: var(--white);
-            padding: 0 18px;
-            letter-spacing: -1px;
-            border-left: 1px solid var(--steel);
-            min-width: 90px;
-            font-family: 'Arial Black', sans-serif;
+            background: var(--carbon-4); display: flex; align-items: center;
+            justify-content: center; font-size: 1.4rem; font-weight: 900;
+            font-style: italic; color: var(--white); padding: 0 18px;
+            letter-spacing: -1px; border-left: 1px solid var(--steel);
+            min-width: 90px; font-family: 'Arial Black', sans-serif;
         }
-        .standing-box.rank-1 .standing-points {
-            color: var(--red-hi);
-        }
+        .standing-box.rank-1 .standing-points { color: var(--red-hi); }
 
-        /* ============ TEAMS ============ */
         .teams-grid {
-            display: flex;
-            flex-direction: column;
-            gap: 2px;
-            max-width: 900px;
-            background: var(--steel);
-            border: 1px solid var(--steel);
+            display: flex; flex-direction: column; gap: 2px;
+            max-width: 900px; background: var(--steel); border: 1px solid var(--steel);
         }
         .team-box {
-            background: var(--carbon-2);
-            display: grid;
-            grid-template-columns: 60px 1fr auto;
-            align-items: stretch;
-            min-height: 82px;
-            transition: all 0.25s ease;
-            position: relative;
-            overflow: hidden;
+            background: var(--carbon-2); display: grid;
+            grid-template-columns: 60px 1fr auto; align-items: stretch;
+            min-height: 82px; transition: all 0.25s ease; position: relative; overflow: hidden;
         }
         .team-box::before {
-            content: '';
-            position: absolute;
-            left: 0; top: 0; bottom: 0;
-            width: 3px;
-            background: transparent;
-            transition: background 0.3s;
+            content: ''; position: absolute; left: 0; top: 0; bottom: 0;
+            width: 3px; background: transparent; transition: background 0.3s;
         }
         .team-box:hover::before { background: var(--red); }
         .team-box:hover { background: var(--carbon-3); }
-        .team-box.rank-1 {
-            background: linear-gradient(90deg, rgba(225, 6, 0, 0.15), var(--carbon-2) 60%);
-        }
+        .team-box.rank-1 { background: linear-gradient(90deg, rgba(225, 6, 0, 0.15), var(--carbon-2) 60%); }
         .team-box.rank-1::before { background: var(--red); width: 4px; }
         .team-box.champion-team::after {
-            content: '';
-            position: absolute;
-            inset: 0;
+            content: ''; position: absolute; inset: 0;
             background-image: repeating-linear-gradient(45deg, transparent 0, transparent 20px, rgba(225, 6, 0, 0.04) 20px, rgba(225, 6, 0, 0.04) 40px);
             pointer-events: none;
         }
         .team-rank {
-            background: var(--carbon-4);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 1.7rem;
-            font-weight: 900;
-            font-style: italic;
-            color: var(--muted);
-            border-right: 1px solid var(--steel);
+            background: var(--carbon-4); display: flex; align-items: center;
+            justify-content: center; font-size: 1.7rem; font-weight: 900;
+            font-style: italic; color: var(--muted); border-right: 1px solid var(--steel);
             font-family: 'Arial Black', sans-serif;
         }
         .team-box.rank-1 .team-rank { background: var(--red); color: var(--white); }
         .team-box.rank-2 .team-rank { background: var(--silver); color: var(--carbon); }
-        .team-box.rank-3 .team-rank { background: var(--sector-yellow); color: var(--carbon); }
+        .team-box.rank-3 .team-rank { background: var(--yellow); color: var(--carbon); }
         .team-info {
-            padding: 12px 16px;
-            display: flex;
-            align-items: center;
-            font-weight: 900;
-            font-size: 0.92rem;
-            flex-wrap: wrap;
-            gap: 8px;
-            font-style: italic;
-            color: var(--white);
-            position: relative;
-            z-index: 1;
+            padding: 12px 16px; display: flex; align-items: center;
+            font-weight: 900; font-size: 0.92rem; flex-wrap: wrap; gap: 8px;
+            font-style: italic; color: var(--white); position: relative; z-index: 1;
         }
-        .champ-crown {
-            color: var(--sector-yellow);
-            font-size: 1.1rem;
-            animation: crownBob 2s ease-in-out infinite;
-        }
+        .champ-crown { color: var(--yellow); font-size: 1.1rem; animation: crownBob 2s ease-in-out infinite; }
         @keyframes crownBob {
             0%, 100% { transform: translateY(0) rotate(-5deg); }
             50% { transform: translateY(-3px) rotate(5deg); }
         }
         .champ-tag {
-            background: var(--sector-yellow);
-            color: var(--carbon);
-            font-size: 0.5rem;
-            font-weight: 900;
-            padding: 3px 8px;
-            letter-spacing: 1.5px;
-            text-transform: uppercase;
-            font-family: 'Courier New', monospace;
+            background: var(--yellow); color: var(--carbon);
+            font-size: 0.5rem; font-weight: 900; padding: 3px 8px;
+            letter-spacing: 1.5px; text-transform: uppercase; font-family: 'Courier New', monospace;
         }
         .team-points-box {
-            background: var(--carbon-4);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 1.4rem;
-            font-weight: 900;
-            font-style: italic;
-            color: var(--white);
-            padding: 0 18px;
-            border-left: 1px solid var(--steel);
-            min-width: 90px;
+            background: var(--carbon-4); display: flex; align-items: center;
+            justify-content: center; font-size: 1.4rem; font-weight: 900;
+            font-style: italic; color: var(--white); padding: 0 18px;
+            border-left: 1px solid var(--steel); min-width: 90px;
             font-family: 'Arial Black', sans-serif;
         }
         .team-box.rank-1 .team-points-box { color: var(--red-hi); }
 
-        /* ============ WINNERS ============ */
         .winners-header {
-            text-align: left;
-            padding: 1.4rem 1.8rem;
-            background: var(--carbon-2);
-            border: 1px solid var(--steel);
-            border-left: 4px solid var(--red);
-            margin-bottom: 1.2rem;
-            position: relative;
-            overflow: hidden;
+            text-align: left; padding: 1.4rem 1.8rem; background: var(--carbon-2);
+            border: 1px solid var(--steel); border-left: 4px solid var(--red);
+            margin-bottom: 1.2rem; position: relative; overflow: hidden;
         }
         .winners-header::before {
-            content: '';
-            position: absolute;
-            top: 0; right: 0;
-            width: 150px;
-            height: 100%;
+            content: ''; position: absolute; top: 0; right: 0; width: 150px; height: 100%;
             background-image: repeating-linear-gradient(45deg, transparent 0, transparent 8px, rgba(225, 6, 0, 0.08) 8px, rgba(225, 6, 0, 0.08) 16px);
         }
         .winners-header h1 {
-            font-size: 1.6rem;
-            font-weight: 900;
-            font-style: italic;
-            text-transform: uppercase;
-            letter-spacing: 2px;
-            color: var(--white);
-            position: relative;
-            z-index: 1;
+            font-size: 1.6rem; font-weight: 900; font-style: italic;
+            text-transform: uppercase; letter-spacing: 2px; color: var(--white);
+            position: relative; z-index: 1;
         }
         .winners-header h1 .accent { color: var(--red); }
         .winners-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
             gap: 8px;
         }
         .winner-card {
-            background: var(--carbon-2);
-            border: 1px solid var(--steel);
-            border-left: 4px solid var(--red);
-            padding: 1rem 1.2rem;
-            display: flex;
-            align-items: center;
-            gap: 1rem;
-            transition: all 0.25s ease;
-            position: relative;
-            overflow: hidden;
+            background: var(--carbon-2); border: 1px solid var(--steel);
+            border-left: 4px solid var(--red); padding: 1rem 1.2rem;
+            display: flex; align-items: center; gap: 1rem;
+            transition: all 0.25s ease; position: relative; overflow: hidden;
         }
-        .winner-card:hover {
-            background: var(--carbon-3);
-            border-left-width: 6px;
-        }
+        .winner-card:hover { background: var(--carbon-3); border-left-width: 6px; }
         .winner-icon {
-            width: 44px;
-            height: 44px;
-            background: var(--red);
-            color: var(--white);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 1.1rem;
-            flex-shrink: 0;
+            width: 44px; height: 44px; background: var(--red); color: var(--white);
+            display: flex; align-items: center; justify-content: center;
+            font-size: 1.1rem; flex-shrink: 0;
             clip-path: polygon(0 0, 100% 0, 100% 70%, 70% 100%, 0 100%);
             transition: all 0.3s;
         }
-        .winner-card:hover .winner-icon {
-            transform: rotate(-6deg) scale(1.05);
-        }
+        .winner-card:hover .winner-icon { transform: rotate(-6deg) scale(1.05); }
         .winner-race {
-            font-weight: 900;
-            font-size: 0.86rem;
-            text-transform: uppercase;
-            letter-spacing: 0.8px;
-            font-style: italic;
-            color: var(--white);
+            font-weight: 900; font-size: 0.86rem; text-transform: uppercase;
+            letter-spacing: 0.8px; font-style: italic; color: var(--white);
         }
-        .winner-name {
-            font-size: 0.78rem;
-            color: var(--muted);
-            font-weight: 700;
-            margin-top: 3px;
-        }
+        .winner-name { font-size: 0.78rem; color: var(--muted); font-weight: 700; margin-top: 3px; }
 
-        /* ============ TIMELINE ============ */
         .timeline-item {
-            background: var(--carbon-2);
-            border: 1px solid var(--steel);
-            border-left: 3px solid var(--steel-hi);
-            padding: 0.9rem 1.4rem;
-            margin-bottom: 4px;
-            display: flex;
-            align-items: center;
-            gap: 1rem;
-            flex-wrap: wrap;
-            transition: all 0.25s ease;
+            background: var(--carbon-2); border: 1px solid var(--steel);
+            border-left: 3px solid var(--steel-hi); padding: 0.9rem 1.4rem;
+            margin-bottom: 4px; display: flex; align-items: center;
+            gap: 1rem; flex-wrap: wrap; transition: all 0.25s ease;
         }
-        .timeline-item:hover {
-            background: var(--carbon-3);
-            border-left-color: var(--red);
-        }
+        .timeline-item:hover { background: var(--carbon-3); border-left-color: var(--red); }
         .timeline-item.final {
             border-left-color: var(--red);
             background: linear-gradient(90deg, rgba(225, 6, 0, 0.08), var(--carbon-2));
         }
         .timeline-date {
-            font-weight: 900;
-            color: var(--red);
-            min-width: 90px;
-            font-size: 0.8rem;
-            letter-spacing: 1px;
-            font-style: italic;
+            font-weight: 900; color: var(--red); min-width: 90px;
+            font-size: 0.8rem; letter-spacing: 1px; font-style: italic;
             font-family: 'Courier New', monospace;
         }
-        .timeline-name {
-            font-weight: 800;
-            flex: 1;
-            font-style: italic;
-            color: var(--white);
-        }
+        .timeline-name { font-weight: 800; flex: 1; font-style: italic; color: var(--white); }
         .status-pill {
-            padding: 4px 12px;
-            font-size: 0.6rem;
-            font-weight: 900;
-            letter-spacing: 1.5px;
-            text-transform: uppercase;
-            margin-left: auto;
-            font-style: italic;
-            font-family: 'Courier New', monospace;
+            padding: 4px 12px; font-size: 0.6rem; font-weight: 900;
+            letter-spacing: 1.5px; text-transform: uppercase; margin-left: auto;
+            font-style: italic; font-family: 'Courier New', monospace;
         }
-        .status-done {
-            background: var(--carbon-4);
-            color: var(--muted);
-            border: 1px solid var(--steel);
-        }
-        .status-champ {
-            background: var(--red);
-            color: var(--white);
-        }
-        .status-upcoming {
-            background: var(--sector-blue);
-            color: var(--carbon);
-        }
+        .status-done { background: var(--carbon-4); color: var(--muted); border: 1px solid var(--steel); }
+        .status-champ { background: var(--red); color: var(--white); }
+        .status-upcoming { background: var(--blue); color: var(--carbon); }
 
-        /* ============ RECORDS ============ */
         .records-section { margin-bottom: 2.5rem; }
         .records-section-title {
-            font-size: 0.8rem;
-            font-weight: 900;
-            text-transform: uppercase;
-            letter-spacing: 3.5px;
-            margin-bottom: 1rem;
-            padding-left: 18px;
-            position: relative;
-            color: var(--red);
-            font-style: italic;
+            font-size: 0.8rem; font-weight: 900; text-transform: uppercase;
+            letter-spacing: 3.5px; margin-bottom: 1rem; padding-left: 18px;
+            position: relative; color: var(--red); font-style: italic;
             font-family: 'Courier New', monospace;
         }
         .records-section-title::before {
-            content: '';
-            position: absolute;
-            left: 0; top: 50%;
-            transform: translateY(-50%);
-            width: 4px;
-            height: 60%;
-            background: var(--red);
+            content: ''; position: absolute; left: 0; top: 50%;
+            transform: translateY(-50%); width: 4px; height: 60%; background: var(--red);
         }
-        .records-section-title.anti { color: var(--sector-yellow); }
-        .records-section-title.anti::before { background: var(--sector-yellow); }
+        .records-section-title.anti { color: var(--yellow); }
+        .records-section-title.anti::before { background: var(--yellow); }
         .record-card {
-            background: var(--carbon-2);
-            border: 1px solid var(--steel);
-            border-left: 3px solid var(--red);
-            padding: 1.1rem 1.4rem;
-            margin-bottom: 4px;
-            transition: all 0.25s ease;
+            background: var(--carbon-2); border: 1px solid var(--steel);
+            border-left: 3px solid var(--red); padding: 1.1rem 1.4rem;
+            margin-bottom: 4px; transition: all 0.25s ease;
         }
-        .record-card.anti-record { border-left-color: var(--sector-yellow); }
-        .record-card:hover {
-            background: var(--carbon-3);
-            border-left-width: 5px;
-        }
+        .record-card.anti-record { border-left-color: var(--yellow); }
+        .record-card:hover { background: var(--carbon-3); border-left-width: 5px; }
         .record-title {
-            font-weight: 900;
-            color: var(--red);
-            font-size: 0.64rem;
-            text-transform: uppercase;
-            letter-spacing: 2px;
-            font-style: italic;
+            font-weight: 900; color: var(--red); font-size: 0.64rem;
+            text-transform: uppercase; letter-spacing: 2px; font-style: italic;
             font-family: 'Courier New', monospace;
         }
-        .record-card.anti-record .record-title { color: var(--sector-yellow); }
-        .record-value {
-            font-size: 1rem;
-            margin-top: 6px;
-            font-weight: 700;
-            color: var(--white);
-        }
+        .record-card.anti-record .record-title { color: var(--yellow); }
+        .record-value { font-size: 1rem; margin-top: 6px; font-weight: 700; color: var(--white); }
 
-        /* ============ RATING PAGE ============ */
         .rating-intro {
-            background: var(--carbon-2);
-            border: 1px solid var(--steel);
-            border-left: 4px solid var(--sector-purple);
-            padding: 1.6rem 2rem;
-            margin-bottom: 1.5rem;
-            display: grid;
-            grid-template-columns: 1fr auto;
-            gap: 2rem;
-            align-items: center;
-            position: relative;
-            overflow: hidden;
+            background: var(--carbon-2); border: 1px solid var(--steel);
+            border-left: 4px solid var(--purple); padding: 1.6rem 2rem;
+            margin-bottom: 1.5rem; display: grid;
+            grid-template-columns: 1fr auto; gap: 2rem; align-items: center;
+            position: relative; overflow: hidden;
         }
         .rating-intro::before {
-            content: '★';
-            position: absolute;
-            top: -30px; right: 20px;
-            font-size: 10rem;
-            color: rgba(176, 38, 255, 0.06);
-            line-height: 1;
-            pointer-events: none;
+            content: '★'; position: absolute; top: -30px; right: 20px;
+            font-size: 10rem; color: rgba(176, 38, 255, 0.06);
+            line-height: 1; pointer-events: none;
         }
         .rating-intro h2 {
-            font-size: 1.2rem;
-            font-weight: 900;
-            font-style: italic;
-            text-transform: uppercase;
-            margin-bottom: 8px;
-            color: var(--white);
-            position: relative;
-            z-index: 1;
+            font-size: 1.2rem; font-weight: 900; font-style: italic;
+            text-transform: uppercase; margin-bottom: 8px; color: var(--white);
+            position: relative; z-index: 1;
         }
-        .rating-intro p {
-            color: var(--muted);
-            font-size: 0.9rem;
-            line-height: 1.6;
-            position: relative;
-            z-index: 1;
-        }
-        .rating-intro .scale {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            gap: 5px;
-            position: relative;
-            z-index: 1;
-        }
-        .rating-intro .scale-min,
-        .rating-intro .scale-max {
-            font-size: 1.5rem;
-            font-weight: 900;
-            font-style: italic;
-            font-family: 'Arial Black', sans-serif;
-        }
+        .rating-intro p { color: var(--muted); font-size: 0.9rem; line-height: 1.6; position: relative; z-index: 1; }
+        .rating-intro .scale { display: flex; flex-direction: column; align-items: center; gap: 5px; position: relative; z-index: 1; }
+        .rating-intro .scale-min, .rating-intro .scale-max { font-size: 1.5rem; font-weight: 900; font-style: italic; font-family: 'Arial Black', sans-serif; }
         .rating-intro .scale-min { color: var(--red); }
-        .rating-intro .scale-max { color: var(--sector-purple); }
-        .rating-intro .scale-bar {
-            width: 90px;
-            height: 6px;
-            background: linear-gradient(90deg, var(--red), var(--sector-yellow), var(--sector-green), var(--sector-blue), var(--sector-purple));
-        }
+        .rating-intro .scale-max { color: var(--purple); }
+        .rating-intro .scale-bar { width: 90px; height: 6px; background: linear-gradient(90deg, var(--red), var(--yellow), var(--green), var(--blue), var(--purple)); }
         .rating-intro .scale-labels {
-            display: flex;
-            justify-content: space-between;
-            width: 90px;
-            font-size: 0.5rem;
-            color: var(--muted);
-            letter-spacing: 1px;
-            font-weight: 800;
-            font-family: 'Courier New', monospace;
+            display: flex; justify-content: space-between; width: 90px;
+            font-size: 0.5rem; color: var(--muted); letter-spacing: 1px;
+            font-weight: 800; font-family: 'Courier New', monospace;
         }
-        .rating-grid {
-            display: flex;
-            flex-direction: column;
-            gap: 4px;
-            max-width: 1000px;
-        }
+        .rating-grid { display: flex; flex-direction: column; gap: 4px; max-width: 1000px; }
         .rating-card {
-            background: var(--carbon-2);
-            border: 1px solid var(--steel);
-            display: grid;
-            grid-template-columns: 60px 1fr 120px;
-            align-items: stretch;
-            min-height: 110px;
-            transition: all 0.25s ease;
-            position: relative;
-            overflow: hidden;
+            background: var(--carbon-2); border: 1px solid var(--steel);
+            display: grid; grid-template-columns: 60px 1fr 120px;
+            align-items: stretch; min-height: 110px;
+            transition: all 0.25s ease; position: relative; overflow: hidden;
         }
-        .rating-card::before {
-            content: '';
-            position: absolute;
-            left: 0; top: 0; bottom: 0;
-            width: 4px;
-            transition: width 0.3s;
-        }
-        .rating-card:hover {
-            background: var(--carbon-3);
-        }
+        .rating-card::before { content: ''; position: absolute; left: 0; top: 0; bottom: 0; width: 4px; transition: width 0.3s; }
+        .rating-card:hover { background: var(--carbon-3); }
         .rating-card:hover::before { width: 6px; }
         .rating-card.tier-goat { background: linear-gradient(90deg, rgba(176, 38, 255, 0.08), var(--carbon-2) 40%); }
-        .rating-card.tier-goat::before { background: var(--sector-purple); }
-        .rating-card.tier-elite::before { background: var(--sector-blue); }
-        .rating-card.tier-excellent::before { background: var(--sector-green); }
-        .rating-card.tier-good::before { background: var(--sector-yellow); }
+        .rating-card.tier-goat::before { background: var(--purple); }
+        .rating-card.tier-elite::before { background: var(--blue); }
+        .rating-card.tier-excellent::before { background: var(--green); }
+        .rating-card.tier-good::before { background: var(--yellow); }
         .rating-card.tier-average::before { background: #f39c12; }
         .rating-card.tier-weak::before { background: #e67e22; }
         .rating-card.tier-poor::before { background: var(--red); }
         .rating-position {
-            background: var(--carbon-4);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 1.7rem;
-            font-weight: 900;
-            font-style: italic;
-            color: var(--muted);
-            border-right: 1px solid var(--steel);
+            background: var(--carbon-4); display: flex; align-items: center;
+            justify-content: center; font-size: 1.7rem; font-weight: 900;
+            font-style: italic; color: var(--muted); border-right: 1px solid var(--steel);
             font-family: 'Arial Black', sans-serif;
         }
-        .rating-card.tier-goat .rating-position {
-            background: var(--sector-purple);
-            color: var(--white);
-        }
-        .rating-info {
-            padding: 14px 18px;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            gap: 5px;
-            min-width: 0;
-        }
+        .rating-card.tier-goat .rating-position { background: var(--purple); color: var(--white); }
+        .rating-info { padding: 14px 18px; display: flex; flex-direction: column; justify-content: center; gap: 5px; min-width: 0; }
         .rating-name {
-            font-weight: 900;
-            font-size: 1.05rem;
-            font-style: italic;
-            color: var(--white);
-            display: flex;
-            align-items: center;
-            gap: 8px;
-            flex-wrap: wrap;
+            font-weight: 900; font-size: 1.05rem; font-style: italic;
+            color: var(--white); display: flex; align-items: center;
+            gap: 8px; flex-wrap: wrap;
         }
         .rating-name .team-label {
-            font-size: 0.62rem;
-            font-weight: 800;
-            color: var(--muted);
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            font-style: normal;
+            font-size: 0.62rem; font-weight: 800; color: var(--muted);
+            text-transform: uppercase; letter-spacing: 1px; font-style: normal;
         }
         .rating-tier-badge {
-            font-size: 0.52rem;
-            font-weight: 900;
-            padding: 2px 8px;
-            letter-spacing: 1.2px;
-            text-transform: uppercase;
-            font-style: normal;
+            font-size: 0.52rem; font-weight: 900; padding: 2px 8px;
+            letter-spacing: 1.2px; text-transform: uppercase; font-style: normal;
             font-family: 'Courier New', monospace;
         }
-        .tier-badge-goat { background: var(--sector-purple); color: var(--white); animation: ratingPulse 2s ease-in-out infinite; }
-        .tier-badge-elite { background: var(--sector-blue); color: var(--carbon); }
-        .tier-badge-excellent { background: var(--sector-green); color: var(--carbon); }
-        .tier-badge-good { background: var(--sector-yellow); color: var(--carbon); }
+        .tier-badge-goat { background: var(--purple); color: var(--white); animation: ratingPulse 2s ease-in-out infinite; }
+        .tier-badge-elite { background: var(--blue); color: var(--carbon); }
+        .tier-badge-excellent { background: var(--green); color: var(--carbon); }
+        .tier-badge-good { background: var(--yellow); color: var(--carbon); }
         .tier-badge-average { background: #f39c12; color: var(--carbon); }
         .tier-badge-weak { background: #e67e22; color: var(--carbon); }
         .tier-badge-poor { background: var(--red); color: var(--white); }
@@ -1481,253 +711,391 @@
             50% { box-shadow: 0 0 20px rgba(176, 38, 255, 0.8); }
         }
         .rating-stats {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 4px 12px;
-            font-size: 0.68rem;
-            color: var(--muted);
-            margin-top: 2px;
+            display: flex; flex-wrap: wrap; gap: 4px 12px;
+            font-size: 0.68rem; color: var(--muted); margin-top: 2px;
             font-family: 'Courier New', monospace;
         }
         .rating-stat { display: inline-flex; align-items: center; gap: 4px; }
         .rating-stat i { color: var(--red); font-size: 0.6rem; }
-        .rating-stat.neg i { color: var(--sector-yellow); }
+        .rating-stat.neg i { color: var(--yellow); }
         .rating-analysis {
-            font-size: 0.74rem;
-            color: var(--silver);
-            line-height: 1.5;
-            margin-top: 4px;
-            padding-top: 5px;
-            border-top: 1px dashed var(--steel);
+            font-size: 0.74rem; color: var(--silver); line-height: 1.5;
+            margin-top: 4px; padding-top: 5px; border-top: 1px dashed var(--steel);
             font-style: italic;
         }
         .rating-score-box {
-            background: var(--carbon-4);
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            padding: 8px;
-            border-left: 1px solid var(--steel);
-            position: relative;
+            background: var(--carbon-4); display: flex; flex-direction: column;
+            align-items: center; justify-content: center; padding: 8px;
+            border-left: 1px solid var(--steel); position: relative;
         }
         .rating-score {
-            font-size: 2.4rem;
-            font-weight: 900;
-            font-style: italic;
-            line-height: 1;
-            letter-spacing: -2px;
-            font-family: 'Arial Black', sans-serif;
+            font-size: 2.4rem; font-weight: 900; font-style: italic;
+            line-height: 1; letter-spacing: -2px; font-family: 'Arial Black', sans-serif;
         }
-        .tier-goat .rating-score { color: var(--sector-purple); }
-        .tier-elite .rating-score { color: var(--sector-blue); }
-        .tier-excellent .rating-score { color: var(--sector-green); }
-        .tier-good .rating-score { color: var(--sector-yellow); }
+        .tier-goat .rating-score { color: var(--purple); }
+        .tier-elite .rating-score { color: var(--blue); }
+        .tier-excellent .rating-score { color: var(--green); }
+        .tier-good .rating-score { color: var(--yellow); }
         .tier-average .rating-score { color: #f39c12; }
         .tier-weak .rating-score { color: #e67e22; }
         .tier-poor .rating-score { color: var(--red); }
         .rating-score-label {
-            font-size: 0.48rem;
-            text-transform: uppercase;
-            letter-spacing: 1.5px;
-            color: var(--muted);
-            font-weight: 800;
-            margin-top: 5px;
+            font-size: 0.48rem; text-transform: uppercase; letter-spacing: 1.5px;
+            color: var(--muted); font-weight: 800; margin-top: 5px;
             font-family: 'Courier New', monospace;
         }
         .rating-score-bar {
-            position: absolute;
-            bottom: 5px;
-            left: 10px;
-            right: 10px;
-            height: 3px;
-            background: rgba(255,255,255,0.06);
-            overflow: hidden;
+            position: absolute; bottom: 5px; left: 10px; right: 10px;
+            height: 3px; background: rgba(255,255,255,0.06); overflow: hidden;
         }
-        .rating-score-bar-fill {
-            height: 100%;
-            animation: barGrow 1.2s cubic-bezier(0.2, 0.9, 0.3, 1) forwards;
-        }
+        .rating-score-bar-fill { height: 100%; animation: barGrow 1.2s cubic-bezier(0.2, 0.9, 0.3, 1) forwards; }
         @keyframes barGrow { from { width: 0; } }
-        .tier-goat .rating-score-bar-fill { background: var(--sector-purple); }
-        .tier-elite .rating-score-bar-fill { background: var(--sector-blue); }
-        .tier-excellent .rating-score-bar-fill { background: var(--sector-green); }
-        .tier-good .rating-score-bar-fill { background: var(--sector-yellow); }
+        .tier-goat .rating-score-bar-fill { background: var(--purple); }
+        .tier-elite .rating-score-bar-fill { background: var(--blue); }
+        .tier-excellent .rating-score-bar-fill { background: var(--green); }
+        .tier-good .rating-score-bar-fill { background: var(--yellow); }
         .tier-average .rating-score-bar-fill { background: #f39c12; }
         .tier-weak .rating-score-bar-fill { background: #e67e22; }
         .tier-poor .rating-score-bar-fill { background: var(--red); }
 
-        /* ============ MEMORY PAGE ============ */
+        /* ============ NEW PAGES ============ */
+        /* HISTORY */
+        .history-timeline {
+            display: flex; flex-direction: column; gap: 12px; max-width: 1000px;
+        }
+        .history-season {
+            background: var(--carbon-2); border: 1px solid var(--steel);
+            border-left: 4px solid var(--blue); padding: 1.6rem 1.8rem;
+            position: relative; overflow: hidden;
+        }
+        .history-season::before {
+            content: attr(data-season);
+            position: absolute; top: 6px; right: 20px;
+            font-size: 5rem; font-weight: 900; font-style: italic;
+            color: rgba(0, 184, 255, 0.06); line-height: 1;
+            font-family: 'Arial Black', sans-serif;
+            letter-spacing: -4px;
+        }
+        .history-season-header {
+            display: flex; align-items: center; gap: 14px;
+            margin-bottom: 1rem; flex-wrap: wrap;
+            position: relative; z-index: 1;
+        }
+        .history-season-badge {
+            background: var(--blue); color: var(--carbon);
+            font-weight: 900; font-size: 0.7rem; padding: 4px 12px;
+            letter-spacing: 2px; text-transform: uppercase; font-style: italic;
+            font-family: 'Courier New', monospace;
+        }
+        .history-season-title {
+            font-size: 1.25rem; font-weight: 900; font-style: italic;
+            color: var(--white); text-transform: uppercase; letter-spacing: 1px;
+        }
+        .history-season-champion {
+            margin-left: auto; color: var(--yellow); font-size: 0.85rem;
+            font-weight: 900; font-style: italic;
+            display: flex; align-items: center; gap: 6px;
+        }
+        .history-events {
+            display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 8px; position: relative; z-index: 1;
+        }
+        .history-event {
+            background: var(--carbon-3); border-left: 2px solid var(--steel-hi);
+            padding: 0.7rem 1rem; font-size: 0.82rem; color: var(--muted);
+            transition: all 0.2s;
+        }
+        .history-event:hover {
+            border-left-color: var(--blue);
+            background: var(--carbon-4);
+        }
+        .history-event strong { color: var(--white); }
+        .history-event .icon { color: var(--blue); margin-right: 6px; font-size: 0.7rem; }
+
+        /* FACTS */
+        .facts-grid {
+            display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 10px;
+        }
+        .fact-card {
+            background: var(--carbon-2); border: 1px solid var(--steel);
+            border-top: 3px solid var(--green); padding: 1.4rem 1.5rem;
+            position: relative; overflow: hidden; transition: all 0.25s;
+            clip-path: polygon(0 0, 100% 0, 100% calc(100% - 14px), calc(100% - 14px) 100%, 0 100%);
+        }
+        .fact-card:hover {
+            background: var(--carbon-3);
+            transform: translateY(-3px);
+            box-shadow: 0 10px 30px rgba(0, 210, 106, 0.15);
+        }
+        .fact-card::before {
+            content: '?'; position: absolute; top: -10px; right: 10px;
+            font-size: 5rem; font-weight: 900; color: rgba(0, 210, 106, 0.08);
+            line-height: 1; font-family: 'Arial Black', sans-serif;
+        }
+        .fact-number {
+            display: inline-block; background: var(--green); color: var(--carbon);
+            font-size: 0.6rem; font-weight: 900; padding: 3px 10px;
+            letter-spacing: 2px; margin-bottom: 10px;
+            font-family: 'Courier New', monospace;
+        }
+        .fact-title {
+            font-size: 1rem; font-weight: 900; font-style: italic;
+            color: var(--white); text-transform: uppercase;
+            letter-spacing: 0.5px; margin-bottom: 8px;
+            position: relative; z-index: 1;
+        }
+        .fact-text {
+            color: var(--muted); font-size: 0.86rem; line-height: 1.6;
+            position: relative; z-index: 1;
+        }
+        .fact-text strong { color: var(--green); font-weight: 900; }
+
+        /* RIVALRIES */
+        .rivals-grid {
+            display: flex; flex-direction: column; gap: 14px; max-width: 1100px;
+        }
+        .rival-card {
+            background: var(--carbon-2); border: 1px solid var(--steel);
+            border-left: 4px solid #ff7b3d; padding: 1.6rem 1.8rem;
+            position: relative; overflow: hidden;
+        }
+        .rival-card::before {
+            content: 'VS'; position: absolute; top: 50%; left: 50%;
+            transform: translate(-50%, -50%);
+            font-size: 10rem; font-weight: 900; font-style: italic;
+            color: rgba(255, 123, 61, 0.05); line-height: 1;
+            font-family: 'Arial Black', sans-serif; pointer-events: none;
+        }
+        .rival-header {
+            display: grid; grid-template-columns: 1fr auto 1fr;
+            gap: 1rem; align-items: center; margin-bottom: 1.2rem;
+            position: relative; z-index: 1;
+        }
+        .rival-side { text-align: center; }
+        .rival-side.left { text-align: right; }
+        .rival-side.right { text-align: left; }
+        .rival-name {
+            font-size: 1.3rem; font-weight: 900; font-style: italic;
+            color: var(--white); text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+        .rival-team {
+            font-size: 0.68rem; color: var(--muted);
+            text-transform: uppercase; letter-spacing: 1.2px;
+            font-weight: 700; margin-top: 4px;
+        }
+        .rival-vs {
+            width: 60px; height: 60px;
+            background: #ff7b3d; color: var(--carbon);
+            display: flex; align-items: center; justify-content: center;
+            font-weight: 900; font-size: 1.1rem; font-style: italic;
+            clip-path: polygon(50% 0, 100% 25%, 100% 75%, 50% 100%, 0 75%, 0 25%);
+            box-shadow: 0 0 20px rgba(255, 123, 61, 0.4);
+            font-family: 'Arial Black', sans-serif;
+        }
+        .rival-desc {
+            background: var(--carbon-3); border-left: 3px solid #ff7b3d;
+            padding: 0.9rem 1.2rem; color: var(--muted);
+            font-size: 0.86rem; line-height: 1.6; position: relative; z-index: 1;
+        }
+        .rival-desc strong { color: var(--white); }
+        .rival-stats {
+            display: flex; justify-content: space-between;
+            margin-top: 1rem; gap: 1rem; position: relative; z-index: 1;
+        }
+        .rival-stat-item {
+            background: var(--carbon-4); padding: 0.6rem 1rem;
+            flex: 1; text-align: center; font-size: 0.74rem;
+            color: var(--muted); border-left: 2px solid var(--steel);
+        }
+        .rival-stat-item strong { color: #ff7b3d; font-size: 1.1rem; display: block; }
+
+        /* COMPARE */
+        .compare-intro {
+            background: var(--carbon-2); border: 1px solid var(--steel);
+            border-left: 4px solid #f472b6; padding: 1.4rem 1.8rem;
+            margin-bottom: 1.5rem; color: var(--muted); font-size: 0.9rem;
+            line-height: 1.6;
+        }
+        .compare-intro strong { color: #f472b6; }
+        .compare-grid {
+            display: grid; grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+            gap: 10px;
+        }
+        .compare-card {
+            background: var(--carbon-2); border: 1px solid var(--steel);
+            border-top: 3px solid #f472b6; padding: 1.3rem;
+            transition: all 0.25s; position: relative; overflow: hidden;
+        }
+        .compare-card:hover { background: var(--carbon-3); transform: translateY(-3px); }
+        .compare-card-header {
+            display: flex; align-items: center; gap: 10px; margin-bottom: 1rem;
+        }
+        .compare-card-rank {
+            width: 38px; height: 38px; background: #f472b6; color: var(--carbon);
+            display: flex; align-items: center; justify-content: center;
+            font-weight: 900; font-size: 1rem; font-style: italic;
+            clip-path: polygon(0 0, 100% 0, 100% 70%, 70% 100%, 0 100%);
+            font-family: 'Arial Black', sans-serif;
+        }
+        .compare-card-name {
+            font-size: 1rem; font-weight: 900; font-style: italic;
+            color: var(--white); text-transform: uppercase;
+        }
+        .compare-card-team {
+            font-size: 0.62rem; color: var(--muted); text-transform: uppercase;
+            letter-spacing: 1px; font-weight: 700;
+        }
+        .compare-bars { display: flex; flex-direction: column; gap: 8px; }
+        .compare-bar {
+            display: grid; grid-template-columns: 60px 1fr 30px;
+            gap: 8px; align-items: center; font-size: 0.7rem;
+            color: var(--muted); font-family: 'Courier New', monospace;
+        }
+        .compare-bar-label { text-align: left; font-weight: 800; text-transform: uppercase; letter-spacing: 0.5px; }
+        .compare-bar-track {
+            height: 8px; background: var(--carbon-4); overflow: hidden;
+        }
+        .compare-bar-fill {
+            height: 100%; background: linear-gradient(90deg, #f472b6, var(--purple));
+            animation: barGrow 1.2s cubic-bezier(0.2, 0.9, 0.3, 1) forwards;
+        }
+        .compare-bar-value {
+            text-align: right; color: var(--white); font-weight: 900; font-style: italic;
+            font-size: 0.82rem;
+        }
+
+        /* ACHIEVEMENTS */
+        .achieve-grid {
+            display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 10px;
+        }
+        .achieve-card {
+            background: var(--carbon-2); border: 1px solid var(--steel);
+            border-left: 4px solid #7ed957; padding: 1.4rem 1.5rem;
+            transition: all 0.25s; position: relative; overflow: hidden;
+            clip-path: polygon(0 0, 100% 0, 100% calc(100% - 14px), calc(100% - 14px) 100%, 0 100%);
+        }
+        .achieve-card:hover { background: var(--carbon-3); transform: translateY(-3px); }
+        .achieve-card::before {
+            content: '🏆'; position: absolute; top: 10px; right: 14px;
+            font-size: 3rem; opacity: 0.1;
+        }
+        .achieve-title {
+            font-size: 0.68rem; font-weight: 900; text-transform: uppercase;
+            letter-spacing: 2px; color: #7ed957; margin-bottom: 10px;
+            font-family: 'Courier New', monospace;
+            display: flex; align-items: center; gap: 8px;
+        }
+        .achieve-title i { font-size: 0.85rem; }
+        .achieve-holder {
+            font-size: 1.15rem; font-weight: 900; font-style: italic;
+            color: var(--white); margin-bottom: 6px;
+        }
+        .achieve-value {
+            font-size: 1.6rem; font-weight: 900; font-style: italic;
+            color: #7ed957; line-height: 1;
+            font-family: 'Arial Black', sans-serif;
+        }
+        .achieve-note {
+            font-size: 0.72rem; color: var(--muted); margin-top: 8px;
+            line-height: 1.5; font-style: italic;
+        }
+
+        /* MEMORY */
         .memory-hero {
-            background: var(--carbon-2);
-            border: 1px solid var(--steel);
-            border-left: 4px solid var(--sector-yellow);
-            padding: 2.5rem;
-            margin-bottom: 1.5rem;
-            position: relative;
-            overflow: hidden;
+            background: var(--carbon-2); border: 1px solid var(--steel);
+            border-left: 4px solid var(--yellow); padding: 2.5rem;
+            margin-bottom: 1.5rem; position: relative; overflow: hidden;
         }
         .memory-hero::before {
-            content: '★';
-            position: absolute;
-            top: -40px; right: 20px;
-            font-size: 12rem;
-            color: rgba(255, 216, 0, 0.05);
-            line-height: 1;
-            pointer-events: none;
+            content: '★'; position: absolute; top: -40px; right: 20px;
+            font-size: 12rem; color: rgba(255, 216, 0, 0.05);
+            line-height: 1; pointer-events: none;
         }
         .memory-title {
-            font-size: 2rem;
-            font-weight: 900;
-            font-style: italic;
-            text-transform: uppercase;
-            letter-spacing: 2px;
-            color: var(--white);
-            margin-bottom: 1rem;
-            position: relative;
-            z-index: 1;
+            font-size: 2rem; font-weight: 900; font-style: italic;
+            text-transform: uppercase; letter-spacing: 2px;
+            color: var(--white); margin-bottom: 1rem;
+            position: relative; z-index: 1;
         }
-        .memory-title .accent { color: var(--sector-yellow); }
+        .memory-title .accent { color: var(--yellow); }
         .memory-sub {
-            color: var(--muted);
-            font-size: 0.95rem;
-            max-width: 700px;
-            position: relative;
-            z-index: 1;
-            line-height: 1.7;
+            color: var(--muted); font-size: 0.95rem; max-width: 700px;
+            position: relative; z-index: 1; line-height: 1.7;
         }
         .memory-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-            gap: 8px;
-            margin-bottom: 1.5rem;
+            display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 8px; margin-bottom: 1.5rem;
         }
         .memory-card {
-            background: var(--carbon-2);
-            border: 1px solid var(--steel);
-            border-left: 3px solid var(--sector-yellow);
-            padding: 1.5rem;
-            position: relative;
-            overflow: hidden;
-            transition: all 0.25s ease;
+            background: var(--carbon-2); border: 1px solid var(--steel);
+            border-left: 3px solid var(--yellow); padding: 1.5rem;
+            position: relative; overflow: hidden; transition: all 0.25s ease;
         }
-        .memory-card:hover {
-            background: var(--carbon-3);
-            border-left-width: 5px;
-        }
+        .memory-card:hover { background: var(--carbon-3); border-left-width: 5px; }
         .memory-card .mem-icon {
-            width: 44px;
-            height: 44px;
-            background: var(--sector-yellow);
-            color: var(--carbon);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 1.2rem;
-            margin-bottom: 1rem;
+            width: 44px; height: 44px; background: var(--yellow);
+            color: var(--carbon); display: flex; align-items: center;
+            justify-content: center; font-size: 1.2rem; margin-bottom: 1rem;
             clip-path: polygon(0 0, 100% 0, 100% 70%, 70% 100%, 0 100%);
         }
         .memory-card h3 {
-            font-size: 1rem;
-            font-weight: 900;
-            font-style: italic;
-            color: var(--white);
-            margin-bottom: 0.5rem;
-            text-transform: uppercase;
-            letter-spacing: 1px;
+            font-size: 1rem; font-weight: 900; font-style: italic;
+            color: var(--white); margin-bottom: 0.5rem;
+            text-transform: uppercase; letter-spacing: 1px;
         }
-        .memory-card p {
-            color: var(--muted);
-            font-size: 0.86rem;
-            line-height: 1.6;
-        }
-        .memory-card p strong { color: var(--sector-yellow); }
+        .memory-card p { color: var(--muted); font-size: 0.86rem; line-height: 1.6; }
+        .memory-card p strong { color: var(--yellow); }
         .memory-timeline {
-            background: var(--carbon-2);
-            border: 1px solid var(--steel);
-            border-left: 3px solid var(--sector-yellow);
-            padding: 1.8rem;
+            background: var(--carbon-2); border: 1px solid var(--steel);
+            border-left: 3px solid var(--yellow); padding: 1.8rem;
             margin-bottom: 1.5rem;
         }
         .memory-timeline h3 {
-            color: var(--sector-yellow);
-            font-size: 1.15rem;
-            font-weight: 900;
-            font-style: italic;
-            text-transform: uppercase;
-            letter-spacing: 2px;
-            margin-bottom: 1.2rem;
-            padding-bottom: 10px;
+            color: var(--yellow); font-size: 1.15rem; font-weight: 900;
+            font-style: italic; text-transform: uppercase; letter-spacing: 2px;
+            margin-bottom: 1.2rem; padding-bottom: 10px;
             border-bottom: 1px solid var(--steel);
         }
         .mem-timeline-item {
-            display: flex;
-            align-items: flex-start;
-            gap: 1.2rem;
-            padding: 0.9rem 0;
-            border-bottom: 1px solid var(--steel);
+            display: flex; align-items: flex-start; gap: 1.2rem;
+            padding: 0.9rem 0; border-bottom: 1px solid var(--steel);
             transition: all 0.25s ease;
         }
         .mem-timeline-item:last-child { border-bottom: none; }
         .mem-timeline-item:hover { transform: translateX(4px); }
         .mem-timeline-num {
-            flex-shrink: 0;
-            width: 40px;
-            height: 40px;
-            background: var(--carbon-4);
-            color: var(--sector-yellow);
-            border: 1px solid var(--sector-yellow);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-weight: 900;
-            font-size: 1rem;
-            font-style: italic;
+            flex-shrink: 0; width: 40px; height: 40px;
+            background: var(--carbon-4); color: var(--yellow);
+            border: 1px solid var(--yellow); display: flex;
+            align-items: center; justify-content: center;
+            font-weight: 900; font-size: 1rem; font-style: italic;
             clip-path: polygon(0 0, 100% 0, 100% 70%, 70% 100%, 0 100%);
             font-family: 'Arial Black', sans-serif;
         }
         .mem-timeline-content { flex: 1; }
         .mem-timeline-content .title {
-            font-weight: 900;
-            color: var(--white);
-            font-size: 0.94rem;
-            margin-bottom: 3px;
-            font-style: italic;
+            font-weight: 900; color: var(--white); font-size: 0.94rem;
+            margin-bottom: 3px; font-style: italic;
         }
-        .mem-timeline-content .desc {
-            color: var(--muted);
-            font-size: 0.82rem;
-            line-height: 1.5;
-        }
-        .mem-timeline-content .desc strong { color: var(--sector-yellow); }
+        .mem-timeline-content .desc { color: var(--muted); font-size: 0.82rem; line-height: 1.5; }
+        .mem-timeline-content .desc strong { color: var(--yellow); }
 
-        /* ============ FOOTER ============ */
         .footer {
-            text-align: center;
-            padding: 2rem;
-            margin-top: 3rem;
-            color: var(--muted);
-            font-size: 0.68rem;
-            letter-spacing: 3px;
-            text-transform: uppercase;
-            font-weight: 800;
-            font-style: italic;
-            border-top: 1px solid var(--steel);
-            position: relative;
-            background: var(--carbon-2);
-            font-family: 'Courier New', monospace;
+            text-align: center; padding: 2rem; margin-top: 3rem;
+            color: var(--muted); font-size: 0.68rem; letter-spacing: 3px;
+            text-transform: uppercase; font-weight: 800; font-style: italic;
+            border-top: 1px solid var(--steel); position: relative;
+            background: var(--carbon-2); font-family: 'Courier New', monospace;
         }
         .footer::before {
-            content: '';
-            position: absolute;
-            top: -1px; left: 50%;
-            transform: translateX(-50%);
-            width: 200px;
-            height: 2px;
+            content: ''; position: absolute; top: -1px; left: 50%;
+            transform: translateX(-50%); width: 200px; height: 2px;
             background: linear-gradient(90deg, transparent, var(--red), transparent);
         }
 
-        /* ============ RESPONSIVE ============ */
         @media (max-width: 900px) {
             .hero { grid-template-columns: 1fr; text-align: center; }
             .hero-content { text-align: center; }
@@ -1735,11 +1103,16 @@
             .hero-sub { margin-left: auto; margin-right: auto; }
             .leader-card { grid-template-columns: 1fr; text-align: center; }
             .leader-card .big-number { text-align: center; }
+            .rival-header { grid-template-columns: 1fr; text-align: center; }
+            .rival-side.left, .rival-side.right { text-align: center; }
+            .rival-vs { margin: 0 auto; }
+            .rival-stats { flex-direction: column; }
+            .rating-intro { grid-template-columns: 1fr; text-align: center; }
         }
         @media (max-width: 820px) {
             .navbar { flex-direction: column; height: auto; padding: 0.7rem 1rem; gap: 8px; }
             .nav-links { justify-content: center; }
-            .nav-link { padding: 0.4rem 0.7rem; font-size: 0.56rem; }
+            .nav-link { padding: 0.4rem 0.7rem; font-size: 0.55rem; }
             .hero-title { font-size: 2.2rem; letter-spacing: -1px; }
             .hero { padding: 2.5rem 1.5rem; }
             .hero-number { font-size: 7rem; -webkit-text-stroke: 2px var(--red); }
@@ -1759,7 +1132,7 @@
             .rating-score { font-size: 1.8rem; }
             .rating-name { font-size: 0.88rem; }
             .rating-stats { font-size: 0.58rem; gap: 3px 8px; }
-            .rating-intro { grid-template-columns: 1fr; text-align: center; }
+            .compare-grid, .achieve-grid, .facts-grid { grid-template-columns: 1fr; }
         }
     </style>
 </head>
@@ -1783,6 +1156,11 @@
             <a href="#winners" class="nav-link" data-page="winners">Победы</a>
             <a href="#records" class="nav-link" data-page="records">Рекорды</a>
             <a href="#schedule" class="nav-link" data-page="schedule">Календарь</a>
+            <a href="#history" class="nav-link history-link" data-page="history">История</a>
+            <a href="#facts" class="nav-link facts-link" data-page="facts">Факты</a>
+            <a href="#rivals" class="nav-link rivals-link" data-page="rivals">Дуэли</a>
+            <a href="#compare" class="nav-link compare-link" data-page="compare">Сравнение</a>
+            <a href="#achievements" class="nav-link achieve-link" data-page="achievements">Достижения</a>
             <a href="#rating" class="nav-link rating-link" data-page="rating">★ Рейтинг</a>
             <a href="#memory" class="nav-link memory" data-page="memory">★ Память</a>
         </div>
@@ -1887,12 +1265,10 @@
             <span class="icon"><i class="fas fa-chart-line"></i></span>
             Рекорды и <span class="accent">антирекорды</span>
         </h2>
-
         <div class="records-section">
             <div class="records-section-title">★ РЕКОРДЫ СЕЗОНА 5</div>
             <div id="recordsList"></div>
         </div>
-
         <div class="records-section">
             <div class="records-section-title anti">▼ АНТИРЕКОРДЫ СЕЗОНА</div>
             <div id="antiRecordsList"></div>
@@ -1907,6 +1283,55 @@
         <div style="max-width:900px;" id="scheduleList"></div>
     </section>
 
+    <!-- HISTORY -->
+    <section id="history" class="page">
+        <h2 class="page-title">
+            <span class="icon icon-history"><i class="fas fa-book-open"></i></span>
+            История <span class="accent">чемпионата</span>
+        </h2>
+        <div class="history-timeline" id="historyTimeline"></div>
+    </section>
+
+    <!-- FACTS -->
+    <section id="facts" class="page">
+        <h2 class="page-title">
+            <span class="icon icon-facts"><i class="fas fa-lightbulb"></i></span>
+            Интересные <span class="accent">факты</span>
+        </h2>
+        <div class="facts-grid" id="factsGrid"></div>
+    </section>
+
+    <!-- RIVALRIES -->
+    <section id="rivals" class="page">
+        <h2 class="page-title">
+            <span class="icon icon-rivals"><i class="fas fa-fire"></i></span>
+            Легендарные <span class="accent">дуэли</span>
+        </h2>
+        <div class="rivals-grid" id="rivalsGrid"></div>
+    </section>
+
+    <!-- COMPARE -->
+    <section id="compare" class="page">
+        <h2 class="page-title">
+            <span class="icon icon-compare"><i class="fas fa-balance-scale"></i></span>
+            Сравнение <span class="accent">пилотов</span>
+        </h2>
+        <div class="compare-intro">
+            <strong>◆ ТОП-8 ПИЛОТОВ СЕЗОНА 5</strong> — сравнение по ключевым метрикам. Полосы показывают относительный уровень каждого пилота в каждой категории (максимум = 100).
+        </div>
+        <div class="compare-grid" id="compareGrid"></div>
+    </section>
+
+    <!-- ACHIEVEMENTS -->
+    <section id="achievements" class="page">
+        <h2 class="page-title">
+            <span class="icon icon-achieve"><i class="fas fa-medal"></i></span>
+            Достижения <span class="accent">за карьеру</span>
+        </h2>
+        <div class="achieve-grid" id="achieveGrid"></div>
+    </section>
+
+    <!-- RATING -->
     <section id="rating" class="page">
         <h2 class="page-title">
             <span class="icon icon-rating"><i class="fas fa-star"></i></span>
@@ -1916,7 +1341,7 @@
             <div>
                 <h2>◆ ШКАЛА ОЦЕНКИ ТАЛАНТА</h2>
                 <p>
-                    <strong style="color: var(--sector-purple);">100</strong> — GOAT, легенда, лучший из всех.<br>
+                    <strong style="color: var(--purple);">100</strong> — GOAT, легенда, лучший из всех.<br>
                     <strong style="color: var(--red);">1</strong> — пилот без таланта и желания.<br>
                     Оценка учитывает титулы, победы, подиумы, поулы, стабильность и текущую форму.
                 </p>
@@ -1931,15 +1356,12 @@
         <div class="rating-grid" id="ratingGrid"></div>
     </section>
 
+    <!-- MEMORY -->
     <section id="memory" class="page">
         <div class="memory-hero">
             <h2 class="memory-title">★ <span class="accent">ПАМЯТЬ СЕЗОНА 4</span> ★</h2>
-            <p class="memory-sub">
-                Сезон 4 остался в истории — оглядываемся назад с гордостью.
-                Год великих сражений, исторических побед и незабываемых моментов.
-            </p>
+            <p class="memory-sub">Сезон 4 остался в истории — оглядываемся назад с гордостью. Год великих сражений, исторических побед и незабываемых моментов.</p>
         </div>
-
         <div class="memory-grid">
             <div class="memory-card">
                 <div class="mem-icon"><i class="fas fa-crown"></i></div>
@@ -1954,11 +1376,7 @@
             <div class="memory-card">
                 <div class="mem-icon"><i class="fas fa-medal"></i></div>
                 <h3>Подиум Сезона</h3>
-                <p>
-                    <strong>1.</strong> kastillio — 212<br>
-                    <strong>2.</strong> SOVYCH05 — 164<br>
-                    <strong>3.</strong> Vin_Diselll — 105
-                </p>
+                <p><strong>1.</strong> kastillio — 212<br><strong>2.</strong> SOVYCH05 — 164<br><strong>3.</strong> Vin_Diselll — 105</p>
             </div>
             <div class="memory-card">
                 <div class="mem-icon"><i class="fas fa-flag-checkered"></i></div>
@@ -1976,7 +1394,6 @@
                 <p><strong>kastillio</strong> и <strong>SOVYCH05</strong> устроили невероятную битву весь сезон. Разница в очках между ними — 48 на финише.</p>
             </div>
         </div>
-
         <div class="memory-timeline">
             <h3>◆ КЛЮЧЕВЫЕ МОМЕНТЫ СЕЗОНА 4</h3>
             <div class="mem-timeline-item">
@@ -2022,29 +1439,6 @@
                 </div>
             </div>
         </div>
-
-        <div class="memory-grid">
-            <div class="memory-card">
-                <div class="mem-icon"><i class="fas fa-star"></i></div>
-                <h3>Рекорд побед</h3>
-                <p><strong>kastillio</strong> установил рекорд сезона — <strong>7 побед</strong> из 12 гонок. Доминирующий сезон!</p>
-            </div>
-            <div class="memory-card">
-                <div class="mem-icon"><i class="fas fa-flag"></i></div>
-                <h3>4 разных победителя</h3>
-                <p>За сезон побеждали: <strong>kastillio, jetleoden, SOVYCH05, Liquer</strong> — сбалансированная конкуренция.</p>
-            </div>
-            <div class="memory-card">
-                <div class="mem-icon"><i class="fas fa-skull"></i></div>
-                <h3>Антирекорд сезона</h3>
-                <p><strong>5 сходов</strong> на Azerbaijan GP — самый массовый DNF сезона.</p>
-            </div>
-            <div class="memory-card">
-                <div class="mem-icon"><i class="fas fa-award"></i></div>
-                <h3>Уход легенд</h3>
-                <p>После сезона карьеру завершили: <strong>ALIN, Trevor, FloeSS</strong>. Приостановили: <strong>kanatkazx, JOSYLVIO</strong>.</p>
-            </div>
-        </div>
     </section>
 
     <footer class="footer">
@@ -2065,6 +1459,109 @@
                 container.appendChild(el);
             }
         })();
+
+        // HISTORY DATA
+        const historyData = [
+            { season: 'S1', name: 'Сезон 1', champion: 'kastillio', championTeam: 'Mercedes-AMG',
+              events: [
+                  { icon: 'flag-checkered', text: '<strong>jetleoden</strong> выиграл первую гонку в истории чемпионата' },
+                  { icon: 'crown', text: '<strong>kastillio</strong> стал первым чемпионом сезона' },
+                  { icon: 'users', text: 'Формирование 8 команд-участников' }
+              ]
+            },
+            { season: 'S2', name: 'Сезон 2', champion: 'kastillio', championTeam: 'Mercedes-AMG',
+              events: [
+                  { icon: 'trophy', text: '<strong>kastillio</strong> защитил титул — второй чемпионский сезон подряд' },
+                  { icon: 'bolt', text: '<strong>jetleoden</strong> — вице-чемпион, второй год подряд' },
+                  { icon: 'user-plus', text: '<strong>vitall_duo</strong> дебютировал в чемпионате' }
+              ]
+            },
+            { season: 'S3', name: 'Сезон 3', champion: 'kastillio', championTeam: 'Mercedes-AMG',
+              events: [
+                  { icon: 'crown', text: '<strong>kastillio</strong> — третий титул подряд, хет-трик!' },
+                  { icon: 'user-plus', text: '<strong>SOVYCH05</strong> присоединился к чемпионату' },
+                  { icon: 'fire', text: 'Битва <strong>kastillio</strong> и <strong>jetleoden</strong> за титул' }
+              ]
+            },
+            { season: 'S4', name: 'Сезон 4', champion: 'kastillio', championTeam: 'Mercedes-AMG',
+              events: [
+                  { icon: 'crown', text: '<strong>kastillio</strong> — 4-й титул! Абсолютный доминант' },
+                  { icon: 'flag-checkered', text: '<strong>Liquer</strong> выиграл с P10 на China GP — легендарный камбэк' },
+                  { icon: 'trophy', text: '<strong>SOVYCH05</strong> — вице-чемпион сезона' }
+              ]
+            },
+            { season: 'S5', name: 'Сезон 5 (текущий)', champion: '—', championTeam: 'В процессе',
+              events: [
+                  { icon: 'user-plus', text: 'Дебют <strong>Fan_JoJo</strong>, <strong>overshadower</strong>, <strong>yoki4</strong>, <strong>Wallableb</strong>' },
+                  { icon: 'ban', text: '<strong>jetleoden</strong> полностью дисквалифицирован' },
+                  { icon: 'trophy', text: '<strong>SOVYCH05</strong> лидирует со 124 очками' }
+              ]
+            }
+        ];
+
+        // FACTS DATA
+        const factsData = [
+            { title: 'Доминирование Mercedes', text: '<strong>Mercedes-AMG</strong> выиграла все чемпионаты конструкторов с S1 по S4, а также лидирует в S5.' },
+            { title: '4 титула подряд', text: '<strong>kastillio</strong> выиграл все 4 первых сезона. 52% побед в карьере — абсолютный рекорд.' },
+            { title: 'Безупречная точность', text: '<strong>Liquer</strong> — единственный пилот с 0 сходов и 50% подиумов за карьеру.' },
+            { title: 'Скорость и хаос', text: '<strong>jetleoden</strong> — 18 поулов, но и 2 дисквалификации. Талант без дисциплины.' },
+            { title: 'Карьерный взлёт', text: '<strong>SOVYCH05</strong> за 36 гонок набрал 10 побед и 20 подиумов — 28% побед.' },
+            { title: 'Дисквалификация с чемпионата', text: 'Впервые в истории <strong>jetleoden</strong> полностью исключён из S5 — нарушение регламента.' },
+            { title: 'Самая длинная серия', text: '<strong>kastillio</strong> выиграл 4 гонки подряд в S4 (Redwood, Austria, BEE Sprint, BEE Race).' },
+            { title: 'Камбэк века', text: '<strong>Liquer</strong> выиграл China GP в S4 с P10 — один из величайших камбэков в истории.' },
+            { title: 'Дуэт Haas', text: '<strong>jetleoden</strong> и <strong>overshadower</strong> — пилоты Haas в S5. Оба уже были на подиуме.' },
+            { title: 'Прыжок с P10 на P2', text: '<strong>kastillio</strong> на Belgium GP S5 стартовал с P10 и финишировал 2-м — +8 позиций.' },
+            { title: '40% DSQ', text: '<strong>vitall_duo</strong> — 8 дисквалификаций в 20 гонках. Антирекорд дисциплины.' },
+            { title: 'DNF-драма Fan_JoJo', text: '<strong>Fan_JoJo</strong> сошёл в USA Sprint и USA GP подряд — двойной удар по дебютанту.' }
+        ];
+
+        // RIVALRIES DATA
+        const rivalsData = [
+            { aName: 'kastillio', aTeam: 'Mercedes-AMG', bName: 'jetleoden', bTeam: 'Ferrari',
+              desc: 'Главное противостояние первых четырёх сезонов. <strong>kastillio</strong> побеждал в титулах, но <strong>jetleoden</strong> трижды брал вице-чемпионство и постоянно давил на лидера.',
+              statsA: '4 титула • 32 победы', statsB: '3 вице-титула • 8 побед'
+            },
+            { aName: 'kastillio', aTeam: 'Mercedes-AMG', bName: 'SOVYCH05', bTeam: 'Mercedes-AMG',
+              desc: 'Новая дуэль поколений. <strong>SOVYCH05</strong> стал вице-чемпионом S4 и борется с <strong>kastillio</strong> внутри Mercedes-AMG в S5.',
+              statsA: '212 очков (S4)', statsB: '164 очка (S4)'
+            },
+            { aName: 'SOVYCH05', aTeam: 'Mercedes-AMG', bName: 'Vin_Diselll', bTeam: 'Red Bull',
+              desc: 'Битва S5 за титул. <strong>Vin_Diselll</strong> отстаёт всего на 7 очков — и выиграл 2 последние гонки США.',
+              statsA: '124 очка', statsB: '117 очков'
+            },
+            { aName: 'jetleoden', aTeam: 'Ferrari', bName: 'overshadower', bTeam: 'Ferrari',
+              desc: 'Внутрикомандная дуэль Ferrari. Но после дисквалификации <strong>jetleoden</strong> из S5 <strong>overshadower</strong> стал единственным пилотом Ferrari.',
+              statsA: '8 побед • 34 подиума', statsB: '2 подиума в 7 гонках'
+            }
+        ];
+
+        // COMPARE DATA
+        const compareData = [
+            { name: 'SOVYCH05', team: 'Mercedes-AMG', teamKey: 'mercedes', rank: 1, wins: 10, podiums: 20, poles: 4, points: 124 },
+            { name: 'Vin_Diselll', team: 'Red Bull', teamKey: 'redbull', rank: 2, wins: 4, podiums: 17, poles: 4, points: 117 },
+            { name: 'tom_kruiser', team: 'Alpine', teamKey: 'alpine', rank: 3, wins: 0, podiums: 3, poles: 1, points: 72 },
+            { name: 'kastillio', team: 'Mercedes-AMG', teamKey: 'mercedes', rank: 4, wins: 32, podiums: 50, poles: 27, points: 68 },
+            { name: 'Fan_JoJo', team: 'Mercedes-AMG', teamKey: 'mercedes', rank: 5, wins: 1, podiums: 4, poles: 1, points: 68 },
+            { name: 'vitall_duo', team: 'Ferrari', teamKey: 'ferrari', rank: 6, wins: 0, podiums: 2, poles: 0, points: 60 },
+            { name: 'Liquer', team: 'Ferrari', teamKey: 'ferrari', rank: 7, wins: 1, podiums: 6, poles: 3, points: 55 },
+            { name: 'overshadower', team: 'Ferrari', teamKey: 'ferrari', rank: 8, wins: 0, podiums: 2, poles: 0, points: 47 }
+        ];
+
+        // ACHIEVEMENTS
+        const achievementsData = [
+            { icon: 'crown', title: 'Наибольшее количество титулов', holder: 'kastillio', value: '4 × чемпион', note: 'Сезоны 1, 2, 3 и 4' },
+            { icon: 'flag-checkered', title: 'Наибольшее количество побед', holder: 'kastillio', value: '32 победы', note: '52% от всех гонок карьеры' },
+            { icon: 'medal', title: 'Наибольшее количество подиумов', holder: 'kastillio', value: '50 подиумов', note: '82% гонок завершал на подиуме' },
+            { icon: 'bolt', title: 'Наибольшее количество поулов', holder: 'kastillio', value: '27 поулов', note: '44% квалификаций выиграно' },
+            { icon: 'fire', title: 'Наибольшее количество очков за сезон', holder: 'kastillio', value: '212 очков', note: 'Сезон 4' },
+            { icon: 'sparkles', title: 'Самая длинная серия побед', holder: 'kastillio', value: '4 победы подряд', note: 'S4: Redwood → Austria → BEE Sprint → BEE Race' },
+            { icon: 'rocket', title: 'Лучший прогресс с последнего места', holder: 'kastillio', value: 'P10 → P2', note: 'Belgium GP S5' },
+            { icon: 'award', title: 'Лучший прогресс в гонке', holder: 'ALIN', value: 'P13 → P2', note: 'Barcelona GP S4' },
+            { icon: 'chart-line', title: 'Наибольший отрыв от 2-го места', holder: 'kastillio', value: '+48 очков', note: 'Финал S4' },
+            { icon: 'shield-alt', title: 'Наибольшее количество DSQ', holder: 'vitall_duo', value: '8 DSQ', note: '40% гонок карьеры' },
+            { icon: 'times-circle', title: 'Наибольшее количество DNF', holder: 'Vin_Diselll', value: '9 сходов', note: 'Из 56 гонок' },
+            { icon: 'crown', title: 'Наибольшее количество титулов (конструкторы)', holder: 'Mercedes-AMG', value: '4 × чемпион', note: 'S1, S2, S3, S4 — и лидер S5' }
+        ];
 
         const racesData = {
             'oracle-gp': {
@@ -2418,9 +1915,7 @@
                 const div = document.createElement('div');
                 div.className = 'standing-box rank-' + (idx + 1);
                 let tag = '';
-                if (d.title) {
-                    tag = `<span class="standing-tag white">${d.title}</span>`;
-                }
+                if (d.title) tag = `<span class="standing-tag white">${d.title}</span>`;
                 div.innerHTML = `
                     <div class="standing-rank">${idx + 1}</div>
                     <div class="standing-info">
@@ -2443,9 +1938,7 @@
                 div.className = 'team-box rank-' + (idx + 1);
                 if (t.champion) div.classList.add('champion-team');
                 let tag = '';
-                if (t.champion) {
-                    tag = ` <span class="champ-crown">👑</span><span class="champ-tag">ЧЕМПИОНЫ</span>`;
-                }
+                if (t.champion) tag = ` <span class="champ-crown">👑</span><span class="champ-tag">ЧЕМПИОНЫ</span>`;
                 div.innerHTML = `
                     <div class="team-rank">${idx + 1}</div>
                     <div class="team-info ${cls}">${t.name}${tag}</div>
@@ -2506,17 +1999,153 @@
                 div.className = 'timeline-item' + (r.status === 'final' ? ' final' : '');
                 let statusClass = 'status-done';
                 let statusText = '✓ Завершено';
-                if (r.status === 'final') {
-                    statusClass = 'status-champ';
-                    statusText = '🏁 ФИНАЛ';
-                } else if (r.status === 'upcoming') {
-                    statusClass = 'status-upcoming';
-                    statusText = 'Ожидается';
-                }
+                if (r.status === 'final') { statusClass = 'status-champ'; statusText = '🏁 ФИНАЛ'; }
+                else if (r.status === 'upcoming') { statusClass = 'status-upcoming'; statusText = 'Ожидается'; }
                 div.innerHTML = `
                     <span class="timeline-date">${r.date}</span>
                     <span class="timeline-name">${r.name}</span>
                     <span class="status-pill ${statusClass}">${statusText}</span>
+                `;
+                container.appendChild(div);
+            });
+        }
+
+        function renderHistory() {
+            const container = document.getElementById('historyTimeline');
+            if (!container) return;
+            container.innerHTML = '';
+            historyData.forEach(h => {
+                const div = document.createElement('div');
+                div.className = 'history-season';
+                div.setAttribute('data-season', h.season);
+                let eventsHtml = '';
+                h.events.forEach(e => {
+                    eventsHtml += `<div class="history-event"><i class="fas fa-${e.icon} icon"></i>${e.text}</div>`;
+                });
+                div.innerHTML = `
+                    <div class="history-season-header">
+                        <span class="history-season-badge">${h.season}</span>
+                        <span class="history-season-title">${h.name}</span>
+                        <span class="history-season-champion">
+                            ${h.champion !== '—' ? `<i class="fas fa-crown"></i> ${h.champion} (${h.championTeam})` : 'В процессе...'}
+                        </span>
+                    </div>
+                    <div class="history-events">${eventsHtml}</div>
+                `;
+                container.appendChild(div);
+            });
+        }
+
+        function renderFacts() {
+            const container = document.getElementById('factsGrid');
+            if (!container) return;
+            container.innerHTML = '';
+            factsData.forEach((f, idx) => {
+                const div = document.createElement('div');
+                div.className = 'fact-card';
+                div.innerHTML = `
+                    <div class="fact-number">◆ ФАКТ #${String(idx + 1).padStart(2, '0')}</div>
+                    <div class="fact-title">${f.title}</div>
+                    <div class="fact-text">${f.text}</div>
+                `;
+                container.appendChild(div);
+            });
+        }
+
+        function renderRivals() {
+            const container = document.getElementById('rivalsGrid');
+            if (!container) return;
+            container.innerHTML = '';
+            rivalsData.forEach(r => {
+                const div = document.createElement('div');
+                div.className = 'rival-card';
+                div.innerHTML = `
+                    <div class="rival-header">
+                        <div class="rival-side left">
+                            <div class="rival-name">${r.aName}</div>
+                            <div class="rival-team">${r.aTeam}</div>
+                        </div>
+                        <div class="rival-vs">VS</div>
+                        <div class="rival-side right">
+                            <div class="rival-name">${r.bName}</div>
+                            <div class="rival-team">${r.bTeam}</div>
+                        </div>
+                    </div>
+                    <div class="rival-desc">${r.desc}</div>
+                    <div class="rival-stats">
+                        <div class="rival-stat-item">${r.aName}<strong>${r.statsA}</strong></div>
+                        <div class="rival-stat-item">${r.bName}<strong>${r.statsB}</strong></div>
+                    </div>
+                `;
+                container.appendChild(div);
+            });
+        }
+
+        function renderCompare() {
+            const container = document.getElementById('compareGrid');
+            if (!container) return;
+            container.innerHTML = '';
+            const maxPoints = Math.max(...compareData.map(d => d.points));
+            const maxWins = 32;
+            const maxPodiums = 50;
+            const maxPoles = 27;
+
+            compareData.forEach(d => {
+                const cls = teamColorClass(d.teamKey);
+                const div = document.createElement('div');
+                div.className = 'compare-card';
+                const pctPoints = Math.round((d.points / maxPoints) * 100);
+                const pctWins = Math.round((d.wins / maxWins) * 100);
+                const pctPodiums = Math.round((d.podiums / maxPodiums) * 100);
+                const pctPoles = Math.round((d.poles / maxPoles) * 100);
+
+                div.innerHTML = `
+                    <div class="compare-card-header">
+                        <div class="compare-card-rank">${d.rank}</div>
+                        <div>
+                            <div class="compare-card-name ${cls}">${d.name}</div>
+                            <div class="compare-card-team">${d.team}</div>
+                        </div>
+                    </div>
+                    <div class="compare-bars">
+                        <div class="compare-bar">
+                            <div class="compare-bar-label">Очки</div>
+                            <div class="compare-bar-track"><div class="compare-bar-fill" style="width: ${pctPoints}%"></div></div>
+                            <div class="compare-bar-value">${d.points}</div>
+                        </div>
+                        <div class="compare-bar">
+                            <div class="compare-bar-label">Победы</div>
+                            <div class="compare-bar-track"><div class="compare-bar-fill" style="width: ${pctWins}%"></div></div>
+                            <div class="compare-bar-value">${d.wins}</div>
+                        </div>
+                        <div class="compare-bar">
+                            <div class="compare-bar-label">Подиумы</div>
+                            <div class="compare-bar-track"><div class="compare-bar-fill" style="width: ${pctPodiums}%"></div></div>
+                            <div class="compare-bar-value">${d.podiums}</div>
+                        </div>
+                        <div class="compare-bar">
+                            <div class="compare-bar-label">Поулы</div>
+                            <div class="compare-bar-track"><div class="compare-bar-fill" style="width: ${pctPoles}%"></div></div>
+                            <div class="compare-bar-value">${d.poles}</div>
+                        </div>
+                    </div>
+                `;
+                container.appendChild(div);
+            });
+        }
+
+        function renderAchievements() {
+            const container = document.getElementById('achieveGrid');
+            if (!container) return;
+            container.innerHTML = '';
+            achievementsData.forEach(a => {
+                const div = document.createElement('div');
+                div.className = 'achieve-card';
+                div.innerHTML = `
+                    <div class="achieve-title"><i class="fas fa-${a.icon}"></i> ${a.title}</div>
+                    <div class="achieve-holder">${a.holder}</div>
+                    <div class="achieve-value">${a.value}</div>
+                    <div class="achieve-note">${a.note}</div>
                 `;
                 container.appendChild(div);
             });
@@ -2530,7 +2159,6 @@
                 const cls = teamColorClass(d.teamKey);
                 const card = document.createElement('div');
                 card.className = 'rating-card tier-' + d.tier;
-
                 const statsHtml = `
                     ${d.titles !== '0×' ? `<span class="rating-stat"><i class="fas fa-crown"></i>${d.titles} титул</span>` : ''}
                     <span class="rating-stat"><i class="fas fa-flag-checkered"></i>${d.wins}W</span>
@@ -2540,24 +2168,17 @@
                     ${d.dnf > 0 ? `<span class="rating-stat neg"><i class="fas fa-times-circle"></i>${d.dnf} DNF</span>` : ''}
                     ${d.dsq > 0 ? `<span class="rating-stat neg"><i class="fas fa-ban"></i>${d.dsq} DSQ</span>` : ''}
                 `;
-
                 card.innerHTML = `
                     <div class="rating-position">${d.rank}</div>
                     <div class="rating-info">
-                        <div class="rating-name ${cls}">
-                            ${d.name} #${d.number}
-                            <span class="team-label">${d.team}</span>
-                            <span class="rating-tier-badge tier-badge-${d.tier}">${d.tierName}</span>
-                        </div>
+                        <div class="rating-name ${cls}">${d.name} #${d.number}<span class="team-label">${d.team}</span><span class="rating-tier-badge tier-badge-${d.tier}">${d.tierName}</span></div>
                         <div class="rating-stats">${statsHtml}</div>
                         <div class="rating-analysis">${d.analysis}</div>
                     </div>
                     <div class="rating-score-box">
                         <div class="rating-score">${d.rating}</div>
                         <div class="rating-score-label">/ 100</div>
-                        <div class="rating-score-bar">
-                            <div class="rating-score-bar-fill" style="width: ${d.rating}%;"></div>
-                        </div>
+                        <div class="rating-score-bar"><div class="rating-score-bar-fill" style="width: ${d.rating}%;"></div></div>
                     </div>
                 `;
                 container.appendChild(card);
@@ -2610,6 +2231,11 @@
             renderRecords();
             renderAntiRecords();
             renderSchedule();
+            renderHistory();
+            renderFacts();
+            renderRivals();
+            renderCompare();
+            renderAchievements();
             renderRatings();
             setupNavigation();
         });
