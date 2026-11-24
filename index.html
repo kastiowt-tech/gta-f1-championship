@@ -85,6 +85,7 @@
         .hero-sub { font-size: 1rem; color: var(--muted); max-width: 640px; margin: 1.2rem 0; line-height: 1.7; }
         .hero-sub strong { color: var(--white); font-weight: 900; }
         .hero-sub .rose { color: var(--purple); font-weight: 900; }
+        .hero-sub .champ { color: var(--yellow); font-weight: 900; }
         .cta-btn { display: inline-flex; align-items: center; gap: 10px; background: var(--red); color: var(--white); padding: 14px 32px; font-weight: 900; text-transform: uppercase; letter-spacing: 2.5px; text-decoration: none; font-size: 0.78rem; transition: all 0.25s ease; margin-top: 1rem; clip-path: polygon(12px 0, 100% 0, calc(100% - 12px) 100%, 0 100%); box-shadow: 0 0 30px rgba(225, 6, 0, 0.5); font-style: italic; }
         .cta-btn:hover { background: var(--red-hi); box-shadow: 0 0 50px rgba(255, 45, 32, 0.7); transform: translateY(-2px); }
         .cta-btn i { transition: transform 0.3s; }
@@ -97,13 +98,13 @@
         .stat-item::after { content: ''; position: absolute; bottom: 4px; right: 6px; width: 6px; height: 6px; background: var(--red); clip-path: polygon(0 0, 100% 0, 100% 100%); opacity: 0.5; }
         .stat-number { font-size: 2.8rem; font-weight: 900; font-style: italic; line-height: 1; color: var(--white); letter-spacing: -2px; font-family: 'Arial Black', sans-serif; }
         .stat-label { font-size: 0.6rem; text-transform: uppercase; letter-spacing: 2.5px; color: var(--muted); margin-top: 10px; font-weight: 800; font-family: 'Courier New', monospace; }
-        .leader-card { background: var(--carbon-2); border: 1px solid var(--steel); border-left: 5px solid var(--red); padding: 1.8rem 2rem; display: grid; grid-template-columns: 1fr auto; gap: 2rem; align-items: center; position: relative; overflow: hidden; clip-path: polygon(0 0, 100% 0, calc(100% - 20px) 100%, 0 100%); }
-        .leader-card::before { content: '01'; position: absolute; top: 10px; right: 30px; font-size: 8rem; font-weight: 900; font-style: italic; color: rgba(225, 6, 0, 0.06); line-height: 1; pointer-events: none; font-family: 'Arial Black', sans-serif; letter-spacing: -8px; }
-        .leader-card .label { font-size: 0.62rem; color: var(--red); letter-spacing: 3px; font-weight: 900; text-transform: uppercase; font-family: 'Courier New', monospace; }
+        .leader-card { background: var(--carbon-2); border: 1px solid var(--steel); border-left: 5px solid var(--yellow); padding: 1.8rem 2rem; display: grid; grid-template-columns: 1fr auto; gap: 2rem; align-items: center; position: relative; overflow: hidden; clip-path: polygon(0 0, 100% 0, calc(100% - 20px) 100%, 0 100%); box-shadow: 0 0 40px rgba(255, 216, 0, 0.15); }
+        .leader-card::before { content: '🏆'; position: absolute; top: 10px; right: 30px; font-size: 6rem; line-height: 1; pointer-events: none; opacity: 0.15; }
+        .leader-card .label { font-size: 0.62rem; color: var(--yellow); letter-spacing: 3px; font-weight: 900; text-transform: uppercase; font-family: 'Courier New', monospace; }
         .leader-card h3 { color: var(--white); font-size: 1.5rem; font-weight: 900; font-style: italic; margin-top: 8px; letter-spacing: -0.5px; }
         .leader-card p { color: var(--muted); margin-top: 6px; font-size: 0.88rem; }
-        .leader-card .big-number { font-size: 5rem; font-weight: 900; font-style: italic; color: var(--white); line-height: 1; letter-spacing: -3px; font-family: 'Arial Black', sans-serif; position: relative; z-index: 1; }
-        .leader-card .big-number::after { content: ''; position: absolute; bottom: -4px; left: 0; width: 100%; height: 3px; background: var(--red); transform: skewX(-20deg); }
+        .leader-card .big-number { font-size: 5rem; font-weight: 900; font-style: italic; color: var(--yellow); line-height: 1; letter-spacing: -3px; font-family: 'Arial Black', sans-serif; position: relative; z-index: 1; }
+        .leader-card .big-number::after { content: ''; position: absolute; bottom: -4px; left: 0; width: 100%; height: 3px; background: var(--yellow); transform: skewX(-20deg); }
         .page-title { font-size: 2.2rem; font-weight: 900; font-style: italic; text-transform: uppercase; letter-spacing: -0.5px; margin-bottom: 1.8rem; color: var(--white); display: flex; align-items: center; gap: 16px; }
         .page-title .icon { width: 48px; height: 48px; background: var(--red); display: flex; align-items: center; justify-content: center; font-size: 1.2rem; font-style: normal; color: var(--white); clip-path: polygon(0 0, 100% 0, 100% 70%, 70% 100%, 0 100%); box-shadow: 0 0 25px rgba(225, 6, 0, 0.5); }
         .page-title .accent { color: var(--red); }
@@ -152,40 +153,41 @@
         .standing-box::before { content: ''; position: absolute; left: 0; top: 0; bottom: 0; width: 3px; background: transparent; transition: background 0.3s; }
         .standing-box:hover::before { background: var(--red); }
         .standing-box:hover { background: var(--carbon-3); }
-        .standing-box.rank-1 { background: linear-gradient(90deg, rgba(225, 6, 0, 0.15), var(--carbon-2) 60%); }
-        .standing-box.rank-1::before { background: var(--red); width: 4px; }
+        .standing-box.rank-1 { background: linear-gradient(90deg, rgba(255, 216, 0, 0.18), var(--carbon-2) 60%); }
+        .standing-box.rank-1::before { background: var(--yellow); width: 5px; }
         .standing-box.rank-2::before { background: var(--silver); }
-        .standing-box.rank-3::before { background: var(--yellow); }
+        .standing-box.rank-3::before { background: #cd7f32; }
         .standing-rank { background: var(--carbon-4); display: flex; align-items: center; justify-content: center; font-size: 1.7rem; font-weight: 900; font-style: italic; color: var(--muted); letter-spacing: -2px; border-right: 1px solid var(--steel); font-family: 'Arial Black', sans-serif; }
-        .standing-box.rank-1 .standing-rank { background: var(--red); color: var(--white); }
+        .standing-box.rank-1 .standing-rank { background: var(--yellow); color: var(--carbon); }
         .standing-box.rank-2 .standing-rank { background: var(--silver); color: var(--carbon); }
-        .standing-box.rank-3 .standing-rank { background: var(--yellow); color: var(--carbon); }
+        .standing-box.rank-3 .standing-rank { background: #cd7f32; color: var(--white); }
         .standing-info { padding: 12px 16px; display: flex; flex-direction: column; justify-content: center; gap: 4px; min-width: 0; }
         .standing-name { font-weight: 900; font-size: 0.98rem; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; font-style: italic; color: var(--white); }
         .standing-name .num { color: var(--muted); font-weight: 800; font-size: 0.72rem; margin-left: 6px; font-style: normal; font-family: 'Courier New', monospace; }
         .standing-team { font-size: 0.62rem; color: var(--muted); text-transform: uppercase; letter-spacing: 1.2px; font-weight: 700; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
         .standing-tag { display: inline-block; background: var(--red); color: var(--white); font-size: 0.48rem; font-weight: 900; padding: 2px 6px; letter-spacing: 1px; text-transform: uppercase; margin-left: 6px; vertical-align: middle; font-style: normal; font-family: 'Courier New', monospace; }
-        .standing-tag.white { background: var(--yellow); color: var(--carbon); }
+        .standing-tag.white { background: var(--yellow); color: var(--carbon); animation: champPulse 2s ease-in-out infinite; }
+        @keyframes champPulse { 0%, 100% { box-shadow: 0 0 6px rgba(255, 216, 0, 0.4); } 50% { box-shadow: 0 0 16px rgba(255, 216, 0, 0.9); } }
         .standing-points { background: var(--carbon-4); display: flex; align-items: center; justify-content: center; font-size: 1.4rem; font-weight: 900; font-style: italic; color: var(--white); padding: 0 18px; letter-spacing: -1px; border-left: 1px solid var(--steel); min-width: 90px; font-family: 'Arial Black', sans-serif; }
-        .standing-box.rank-1 .standing-points { color: var(--red-hi); }
+        .standing-box.rank-1 .standing-points { color: var(--yellow); }
         .teams-grid { display: flex; flex-direction: column; gap: 2px; max-width: 900px; background: var(--steel); border: 1px solid var(--steel); }
         .team-box { background: var(--carbon-2); display: grid; grid-template-columns: 60px 1fr auto; align-items: stretch; min-height: 82px; transition: all 0.25s ease; position: relative; overflow: hidden; }
         .team-box::before { content: ''; position: absolute; left: 0; top: 0; bottom: 0; width: 3px; background: transparent; transition: background 0.3s; }
         .team-box:hover::before { background: var(--red); }
         .team-box:hover { background: var(--carbon-3); }
-        .team-box.rank-1 { background: linear-gradient(90deg, rgba(225, 6, 0, 0.15), var(--carbon-2) 60%); }
-        .team-box.rank-1::before { background: var(--red); width: 4px; }
-        .team-box.champion-team::after { content: ''; position: absolute; inset: 0; background-image: repeating-linear-gradient(45deg, transparent 0, transparent 20px, rgba(225, 6, 0, 0.04) 20px, rgba(225, 6, 0, 0.04) 40px); pointer-events: none; }
+        .team-box.rank-1 { background: linear-gradient(90deg, rgba(255, 216, 0, 0.18), var(--carbon-2) 60%); }
+        .team-box.rank-1::before { background: var(--yellow); width: 5px; }
+        .team-box.champion-team::after { content: ''; position: absolute; inset: 0; background-image: repeating-linear-gradient(45deg, transparent 0, transparent 20px, rgba(255, 216, 0, 0.06) 20px, rgba(255, 216, 0, 0.06) 40px); pointer-events: none; }
         .team-rank { background: var(--carbon-4); display: flex; align-items: center; justify-content: center; font-size: 1.7rem; font-weight: 900; font-style: italic; color: var(--muted); border-right: 1px solid var(--steel); font-family: 'Arial Black', sans-serif; }
-        .team-box.rank-1 .team-rank { background: var(--red); color: var(--white); }
+        .team-box.rank-1 .team-rank { background: var(--yellow); color: var(--carbon); }
         .team-box.rank-2 .team-rank { background: var(--silver); color: var(--carbon); }
-        .team-box.rank-3 .team-rank { background: var(--yellow); color: var(--carbon); }
+        .team-box.rank-3 .team-rank { background: #cd7f32; color: var(--white); }
         .team-info { padding: 12px 16px; display: flex; align-items: center; font-weight: 900; font-size: 0.92rem; flex-wrap: wrap; gap: 8px; font-style: italic; color: var(--white); position: relative; z-index: 1; }
         .champ-crown { color: var(--yellow); font-size: 1.1rem; animation: crownBob 2s ease-in-out infinite; }
         @keyframes crownBob { 0%, 100% { transform: translateY(0) rotate(-5deg); } 50% { transform: translateY(-3px) rotate(5deg); } }
-        .champ-tag { background: var(--yellow); color: var(--carbon); font-size: 0.5rem; font-weight: 900; padding: 3px 8px; letter-spacing: 1.5px; text-transform: uppercase; font-family: 'Courier New', monospace; }
+        .champ-tag { background: var(--yellow); color: var(--carbon); font-size: 0.5rem; font-weight: 900; padding: 3px 8px; letter-spacing: 1.5px; text-transform: uppercase; font-family: 'Courier New', monospace; animation: champPulse 2s ease-in-out infinite; }
         .team-points-box { background: var(--carbon-4); display: flex; align-items: center; justify-content: center; font-size: 1.4rem; font-weight: 900; font-style: italic; color: var(--white); padding: 0 18px; border-left: 1px solid var(--steel); min-width: 90px; font-family: 'Arial Black', sans-serif; }
-        .team-box.rank-1 .team-points-box { color: var(--red-hi); }
+        .team-box.rank-1 .team-points-box { color: var(--yellow); }
         .winners-header { text-align: left; padding: 1.4rem 1.8rem; background: var(--carbon-2); border: 1px solid var(--steel); border-left: 4px solid var(--red); margin-bottom: 1.2rem; position: relative; overflow: hidden; }
         .winners-header::before { content: ''; position: absolute; top: 0; right: 0; width: 150px; height: 100%; background-image: repeating-linear-gradient(45deg, transparent 0, transparent 8px, rgba(225, 6, 0, 0.08) 8px, rgba(225, 6, 0, 0.08) 16px); }
         .winners-header h1 { font-size: 1.6rem; font-weight: 900; font-style: italic; text-transform: uppercase; letter-spacing: 2px; color: var(--white); position: relative; z-index: 1; }
@@ -204,7 +206,7 @@
         .timeline-name { font-weight: 800; flex: 1; font-style: italic; color: var(--white); }
         .status-pill { padding: 4px 12px; font-size: 0.6rem; font-weight: 900; letter-spacing: 1.5px; text-transform: uppercase; margin-left: auto; font-style: italic; font-family: 'Courier New', monospace; }
         .status-done { background: var(--carbon-4); color: var(--muted); border: 1px solid var(--steel); }
-        .status-champ { background: var(--red); color: var(--white); }
+        .status-champ { background: var(--yellow); color: var(--carbon); }
         .status-upcoming { background: var(--blue); color: var(--carbon); }
         .records-section { margin-bottom: 2.5rem; }
         .records-section-title { font-size: 0.8rem; font-weight: 900; text-transform: uppercase; letter-spacing: 3.5px; margin-bottom: 1rem; padding-left: 18px; position: relative; color: var(--red); font-style: italic; font-family: 'Courier New', monospace; }
@@ -435,10 +437,10 @@
     <section id="home" class="page active">
         <div class="new-season-banner">
             <div class="left">
-                <i class="fas fa-flag-checkered"></i>
-                <span>СЕЗОН 5 — ГОНКА ПРОДОЛЖАЕТСЯ</span>
+                <i class="fas fa-crown"></i>
+                <span>SOVYCH05 — ЧЕМПИОН СЕЗОНА 5! MERCEDES-AMG — КУБОК КОНСТРУКТОРОВ!</span>
             </div>
-            <div class="right">◆ LIVE • ROUND 14/19</div>
+            <div class="right">◆ ROUND 15/21</div>
         </div>
 
         <div class="hero">
@@ -446,7 +448,7 @@
             <div class="hero-content">
                 <div class="hero-badge">
                     <span class="dot"></span>
-                    SEASON 05 • RACE CONTROL
+                    SEASON 05 • CHAMPIONS CROWNED
                 </div>
                 <h1 class="hero-title">
                     <span class="accent">GTA</span> FORMULA 1<br>
@@ -454,9 +456,9 @@
                     <small>CHAMPIONSHIP 2026</small>
                 </h1>
                 <p class="hero-sub">
-                    <strong>13 гонок</strong> позади! <strong>SOVYCH05</strong> лидирует со 167 очками.
-                    <strong>kastillio</strong> выиграл Azerbaijan GP, а <strong>SOVYCH05</strong> — China GP!
-                    <strong class="rose">Битва продолжается!</strong>
+                    <strong>15 гонок</strong> позади! <strong>SOVYCH05</strong> — <strong class="champ">ЧЕМПИОН СЕЗОНА 5</strong> с 200 очками!
+                    <strong>Mercedes-AMG</strong> — обладатели Кубка Конструкторов (373 очка)!
+                    <strong class="rose">Сезон почти завершён!</strong>
                 </p>
                 <a href="#results" class="cta-btn" data-page="results">
                     РЕЗУЛЬТАТЫ <i class="fas fa-arrow-right"></i>
@@ -475,22 +477,22 @@
                 <div class="stat-label">Команд</div>
             </div>
             <div class="stat-item">
-                <div class="stat-number">13</div>
+                <div class="stat-number">15</div>
                 <div class="stat-label">Гонок</div>
             </div>
             <div class="stat-item">
-                <div class="stat-number">167</div>
-                <div class="stat-label">Очков лидера</div>
+                <div class="stat-number">200</div>
+                <div class="stat-label">Очков чемпиона</div>
             </div>
         </div>
 
         <div class="leader-card">
             <div>
-                <div class="label">◆ ЛИДЕР ЧЕМПИОНАТА</div>
-                <h3>SOVYCH05 #88 — Mercedes-AMG F1 Team</h3>
-                <p>Vin_Diselll — 2-й (133) • kastillio — 3-й (105) • tom_kruiser — 4-й (100)</p>
+                <div class="label">◆ ЧЕМПИОН СЕЗОНА 5</div>
+                <h3>🏆 SOVYCH05 #88 — Mercedes-AMG F1 Team — 200 очков</h3>
+                <p>Vin_Diselll — 2-й (148) • kastillio — 3-й (130) • tom_kruiser — 4-й (106)</p>
             </div>
-            <div class="big-number">167</div>
+            <div class="big-number">200</div>
         </div>
     </section>
 
@@ -688,99 +690,101 @@
                   { icon: 'trophy', text: '<strong>SOVYCH05</strong> — вице-чемпион сезона' }
               ]
             },
-            { season: 'S5', name: 'Сезон 5 (текущий)', champion: '—', championTeam: 'В процессе',
+            { season: 'S5', name: 'Сезон 5 (текущий)', champion: 'SOVYCH05', championTeam: 'Mercedes-AMG',
               events: [
                   { icon: 'user-plus', text: 'Дебют <strong>Fan_JoJo</strong>, <strong>overshadower</strong>, <strong>yoki4</strong>, <strong>Wallableb</strong>' },
                   { icon: 'ban', text: '<strong>jetleoden</strong> полностью дисквалифицирован из S5' },
                   { icon: 'road', text: '<strong>kastillio</strong> перешёл в Aston Martin — победа на Azerbaijan GP!' },
-                  { icon: 'trophy', text: '<strong>SOVYCH05</strong> выиграл China GP и лидирует со 167 очками' }
+                  { icon: 'crown', text: '<strong>SOVYCH05</strong> — ЧЕМПИОН СЕЗОНА 5 с 200 очками!' },
+                  { icon: 'trophy', text: '<strong>Mercedes-AMG</strong> — чемпионы конструкторов (373 очка)!' }
               ]
             }
         ];
 
         const factsData = [
-            { title: 'Доминирование Mercedes', text: '<strong>Mercedes-AMG</strong> выиграла все чемпионаты конструкторов с S1 по S4, а также лидирует в S5 (315 очков).' },
-            { title: '4 титула подряд', text: '<strong>kastillio</strong> выиграл все 4 первых сезона. 33 победы в карьере — абсолютный рекорд.' },
-            { title: 'Безупречная точность', text: '<strong>Liquer</strong> — единственный пилот с 0 сходов и 50% подиумов за карьеру.' },
+            { title: 'Первый титул SOVYCH05', text: '<strong>SOVYCH05</strong> — новый чемпион! Присоединился в S3, стал вице-чемпионом S4 и выиграл титул в S5 с 200 очками.' },
+            { title: 'Доминирование Mercedes', text: '<strong>Mercedes-AMG</strong> выиграла все чемпионаты конструкторов с S1 по S5. 5 титулов подряд!' },
+            { title: '4 титула kastillio', text: '<strong>kastillio</strong> — 4-кратный чемпион S1-S4. В S5 перешёл в Aston Martin, но остался резервистом Mercedes.' },
+            { title: 'Безупречная точность', text: '<strong>Liquer</strong> — единственный пилот с 0 сходов за карьеру. 70 очков в S5.' },
             { title: 'Новая глава Aston Martin', text: 'В S5 <strong>kastillio</strong> перешёл в Aston Martin и сразу выиграл Azerbaijan GP с поул-позиции и быстрым кругом!' },
-            { title: 'Карьерный взлёт', text: '<strong>SOVYCH05</strong> за 38 гонок набрал 11 побед и 22 подиума — 29% побед.' },
             { title: 'Дисквалификация с чемпионата', text: 'Впервые в истории <strong>jetleoden</strong> полностью исключён из S5 — нарушение регламента.' },
-            { title: 'Штраф в China GP', text: '<strong>Vin_Diselll</strong> получил 20-секундный штраф, откатившись с P1 на P7. <strong>kastillio</strong> показал быстрейший круг.' },
-            { title: 'Камбэк века', text: '<strong>Liquer</strong> выиграл China GP в S4 с P10 — один из величайших камбэков в истории.' },
-            { title: 'Прыжок с P10 на P2', text: '<strong>kastillio</strong> на Belgium GP S5 стартовал с P10 и финишировал 2-м — +8 позиций.' },
-            { title: '40% DSQ', text: '<strong>vitall_duo</strong> — 8 дисквалификаций в 22 гонках. Антирекорд дисциплины.' },
-            { title: 'DNF-драма Fan_JoJo', text: '<strong>Fan_JoJo</strong> сошёл в USA Sprint и USA GP подряд — двойной удар по дебютанту.' },
-            { title: 'Битва за титул S5', text: '<strong>SOVYCH05</strong> (167) и <strong>Vin_Diselll</strong> (133) — разница 34 очка. Битва продолжается!' }
+            { title: 'Штраф в China GP', text: '<strong>Vin_Diselll</strong> получил 20-секундный штраф, откатившись с P1 на P7.' },
+            { title: 'Двойной успех в Германии', text: '<strong>SOVYCH05</strong> выиграл и спринт, и гонку в Германии — важный шаг к титулу!' },
+            { title: 'Столкновение в Германии', text: '<strong>Vin_Diselll</strong> дисквалифицирован в Germany Sprint за столкновение с kastillio.' },
+            { title: 'Синие флаги', text: '<strong>tom_kruiser</strong> дисквалифицирован в Germany GP за нарушение синих флагов.' },
+            { title: 'Kastillio-резервист', text: '<strong>kastillio</strong> выступал за Mercedes как резервист в Германии, но приносил очки и Aston Martin, и Mercedes.' },
+            { title: 'Битва за 2-е место', text: '<strong>Vin_Diselll</strong> (148) и <strong>kastillio</strong> (130) борются за вице-чемпионство!' }
         ];
 
         const rivalsData = [
-            { aName: 'kastillio', aTeam: 'Aston Martin', bName: 'jetleoden', bTeam: 'Ferrari',
-              desc: 'Легендарное противостояние первых четырёх сезонов. <strong>kastillio</strong> побеждал в титулах, но <strong>jetleoden</strong> трижды брал вице-чемпионство. В S5 jetleoden дисквалифицирован.',
+            { aName: 'kastillio', aTeam: 'Aston Martin / Mercedes', bName: 'jetleoden', bTeam: 'Ferrari',
+              desc: 'Легендарное противостояние первых четырёх сезонов. <strong>kastillio</strong> побеждал в титулах, <strong>jetleoden</strong> трижды брал вице-чемпионство. В S5 jetleoden дисквалифицирован.',
               statsA: '4 титула • 33 победы', statsB: '3 вице-титула • 8 побед'
             },
-            { aName: 'kastillio', aTeam: 'Aston Martin', bName: 'SOVYCH05', bTeam: 'Mercedes-AMG',
-              desc: 'Новая дуэль поколений. <strong>SOVYCH05</strong> стал вице-чемпионом S4 и теперь лидирует в S5. <strong>kastillio</strong> перешёл в Aston Martin и выиграл Azerbaijan GP.',
-              statsA: '105 очков (S5)', statsB: '167 очков (S5)'
+            { aName: 'kastillio', aTeam: 'Aston Martin / Mercedes', bName: 'SOVYCH05', bTeam: 'Mercedes-AMG',
+              desc: 'Дуэль поколений. <strong>SOVYCH05</strong> стал чемпионом S5, <strong>kastillio</strong> — 4-кратный чемпион S1-S4. Смена власти в Mercedes!',
+              statsA: '130 очков • 4×чемпион', statsB: '200 очков • ЧЕМПИОН S5'
             },
             { aName: 'SOVYCH05', aTeam: 'Mercedes-AMG', bName: 'Vin_Diselll', bTeam: 'Red Bull',
-              desc: 'Битва S5 за титул. <strong>Vin_Diselll</strong> отстаёт на 34 очка, но выиграл 2 гонки в США. <strong>SOVYCH05</strong> ответил победой в China GP.',
-              statsA: '167 очков', statsB: '133 очка'
+              desc: 'Битва S5 за титул. <strong>Vin_Diselll</strong> отстал на 52 очка, но выиграл 2 гонки в США. <strong>SOVYCH05</strong> ответил победами в Китае и Германии.',
+              statsA: '200 очков • ЧЕМПИОН', statsB: '148 очков'
             },
-            { aName: 'kastillio', aTeam: 'Aston Martin', bName: 'Vin_Diselll', bTeam: 'Red Bull',
-              desc: 'Новое противостояние S5. <strong>kastillio</strong> выиграл Azerbaijan GP, <strong>Vin_Diselll</strong> дважды победил в США. Оба претендуют на подиум сезона.',
-              statsA: '105 очков (S5)', statsB: '133 очка (S5)'
+            { aName: 'kastillio', aTeam: 'Aston Martin / Mercedes', bName: 'Vin_Diselll', bTeam: 'Red Bull',
+              desc: 'Битва за вице-чемпионство S5. <strong>kastillio</strong> выиграл Azerbaijan GP, <strong>Vin_Diselll</strong> — дважды в США. Оба ищут 2-е место сезона!',
+              statsA: '130 очков', statsB: '148 очков'
             },
-            { aName: 'tom_kruiser', aTeam: 'Alpine', bName: 'Vin_Diselll', bTeam: 'Red Bull',
-              desc: 'Битва S5 за третье место. <strong>tom_kruiser</strong> — 100 очков, <strong>Vin_Diselll</strong> — 133. Отставание 33 очка, но Alpine продолжает борьбу.',
-              statsA: '100 очков', statsB: '133 очка'
+            { aName: 'tom_kruiser', aTeam: 'Alpine', bName: 'Wallableb', bTeam: 'Cadillac',
+              desc: 'Битва за 4-е место. <strong>tom_kruiser</strong> (106) и <strong>Wallableb</strong> (83). Отставание 23 очка, но оба борются за топ-4.',
+              statsA: '106 очков', statsB: '83 очка'
             },
             { aName: 'Liquer', aTeam: 'Ferrari', bName: 'vitall_duo', bTeam: 'Ferrari',
-              desc: 'Внутрикомандная дуэль Ferrari. <strong>Liquer</strong> — идеальная точность (0 сходов), <strong>vitall_duo</strong> — талант с дисциплинарными проблемами (8 DSQ).',
-              statsA: '67 очков • 1 победа', statsB: '60 очков • 2 подиума'
+              desc: 'Внутрикомандная дуэль Ferrari. <strong>Liquer</strong> — идеальная точность (0 сходов), <strong>vitall_duo</strong> — талант с дисциплинарными проблемами.',
+              statsA: '70 очков • 1 победа', statsB: '75 очков • 2 подиума'
             },
             { aName: 'Fan_JoJo', aTeam: 'Mercedes-AMG', bName: 'SOVYCH05', bTeam: 'Mercedes-AMG',
-              desc: 'Внутрикомандная дуэль Mercedes. <strong>Fan_JoJo</strong> — взрывной дебютант с победой на Austria, <strong>SOVYCH05</strong> — лидер сезона.',
-              statsA: '83 очка • 1 победа', statsB: '167 очков • 8 побед'
+              desc: 'Внутрикомандная дуэль Mercedes. <strong>Fan_JoJo</strong> — взрывной дебютант с победой в Austria, <strong>SOVYCH05</strong> — новый чемпион!',
+              statsA: '83 очка • 1 победа', statsB: '200 очков • ЧЕМПИОН'
             },
-            { aName: 'overshadower', aTeam: 'Ferrari', bName: 'Wallableb', bTeam: 'Cadillac',
-              desc: 'Битва дебютантов S5. <strong>overshadower</strong> (57 очков) и <strong>Wallableb</strong> (71 очко) — оба новички. Wallableb вышел вперёд благодаря P2 в China GP.',
-              statsA: '57 очков • 2 подиума', statsB: '71 очко • 2 подиума'
+            { aName: 'overshadower', aTeam: 'Ferrari', bName: 'yoki4', bTeam: 'McLaren',
+              desc: 'Битва дебютантов S5. <strong>overshadower</strong> (57) и <strong>yoki4</strong> (44) — оба новички с подиумами.',
+              statsA: '57 очков • 2 подиума', statsB: '44 очка • 1 подиум'
             },
-            { aName: 'yoki4', aTeam: 'McLaren', bName: 'Aktrissa', bTeam: 'Red Bull',
-              desc: 'Битва середняков. <strong>yoki4</strong> — 44 очка с подиумом в Monaco, <strong>Aktrissa</strong> — 14 очков. Оба ищут стабильность.',
-              statsA: '44 очка', statsB: '14 очков'
+            { aName: 'Wallableb', aTeam: 'Cadillac', bName: 'vitall_duo', bTeam: 'Ferrari',
+              desc: 'Битва середняков. <strong>Wallableb</strong> (83) впереди <strong>vitall_duo</strong> (75), но оба набрали очки в Германии.',
+              statsA: '83 очка • 2 подиума', statsB: '75 очков • 2 подиума'
             },
             { aName: 'Mercedes-AMG', aTeam: 'Mercedes-AMG', bName: 'Scuderia Ferrari', bTeam: 'Ferrari',
-              desc: 'Битва гигантов конструкторов. <strong>Mercedes-AMG</strong> (315 очков) доминирует, но <strong>Scuderia Ferrari</strong> (159 очков) пытается догнать.',
-              statsA: '315 очков', statsB: '159 очков'
+              desc: 'Битва гигантов конструкторов. <strong>Mercedes-AMG</strong> (373) выиграла Кубок, но <strong>Scuderia Ferrari</strong> (174) — вторая.',
+              statsA: '373 очка • ЧЕМПИОНЫ', statsB: '174 очка'
             }
         ];
 
         const compareData = [
-            { name: 'SOVYCH05', team: 'Mercedes-AMG', teamKey: 'mercedes', rank: 1, wins: 11, podiums: 22, poles: 5, points: 167 },
-            { name: 'Vin_Diselll', team: 'Red Bull', teamKey: 'redbull', rank: 2, wins: 6, podiums: 19, poles: 4, points: 133 },
-            { name: 'kastillio', team: 'Aston Martin', teamKey: 'aston', rank: 3, wins: 33, podiums: 51, poles: 28, points: 105 },
-            { name: 'tom_kruiser', team: 'Alpine', teamKey: 'alpine', rank: 4, wins: 0, podiums: 5, poles: 1, points: 100 },
-            { name: 'Fan_JoJo', team: 'Mercedes-AMG', teamKey: 'mercedes', rank: 5, wins: 1, podiums: 4, poles: 1, points: 83 },
-            { name: 'Wallableb', team: 'Cadillac', teamKey: 'cadillac', rank: 6, wins: 0, podiums: 2, poles: 0, points: 71 },
-            { name: 'Liquer', team: 'Ferrari', teamKey: 'ferrari', rank: 7, wins: 1, podiums: 6, poles: 3, points: 67 },
-            { name: 'vitall_duo', team: 'Ferrari', teamKey: 'ferrari', rank: 8, wins: 0, podiums: 2, poles: 0, points: 60 }
+            { name: 'SOVYCH05', team: 'Mercedes-AMG', teamKey: 'mercedes', rank: 1, wins: 12, podiums: 25, poles: 6, points: 200 },
+            { name: 'Vin_Diselll', team: 'Red Bull', teamKey: 'redbull', rank: 2, wins: 6, podiums: 20, poles: 4, points: 148 },
+            { name: 'kastillio', team: 'Aston Martin / Mercedes', teamKey: 'aston', rank: 3, wins: 33, podiums: 53, poles: 28, points: 130 },
+            { name: 'tom_kruiser', team: 'Alpine', teamKey: 'alpine', rank: 4, wins: 0, podiums: 5, poles: 1, points: 106 },
+            { name: 'Wallableb', team: 'Cadillac', teamKey: 'cadillac', rank: 5, wins: 0, podiums: 2, poles: 0, points: 83 },
+            { name: 'Fan_JoJo', team: 'Mercedes-AMG', teamKey: 'mercedes', rank: 6, wins: 1, podiums: 5, poles: 1, points: 83 },
+            { name: 'vitall_duo', team: 'Ferrari', teamKey: 'ferrari', rank: 7, wins: 0, podiums: 2, poles: 0, points: 75 },
+            { name: 'Liquer', team: 'Ferrari', teamKey: 'ferrari', rank: 8, wins: 1, podiums: 6, poles: 3, points: 70 }
         ];
 
         const achievementsData = [
+            { icon: 'crown', title: 'Чемпион Сезона 5', holder: 'SOVYCH05', value: '200 очков', note: 'Первый титул в карьере!' },
             { icon: 'crown', title: 'Наибольшее количество титулов', holder: 'kastillio', value: '4 × чемпион', note: 'Сезоны 1, 2, 3 и 4' },
-            { icon: 'flag-checkered', title: 'Наибольшее количество побед', holder: 'kastillio', value: '33 победы', note: '52% гонок карьеры — победы' },
-            { icon: 'medal', title: 'Наибольшее количество подиумов', holder: 'kastillio', value: '51 подиум', note: '82% гонок завершал на подиуме' },
-            { icon: 'bolt', title: 'Наибольшее количество поулов', holder: 'kastillio', value: '28 поулов', note: '44% квалификаций выиграно' },
+            { icon: 'flag-checkered', title: 'Наибольшее количество побед (карьера)', holder: 'kastillio', value: '33 победы', note: '52% гонок карьеры' },
+            { icon: 'medal', title: 'Наибольшее количество подиумов (карьера)', holder: 'kastillio', value: '53 подиума', note: '82% гонок завершал на подиуме' },
+            { icon: 'bolt', title: 'Наибольшее количество поулов (карьера)', holder: 'kastillio', value: '28 поулов', note: '44% квалификаций выиграно' },
             { icon: 'fire', title: 'Наибольшее количество очков за сезон', holder: 'kastillio', value: '212 очков', note: 'Сезон 4' },
             { icon: 'sparkles', title: 'Самая длинная серия побед', holder: 'kastillio', value: '4 победы подряд', note: 'S4: Redwood → Austria → BEE Sprint → BEE Race' },
             { icon: 'rocket', title: 'Лучший прогресс с последнего места', holder: 'kastillio', value: 'P10 → P2', note: 'Belgium GP S5' },
             { icon: 'award', title: 'Лучший прогресс в гонке', holder: 'ALIN', value: 'P13 → P2', note: 'Barcelona GP S4' },
             { icon: 'chart-line', title: 'Наибольший отрыв от 2-го места', holder: 'kastillio', value: '+48 очков', note: 'Финал S4' },
             { icon: 'shield-alt', title: 'Наибольшее количество DSQ', holder: 'vitall_duo', value: '8 DSQ', note: '36% гонок карьеры' },
-            { icon: 'times-circle', title: 'Наибольшее количество DNF', holder: 'Vin_Diselll', value: '9 сходов', note: 'Из 57 гонок' },
+            { icon: 'times-circle', title: 'Наибольшее количество DNF', holder: 'Vin_Diselll', value: '9 сходов', note: 'Из 60 гонок' },
             { icon: 'road', title: 'Первая победа Aston Martin', holder: 'kastillio', value: 'Azerbaijan GP S5', note: 'Поул + быстрый круг + победа' },
-            { icon: 'crown', title: 'Наибольшее количество титулов (конструкторы)', holder: 'Mercedes-AMG', value: '4 × чемпион', note: 'S1-S4, лидер S5' }
+            { icon: 'crown', title: 'Наибольшее количество титулов (конструкторы)', holder: 'Mercedes-AMG', value: '5 × чемпион', note: 'S1-S5 — абсолютное доминирование' }
         ];
 
         const racesData = {
@@ -907,18 +911,33 @@
                 { position: 5, name: 'tom_kruiser', team: 'Alpine', points: 10, status: 'finished', teamKey: 'alpine', num: '12', qualy: 'P5=P5' },
                 { position: 6, name: 'overshadower', team: 'Scuderia Ferrari', points: 8, status: 'finished', teamKey: 'ferrari', num: '15', qualy: 'P7>P6' },
                 { position: 7, name: 'Vin_Diselll', team: 'Red Bull Racing', points: 6, status: 'finished', teamKey: 'redbull', num: '33', qualy: 'P1>P7', note: 'штраф 20 секунд' }
+            ]},
+            'germany-sprint': { title: 'GERMANY SPRINT', date: '10.07.2026', results: [
+                { position: 1, name: 'SOVYCH05', team: 'Mercedes-AMG', points: 8, status: 'finished', teamKey: 'mercedes', num: '88', qualy: 'P5>P1' },
+                { position: 2, name: 'kastillio', team: 'Mercedes-AMG (рез.)', points: 7, status: 'finished', teamKey: 'mercedes', num: '1', qualy: 'P1>P2', fastestLap: true },
+                { position: 3, name: 'tom_kruiser', team: 'Alpine', points: 6, status: 'finished', teamKey: 'alpine', num: '12', qualy: 'P3=P3' },
+                { position: 4, name: 'vitall_duo', team: 'Scuderia Ferrari', points: 5, status: 'finished', teamKey: 'ferrari', num: '27', qualy: 'P4=P4' },
+                { position: 'DSQ', name: 'Vin_Diselll', team: 'Red Bull Racing', points: 0, status: 'dsq', reason: 'Столкновение с kastillio', teamKey: 'redbull', num: '33', qualy: 'P2>DSQ' }
+            ]},
+            'germany-gp': { title: 'GERMANY GP', date: '17.07.2026', results: [
+                { position: 1, name: 'SOVYCH05', team: 'Mercedes-AMG', points: 25, status: 'finished', teamKey: 'mercedes', num: '88', qualy: 'P2>P1' },
+                { position: 2, name: 'kastillio', team: 'Mercedes-AMG (рез.)', points: 18, status: 'finished', teamKey: 'mercedes', num: '1', qualy: 'P1>P2', fastestLap: true },
+                { position: 3, name: 'Vin_Diselll', team: 'Red Bull Racing', points: 15, status: 'finished', teamKey: 'redbull', num: '33', qualy: 'P4>P3' },
+                { position: 4, name: 'Wallableb', team: 'Cadillac', points: 12, status: 'finished', teamKey: 'cadillac', num: '3', qualy: 'P6>P4' },
+                { position: 5, name: 'vitall_duo', team: 'Scuderia Ferrari', points: 10, status: 'finished', teamKey: 'ferrari', num: '27', qualy: 'P6>P5' },
+                { position: 'DSQ', name: 'tom_kruiser', team: 'Alpine', points: 0, status: 'dsq', reason: 'Нарушение синих флагов', teamKey: 'alpine', num: '12', qualy: 'P3>DSQ' }
             ]}
         };
 
         const driverStandings = [
-            { name: 'SOVYCH05', team: 'Mercedes-AMG F1 Team', points: 167, number: '88', teamKey: 'mercedes' },
-            { name: 'Vin_Diselll', team: 'Red Bull Racing F1 Team', points: 133, number: '33', teamKey: 'redbull' },
-            { name: 'kastillio', team: 'Aston Martin F1 Team', points: 105, number: '1', teamKey: 'aston' },
-            { name: 'tom_kruiser', team: 'Alpine F1 Team', points: 100, number: '12', teamKey: 'alpine' },
+            { name: 'SOVYCH05', team: 'Mercedes-AMG F1 Team', points: 200, number: '88', teamKey: 'mercedes', title: 'ЧЕМПИОН' },
+            { name: 'Vin_Diselll', team: 'Red Bull Racing F1 Team', points: 148, number: '33', teamKey: 'redbull' },
+            { name: 'kastillio', team: 'Aston Martin + Mercedes-AMG', points: 130, number: '1', teamKey: 'aston' },
+            { name: 'tom_kruiser', team: 'Alpine F1 Team', points: 106, number: '12', teamKey: 'alpine' },
+            { name: 'Wallableb', team: 'Cadillac F1 Team', points: 83, number: '3', teamKey: 'cadillac' },
             { name: 'Fan_JoJo', team: 'Mercedes-AMG F1 Team', points: 83, number: '35', teamKey: 'mercedes' },
-            { name: 'Wallableb', team: 'Cadillac F1 Team', points: 71, number: '3', teamKey: 'cadillac' },
-            { name: 'Liquer', team: 'Scuderia Ferrari F1 Team', points: 67, number: '77', teamKey: 'ferrari' },
-            { name: 'vitall_duo', team: 'Scuderia Ferrari F1 Team', points: 60, number: '27', teamKey: 'ferrari' },
+            { name: 'vitall_duo', team: 'Scuderia Ferrari F1 Team', points: 75, number: '27', teamKey: 'ferrari' },
+            { name: 'Liquer', team: 'Scuderia Ferrari F1 Team', points: 70, number: '77', teamKey: 'ferrari' },
             { name: 'overshadower', team: 'Scuderia Ferrari F1 Team', points: 57, number: '15', teamKey: 'ferrari' },
             { name: 'yoki4', team: 'McLaren F1 Team', points: 44, number: '7', teamKey: 'mclaren' },
             { name: 'Aktrissa', team: 'Red Bull Racing F1 Team', points: 14, number: '44', teamKey: 'redbull' },
@@ -926,14 +945,14 @@
         ];
 
         const teamStandings = [
-            { name: 'Mercedes-AMG F1 Team', points: 315, key: 'mercedes' },
-            { name: 'Scuderia Ferrari F1 Team', points: 159, key: 'ferrari' },
-            { name: 'Red Bull Racing F1 Team', points: 147, key: 'redbull' },
+            { name: 'Mercedes-AMG F1 Team', points: 373, key: 'mercedes', champion: true },
+            { name: 'Scuderia Ferrari F1 Team', points: 174, key: 'ferrari' },
+            { name: 'Red Bull Racing F1 Team', points: 162, key: 'redbull' },
             { name: 'Cadillac F1 Team', points: 71, key: 'cadillac' },
             { name: 'Haas F1 Team', points: 65, key: 'haas' },
+            { name: 'Alpine F1 Team', points: 46, key: 'alpine' },
             { name: 'McLaren F1 Team', points: 44, key: 'mclaren' },
             { name: 'Aston Martin F1 Team', points: 37, key: 'aston' },
-            { name: 'Alpine F1 Team', points: 28, key: 'alpine' },
             { name: 'Williams F1 Team', points: 14, key: 'williams' }
         ];
 
@@ -950,29 +969,31 @@
             { race: 'USA Sprint', winner: 'Vin_Diselll', team: 'Red Bull Racing', colorKey: 'redbull' },
             { race: 'USA GP', winner: 'Vin_Diselll', team: 'Red Bull Racing', colorKey: 'redbull' },
             { race: 'Azerbaijan GP', winner: 'kastillio', team: 'Aston Martin', colorKey: 'aston' },
-            { race: 'China GP', winner: 'SOVYCH05', team: 'Mercedes-AMG', colorKey: 'mercedes' }
+            { race: 'China GP', winner: 'SOVYCH05', team: 'Mercedes-AMG', colorKey: 'mercedes' },
+            { race: 'Germany Sprint', winner: 'SOVYCH05', team: 'Mercedes-AMG', colorKey: 'mercedes' },
+            { race: 'Germany GP', winner: 'SOVYCH05', team: 'Mercedes-AMG', colorKey: 'mercedes' }
         ];
 
         const records = [
-            { title: 'Лидер сезона', value: 'SOVYCH05 — 167 очков' },
-            { title: 'Наибольшее количество побед', value: 'SOVYCH05 — 8 побед' },
+            { title: 'ЧЕМПИОН СЕЗОНА 5', value: 'SOVYCH05 — 200 очков (Mercedes-AMG)' },
+            { title: 'Кубок Конструкторов', value: 'Mercedes-AMG F1 Team — 373 очка' },
+            { title: 'Наибольшее количество побед в S5', value: 'SOVYCH05 — 10 побед' },
             { title: 'Первая победа Aston Martin', value: 'kastillio — Azerbaijan GP' },
             { title: 'Победа с поул-позиции и быстрым кругом', value: 'kastillio — Azerbaijan GP' },
             { title: 'Идеальный BEE-уикенд', value: 'SOVYCH05 — победа в спринте и основной гонке BEE' },
+            { title: 'Двойная победа в Германии', value: 'SOVYCH05 — Germany Sprint + Germany GP' },
             { title: 'Двойная победа в США', value: 'Vin_Diselll — USA Sprint и USA GP' },
-            { title: 'Команда-лидер', value: 'Mercedes-AMG F1 Team — 315 очков' },
             { title: 'Наибольший прогресс в гонке', value: 'kastillio — Belgium GP (P10 → P2)' },
-            { title: 'Лучший новичок', value: 'Wallableb — 71 очко (P2 в China GP)' },
-            { title: 'Полная дисквалификация', value: 'jetleoden — исключён из чемпионата' }
+            { title: 'Лучший новичок сезона', value: 'Wallableb — 83 очка (P2 в China GP)' }
         ];
 
         const antiRecords = [
             { title: 'Полная дисквалификация пилота', value: 'jetleoden — исключён из чемпионата' },
             { title: 'Два DNF подряд', value: 'Fan_JoJo — USA Sprint и USA GP' },
+            { title: 'DSQ в Germany Sprint', value: 'Vin_Diselll — столкновение с kastillio' },
+            { title: 'DSQ в Germany GP', value: 'tom_kruiser — нарушение синих флагов' },
             { title: 'Штраф 20 секунд', value: 'Vin_Diselll — China GP (P1 → P7)' },
             { title: 'Штраф 10 секунд', value: 'Liquer — Azerbaijan GP (P4 несмотря на штраф)' },
-            { title: 'DSQ в USA GP', value: 'vitall_duo — дисквалификация' },
-            { title: 'Худший уикенд Alpine', value: 'BELGIUM GP и BEE GP — tom_kruiser DSQ, затем DNF' },
             { title: 'Столкновение лидеров', value: 'Vin_Diselll DSQ за столкновение с Liquer (Austrian GP)' }
         ];
 
@@ -990,48 +1011,50 @@
             { date: '✓ 19.06', name: 'USA GP', status: 'completed' },
             { date: '✓ 26.06', name: 'AZERBAIJAN GP', status: 'completed' },
             { date: '✓ 03.07', name: 'CHINA GP', status: 'completed' },
-            { date: '⏳ 10.07', name: 'Sochi Autodrom GP', status: 'upcoming' },
-            { date: '⏳ 17.07', name: 'Maze Bank GP', status: 'upcoming' },
-            { date: '⏳ 24.07', name: 'Zancudo GP', status: 'upcoming' },
-            { date: '⏳ 31.07', name: 'Airport GP', status: 'upcoming' },
-            { date: '⏳ 07.08', name: 'Barcelona GP', status: 'upcoming' },
-            { date: '🏁 14.08', name: 'GREENLIGHT GP (Финал)', status: 'final' }
+            { date: '✓ 10.07', name: 'GERMANY SPRINT', status: 'completed' },
+            { date: '✓ 17.07', name: 'GERMANY GP', status: 'completed' },
+            { date: '⏳ 24.07', name: 'Sochi Autodrom GP', status: 'upcoming' },
+            { date: '⏳ 31.07', name: 'Maze Bank GP', status: 'upcoming' },
+            { date: '⏳ 07.08', name: 'Zancudo GP', status: 'upcoming' },
+            { date: '⏳ 14.08', name: 'Airport GP', status: 'upcoming' },
+            { date: '⏳ 21.08', name: 'Barcelona GP', status: 'upcoming' },
+            { date: '🏁 28.08', name: 'GREENLIGHT GP (Финал)', status: 'final' }
         ];
 
         const driverRatings = [
-            { rank: 1, name: 'kastillio', number: '1', team: 'Aston Martin', teamKey: 'aston', rating: 97, tier: 'goat', tierName: 'GOAT',
-              titles: '4×', wins: 33, podiums: 51, poles: 28, races: 63, dnf: 8, dsq: 1,
-              analysis: 'Абсолютный GOAT. 4 титула, 52% побед, 81% подиумов. Первая победа за Aston Martin — Azerbaijan GP S5!' },
-            { rank: 2, name: 'SOVYCH05', number: '88', team: 'Mercedes-AMG', teamKey: 'mercedes', rating: 86, tier: 'elite', tierName: 'Элита',
-              titles: '0×', wins: 11, podiums: 22, poles: 5, races: 38, dnf: 3, dsq: 0,
-              analysis: 'Лидер S5 со 167 очками. 29% побед — элитная результативность. Выиграл China GP и продолжает доминировать.' },
-            { rank: 3, name: 'jetleoden', number: '6', team: 'Scuderia Ferrari', teamKey: 'ferrari', rating: 81, tier: 'elite', tierName: 'Элита',
+            { rank: 1, name: 'kastillio', number: '1', team: 'Aston Martin / Mercedes', teamKey: 'aston', rating: 97, tier: 'goat', tierName: 'GOAT',
+              titles: '4×', wins: 33, podiums: 53, poles: 28, races: 65, dnf: 8, dsq: 1,
+              analysis: 'Абсолютный GOAT. 4 титула, 51% побед, 82% подиумов. В S5 перешёл в Aston Martin, но остаётся легендой чемпионата.' },
+            { rank: 2, name: 'SOVYCH05', number: '88', team: 'Mercedes-AMG', teamKey: 'mercedes', rating: 92, tier: 'goat', tierName: 'CHAMP',
+              titles: '1×', wins: 12, podiums: 25, poles: 6, races: 40, dnf: 3, dsq: 0,
+              analysis: 'ЧЕМПИОН СЕЗОНА 5! 200 очков, 10 побед в сезоне. Доминировал после середины сезона и завоевал титул в Германии.' },
+            { rank: 3, name: 'jetleoden', number: '6', team: 'Scuderia Ferrari', teamKey: 'ferrari', rating: 80, tier: 'elite', tierName: 'Элита',
               titles: '0×', wins: 8, podiums: 34, poles: 18, races: 52, dnf: 7, dsq: 2,
               analysis: 'Три вице-титула и 35% поулов. Полная дисквалификация в S5 бросает тень на карьеру.' },
-            { rank: 4, name: 'Liquer', number: '77', team: 'Scuderia Ferrari', teamKey: 'ferrari', rating: 77, tier: 'excellent', tierName: 'Отлично',
-              titles: '0×', wins: 1, podiums: 6, poles: 3, races: 14, dnf: 0, dsq: 0,
-              analysis: 'Идеальная эффективность: 43% подиумов, 0 сходов. Безупречная точность за рулём.' },
+            { rank: 4, name: 'Liquer', number: '77', team: 'Scuderia Ferrari', teamKey: 'ferrari', rating: 76, tier: 'excellent', tierName: 'Отлично',
+              titles: '0×', wins: 1, podiums: 6, poles: 3, races: 16, dnf: 0, dsq: 0,
+              analysis: 'Идеальная эффективность: 38% подиумов, 0 сходов. Безупречная точность за рулём.' },
             { rank: 5, name: 'Vin_Diselll', number: '33', team: 'Red Bull Racing', teamKey: 'redbull', rating: 73, tier: 'excellent', tierName: 'Отлично',
-              titles: '0×', wins: 6, podiums: 19, poles: 4, races: 58, dnf: 9, dsq: 3,
-              analysis: 'Быстрый, но нестабильный. Выиграл 2 гонки в США. Штраф 20 секунд в China GP отбросил с P1 на P7.' },
+              titles: '0×', wins: 6, podiums: 20, poles: 4, races: 60, dnf: 9, dsq: 4,
+              analysis: 'Быстрый, но нестабильный. Выиграл 2 гонки в США. DSQ в Germany Sprint — антипример дисциплины.' },
             { rank: 6, name: 'Fan_JoJo', number: '35', team: 'Mercedes-AMG', teamKey: 'mercedes', rating: 73, tier: 'excellent', tierName: 'Отлично',
-              titles: '0×', wins: 1, podiums: 5, poles: 1, races: 8, dnf: 2, dsq: 0,
-              analysis: 'Взрывной дебютант. 62% подиумов и победа в 8 гонках — будущее чемпионата.' },
-            { rank: 7, name: 'overshadower', number: '15', team: 'Scuderia Ferrari', teamKey: 'ferrari', rating: 67, tier: 'good', tierName: 'Хорошо',
-              titles: '0×', wins: 0, podiums: 2, poles: 0, races: 10, dnf: 2, dsq: 0,
+              titles: '0×', wins: 1, podiums: 5, poles: 1, races: 10, dnf: 3, dsq: 0,
+              analysis: 'Взрывной дебютант. 50% подиумов и победа в Austria. Напарник чемпиона.' },
+            { rank: 7, name: 'tom_kruiser', number: '12', team: 'Alpine', teamKey: 'alpine', rating: 65, tier: 'good', tierName: 'Хорошо',
+              titles: '0×', wins: 0, podiums: 5, poles: 1, races: 20, dnf: 3, dsq: 2,
+              analysis: 'Прогрессирующий пилот. P2 в Azerbaijan GP и стабильные очки в S5. DSQ в Germany GP — потеря очков.' },
+            { rank: 8, name: 'overshadower', number: '15', team: 'Scuderia Ferrari', teamKey: 'ferrari', rating: 66, tier: 'good', tierName: 'Хорошо',
+              titles: '0×', wins: 0, podiums: 2, poles: 0, races: 11, dnf: 2, dsq: 0,
               analysis: 'Стабильный дебютант. 2 подиума и 57 очков — отличный старт карьеры в Ferrari.' },
-            { rank: 8, name: 'tom_kruiser', number: '12', team: 'Alpine', teamKey: 'alpine', rating: 64, tier: 'good', tierName: 'Хорошо',
-              titles: '0×', wins: 0, podiums: 5, poles: 1, races: 18, dnf: 2, dsq: 1,
-              analysis: 'Прогрессирующий пилот. P2 в Azerbaijan GP и стабильные очки в S5. 28% подиумов в сезоне.' },
-            { rank: 9, name: 'Wallableb', number: '3', team: 'Cadillac', teamKey: 'cadillac', rating: 62, tier: 'good', tierName: 'Хорошо',
-              titles: '0×', wins: 0, podiums: 2, poles: 0, races: 13, dnf: 2, dsq: 1,
-              analysis: 'Улучшился в S5. P2 в China GP — лучший результат карьеры. 71 очко — лучший новичок сезона.' },
+            { rank: 9, name: 'Wallableb', number: '3', team: 'Cadillac', teamKey: 'cadillac', rating: 63, tier: 'good', tierName: 'Хорошо',
+              titles: '0×', wins: 0, podiums: 2, poles: 0, races: 14, dnf: 2, dsq: 1,
+              analysis: 'Лучший новичок S5! 83 очка, P2 в China GP и стабильные финиши в очках.' },
             { rank: 10, name: 'yoki4', number: '7', team: 'McLaren', teamKey: 'mclaren', rating: 54, tier: 'average', tierName: 'Средне',
-              titles: '0×', wins: 0, podiums: 1, poles: 0, races: 9, dnf: 0, dsq: 0,
+              titles: '0×', wins: 0, podiums: 1, poles: 0, races: 10, dnf: 0, dsq: 0,
               analysis: 'Перспективный новичок. Первый подиум в Monaco. 44 очка в карьере.' },
-            { rank: 11, name: 'vitall_duo', number: '27', team: 'Scuderia Ferrari', teamKey: 'ferrari', rating: 42, tier: 'weak', tierName: 'Слабо',
-              titles: '0×', wins: 0, podiums: 2, poles: 0, races: 22, dnf: 0, dsq: 8,
-              analysis: 'Талант есть, дисциплины нет. 8 дисквалификаций в 22 гонках — 36% DSQ.' },
+            { rank: 11, name: 'vitall_duo', number: '27', team: 'Scuderia Ferrari', teamKey: 'ferrari', rating: 43, tier: 'weak', tierName: 'Слабо',
+              titles: '0×', wins: 0, podiums: 2, poles: 0, races: 24, dnf: 0, dsq: 8,
+              analysis: 'Талант есть, дисциплины нет. 8 дисквалификаций в 24 гонках — 33% DSQ.' },
             { rank: 12, name: 'VLADIVOSTOK', number: '23', team: 'Williams', teamKey: 'williams', rating: 36, tier: 'poor', tierName: 'Провал',
               titles: '0×', wins: 0, podiums: 0, poles: 0, races: 6, dnf: 1, dsq: 0,
               analysis: 'Слабейший в пелотоне. 0 подиумов, 14 очков. Не оправдал ожиданий.' }
@@ -1072,7 +1095,7 @@
                 const teamCl = teamColorClass(r.teamKey);
                 const flBadge = r.fastestLap ? ' <span class="fl-tag">⚡ FL</span>' : '';
                 const noteBadge = r.note ? ` <span class="qualy-tag">${r.note}</span>` : '';
-                html += `<tr><td>${posHtml}</td><td><strong class="${teamCl}">${r.name} #${r.num || ''}</strong>${flBadge}${noteBadge}</td><td class="${teamCl}">${r.team} F1 Team</td><td><strong>${r.points}</strong></td><td>${statusText}</td></tr>`;
+                html += `<tr><td>${posHtml}</td><td><strong class="${teamCl}">${r.name} #${r.num || ''}</strong>${flBadge}${noteBadge}</td><td class="${teamCl}">${r.team}</td><td><strong>${r.points}</strong></td><td>${statusText}</td></tr>`;
             });
             html += `</tbody></table>`;
             document.getElementById('raceResults').innerHTML = html;
@@ -1093,7 +1116,9 @@
                 { id: 'usa-sprint', name: 'USA Sprint' },
                 { id: 'usa-gp', name: '🇺🇸 USA GP' },
                 { id: 'azerbaijan-gp', name: '🇦🇿 AZERBAIJAN' },
-                { id: 'china-gp', name: '🇨🇳 CHINA GP' }
+                { id: 'china-gp', name: '🇨🇳 CHINA GP' },
+                { id: 'germany-sprint', name: '🇩🇪 GER Sprint' },
+                { id: 'germany-gp', name: '🇩🇪 GERMANY GP' }
             ];
             racesList.forEach((r, idx) => {
                 let btn = document.createElement('button');
@@ -1118,7 +1143,7 @@
                 const div = document.createElement('div');
                 div.className = 'standing-box rank-' + (idx + 1);
                 let tag = '';
-                if (d.title) tag = `<span class="standing-tag white">${d.title}</span>`;
+                if (d.title) tag = `<span class="standing-tag white">🏆 ${d.title}</span>`;
                 div.innerHTML = `<div class="standing-rank">${idx + 1}</div><div class="standing-info"><div class="standing-name ${cls}">${d.name}<span class="num">#${d.number}</span>${tag}</div><div class="standing-team">${d.team}</div></div><div class="standing-points">${d.points}</div>`;
                 container.appendChild(div);
             });
@@ -1237,7 +1262,7 @@
             container.innerHTML = '';
             const maxPoints = Math.max(...compareData.map(d => d.points));
             const maxWins = 33;
-            const maxPodiums = 51;
+            const maxPodiums = 53;
             const maxPoles = 28;
             compareData.forEach(d => {
                 const cls = teamColorClass(d.teamKey);
